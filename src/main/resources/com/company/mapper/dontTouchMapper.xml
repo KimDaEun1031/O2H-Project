@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.dontTouchMapper">
+<!--  프로잭트 모양을 잡기위한 매퍼입니다 나중에 지울 예정입니다. -->
+
+</mapper>
