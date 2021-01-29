@@ -1,0 +1,207 @@
+.sub-category-breadcrumbs {
+  display: table;
+  clear: both;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.sub-category-breadcrumbs [id*="breadcrumbs"] {
+  clear: both;
+  width: 100%;
+  height: auto;
+}
+.sub-category-breadcrumbs .ty-breadcrumbs {
+  position: relative;
+  margin: 20px 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 16px;
+}
+.sub-category-breadcrumbs .ty-breadcrumbs__a {
+  color: #000;
+}
+.sub-category-breadcrumbs .ty-breadcrumbs__slash {
+  color: #000;
+}
+.sub-category-breadcrumbs .ty-breadcrumbs__current {
+  color: #000;
+}
+.sub-category-breadcrumbs .ty-product-switcher {
+  display: none;
+}
+.sub-category-breadcrumbs .ty-breadcrumbs.mobile {
+  display: none;
+}
+.block-category-list {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.block-category-list .ty-mainbox-title {
+  display: none;
+  font-size: 26px;
+  line-height: 26px;
+  color: #000;
+}
+.block-category-list .subcategories {
+  display: none;
+}
+.sub-category-wrap {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.sub-category-wrap[data-clone="N"] {
+  margin: 0;
+}
+.sub-category[data-clone="Y"] {
+  display: none;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.sub-category[data-clone="Y"] .top-category-child-layer-right {
+  width: 860px;
+}
+
+.sub-category[data-clone="Y"] .top-category-child-layer-right-item {
+  width: 172px;
+}
+
+.sub-category[data-clone="Y"]
+  .top-category-child-layer-right-item.right-border {
+  width: 171px;
+  border-right: 1px solid #ddd;
+}
+.sub-category[data-clone="Y"].cloned {
+  border: 1px solid #ccc;
+}
+.sub-category[data-rows="2"] {
+  background: #f4f4f4;
+}
+.sub-category {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+.sub-category .top-category-child-layer {
+  display: table;
+  width: 978px;
+  height: auto;
+  padding: 10px 0;
+}
+
+.sub-category .top-category-child-layer .top-category-child-layer-items {
+  display: table;
+  list-style: none;
+  width: 100%;
+  height: auto;
+}
+.sub-category .sub-category-items {
+  list-style: none;
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 0 1px #ddd inset;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.sub-category .sub-category-items .sub-category-item {
+  flex: 0 1 20%;
+  width: 20%;
+  height: 42px;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.sub-category .sub-category-items .sub-category-item:nth-child(5n + 5) {
+  flex: 1 1 auto;
+  width: auto;
+  border-right: 0;
+}
+
+.sub-category .sub-category-items .sub-category-item .sub-category-item-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 10%;
+  font-size: 13px;
+  line-height: 100%;
+  font-family: "Noto Sans KR", "Lato", sans-serif;
+  color: #666;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.sub-category
+  .sub-category-items
+  .sub-category-item
+  .sub-category-item-link::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.sub-category
+  .sub-category-items
+  .sub-category-item
+  .sub-category-item-link:hover {
+  color: #000;
+}
+
+.sub-category
+  .sub-category-items
+  .sub-category-item
+  .sub-category-item-link.active {
+  color: #000;
+}
+
+.sub-category
+  .sub-category-items
+  .sub-category-item
+  .sub-category-item-link.en
+  .sub-category-item-link-title {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub-category
+  .sub-category-items
+  .sub-category-item
+  .sub-category-item-link.en
+  .sub-category-child-item-link-count {
+  font-size: 12px;
+}
+
+.sub-category
+  .sub-category-items
+  .sub-category-item
+  .sub-category-item-link
+  .sub-category-child-item-link-count {
+  padding-left: 5px;
+  color: #000;
+}
