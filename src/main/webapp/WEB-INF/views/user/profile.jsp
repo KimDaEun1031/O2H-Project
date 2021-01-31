@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
-    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="/resources/css/profile.css" />
 </head>
 
 <body>
@@ -24,7 +26,7 @@
             <div class="row" id="card_body">
                     <div class="col-md-3" id="personal_information">
                         <span id="profile_pic">
-                            <img src="img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
+                            <img src="/resources/img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
                         </span>
                         <br>
                         <span id="user_name">

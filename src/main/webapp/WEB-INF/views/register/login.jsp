@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>FitURJC Login</title>
-    <link rel="shortcut icon" href="img/iconLogo.ico" />
+    <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
     
     <meta name="description" content="Love Authority." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
-    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="/resources/css/register.css" />
 
 
 </head>

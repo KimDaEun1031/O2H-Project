@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +16,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="/resources/css/register.css" />
     <!-- Custom scripts for this template -->
-    <script type="text/javascript" src="js/uploadImg.js"></script>
+    <script type="text/javascript" src="/resources/js/uploadImg.js"></script>
 
 </head>
 
