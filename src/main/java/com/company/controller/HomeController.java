@@ -32,7 +32,7 @@ public class HomeController {
 	public String home() {
 		logger.info("Welcome home!");
 		
-		return "/shop/shop";
+		return "/index";
 	}
 	
 }
