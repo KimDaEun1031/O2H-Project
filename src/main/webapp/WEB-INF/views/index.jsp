@@ -142,13 +142,13 @@
                   <button type="submit" class="btn btn-primary" id="Loginbtn">Login</button>
                   <script type="text/javascript">
                     document.getElementById("Loginbtn").onclick = function () {
-                      location.href = "login.html";
+                      location.href = "/gotoLogin";
                     };
                   </script>
                   <button type="submit" class="btn btn-warning" id="SignInbtn">Sign in</button>
                   <script type="text/javascript">
                     document.getElementById("SignInbtn").onclick = function () {
-                      location.href = "SignUp.html";
+                      location.href = "/gotoSignin";
                     };
                   </script>
                 </li>
