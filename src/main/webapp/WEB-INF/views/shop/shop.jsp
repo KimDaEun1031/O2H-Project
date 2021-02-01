@@ -7,7 +7,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
+<<<<<<< HEAD
                         <a href="/"><i class="fa fa-home"></i> Home</a>
+=======
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+>>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
                         <span>Shop</span>
                     </div>
                 </div>

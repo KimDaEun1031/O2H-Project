@@ -111,7 +111,11 @@
         <!-- Navigation  class="nav-link js-scroll-trigger"-->
         <nav class="navbar navbar-expand-lg navbar-light afixed-top" id="mainNav"><!-- fixed-top 수정해서 스크롤 제거 -->
           <div class="container">
+<<<<<<< HEAD
             <a class="anavbar-brand js-scroll-trigger" href="/">HOME</a>
+=======
+            <a class="anavbar-brand js-scroll-trigger" href="./index.html">HOME</a>
+>>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
             <script type="text/javascript">
               document.getElementById("img-logo").onclick = function () {
                 location.href = "index.html";
@@ -143,13 +147,21 @@
                   <button type="submit" class="btn btn-primary" id="Loginbtn">Login</button>
                   <script type="text/javascript">
                     document.getElementById("Loginbtn").onclick = function () {
+<<<<<<< HEAD
                       location.href = "/gotoLogin";
+=======
+                      location.href = "login.html";
+>>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
                     };
                   </script>
                   <button type="submit" class="btn btn-warning" id="SignInbtn">Sign in</button>
                   <script type="text/javascript">
                     document.getElementById("SignInbtn").onclick = function () {
+<<<<<<< HEAD
                       location.href = "/gotoSignin";
+=======
+                      location.href = "SignUp.html";
+>>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
                     };
                   </script>
                 </li>

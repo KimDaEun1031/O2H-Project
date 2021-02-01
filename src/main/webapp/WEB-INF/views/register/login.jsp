@@ -38,7 +38,11 @@
                             <div class="mt-4">
                                 <form method="post">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <input type="email" class="form-control" id="userId" value="" placeholder="Enter your ID">
+=======
+                                        <input type="email" class="form-control" id="email" value="" placeholder="Enter email address">
+>>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" id="password" value="" placeholder="Enter password">
@@ -83,10 +87,17 @@
                                 <a href="SignUp.html">Sign Up Now</a>
                             </p>
                             <p class="text-center">
+<<<<<<< HEAD
                                 <button type="submit" class="btn btn-primary" id="goBackbtn">go Mainpage</button>
                                 <script type="text/javascript">
                                     document.getElementById("goBackbtn").onclick = function () {
                                         location.href = "/";
+=======
+                                <button type="submit" class="btn btn-primary" id="goBackbtn">Go Back</button>
+                                <script type="text/javascript">
+                                    document.getElementById("goBackbtn").onclick = function () {
+                                        location.href = "index.html";
+>>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
                                     };
                                 </script>
                             </p>
