@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auto Write Text</title>
     <!-- <link rel="stylesheet" href="style.css" /> -->
-    <script src="script.js" defer></script>
+   <!--  <script src="script.js" defer></script> -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -89,7 +89,9 @@
         <button class="btn btn-primary mr-6" id="getPT">
           라이브 PT 시청하기
         </button>
-
+		<button class="btn btn-warning mr-6" id="gotoMainPage">메인페이지로 이동</button>
+		
+		
         <button class="btn btn-success mr-6" id="getItem">상품 검색하기</button>
 
         <button class="btn btn-info mr-6" id="getPost">
@@ -214,6 +216,14 @@
         </div>
       </div>
     </div>
+    
+    <script>
+    var gotoMain=document.getElementById("gotoMainPage");
+    	gotoMain.onclick=function(){
+    		location.href="/";
+    	}
+    
+    </script>
   </body>
   
 </html>

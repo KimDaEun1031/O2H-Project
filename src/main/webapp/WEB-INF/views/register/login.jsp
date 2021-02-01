@@ -52,8 +52,9 @@
                                     <a href="" class="btn btn-primary float-right" id="singinbtn">회원가입</a>
                                     <button type="submit" class="btn btn-success float-right">login</button>
                                     <script type="text/javascript">
-                                        document.getElementById("singinbtn").onclick = function () {
-                                            location.href = "user.html";
+                                        document.getElementById("singinbtn").onclick = function (e) {
+                                        	e.preventDefault();
+                                            location.href = "/gotoSignin";
                                         };
                                     </script>
                                     <!-- Este ultimo script no va y no sé porqué -->
@@ -105,7 +106,19 @@
             </div>
         </div>
     </section>
-
+	<%
+		String temp=(String)session.getAttribute("loginFail");
+		System.out.println(temp);
+		if(temp=="fail"){
+			%>
+			<script>
+			
+				alert("로그인 실패");
+			</script>
+			
+			<% 
+		}
+	%>
 </body>
 
 </html>

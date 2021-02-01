@@ -24,14 +24,18 @@ public class KDController {
 	
 	@PostMapping("/loginSuccess")
 	public String loginSuccess(KDLoginVO kdlogin, HttpSession session) {
-		log.info("로그인 성공");
+		
+		log.info("로그인 요청");
 		KDAuthVO auth = service.isLogin(kdlogin);
 		
-		log.info("auth 값"+auth);
+		
+		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
+			session.removeAttribute("loginFail");
 			return "/register/loginSuccess";
 		} else {
+			session.setAttribute("loginFail", "fail");
 			return "/register/login";
 		}
 	}
