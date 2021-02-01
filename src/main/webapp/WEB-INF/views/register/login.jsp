@@ -50,7 +50,9 @@
                                         <span class="custom-control-indicator"></span>
                                         <span class="custom-control-description text-white">Keep me logged in</span>
                                     </label>
+                                    	
                                     <button type="submit" class="btn btn-primary float-right" id="singinbtn">Sign in</button>
+                                    <button type="submit" class="btn btn-success float-right" id="singinbtn" >login</button>
                                     <script type="text/javascript">
                                         document.getElementById("singinbtn").onclick = function () {
                                             location.href = "user.html";
