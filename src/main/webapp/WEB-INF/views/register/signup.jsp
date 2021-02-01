@@ -299,15 +299,11 @@ body {
     <div class="header">
       <h2>Create Account</h2>
     </div>
-<<<<<<< HEAD
+
     <form id="form" class="form" action="/gotoLogin">
       <div class="form-control">
         <label for="userId">UserID</label>
-=======
-    <form id="form" class="form">
-      <div class="form-control">
-        <label for="username">Username</label>
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
         <input type="text" placeholder="Jla229" id="username" />
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -353,11 +349,9 @@ body {
 
       <div class="form-control">
         <label for="username">Mobile Number</label>
-<<<<<<< HEAD
+
         <input type="password" placeholder="01012345678" id="mobile"/>
-=======
-        <input type="password" placeholder="Mobile number" id="mobile"/>
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>
@@ -452,11 +446,9 @@ body {
             return false;  
         }  
     }  
-<<<<<<< HEAD
+
  const form = document.getElementById('form');
-=======
-  const form = document.getElementById('form');
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -470,10 +462,9 @@ form.addEventListener('submit', e => {
 	e.preventDefault();
 
 	checkInputs();
-<<<<<<< HEAD
+
 	this.submit();
-=======
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 });
 
 function checkInputs() {
@@ -489,101 +480,82 @@ function checkInputs() {
 
 	if(usernameValue === '') {
 		setErrorFor(username, '아이디를 입력하세요');
-<<<<<<< HEAD
+
 		return;
-=======
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 	} else {
 		setSuccessFor(username);
 	}
 
 	if(emailValue === '') {
 		setErrorFor(email, '이메일을 입력하세요');
-<<<<<<< HEAD
+
 		return;
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, '이메일 형식이 올바르지 않습니다');
 		return;
-=======
-	} else if (!isEmail(emailValue)) {
-		setErrorFor(email, '이메일 형식이 올바르지 않습니다');
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 	} else {
 		setSuccessFor(email);
 	}
 
 	if(passwordValue === '') {
 		setErrorFor(password, '비밀번호를 입력하세요');
-<<<<<<< HEAD
+
 		return;
-=======
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 	} else {
 		setSuccessFor(password);
 	}
 
 	if(password2Value === '') {
 		setErrorFor(password2, '비밀번호를 입력하세요');
-<<<<<<< HEAD
+
 		return;
 	} else if(passwordValue !== password2Value) {
 		setErrorFor(password2, '비밀번호가 일치하지 않습니다');
 		return;
-=======
-	} else if(passwordValue !== password2Value) {
-		setErrorFor(password2, '비밀번호가 일치하지 않습니다');
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 	} else{
 		setSuccessFor(password2);
   }
 
   if(nameValue === '') {
 		setErrorFor(name, '이름을 입력하세요');
-<<<<<<< HEAD
+
 		return;
   } else {
-=======
-	} else {
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
-		setSuccessFor(name);
+
   }
 
   if(birthdateValue === '') {
 		setErrorFor(birthdate, '생년월일을 입력하세요');
-<<<<<<< HEAD
+
 		return;
   } else {
-=======
-	} else {
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 		setSuccessFor(birthdate);
   }
 
   if(mobileValue === '') {
 		setErrorFor(mobile, '핸드폰 번호를 입력하세요');
-<<<<<<< HEAD
+
 		return;
   } else {
-=======
-	} else {
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 		setSuccessFor(mobile);
   }
 
   if(addressValue === '') {
 		setErrorFor(address, '주소를 입력하세요');
-<<<<<<< HEAD
+
 		return;
   } else {
 		setSuccessFor(address);
 	}
   	document.getElementById("form").submit();
   
-=======
-	} else {
-		setSuccessFor(address);
-	}
->>>>>>> b4858c39c7e4d169d16d929dca7b25c7092530a6
+
 }
 
 function setErrorFor(input, message) {
