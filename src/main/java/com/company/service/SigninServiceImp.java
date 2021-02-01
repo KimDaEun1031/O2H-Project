@@ -1,0 +1,22 @@
+package com.company.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.company.domain.LoginVO;
+import com.company.mapper.SigninMapper;
+@Service
+public class SigninServiceImp implements SigninService {
+	@Autowired
+	private SigninMapper mapper;
+	@Override
+	public boolean regist(LoginVO loginVo) {
+		boolean flag=false;
+		if(mapper.regist(loginVo)==1) {
+			flag=true;
+		}
+		return flag;
+	
+	}
+
+}
