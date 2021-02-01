@@ -105,6 +105,9 @@
         <button class="btn btn-danger mr-6" id="getAdmin" onclick="getAdmin()">
           관리자에게 문의하기
         </button>
+        <button class="btn btn-warning mr-6" id="getMain" onClick="location.href='/'">
+          메인으로
+        </button>
       </div>
     </div>
 

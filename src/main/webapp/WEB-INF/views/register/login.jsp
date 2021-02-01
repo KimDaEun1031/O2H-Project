@@ -39,17 +39,17 @@
                                 <form method="post" action="/register/loginSuccess">
                                     <div class="form-group">
 
-                                        <input type="text" class="form-control" id="userId" name="userId" value="" placeholder="Enter your ID">
+                                        <input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your ID" required autofocus>
 
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="password" name="password" value="" placeholder="Enter password">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                                     </div>
                                     <label class="custom-control custom-checkbox mt-2">
                                       
                                     </label>
                                     	
-                                    <a href="" class="btn btn-primary float-right" id="singinbtn">회원가입</a>
+                                    <button><a href="" class="btn btn-primary float-right" id="singinbtn">회원가입</a></button>
                                     <button type="submit" class="btn btn-success float-right">login</button>
                                     <script type="text/javascript">
                                         document.getElementById("singinbtn").onclick = function (e) {
