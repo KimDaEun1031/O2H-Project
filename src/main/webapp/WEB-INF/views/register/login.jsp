@@ -46,9 +46,7 @@
                                         <input type="password" class="form-control" id="password" value="" placeholder="Enter password">
                                     </div>
                                     <label class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description text-white">Keep me logged in</span>
+                                      
                                     </label>
                                     	
                                     <button type="submit" class="btn btn-primary float-right" id="singinbtn">Sign in</button>
