@@ -12,9 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+
+
+
 /**
  * Handles requests for the application home page.
  */
+@Slf4j
 @Controller
 public class HomeController {
 	
@@ -27,7 +33,7 @@ public class HomeController {
 	public String home() {
 		logger.info("Welcome home!");
 		
-		return "/shop/shop";
+		return "/index";
 	}
 	
 }

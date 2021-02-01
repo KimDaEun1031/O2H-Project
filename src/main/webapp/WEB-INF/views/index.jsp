@@ -17,32 +17,32 @@
     />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/themify-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css" />
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
   <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+  <link href="resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
     rel='stylesheet' type='text/css'>
   <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/creative.css" rel="stylesheet">
+  <link href="resources/css/creative.css" rel="stylesheet">
 
 
 <!--기본 최상단 -->
@@ -170,7 +170,7 @@
             <div class="col-lg-2 col-md-2">
               <div class="logo">
                 <a href="./index.html">
-                  <img src="img/logo.png" alt="" />
+                  <img src="resources/img/logo.png" alt="" />
                 </a>
               </div>
             </div>
@@ -204,7 +204,7 @@
                         <tbody>
                           <tr>
                             <td class="si-pic">
-                              <img src="img/select-product-1.jpg" alt="" />
+                              <img src="resources/img/select-product-1.jpg" alt="" />
                             </td>
                             <td class="si-text">
                               <div class="product-selected">
@@ -218,7 +218,7 @@
                           </tr>
                           <tr>
                             <td class="si-pic">
-                              <img src="img/select-product-2.jpg" alt="" />
+                              <img src="resources/img/select-product-2.jpg" alt="" />
                             </td>
                             <td class="si-text">
                               <div class="product-selected">
@@ -395,7 +395,7 @@
     <!-- Hero Section Begin -->
     <section class="hero-section">
       <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/hero-3.jpg">
+        <div class="single-hero-items set-bg" data-setbg="resources/img/hero-3.jpg">
           <div class="container">
             <div class="row">
               <div class="col-lg-5">
@@ -410,7 +410,7 @@
             </div>
           </div>
         </div>
-        <div class="single-hero-items set-bg" data-setbg="img/hero-2.jpg">
+        <div class="single-hero-items set-bg" data-setbg="resources/img/hero-2.jpg">
           <div class="container">
             <div class="row">
               <div class="col-lg-5">
@@ -432,37 +432,37 @@
     <!-- Instagram Section Begin -->
     <div class="banner-section spad" id="activities">
       <div class="instagram-photo">
-        <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
+        <div class="insta-item set-bg" data-setbg="resources/img/insta-1.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">스트리밍 중</a></h5>
           </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
+        <div class="insta-item set-bg" data-setbg="resources/img/insta-2.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">스트리밍 중</a></h5>
           </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-3.jpg">
+        <div class="insta-item set-bg" data-setbg="resources/img/insta-3.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">스트리밍 중</a></h5>
           </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
+        <div class="insta-item set-bg" data-setbg="resources/img/insta-4.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">스트리밍 중</a></h5>
           </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
+        <div class="insta-item set-bg" data-setbg="resources/img/insta-5.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">스트리밍 중</a></h5>
           </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
+        <div class="insta-item set-bg" data-setbg="resources/img/insta-6.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
             <h5><a href="#">스트리밍 중</a></h5>
@@ -497,7 +497,7 @@
             <div class="product-slider owl-carousel">
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/women-1.jpg" alt="" />
+                  <img src="resources/img/products/women-1.jpg" alt="" />
                   <div class="sale">Sale</div>
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
@@ -525,7 +525,7 @@
               </div>
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/women-2.jpg" alt="" />
+                  <img src="resources/img/products/women-2.jpg" alt="" />
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
                   </div>
@@ -549,7 +549,7 @@
               </div>
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/women-3.jpg" alt="" />
+                  <img src="resources/img/products/women-3.jpg" alt="" />
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
                   </div>
@@ -573,7 +573,7 @@
               </div>
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/women-4.jpg" alt="" />
+                  <img src="resources/img/products/women-4.jpg" alt="" />
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
                   </div>
@@ -618,7 +618,7 @@
             <div class="product-slider owl-carousel">
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/man-1.jpg" alt="" />
+                  <img src="resources/img/products/man-1.jpg" alt="" />
                   <div class="sale">Sale</div>
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
@@ -646,7 +646,7 @@
               </div>
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/man-2.jpg" alt="" />
+                  <img src="resources/img/products/man-2.jpg" alt="" />
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
                   </div>
@@ -670,7 +670,7 @@
               </div>
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/man-3.jpg" alt="" />
+                  <img src="resources/img/products/man-3.jpg" alt="" />
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
                   </div>
@@ -694,7 +694,7 @@
               </div>
               <div class="product-item">
                 <div class="pi-pic">
-                  <img src="img/products/man-4.jpg" alt="" />
+                  <img src="resources/img/products/man-4.jpg" alt="" />
                   <div class="icon">
                     <i class="icon_heart_alt"></i>
                   </div>
@@ -721,7 +721,7 @@
           <div class="col-lg-3 offset-lg-1">
             <div
               class="product-large set-bg m-large"
-              data-setbg="img/products/man-large.jpg"
+              data-setbg="resources/img/products/man-large.jpg"
             >
               <h2>인기상품</h2>
               <a href="#">자세히</a>
@@ -745,7 +745,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="single-latest-blog">
-              <img src="img/latest-1.jpg" alt="" />
+              <img src="resources/img/latest-1.jpg" alt="" />
               <div class="latest-text">
                 <div class="tag-list">
                   <div class="tag-item">
@@ -769,7 +769,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="single-latest-blog">
-              <img src="img/latest-2.jpg" alt="" />
+              <img src="resources/img/latest-2.jpg" alt="" />
               <div class="latest-text">
                 <div class="tag-list">
                   <div class="tag-item">
@@ -793,7 +793,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="single-latest-blog">
-              <img src="img/latest-3.jpg" alt="" />
+              <img src="resources/img/latest-3.jpg" alt="" />
               <div class="latest-text">
                 <div class="tag-list">
                   <div class="tag-item">
@@ -821,7 +821,7 @@
             <div class="col-lg-4">
               <div class="single-benefit">
                 <div class="sb-icon">
-                  <img src="img/icon-1.png" alt="" />
+                  <img src="resources/img/icon-1.png" alt="" />
                 </div>
                 <div class="sb-text">
                   <h6>무료 배송</h6>
@@ -832,7 +832,7 @@
             <div class="col-lg-4">
               <div class="single-benefit">
                 <div class="sb-icon">
-                  <img src="img/icon-2.png" alt="" />
+                  <img src="resources/img/icon-2.png" alt="" />
                 </div>
                 <div class="sb-text">
                   <h6>정시 배달</h6>
@@ -843,7 +843,7 @@
             <div class="col-lg-4">
               <div class="single-benefit">
                 <div class="sb-icon">
-                  <img src="img/icon-1.png" alt="" />
+                  <img src="resources/img/icon-1.png" alt="" />
                 </div>
                 <div class="sb-text">
                   <h6>안전 결제</h6>
@@ -863,27 +863,27 @@
         <div class="logo-carousel owl-carousel">
           <div class="logo-item">
             <div class="tablecell-inner">
-              <img src="img/logo-carousel/logo-1.png" alt="" />
+              <img src="resources/img/logo-carousel/logo-1.png" alt="" />
             </div>
           </div>
           <div class="logo-item">
             <div class="tablecell-inner">
-              <img src="img/logo-carousel/logo-2.png" alt="" />
+              <img src="resources/img/logo-carousel/logo-2.png" alt="" />
             </div>
           </div>
           <div class="logo-item">
             <div class="tablecell-inner">
-              <img src="img/logo-carousel/logo-3.png" alt="" />
+              <img src="resources/img/logo-carousel/logo-3.png" alt="" />
             </div>
           </div>
           <div class="logo-item">
             <div class="tablecell-inner">
-              <img src="img/logo-carousel/logo-4.png" alt="" />
+              <img src="resources/img/logo-carousel/logo-4.png" alt="" />
             </div>
           </div>
           <div class="logo-item">
             <div class="tablecell-inner">
-              <img src="img/logo-carousel/logo-5.png" alt="" />
+              <img src="resources/img/logo-carousel/logo-5.png" alt="" />
             </div>
           </div>
         </div>
@@ -898,7 +898,7 @@
           <div class="col-lg-3">
             <div class="footer-left">
               <div class="footer-logo">
-                <a href="#"><img src="img/footer-logo.png" alt="" /></a>
+                <a href="#"><img src="resources/img/footer-logo.png" alt="" /></a>
               </div>
               <ul>
                 <li>Address: 60-49 Road 11378 New York</li>
@@ -964,7 +964,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </div>
               <div class="payment-pic">
-                <img src="img/payment-method.png" alt="" />
+                <img src="resources/img/payment-method.png" alt="" />
               </div>
             </div>
           </div>
@@ -974,15 +974,15 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="resources/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery-ui.min.js"></script>
+    <script src="resources/js/jquery.countdown.min.js"></script>
+    <script src="resources/js/jquery.nice-select.min.js"></script>
+    <script src="resources/js/jquery.zoom.min.js"></script>
+    <script src="resources/js/jquery.dd.min.js"></script>
+    <script src="resources/js/jquery.slicknav.js"></script>
+    <script src="resources/js/owl.carousel.min.js"></script>
+    <script src="resources/js/main.js"></script>
   </body>
 </html>
