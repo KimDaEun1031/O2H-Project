@@ -24,6 +24,7 @@ delete from user_board where userId='test';
 
 
 
+<<<<<<< HEAD
 ----------------------
 
 create table QandA_board(
@@ -37,3 +38,6 @@ create table QandA_board(
 	replyDate date 
 	);
 drop table QandA_board;
+
+insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
+

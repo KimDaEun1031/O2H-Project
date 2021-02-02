@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.HYMapper">
+	<!-- 회윈탈퇴 -->
+	<delete id="leaveMember">
+		delete from user_board where userId=#{userId} and password=#{password}
+	</delete>
+	
+	
+	
+</mapper>
