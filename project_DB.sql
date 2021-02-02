@@ -24,20 +24,20 @@ delete from user_board where userId='test';
 
 
 
-<<<<<<< HEAD
-----------------------
-
+select * from QANDA_BOARD;
 create table QandA_board(
 	bno number primary key,
 	title varchar2(20) not null,
-	writer varchar2(10) not null,
+	writer_id varchar2(10) not null,
 	regdate date default Sysdate,
 	written number default 0,
 	content varchar2(100) not null,
-	reply varchar(100) ,
+	replyer_id varchar2(10) ,
+	reply varchar(100) default '아직 답변되지 않았습니다',
 	replyDate date 
 	);
 drop table QandA_board;
+CREATE SEQUENCE  seq_QandA_board;
 
 insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
 
