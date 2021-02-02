@@ -39,11 +39,11 @@
                                 <form method="post">
                                     <div class="form-group">
 
-                                        <input type="text" class="form-control" id="userId" value="" placeholder="Enter your ID">
+                                        <input type="text" class="form-control" id="userId" name="userId" value="" placeholder="Enter your ID">
 
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="password" value="" placeholder="Enter password">
+                                        <input type="password" class="form-control" id="password" name="password" value="" placeholder="Enter password">
                                     </div>
                                     <label class="custom-control custom-checkbox mt-2">
                                       

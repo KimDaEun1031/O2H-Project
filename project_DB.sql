@@ -21,3 +21,7 @@ drop table user_board;
 insert into user_board values('김다은','test1','test123','1','1','1','1','1','1','1','2020.11.11','1');
 
 delete from user_board where userId='test';
+
+
+
+insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
