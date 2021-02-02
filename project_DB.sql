@@ -21,3 +21,19 @@ drop table user_board;
 insert into user_board values('김다은','test1','test123','1','1','1','1','1','1','1','2020.11.11','1');
 
 delete from user_board where userId='test';
+
+
+
+----------------------
+
+create table QandA_board(
+	bno number primary key,
+	title varchar2(20) not null,
+	writer varchar2(10) not null,
+	regdate date default Sysdate,
+	written number default 0,
+	content varchar2(100) not null,
+	reply varchar(100) ,
+	replyDate date 
+	);
+drop table QandA_board;

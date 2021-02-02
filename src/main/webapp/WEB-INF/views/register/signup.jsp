@@ -300,25 +300,25 @@ body {
       <h2>Create Account</h2>
     </div>
 
-    <form id="form" class="form" action="/gotoLogin">
+    <form id="form" class="form" action="/signnup" method="post">
       <div class="form-control">
         <label for="userId">UserID</label>
 
-        <input type="text" placeholder="Jla229" id="username" />
+        <input type="text" name="userId" placeholder="Jla229" id="username" />
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>
       </div>
       <div class="form-control">
         <label for="username">Email</label>
-        <input type="email" placeholder="Jtpeace229@gmail.com" id="email" />
+        <input type="email" name="userEmail" placeholder="Jtpeace229@gmail.com" id="email" />
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>
       </div>
       <div class="form-control">
         <label for="username">Password</label>
-        <input type="password" placeholder="Password" id="password"/>
+        <input type="password" name="password" placeholder="Password" id="password"/>
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>
@@ -333,7 +333,7 @@ body {
 
       <div class="form-control">
         <label for="username">Name</label>
-        <input type="text" placeholder="Jaeyoung Lee" id="name" />
+        <input type="text" name="userName" placeholder="Jaeyoung Lee" id="name" />
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>
@@ -341,7 +341,7 @@ body {
 
       <div class="form-control">
         <label for="username">Birthdate</label>
-        <input type="date" placeholder="2021-01-27" id="birthdate">
+        <input type="date" name="userBirth" placeholder="2021-01-27" id="birthdate">
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>
@@ -350,7 +350,7 @@ body {
       <div class="form-control">
         <label for="username">Mobile Number</label>
 
-        <input type="password" placeholder="01012345678" id="mobile"/>
+        <input type="password" name="phoneNumber" placeholder="01012345678" id="mobile"/>
 
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -359,7 +359,7 @@ body {
 
       <div class="form-control">
         <label for="username">Address</label>
-        <input type="text" placeholder="Address" id="address" />
+        <input type="text" name="address" placeholder="Address" id="address" />
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
         <small>Error message</small>

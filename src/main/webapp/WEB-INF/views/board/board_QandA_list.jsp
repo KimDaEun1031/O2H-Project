@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>게시판</span>
+              <span>Q&A 게시판</span>
             </div>
           </div>
         </div>
@@ -79,17 +79,10 @@
           </tr>
         </tbody>
       </table>
-      <div class="paging">
-        <a href="#" class="bt">첫 페이지</a>
-        <a href="#" class="bt">이전 페이지</a>
-        <a href="#" class="num on">1</a>
-        <a href="#" class="num">2</a>
-        <a href="#" class="num">3</a>
-        <a href="#" class="bt">다음 페이지</a>
-        <a href="#" class="bt">마지막 페이지</a>
-      </div>
+      
+      
       <div class="bt_wrap">
-        <a href="board_write.html" class="on">등록</a>
+       <button><a href="/gotoWriterQuestion" class="btn btn-primary float-right" id="singinbtn">글 작성</button>
       </div>
     </div>
 

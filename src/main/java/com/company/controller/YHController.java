@@ -1,12 +1,17 @@
 package com.company.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.company.domain.KDAuthVO;
+import com.company.domain.KDLoginVO;
 import com.company.domain.LoginVO;
+import com.company.service.KDService;
 import com.company.service.SigninService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class YHController {
 	@Autowired
-	SigninService service;
+	private KDService service;
 	
 	@GetMapping("/gotoSignin")
 	public String gotoSignin() {
@@ -24,6 +29,27 @@ public class YHController {
 		
 		return "/register/signup";
 	}
+	@PostMapping("/signnup")
+	public String signup(KDLoginVO user) {
+		log.info("회원 가입 요청"+user);
+		String[] array=user.getFavorite_activity();
+		String[] temp=new String[3];
+		for(int i=0;i<3;i++) {
+			temp[i]="선택x";
+		}
+		for(int i=0;i<array.length;i++) {
+			temp[i]=array[i];
+			
+		}
+		user.setFavorite_activity(temp);
+		service.registerInsert(user);
+			return "redirect:/gotoLogin";
+		
+		
+		
+	}
+	
+	
 	
 	@GetMapping("/gotoLogin")
 	public String gotoLogin() {
@@ -32,15 +58,7 @@ public class YHController {
 		return "/register/login";
 	}
 	
-	@PostMapping("/gotoLogin")
-	public String gotoLoginFromSignin(LoginVO vo) {
-		log.info("로그인 페이지로 이동 form 회원가입");
-		
-		log.info("서비스를 통해서 회원 가입을 하는 매서드를 부름");
-		service.regist(vo);
-		return "/register/login";
-		
-	}
+	
 	
 	@GetMapping("/gotoQandAList")
 	public String gotoQandAList() {
@@ -49,5 +67,11 @@ public class YHController {
 		return "/board/board_QandA_list";
 	}
 	
+	@GetMapping("/gotoWriterQuestion")
+	public String gotoWriterQ() {
+		log.info("Q&A 작성 이동 요청");
+		
+		return "/board/board_QandA_write";
+	}
 	
 }

@@ -83,7 +83,7 @@
                             </p>
                             <p class="text-center">
                                 Don't have an account yet?
-                                <a href="SignUp.html">Sign Up Now</a>
+                                <a href="/gotoSignup">Sign Up Now</a>
                             </p>
                             <p class="text-center">
 

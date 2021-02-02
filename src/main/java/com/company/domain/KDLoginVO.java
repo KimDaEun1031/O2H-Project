@@ -18,6 +18,8 @@ public class KDLoginVO {
 	private String phoneNumber;
 	private String userEmail;
 	private String userBirth;
+	private String[] favorite_activity;
 	private Date regdate;
+	
 	private char auth;
 }

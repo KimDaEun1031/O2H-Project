@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class KDController {
 	
 	@PostMapping("/loginSuccess")
 	public String loginSuccess(KDLoginVO kdlogin, HttpSession session) {
-		
+	
 		log.info("로그인 요청");
 		KDAuthVO auth = service.isLogin(kdlogin);
 		
