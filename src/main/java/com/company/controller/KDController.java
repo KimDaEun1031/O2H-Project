@@ -31,6 +31,7 @@ public class KDController {
 		
 		
 		
+		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
 			session.removeAttribute("loginFail");

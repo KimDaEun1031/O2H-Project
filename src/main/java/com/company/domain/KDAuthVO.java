@@ -6,9 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class KDAuthVO {
 	private String userName;
 	private String userId;

@@ -29,7 +29,7 @@
          <div class="info">
           <dl>
             <dt>글쓴이</dt>
-            <dd><input type="text" placeholder="글쓴이 입력" /></dd>
+            <dd><input type="text" placeholder="글쓴이 입력" value="${auth.userId}" readonly="readonly"/></dd>
           </dl>
           <!-- 
           <dl>
@@ -49,9 +49,7 @@
 	</form>
 	<script>
   	window.onload=function(){
-	var auth=sessionStorage.getItem("auth")
-	alert(sessionStorage.length);		
-	}
+	
 	
 	</script>
    <%@include file="../includes/footer.jsp" %>
