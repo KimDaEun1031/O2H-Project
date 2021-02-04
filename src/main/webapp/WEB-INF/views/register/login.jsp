@@ -45,18 +45,13 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
                                     </div>
+                                    
                                     <label class="custom-control custom-checkbox mt-2">
                                       
                                     </label>
-                                    	
-                                    <button><a href="" class="btn btn-primary float-right" id="singinbtn">회원가입</a></button>
-                                    <button type="submit" class="btn btn-success float-right">login</button>
-                                    <script type="text/javascript">
-                                        document.getElementById("singinbtn").onclick = function (e) {
-                                        	e.preventDefault();
-                                            location.href = "/gotoSignin";
-                                        };
-                                    </script>
+                                    
+                                    <a class="btn btn-primary float-right" href="/register/signup" role="button">회원가입</a> 
+                                    <button type="submit" class="btn btn-success float-right" onclick="main()">login</button>         
                                     <!-- Este ultimo script no va y no sé porqué -->
                                 </form>
                                 <div class="clearfix"></div>
@@ -86,14 +81,7 @@
                                 <a href="/gotoSignup">Sign Up Now</a>
                             </p>
                             <p class="text-center">
-
-                                <button type="submit" class="btn btn-primary" id="goBackbtn">go Mainpage</button>
-                                <script type="text/javascript">
-                                    document.getElementById("goBackbtn").onclick = function () {
-                                        location.href = "/";
-
-                                    };
-                                </script>
+								<a class="btn btn-primary" href="/" role="button">메인 화면</a>                            
                             </p>
                         </div>
                     </div>
@@ -106,6 +94,7 @@
             </div>
         </div>
     </section>
+	<!-- 로그인 실패시 -->
 	<%
 		String temp=(String)session.getAttribute("loginFail");
 		System.out.println(temp);

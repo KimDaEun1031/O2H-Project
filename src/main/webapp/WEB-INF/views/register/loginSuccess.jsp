@@ -105,15 +105,25 @@
         <button class="btn btn-danger mr-6" id="getAdmin" onclick="getAdmin()">
           관리자에게 문의하기
         </button>
-        <button class="btn btn-warning mr-6" id="getMain" onClick="location.href='/'">
-          메인으로
-        </button>
+        <a class="btn btn-success btn-lg" href="/user/admin_index" role="button" name="auth">메인으로 </a>
+        <p style="display:none">${auth.auth}</p>
+        <button onclick="main()">누르기</button>
       </div>
     </div>
 
     <div id="memo">
       <p></p>
     </div>
+   <script>
+   		function main() {
+   			var user = 0;
+   			var teacher = 1;
+   			var admin = 2;
+   			var test = $('p').val();
+   			console.log(test);
+   			
+   		}
+   </script>
    <script>
       function smile() {
         var a;

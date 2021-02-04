@@ -139,7 +139,7 @@
                 </li>
       
                 <li class="nav-item">
-                	<a class="btn btn-success btn-lg" href="/register/login" role="button">로그인</a>
+                	<a class="btn btn-success btn-lg" href="/register/login" role="button">로그아웃</a>
                 	<a class="btn btn-success btn-lg" href="/register/signup" role="button">회원가입</a>                 
                 </li>
               </ul>
@@ -261,17 +261,17 @@
           </div>
           <nav class="nav-menu mobile-menu">
             <ul>
-              <li class="active"><a href="/">홈</a></li>
+              <li class="active"><a href="./index.html">홈</a></li>
               <li>
                 <a href="#">PT</a>
                 <ul class="dropdown">
-                  <li><a href="PT/teacher-all">전체 강사</a></li>
+                  <li><a href="#">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
                   <li><a href="#">...</a></li>
                 </ul>
               </li>
               <li>
-                <a href="shop/shop">홈쇼핑</a>
+                <a href="./shop.html">홈쇼핑</a>
                 <ul class="dropdown" id="one">
                   <li id="on">
                     <a href="#">식품</a>

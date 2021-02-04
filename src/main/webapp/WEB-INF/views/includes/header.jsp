@@ -10,40 +10,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fashi | Template</title>
 
-    <!-- Google Font -->
+     <!-- Google Font -->
     <link
       href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
       rel="stylesheet"
     />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/themify-icons.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/owl.carousel.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/nice-select.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/style.css" />
-    <link rel="stylesheet" href="/resources/css/sub.css" />
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
   <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
-  <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
     rel='stylesheet' type='text/css'>
   <!-- Plugin CSS -->
-  <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="/resources/css/creative.css" rel="stylesheet">
+  <link href="resources/css/creative.css" rel="stylesheet">
 
 
 <!--기본 최상단 -->
@@ -143,22 +142,8 @@
                 </li>
       
                 <li class="nav-item">
-                  <button type="submit" class="btn btn-primary" id="Loginbtn">Login</button>
-                  <script type="text/javascript">
-                    document.getElementById("Loginbtn").onclick = function () {
-
-                      location.href = "/gotoLogin";
-
-                    };
-                  </script>
-                  <button type="submit" class="btn btn-warning" id="SignInbtn">Sign in</button>
-                  <script type="text/javascript">
-                    document.getElementById("SignInbtn").onclick = function () {
-
-                      location.href = "/gotoSignin";
-
-                    };
-                  </script>
+                  <a class="btn btn-success btn-lg" href="/register/login" role="button">로그인</a>
+                  <a class="btn btn-success btn-lg" href="/register/signup" role="button">회원가입</a>     
                 </li>
               </ul>
             </div>
@@ -170,15 +155,13 @@
 
 
       <!-- 추가 부분 -->
-
-
-      <div class="container">
+<div class="container">
         <div class="inner-header">
           <div class="row">
             <div class="col-lg-2 col-md-2">
               <div class="logo">
                 <a href="./index.html">
-                  <img src="img/logo.png" alt="" />
+                  <img src="resources/img/logo.png" alt="" />
                 </a>
               </div>
             </div>
@@ -212,7 +195,7 @@
                         <tbody>
                           <tr>
                             <td class="si-pic">
-                              <img src="img/select-product-1.jpg" alt="" />
+                              <img src="resources/img/select-product-1.jpg" alt="" />
                             </td>
                             <td class="si-text">
                               <div class="product-selected">
@@ -226,7 +209,7 @@
                           </tr>
                           <tr>
                             <td class="si-pic">
-                              <img src="img/select-product-2.jpg" alt="" />
+                              <img src="resources/img/select-product-2.jpg" alt="" />
                             </td>
                             <td class="si-text">
                               <div class="product-selected">
@@ -279,17 +262,17 @@
           </div>
           <nav class="nav-menu mobile-menu">
             <ul>
-              <li class="active"><a href="./index.html">홈</a></li>
+              <li class="active"><a href="/">홈</a></li>
               <li>
                 <a href="#">PT</a>
                 <ul class="dropdown">
-                  <li><a href="#">전체 강사</a></li>
+                  <li><a href="PT/teacher-all">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
                   <li><a href="#">...</a></li>
                 </ul>
               </li>
               <li>
-                <a href="./shop.html">홈쇼핑</a>
+                <a href="shop/shop">홈쇼핑</a>
                 <ul class="dropdown" id="one">
                   <li id="on">
                     <a href="#">식품</a>
@@ -387,7 +370,7 @@
               <li>
                 <a href="./contact.html">고객센터</a>
                 <ul class="dropdown">
-                  <li><a href="#">Q&A</a></li>
+                  <li><a href="/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
                   <li><a href="#">공지사항</a></li>
                 </ul>
