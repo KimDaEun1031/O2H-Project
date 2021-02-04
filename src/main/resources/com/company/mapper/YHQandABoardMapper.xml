@@ -41,6 +41,18 @@ select count(*) from QandA_board where
  bno>0
 </select>
 
+<update id="update">
+update QandA_board 
+set title=#{title},content=#{content} 
+where bno=#{bno}
 
+</update>
+<update id="replyupdate">
+update QandA_board 
+set reply=#{reply} where bno=#{bno}
 
+</update>
+<delete id="delete">
+delete from QandA_board where bno=#{bno}
+</delete>
 </mapper>

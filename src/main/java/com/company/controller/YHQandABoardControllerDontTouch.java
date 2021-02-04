@@ -18,8 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/Announceboard/*")
-public class YHQandABoardController {
+@RequestMapping("/qandaboard/*")
+public class YHQandABoardControllerDontTouch {
 	@Autowired
 	YHQandABoardService service;
 	
@@ -72,7 +72,40 @@ public class YHQandABoardController {
 		return "/board/board_QandA_write";
 	}
 	
+	@GetMapping("/update")
+	public String gotoupdateBoard(Model model,int bno) {
+		YHQandABoardVO vo=service.QandASelect(bno);
+		model.addAttribute("vo",vo);
+		
+		return "/board/board_QandA_update";
+	}	
 	
+	@PostMapping("/update")
+	public String updateBoard(Model model,YHQandABoardVO board) {
+		log.info("Q&A 보드 업데이트 요청");
+		
+		if(service.update(board)>0) {
+			model.addAttribute("vo",service.QandASelect(board.getBno()));
+			return "/board/board_QandA_read";
+		}else {
+			model.addAttribute("vo",service.QandASelect(board.getBno()));
+			
+			return "/board/board_QandA_update";
+		}
+	}
 	
+	@GetMapping("/delete")
+	public String delete(int bno) {
+		log.info("Q&A delete 요청");
+		service.delete(bno);
+		return "redirect:gotoQandAList";
+	}
 	
+	@PostMapping("/replyupdate")
+	public String updateReply(YHQandABoardVO board) {
+		log.info("댓글 update 요청"+board.getBno()+board.getReply());
+		
+		service.updatereply(board);
+		return "redirect:gotoQandAList";
+	}
 }
