@@ -107,6 +107,7 @@
         </button>
         <a class="btn btn-success btn-lg" href="/user/admin_index" role="button" name="auth">메인으로 </a>
         <p style="display:none">${auth.auth}</p>
+        
         <button onclick="main()">누르기</button>
       </div>
     </div>
@@ -227,15 +228,19 @@
            
           </div>
         </div>
-      </div>
-    </div>
-    
+      </div>      
+     
+    </div>    
     <script>
     var gotoMain=document.getElementById("gotoMainPage");
     	gotoMain.onclick=function(){
     		location.href="/";
-    	}
+    	}    	
     
+    
+    window.onload=function(){
+    console.log(temp);
+    }
     </script>
   </body>
   
