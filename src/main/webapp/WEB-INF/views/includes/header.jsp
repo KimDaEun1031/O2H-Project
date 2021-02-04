@@ -370,7 +370,7 @@
               <li>
                 <a href="./contact.html">고객센터</a>
                 <ul class="dropdown">
-                  <li><a href="/gotoQandAList">Q&A</a></li>
+                  <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
                   <li><a href="#">공지사항</a></li>
                 </ul>
