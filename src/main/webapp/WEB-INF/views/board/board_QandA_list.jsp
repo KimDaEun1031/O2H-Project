@@ -18,8 +18,10 @@
         </div>
       </div>
     </div>
+   
     <!-- Breadcrumb Section Begin -->
 <link rel="stylesheet" href="resources/css/boardList.css" type="text/css" />
+
     <div class="board_wrap" style="margin-left: 5%; margin-right: 5%">
       <table class="board_list" style="text-align: center;">
         <caption>
