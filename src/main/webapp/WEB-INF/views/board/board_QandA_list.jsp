@@ -52,8 +52,8 @@
        </tbody>
      </table>
      <!-- start Pagination -->
-	<div class="text-center">
-		<ul class="pagination">
+	<div class="text-center" style="display: table; margin-left: auto; margin-right: auto;">
+		<ul class="pagination" >
 			<c:if test="${pageVO.prev }">
 				<li class="paginate_button previous"><a
 					href="${pageVO.startPage-1 }">Previous</a>
