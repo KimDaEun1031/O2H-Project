@@ -30,7 +30,7 @@
                 <!-- Section Header -->
                 <div id="imageForm" class="col-l-3 col-md-3 col-sm-3 col-xs-12 section-header wow fadeInDown">
                     <span id="profile_pic">
-                        <img id="myImg" src="img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
+                        <img id="myImg" src="/resources/img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
                     </span>
                     <br>
                     <div>
@@ -75,7 +75,7 @@
                         </form>
                         <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
                             <button type="submit" class="btn btn-primary " id="update-btn"> Update </button>
-                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>
+                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>                                           
                             <script type="text/javascript">
                                 document.getElementById("cancel-btn").onclick = function () {
                                     location.href = "user.html";

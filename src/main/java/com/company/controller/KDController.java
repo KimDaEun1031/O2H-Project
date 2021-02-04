@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,7 +23,7 @@ public class KDController {
 	private KDService service;
 	
 	@PostMapping("/register/loginSuccess")
-	public String loginSuccess(KDLoginVO kdlogin, HttpSession session, Model model) {
+	public String loginSuccess(KDLoginVO kdlogin, HttpSession session) {
 	
 		log.info("로그인 요청" );
 		KDAuthVO auth = service.isLogin(kdlogin);
@@ -59,5 +59,15 @@ public class KDController {
 	@GetMapping("/shop/shop")
 	public void shop() {
 		log.info("쇼핑몰 페이지 요청");
+	}
+	
+	@GetMapping("/user/teacher_my")
+	public void teacherMypage() {
+		log.info("강사 마이페이지");
+	}
+	
+	@GetMapping("/user/profile_setting")
+	public void profile_setting() {
+		log.info("프로필 설정 페이지");
 	}
 }

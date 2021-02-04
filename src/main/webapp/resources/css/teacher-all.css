@@ -4440,3 +4440,8 @@ img:hover {
   color: rgb(37, 37, 37);
   margin-bottom: 20px;
 }
+
+.float-center {
+  margin: 15px;
+}
+
