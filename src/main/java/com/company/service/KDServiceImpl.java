@@ -3,6 +3,7 @@ package com.company.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.company.domain.KDAuthVO;
 import com.company.domain.KDLoginVO;
 import com.company.mapper.KDmapper;
@@ -23,5 +24,7 @@ public class KDServiceImpl implements KDService {
 	public KDAuthVO isLogin(KDLoginVO kdlogin) {
 		return mapper.selectByUser(kdlogin);
 	}
+
+
 
 }

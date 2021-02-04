@@ -12,4 +12,5 @@ import lombok.ToString;
 public class KDAuthVO {
 	private String userName;
 	private String userId;
+	private String auth;
 }
