@@ -75,11 +75,15 @@
 </div>
 
 
-<form action="" id="actionForm">
+<form action="/qandaboard/read" id="actionForm">
    <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }"/>
+   <input type="hidden" name="bno" />
 </form>      
+
+
 <script>
  window.onload=function(){
+var actionForm=$("#actionForm")
 	
 	$(".paginate_button a").click(function(e){
 		//a 태그의 기능을 중지
@@ -87,30 +91,28 @@
     	
 		//pagenum의 값을 사용자가 선택한 값으로 변경
 		//$("actionForm  [name='pageNum']").attr(value='$(this).text')
-		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-		
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"))
+		console.log($(this).attr("href"));
+		console.log($(this));
+		actionForm.attr("action","gotoQandAList");
 		actionForm.submit();
 	})
-}	
+	
 	 
 	
-var actionForm=$("#actionForm")
 $(".move").click(function(e){
 	e.preventDefault();		
-	
+	/* 
 	actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'> ");
-	
+	 */
+	 actionForm.find("input[name='bno']").val($(this).attr("href"))
+		
 	actionForm.attr("action","read"); // /board/read
 	actionForm.submit();
+
 })
+ }
 </script>
    
-   <script>
-	window.onload=function(){
-		
-		
-		
-	}
-
-</script>
+  
 <%@include file="../includes/footer.jsp" %>

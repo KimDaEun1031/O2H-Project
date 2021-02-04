@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="description" content="Fashi Template" />
     <meta name="keywords" content="Fashi, unica, creative, html" />
@@ -125,12 +126,12 @@
 
             <a class="anavbar-brand js-scroll-trigger" href="/">HOME</a>
 
-  
-            <script type="text/javascript">
-              document.getElementById("img-logo").onclick = function () {
-                location.href = "index.html";
-              };
-            </script>
+  			<!-- 에러나는곧 잠시 막음	
+             <script type="text/javascript">
+               document.getElementById("img-logo").onclick = function () {
+                location.href = "/";
+              }; 
+            </script> -->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
               aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
