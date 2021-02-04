@@ -272,3 +272,11 @@ a, a:hover{
 #description-activity {
     height: 150px;
 }}
+
+/*추가 css*/
+a {	
+	text-decoration: none !important
+}
+a:hover{	
+	text-decoration: none !important
+}

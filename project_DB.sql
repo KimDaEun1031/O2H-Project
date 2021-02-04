@@ -11,18 +11,16 @@ create table user_board (
     interest2 varchar2(50) not null,
     interest3 varchar2(50) not null,
     regDate date default sysdate,
-    auth char(1) default 0
+    auth char(1) default 0 -- 0 user 1 teacher 2 admin
     );
 
 select * from user_board;
 
 drop table user_board;
 
-insert into user_board values('김다은','test1','test123','1','1','1','1','1','1','1','2020.11.11','1');
+update user_board set auth=2 where userId='admin';
 
-delete from user_board where userId='test';
-
-
+select auth from user_board;
 
 <<<<<<< HEAD
 ----------------------
