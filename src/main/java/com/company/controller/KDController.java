@@ -29,14 +29,7 @@ public class KDController {
 		KDAuthVO auth = service.isLogin(kdlogin);
 		log.info("로그인 정보"+auth.getAuth());
 		
-		
-<<<<<<< HEAD
-		if(auth!=null) { //유저 로그인
-=======
-		
-		
 		if(auth!=null) {
->>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
 			session.setAttribute("auth", auth);
 			session.removeAttribute("loginFail");			
 			return "/register/loginSuccess";
