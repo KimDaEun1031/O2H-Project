@@ -18,8 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/Announceboard/*")
-public class YHQandABoardController {
+@RequestMapping("/qandaboard/*")
+public class YHAnnounceBoardController {
 	@Autowired
 	YHQandABoardService service;
 	
