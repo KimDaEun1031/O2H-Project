@@ -82,7 +82,7 @@
       
       
       <div class="bt_wrap">
-       <button><a href="/gotoWriterQuestion" class="btn btn-primary float-right" id="singinbtn">글 작성</button>
+       <button><a href="/qandaboard/gotoWriterQuestion" class="btn btn-primary float-right" id="singinbtn">글 작성</button>
       </div>
     </div>
 

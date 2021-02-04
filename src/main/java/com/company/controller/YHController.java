@@ -60,18 +60,8 @@ public class YHController {
 	
 	
 	
-	@GetMapping("/gotoQandAList")
-	public String gotoQandAList() {
-		log.info("Q&A List 페이지로 이동 요청");
-		
-		return "/board/board_QandA_list";
-	}
 	
-	@GetMapping("/gotoWriterQuestion")
-	public String gotoWriterQ() {
-		log.info("Q&A 작성 이동 요청");
-		
-		return "/board/board_QandA_write";
-	}
+	
+	
 	
 }

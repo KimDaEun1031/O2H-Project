@@ -17,19 +17,19 @@
 
     <!-- 게시글 작성 -->
 
-	<form>
+	<form action="/qandaboard/register" method="post">
     <div class="board_write_wrap">
       <div class="board_write">
         <div class="title">
           <dl>
             <dt>제목</dt>
-            <dd><input type="text" placeholder="제목 입력" /></dd>
+            <dd><input type="text" name="title" placeholder="제목 입력" /></dd>
           </dl>
         </div>
          <div class="info">
           <dl>
             <dt>글쓴이</dt>
-            <dd><input type="text" placeholder="글쓴이 입력" /></dd>
+            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${auth.userId }" readonly="readonly"/></dd>
           </dl>
           <!-- 
           <dl>
@@ -38,21 +38,15 @@
           </dl>
         </div> -->
         <div class="cont">
-          <textarea placeholder="내용 입력"></textarea>
+          <textarea name="content" placeholder="내용 입력"></textarea>
         </div>
       </div>
     </div>
     <div class="bt_wrap">
-      <a href="#" class="on">등록</a>
+      <input type="submit" value="등록">
       <a href="#">취소</a>
     </div>
 	</form>
-	<script>
-  	window.onload=function(){
-	var auth=sessionStorage.getItem("auth")
-	alert(sessionStorage.length);		
-	}
 	
-	</script>
    <%@include file="../includes/footer.jsp" %>
 </html>

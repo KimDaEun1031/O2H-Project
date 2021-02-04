@@ -14,7 +14,8 @@ import lombok.ToString;
 @ToString
 public class YHQandABoardVO {
  int bno;
- String writer;
+ String writer_id;
+ String title;
  String content;
  String reply;
  String replyer;

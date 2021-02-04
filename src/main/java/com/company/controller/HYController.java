@@ -41,5 +41,35 @@ public class HYController {
 	}
 	
 	
+//	//칼로리사전 AJAX
+//	@GetMapping("/calor")
+//	public String calor() {
+//		return "/HYviews/calor";
+//	}
+//	//칼로리사전 AJAX
+//	@GetMapping("/calorTest")
+//	public String calor2() {
+//		return "/HYviews/calorTest";
+//	}
+//	//칼로리사전 AJAX
+//	@GetMapping("/calorTest2")
+//	public String calor3() {
+//		return "/HYviews/calorTest2";
+//	}
+//	//칼로리사전 AJAX
+//	@GetMapping("/calorTest3")
+//	public String calor4() {
+//		return "/HYviews/calorTest3";
+//	}
+	//칼로리사전 AJAX
+	@GetMapping("/calorDict")
+	public String calor5() {
+		return "/HYviews/calorDict";
+	}
+	
+	
+	
+	
+	
 	
 }
