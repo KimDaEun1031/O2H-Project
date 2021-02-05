@@ -19,46 +19,7 @@
 
     <!-- Custom css -->
     <!-- Custom scripts for this template -->
-<style type="text/css">
-/* 
-.uploadResult{
-	width: 100%;
-	background-color: gray; 
-}
-.uploadResult ul{
-	display: flex;
-	flex-flow: row;
-	justify-content: center;
-	align-items: center;
-}
 
-.bigPictureWrapper{
-	position: absolute;
-	display: none;
-	justify-content: center;
-	align-items: center;
-	top: 0%;
-	width: 100%;
-	height: 100%;
-	background-color: gray;
-	z-index: 100;
-}
-.bigPicture{
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.bigPicture img{
-	width: 70%;
-}
-
- */
-.uploadResult ul li{
-	list-style: none;
-	padding: 10px;
-}
-</style>
 </head>
 
 <body>
@@ -95,11 +56,11 @@
                         <form role="form" method="post">
                             <div class="form-group">
                                 <label for="name">UserId:</label>
-                                <input style="border-radius:0px!important" type="name" class="form-control" id="name" placeholder="William Wallace" readonly>${auth.userId}
+                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${auth.userId}">
                             </div>
                             <div class="form-group">
                                 <label for="name">Username:</label>
-                                <input style="border-radius:0px!important" type="name" class="form-control" id="name" readonly>${auth.userName}
+                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" readonly value="${auth.userName}">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>

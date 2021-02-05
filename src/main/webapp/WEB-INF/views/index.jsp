@@ -132,7 +132,7 @@
                   <a class="nav-link js-scroll-trigger" href="#services">Professionals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#facilities">Facilities</a>
+                  <a class="nav-link js-scroll-trigger" href="/user/profile_setting">테스트중</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#contact">마이페이지(임시)</a>

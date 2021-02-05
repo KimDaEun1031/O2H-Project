@@ -91,11 +91,7 @@ public class HYController {
 	
 	//파일 첨부
 	
-	//프로필
-	@GetMapping("/user/profile_setting")
-	public void getProfileSetting() {
 
-	}
 	
 	/*
 	 * 1. 회원정보 수정 - 세션 필요하고  - 성공 후 .invalidate() 해야하고
@@ -150,6 +146,12 @@ public class HYController {
 	 *   
 	 *  
 	 *  */
+	
+	//프로필-수정폼 보여주기
+	@GetMapping("/user/profile_setting")
+	public void getProfileSetting() {
+
+	}
 	
 	@PostMapping("/user/profile_setting")
 	public String PostProfileSetting() {
