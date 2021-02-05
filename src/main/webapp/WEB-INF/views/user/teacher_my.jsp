@@ -82,7 +82,7 @@
                             <h4>강사 소개란</h4>
                             <ul>
                                 <li>
-                                    <textarea style="resize: none;" name="" id="" cols="25" rows="20" readonly>${auth.userInfo}</textarea>
+                                    <textarea style="resize: none;" name="" id="" cols="25" rows="20" readonly>${loginInfo.userInfo}</textarea>
                                 </li>
                             </ul>
                         </div>

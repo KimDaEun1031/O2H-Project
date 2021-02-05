@@ -7,6 +7,6 @@ import com.company.domain.KDupdateInfoVO;
 public interface KDService {
 	public boolean registerInsert(KDLoginVO kdlogin);
 	public KDLoginInfoVO isLogin(KDLoginVO kdlogin);
-	public boolean userUpdate(KDupdateInfoVO updateProfile);
+	public boolean userUpdate(KDLoginInfoVO loginInfo);
 	public KDLoginInfoVO updateProfile(String userId);
 }

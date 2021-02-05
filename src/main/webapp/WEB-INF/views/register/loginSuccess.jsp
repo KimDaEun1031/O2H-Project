@@ -107,7 +107,7 @@
         </button>
         
         <a class="btn btn-success btn-lg" href="/" role="button" id="main">메인으로</a>
-        <input type="text" name="auth" id="data" value="${auth.user_level}" style="display:none;"/>
+        <input type="text" name="auth" id="data" value="${loginInfo.user_level}" style="display:none;"/>
         
       </div>
     </div>

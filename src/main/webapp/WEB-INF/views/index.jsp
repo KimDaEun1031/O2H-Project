@@ -139,7 +139,6 @@
                 </li>
       
                 <li class="nav-item">
-<<<<<<< HEAD
                  <%
 		            // 로그인 안되었을 경우 - 로그인, 회원가입 버튼을 보여준다.
 		            if(session.getAttribute("sessionID")==null){ 
@@ -154,12 +153,10 @@
 		            <a class="btn btn-success btn-lg" href="/user/user" role="button">내 정보</a>
 		        <%    }    %>    
               
-=======
                 	<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
                 	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success btn-lg" id="profile" href="#" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary btn-lg" id="logout" href="#" hidden="hidden" role="button">로그 아웃</a>                 
->>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
                 </li>
               </ul>
             </div>

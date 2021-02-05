@@ -27,11 +27,11 @@ public class KDController {
 	public String loginSuccess(KDLoginVO kdlogin, HttpSession session) {
 	
 		log.info("로그인 요청" );
-		KDLoginInfoVO auth = service.isLogin(kdlogin);
-		log.info("로그인 정보"+auth.getUserInfo());
+		KDLoginInfoVO loginInfo = service.isLogin(kdlogin);
+		log.info("로그인 정보"+loginInfo.getUserInfo());
 		
-		if(auth!=null) {
-			session.setAttribute("auth", auth);
+		if(loginInfo!=null) {
+			session.setAttribute("loginInfo", loginInfo); //loginInfo라는 변수에 loginInfo(서비스부분)정보들이 들어감
 			session.removeAttribute("loginFail");	
 			return "/register/loginSuccess";
 		} else {
@@ -85,12 +85,11 @@ public class KDController {
 	}
 	
 	@PostMapping("/user/teacher_profile_setting")
-	public String updateUserInfo(HttpSession session, KDupdateInfoVO updateInfo) {
-		KDLoginInfoVO auth = (KDLoginInfoVO) session.getAttribute("auth");
-		log.info("프로필 설정 "+auth.getUserId(),auth.getUserInfo());
-		updateInfo.setUpdateInfo(auth.getUserInfo());
-		if(service.userUpdate(updateInfo)) {
-			session.setAttribute("auth", updateInfo);
+	public String updateUserInfo(HttpSession session, KDLoginInfoVO loginInfo) {
+		KDLoginInfoVO loginInfoTemp = (KDLoginInfoVO) session.getAttribute("loginInfo");
+		loginInfo.setUserId(loginInfoTemp.getUserId());		
+		if(service.userUpdate(loginInfo)) {
+			session.setAttribute("loginInfo", loginInfo);
 			return "/user/teacher_my";
 		} else {
 			return "/user/teache_profile_setting";			

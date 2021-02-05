@@ -4,15 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.KDmapper">
 	<!-- 로그인 확인 -->
-	<select id="selectByUser" resultType="com.company.domain.KDAuthVO">
+	<select id="selectByUser" resultType="com.company.domain.KDLoginInfoVO">
 		select userId,userName,user_level, userInfo from user_board where userId=#{userId} and password=#{password}
 	</select>
 	
-	<select id="selectProfile" resultType="com.company.domain.KDAuthVO">
+	<select id="selectProfile" resultType="com.company.domain.KDLoginInfoVO">
 		select userId, userInfo from user_board where userId=#{userId}
 	</select>
 	
-	<select id="selectByMy" resultType="com.company.domain.KDAuthVO">
+	<select id="selectByMy" resultType="com.company.domain.KDLoginInfoVO">
 		select userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3 from user_board where userId=#{userId} and user_level=#{user_level}
 	</select>
 	

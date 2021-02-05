@@ -27,8 +27,8 @@ public class KDServiceImpl implements KDService {
 	}
 
 	@Override
-	public boolean userUpdate(KDupdateInfoVO updateProfile) {
-		return mapper.updateUser(updateProfile)>0?true:false;
+	public boolean userUpdate( KDLoginInfoVO loginInfo) {
+		return mapper.updateUser(loginInfo)>0?true:false;
 	}
 
 	@Override

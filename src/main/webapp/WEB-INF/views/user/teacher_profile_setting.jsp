@@ -46,11 +46,11 @@
                         <form role="form" method="POST">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
-                                <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${auth.userId}" readonly>
+                                <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="userInfo">강사소개</label>
-                                <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="userInfo">${auth.userInfo}</textarea>
+                                <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="userInfo">${loginInfo.userInfo}</textarea>
                             </div>             
 	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
 	                            <button type="submit" class="btn btn-primary " id="update-btn"> 프로필 수정 </button>
