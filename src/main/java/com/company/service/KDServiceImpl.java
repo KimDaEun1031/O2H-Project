@@ -25,6 +25,11 @@ public class KDServiceImpl implements KDService {
 		return mapper.selectByUser(kdlogin);
 	}
 
+	@Override
+	public boolean userUpdate(String userId) {
+		return mapper.updateUser(userId)>0?true:false;
+	}
+
 
 
 }

@@ -11,4 +11,36 @@
 	values(#{bno},#{title},#{content},#{writer_id})
 </insert>
 
+<!-- 전체조회 -->
+<!-- <select id="QandASearchList" resultType="com.company.domain.YHQandABoardVO">
+	
+select * from QANDA_BOARD
+
+</select> -->
+<select id="QandASearchList" resultType="com.company.domain.YHQandABoardVO">
+	
+	select rn ,bno, title ,regdate,replydate,writer_id from(
+select rownum rn,bno,title,regdate,replydate,writer_id
+from QandA_Board
+where 
+<![CDATA[
+ rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+]]>
+</select>
+
+<!-- 단일 조회 -->
+<select id="QandASelect" resultType="com.company.domain.YHQandABoardVO">
+select * from qanda_board where bno=#{bno}
+</select>
+
+<!-- 전체 개시물 수  -->
+<select id="totalCnt" resultType="int">
+select count(*) from QandA_board where 
+	
+	
+ bno>0
+</select>
+
+
+
 </mapper>

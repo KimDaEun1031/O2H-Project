@@ -17,32 +17,32 @@
     />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/themify-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="img/iconLogo.ico" />
+  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+  <link href="/resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
-  <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
     rel='stylesheet' type='text/css'>
   <!-- Plugin CSS -->
-  <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="resources/css/creative.css" rel="stylesheet">
+  <link href="/resources/css/creative.css" rel="stylesheet">
 
 
 <!--기본 최상단 -->
@@ -135,11 +135,11 @@
                   <a class="nav-link js-scroll-trigger" href="#facilities">Facilities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#contact">마이페이지(임시)</a>
+                  <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
                 </li>
       
                 <li class="nav-item">
-                	<a class="btn btn-success btn-lg" href="/register/login" role="button">로그아웃</a>
+                	<a class="btn btn-success btn-lg" href="/register/login" role="button">로그인</a>
                 	<a class="btn btn-success btn-lg" href="/register/signup" role="button">회원가입</a>                 
                 </li>
               </ul>
@@ -261,17 +261,17 @@
           </div>
           <nav class="nav-menu mobile-menu">
             <ul>
-              <li class="active"><a href="./index.html">홈</a></li>
+              <li class="active"><a href="/">홈</a></li>
               <li>
                 <a href="#">PT</a>
                 <ul class="dropdown">
-                  <li><a href="#">전체 강사</a></li>
+                  <li><a href="PT/teacher-all">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
                   <li><a href="#">...</a></li>
                 </ul>
               </li>
               <li>
-                <a href="./shop.html">홈쇼핑</a>
+                <a href="shop/shop">홈쇼핑</a>
                 <ul class="dropdown" id="one">
                   <li id="on">
                     <a href="#">식품</a>
@@ -369,7 +369,7 @@
               <li>
                 <a href="./contact.html">고객센터</a>
                 <ul class="dropdown">
-                  <li><a href="/gotoQandAList">Q&A</a></li>
+                  <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
                   <li><a href="#">공지사항</a></li>
                 </ul>
@@ -382,470 +382,7 @@
     </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero-section">
-      <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="resources/img/hero-3.jpg">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-5">
-                <span>Bag,kids</span>
-                <h1>Black friday</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
-                </p>
-                <a href="#" class="primary-btn">Shop Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="single-hero-items set-bg" data-setbg="resources/img/hero-2.jpg">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-5">
-                <span>Bag,kids</span>
-                <h1>Black friday</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
-                </p>
-                <a href="#" class="primary-btn">Shop Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Instagram Section Begin -->
-    <div class="banner-section spad" id="activities">
-      <div class="instagram-photo">
-        <div class="insta-item set-bg" data-setbg="resources/img/insta-1.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="resources/img/insta-2.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="resources/img/insta-3.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="resources/img/insta-4.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="resources/img/insta-5.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="resources/img/insta-6.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Instagram Section End -->
-
-    <!-- Women Banner Section Begin -->
-    <section class="women-banner spad" id="">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3">
-            <div
-              class="product-large set-bg"
-              data-setbg="img/products/women-large.jpg"
-            >
-              <h2>추천상품</h2>
-              <a href="#">자세히</a>
-            </div>
-          </div>
-          <div class="col-lg-8 offset-lg-1">
-            <div class="filter-control">
-              <ul>
-                <li class="active">보충제</li>
-                <li>건강</li>
-                <li>패션</li>
-                <li>헬스</li>
-              </ul>
-            </div>
-            <div class="product-slider owl-carousel">
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/women-1.jpg" alt="" />
-                  <div class="sale">Sale</div>
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Coat</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">
-                    $14.00
-                    <span>$35.00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/women-2.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Shoes</div>
-                  <a href="#">
-                    <h5>Guangzhou sweater</h5>
-                  </a>
-                  <div class="product-price">$13.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/women-3.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/women-4.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Converse Shoes</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Women Banner Section End -->
-
-    <!-- Man Banner Section Begin -->
-    <section class="man-banner spad" id="services">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="filter-control">
-              <ul>
-                <li class="active">...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-              </ul>
-            </div>
-            <div class="product-slider owl-carousel">
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/man-1.jpg" alt="" />
-                  <div class="sale">Sale</div>
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Coat</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">
-                    $14.00
-                    <span>$35.00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/man-2.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Shoes</div>
-                  <a href="#">
-                    <h5>Guangzhou sweater</h5>
-                  </a>
-                  <div class="product-price">$13.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/man-3.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="resources/img/products/man-4.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Converse Shoes</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 offset-lg-1">
-            <div
-              class="product-large set-bg m-large"
-              data-setbg="resources/img/products/man-large.jpg"
-            >
-              <h2>인기상품</h2>
-              <a href="#">자세히</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Man Banner Section End -->
-
-    <!-- Latest Blog Section Begin -->
-    <section class="latest-blog spad" id="facilities">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-title">
-              <h2>뉴스(혹은 공지사항, 커뮤니티 인기글)</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-blog">
-              <img src="resources/img/latest-1.jpg" alt="" />
-              <div class="latest-text">
-                <div class="tag-list">
-                  <div class="tag-item">
-                    <i class="fa fa-calendar-o"></i>
-                    May 4,2019
-                  </div>
-                  <div class="tag-item">
-                    <i class="fa fa-comment-o"></i>
-                    5
-                  </div>
-                </div>
-                <a href="#">
-                  <h4>The Best Street Style From London Fashion Week</h4>
-                </a>
-                <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-blog">
-              <img src="resources/img/latest-2.jpg" alt="" />
-              <div class="latest-text">
-                <div class="tag-list">
-                  <div class="tag-item">
-                    <i class="fa fa-calendar-o"></i>
-                    May 4,2019
-                  </div>
-                  <div class="tag-item">
-                    <i class="fa fa-comment-o"></i>
-                    5
-                  </div>
-                </div>
-                <a href="#">
-                  <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
-                </a>
-                <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-blog">
-              <img src="resources/img/latest-3.jpg" alt="" />
-              <div class="latest-text">
-                <div class="tag-list">
-                  <div class="tag-item">
-                    <i class="fa fa-calendar-o"></i>
-                    May 4,2019
-                  </div>
-                  <div class="tag-item">
-                    <i class="fa fa-comment-o"></i>
-                    5
-                  </div>
-                </div>
-                <a href="#">
-                  <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
-                </a>
-                <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="benefit-items">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="single-benefit">
-                <div class="sb-icon">
-                  <img src="resources/img/icon-1.png" alt="" />
-                </div>
-                <div class="sb-text">
-                  <h6>무료 배송</h6>
-                  <p>23000원 이상 구매시</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="single-benefit">
-                <div class="sb-icon">
-                  <img src="resources/img/icon-2.png" alt="" />
-                </div>
-                <div class="sb-text">
-                  <h6>정시 배달</h6>
-                  <p>오전 10시 이전 주문시</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="single-benefit">
-                <div class="sb-icon">
-                  <img src="resources/img/icon-1.png" alt="" />
-                </div>
-                <div class="sb-text">
-                  <h6>안전 결제</h6>
-                  <p>100% 안전 결제 보장</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Latest Blog Section End -->
+   
 
     <!-- Partner Logo Section Begin -->
     <div class="partner-logo" id="contact">

@@ -51,7 +51,7 @@
                                     </label>
                                     
                                     <a class="btn btn-primary float-right" href="/register/signup" role="button">회원가입</a> 
-                                    <button type="submit" class="btn btn-success float-right" onclick="main()">login</button>         
+                                    <button type="submit" class="btn btn-success float-right">login</button>         
                                     <!-- Este ultimo script no va y no sé porqué -->
                                 </form>
                                 <div class="clearfix"></div>

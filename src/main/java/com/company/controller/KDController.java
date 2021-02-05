@@ -27,7 +27,7 @@ public class KDController {
 	
 		log.info("로그인 요청" );
 		KDAuthVO auth = service.isLogin(kdlogin);
-		log.info("로그인 정보"+auth.getAuth());
+		log.info("로그인 정보"+auth.getUserInfo());
 		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
@@ -39,11 +39,17 @@ public class KDController {
 		}
 	}
 	
+	@GetMapping("/logout") 
+	public String logout(HttpSession session) {
+		log.info("로그아웃 요청");
+		session.invalidate();
+		return "/";
+		
+	}
+	
 	@GetMapping("/register/login")
-	public void login(KDLoginVO kdlogin) {
-//		log.info("로그인 페이지 요청"+kdlogin.getAuth());
-		
-		
+	public void login() {
+		log.info("로그인 페이지 요청");	
 	}
 	
 	@GetMapping("/register/signup")
@@ -66,8 +72,18 @@ public class KDController {
 		log.info("강사 마이페이지");
 	}
 	
-	@GetMapping("/user/profile_setting")
-	public void profile_setting() {
-		log.info("프로필 설정 페이지");
+	@GetMapping("/user/teacher_profile_setting")
+	public void profile_setting(KDAuthVO auth) {
+		log.info("프로필 설정 페이지"  +auth );
+	}
+	
+	@GetMapping("/user/admin_index")
+	public void admin_index() {
+		log.info("관리자 페이지");
+	}
+	
+	@PostMapping("/user/teacher_profile_setting")
+	public void updateUserInfo(KDAuthVO auth) {
+		log.info("프로필 설정 " +auth );
 	}
 }

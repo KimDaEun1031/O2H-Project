@@ -1,5 +1,5 @@
 --회원가입 테이블
-create table user_board (
+create table user_board ( 
     userName varchar2(10) not null,
 	userId varchar2(20) primary key,
     password varchar2(30) not null,
@@ -16,9 +16,9 @@ create table user_board (
 
 select * from user_board;
 
-drop table user_board;
-
 update user_board set auth=2 where userId='admin';
+
+alter table user_board add userInfo varchar2(300) default '프로필 정보란'; -- 추가
 
 select auth from user_board;
 
@@ -38,4 +38,8 @@ drop table QandA_board;
 CREATE SEQUENCE  seq_QandA_board;
 
 insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
+
+select count(bno) from QANDA_BOARD;
+
+
 

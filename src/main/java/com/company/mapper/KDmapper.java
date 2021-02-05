@@ -7,4 +7,5 @@ import com.company.domain.KDLoginVO;
 public interface KDmapper {
 	public int insertRegister(KDLoginVO kdlogin);
 	public KDAuthVO selectByUser(KDLoginVO kdlogin);
+	public int updateUser(String userId);
 }

@@ -17,32 +17,32 @@
     />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/themify-icons.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/themify-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
   <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+  <link href="/resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
-  <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
     rel='stylesheet' type='text/css'>
   <!-- Plugin CSS -->
-  <link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="resources/css/creative.css" rel="stylesheet">
+  <link href="/resources/css/creative.css" rel="stylesheet">
 
 
 <!--기본 최상단 -->
@@ -161,7 +161,7 @@
             <div class="col-lg-2 col-md-2">
               <div class="logo">
                 <a href="./index.html">
-                  <img src="resources/img/logo.png" alt="" />
+                  <img src="/resources/img/logo.png" alt="" />
                 </a>
               </div>
             </div>
@@ -195,7 +195,7 @@
                         <tbody>
                           <tr>
                             <td class="si-pic">
-                              <img src="resources/img/select-product-1.jpg" alt="" />
+                              <img src="/resources/img/select-product-1.jpg" alt="" />
                             </td>
                             <td class="si-text">
                               <div class="product-selected">
@@ -209,7 +209,7 @@
                           </tr>
                           <tr>
                             <td class="si-pic">
-                              <img src="resources/img/select-product-2.jpg" alt="" />
+                              <img src="/resources/img/select-product-2.jpg" alt="" />
                             </td>
                             <td class="si-text">
                               <div class="product-selected">
@@ -370,7 +370,7 @@
               <li>
                 <a href="./contact.html">고객센터</a>
                 <ul class="dropdown">
-                  <li><a href="/gotoQandAList">Q&A</a></li>
+                  <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
                   <li><a href="#">공지사항</a></li>
                 </ul>

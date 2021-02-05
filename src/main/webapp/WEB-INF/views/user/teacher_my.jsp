@@ -51,9 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="/"><i class="fa fa-home"></i> Home</a>
-                        <a href="/PT/teacher-all">전체 강사 보기</a>
-                        <span>${auth.userId}님의 마이페이지</span>
+                        <h2>${auth.userId}님의 마이페이지</h2>
                     </div>
                 </div>
             </div>
@@ -76,18 +74,15 @@
                                <div class="pi-text">
                                    <div class="catagory-name">담당 운동</div>
                                        <h5>강사 이름</h5> 
-                                       <a class="btn btn-primary float-center" href="/user/profile_setting" role="button">설정</a> 
+                                       <a class="btn btn-primary float-center" href="/user/teacher_profile_setting" role="button">설정</a> 
                                </div>
                            </div>                   
                         </div>
                         <div class="blog-catagory">
                             <h4>강사 소개란</h4>
                             <ul>
-                                <li>강사 소개
-                                    <textarea style="resize: none;" name="" id="" cols="25" rows="10" placeholder="나중에 db 연결해서 가지고 오기" readonly></textarea>
-                                </li>
-                                <li>경력 사항
-                                    <textarea style="resize: none;" name="" id="" cols="25" rows="10" placeholder="나중에 db 연결해서 가지고 오기" readonly></textarea>
+                                <li>
+                                    <textarea style="resize: none;" name="" id="" cols="25" rows="20" readonly>${auth.userInfo}</textarea>
                                 </li>
                             </ul>
                         </div>
@@ -156,4 +151,41 @@
         </div>
     </section>
     <!-- Blog Section End -->
-    <%@include file="../includes/footer.jsp" %>
+	<div class="copyright-reserved">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="copyright-text">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved | This template is made with
+                <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </div>
+              <div class="payment-pic">
+                <img src="resources/img/payment-method.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="resources/js/jquery-3.3.1.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery-ui.min.js"></script>
+    <script src="resources/js/jquery.countdown.min.js"></script>
+    <script src="resources/js/jquery.nice-select.min.js"></script>
+    <script src="resources/js/jquery.zoom.min.js"></script>
+    <script src="resources/js/jquery.dd.min.js"></script>
+    <script src="resources/js/jquery.slicknav.js"></script>
+    <script src="resources/js/owl.carousel.min.js"></script>
+    <script src="resources/js/main.js"></script>
+  </body>
+</html>
+	

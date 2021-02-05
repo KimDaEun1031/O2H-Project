@@ -105,9 +105,10 @@
         <button class="btn btn-danger mr-6" id="getAdmin" onclick="getAdmin()">
           관리자에게 문의하기
         </button>
-        <a class="btn btn-success btn-lg" href="/" role="button">메인으로 </a>
-        <p style="display:none" id="auth">${auth.auth}</p>
-        <button onclick="main()">누르기</button>
+        
+        <a class="btn btn-success btn-lg" href="/" role="button" id="main">메인으로</a>
+        <input type="text" name="auth" id="data" value="${auth.auth}" style="display:none;"/>
+        
       </div>
     </div>
 
@@ -115,15 +116,15 @@
       <p></p>
     </div>
    <script>
-   		function main() {
-   			var user = 0;
-   			var teacher = 1;
-   			var admin = 2;
-   			var test
-   			window.onload = function() {
-	   			test = document.getElementById("auth").val();
-	   			console.log(test);  
-   			}
+   		//auth 숫자에 따라 메인페이지 경로 변경
+   		var test = $("#data").val();
+   		console.log(test);
+   		var teacher = "1";
+   		var admin = "2";
+   		if(test==teacher) {
+   			$("#main").attr("href","/user/teacher_my");
+   		} else if (test==admin) {
+   			$("#main").attr("href","/user/admin_index");
    		}
    </script>
    <script>
@@ -229,15 +230,15 @@
            
           </div>
         </div>
-      </div>
-    </div>
-    
+      </div>      
+     
+    </div>    
     <script>
     var gotoMain=document.getElementById("gotoMainPage");
     	gotoMain.onclick=function(){
     		location.href="/";
-    	}
-    
+    	}    	
+
     </script>
   </body>
   
