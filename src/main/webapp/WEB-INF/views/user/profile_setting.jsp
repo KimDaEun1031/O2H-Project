@@ -19,7 +19,14 @@
 
     <!-- Custom css -->
     <!-- Custom scripts for this template -->
-
+    <script>
+    $(function() {
+		var error = '${error}';
+		if(error!=''){
+			alert(error);
+		}
+	})   
+    </script>
 </head>
 
 <body>
@@ -53,10 +60,10 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>
-                        <form role="form" method="post">
+                        <form role="form" method="post" class="infoUpdateForm" action="infoUpdateForm">
                             <div class="form-group">
                                 <label for="name">UserId:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${auth.userId}">
+                                <input style="border-radius:0px;background-color:black;!important" name="uerId" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${auth.userId}">
                             </div>
                             <div class="form-group">
                                 <label for="name">Username:</label>
@@ -64,19 +71,29 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input style="border-radius:0px!important" type="email" class="form-control" id="email" placeholder="william99@fiturjc.com">
+                                <input style="border-radius:0px!important" type="email" class="form-control" name="userEmail" id="email" placeholder="william99@fiturjc.com">
                             </div>
-                        <!-- </form>
-                        <form role="form" method="post"> -->
+                            <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
+	                            <button type="submit" class="btn btn-primary " id="update-btn"> 개인정보 수정 </button>
+	                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>
+                            </div>
+                        </form>
+                        <br />
+                        <hr />
+                        <form role="form" class="passwordForm" method="post" action="passwordForm">
+                            <div class="form-group">
+                                <label for="pwd">password:</label>
+                                <input style="border-radius:0px!important" type="password" name="password" class="form-control" id="pwd" placeholder="Enter password">
+                            </div>
                             <div class="form-group">
                                 <label for="pwd">New password:</label>
-                                <input style="border-radius:0px!important" type="password" class="form-control" id="pwd" placeholder="Enter new password">
+                                <input style="border-radius:0px!important" type="password" name="new_password" class="form-control" id="pwd" placeholder="Enter new password">
                             </div>
                         <!-- </form>
                         <form role="form" method="post"> -->
                             <div class="form-group">
                                 <label for="pwd">Confirm new password:</label>
-                                <input style="border-radius:0px!important" type="password" class="form-control" id="pwd" placeholder="Repeat new password">
+                                <input style="border-radius:0px!important" type="password" name="confirm_password" class="form-control" id="pwd" placeholder="Repeat new password">
                             </div>
                         <!-- </form>
                         <form role="form" method="post" 
@@ -84,16 +101,21 @@
                                 <label for="age" style="margin-bottom:10px;">Age:</label>
                                 <input style="border-radius:0px!important" type="date" data-date-format="DD MMMM YYYY" class="form-control" id="age" placeholder="25">
                             </div>-->
-                        </form>
                         <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
-                            <button type="submit" class="btn btn-primary " id="update-btn"> Update </button>
+                            <button type="submit" class="btn btn-primary passwordBtn" id="update-btn"> 비밀번호 수정 </button>
+                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>
+                        </div>
+                        </form>
+                        
+                        <!-- <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
+                            <button type="submit" class="btn btn-primary passwordBtn" id="update-btn"> 비밀번호 수정 </button>
                             <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>
                             <script type="text/javascript">
                                 document.getElementById("cancel-btn").onclick = function () {
                                     location.href = "user.html";
                                 };
                             </script>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

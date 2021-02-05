@@ -3,14 +3,15 @@ package com.company.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.company.domain.HYChangeVO;
 import com.company.domain.HYLoginVO;
+import com.company.domain.KDAuthVO;
 import com.company.service.HYService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 public class HYController {
 	
 	@Autowired
-	private HYService hyService;
+	private HYService Service;
 
 	
 	@GetMapping("/register/deleteID")
@@ -34,7 +35,7 @@ public class HYController {
 	public String leavePost(HYLoginVO hylogin, HttpSession session) {
 		log.info("회원탈퇴 요청 "+hylogin); 
 		
-		if(hyService.leave(hylogin)) {			
+		if(Service.leave(hylogin)) {			
 			session.invalidate();
 			return "redirect:/";	
 		}else { //비밀번호가 틀린경우		
@@ -153,11 +154,60 @@ public class HYController {
 
 	}
 	
+	//이거 안씀 - form 두개로 나눴음.
 	@PostMapping("/user/profile_setting")
-	public String PostProfileSetting() {
+	public String PostProfileSetting(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+		log.info("회원정보 수정"+change);
+		change.setUserId(auth.getUserId());
+		
+//		if() {//service.update(change) 이렇게 가져왔는데 이게 맞냐는 거지.
+//			session.invalidate();
+//			return "redirect:/register/login";
+//		}else {
+//			rttr.addFlashAttribute("error", "비밀번호를 확인해 주세요");
+//			return "redirect:/user/profile_setting";
+//		}
+		
+		//service.modify(board);	보드에서는 이거 하나만 하네?
 		
 		return "/";
 	}
+	
+//	//이메일 수정
+//	@PostMapping("/user/infoUpdateForm")
+//	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+//		log.info("회원정보 수정"+change);
+//		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+//		Service.modifyInfo(change);
+//		
+//		return "redirect:/";
+//	}
+	//이메일+첨부파일 수정
+	@PostMapping("/user/infoUpdateForm")
+	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+		log.info("회원정보 수정"+change);
+		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+		Service.modifyInfo(change);
+		
+		return "redirect:/";
+	}
+	//비밀번호 수정
+	@PostMapping("/user/passwordForm")
+	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+		log.info("회원정보 수정"+change);
+		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+		Service.modifyPwd(change);
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/board/board_view")
 	public void boardView() {

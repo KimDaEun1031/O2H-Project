@@ -3,8 +3,13 @@
  */
 $(function(){
 	
+})
+
+$(function(){
+	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
-	$("button[type='submit']").click(function(e){
+	//$("button[type='submit']").click(function(e){
+	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
 		
 		var str = "";
@@ -21,7 +26,8 @@ $(function(){
 		
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1. 게시글 등록 폼 가져오기
-		var form = $("form");
+		var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
+		//var form = $("form");
 		//2. 폼에 추가하기
 		form.append(str);
 		//3. 전송
@@ -88,6 +94,8 @@ $(function(){
 	}// 첨부파일 보여주기 종료 
 
 
+
+
 	//x 버튼 클릭 - 이벤트 위임
 	$(".uploadResult").on("click","button",function(){
 		
@@ -122,6 +130,10 @@ $(function(){
 			$(".bigPictureWrapper").hide();
 		},1000);
 	})// 이미지 닫기 종료
+
+
+
+
 
 })
 

@@ -14,7 +14,6 @@ public class HYChangeVO {
 	private String userEmail;
 	private String new_password;
 	private String confirm_password;
-	private String userBirth;
 	
 	//파일 첨부 목록
 	private List<HYFileAttach> attachList;

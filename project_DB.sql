@@ -58,3 +58,26 @@ insert into announce_board(bno,title,content)
  select rn ,bno, title ,regdate,replycnt,written 
  from( select rownum rn,bno,title,regdate,replycnt,written from announce_board where rownum<=1*10)
  where rn>(1-1)*10;
+ 
+ 
+-- 파일 첨부 테이블 생성
+create table fit_attach(
+	uuid varchar2(100) not null,
+	uploadPath varchar2(200) not null,
+	fileName varchar2(100) not null,
+	fileType char(1) not null,
+	userId varchar2(20)
+);
+
+--pk
+alter table fit_attach add constraint pk_attach primary key(uuid);
+
+--fk
+alter table fit_attach 
+add constraint fk_fit_attach foreign key(userId) references user_board(userId);
+
+select * from fit_attach;
+
+select * from user_board;
+
+
