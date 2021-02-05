@@ -7,6 +7,6 @@ import com.company.domain.LoginVO;
 import com.company.domain.YHAnnounceBoardVO;
 import com.company.domain.YHCriteria;
 
-public interface YHAnnounceMapper {
+public interface YHAnnounceBoardMapper {
 	List<YHAnnounceBoardVO> searchAll(YHCriteria cri);
 }

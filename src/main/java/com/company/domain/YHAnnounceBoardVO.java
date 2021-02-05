@@ -18,7 +18,8 @@ public class YHAnnounceBoardVO {
 	private String writerId;
 	private String content;
 	private Date regDate;
-	private Date updateDate;
+	private int written;
+	private int replycnt;
 	private List<YHAnnouceReplyVO> replys;
 	private YHPageVO pageVo;
 }

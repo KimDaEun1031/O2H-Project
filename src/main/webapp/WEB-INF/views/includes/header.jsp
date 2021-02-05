@@ -39,6 +39,7 @@
     <script src="/resources/js/jquery.slicknav.js"></script>
     <script src="/resources/js/owl.carousel.min.js"></script>
     <script src="/resources/js/main.js"></script>
+    
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
@@ -155,15 +156,41 @@
                 </li>
       
                 <li class="nav-item">
-                  <a class="btn btn-success btn-lg" href="/register/login" role="button">로그인</a>
-                  <a class="btn btn-success btn-lg" href="/register/signup" role="button">회원가입</a>     
+               		<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
+                	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
+                	<a class="btn btn-success btn-lg" id="profile" href="#" hidden="hidden" role="button">내 정보</a>
+                	<a class="btn btn-primary btn-lg" id="logout" href="#" hidden="hidden" role="button">로그 아웃</a>                 
+               
+               
                 </li>
               </ul>
             </div>
           </div>
         </nav>
 
-
+<script>
+	//	window.onload =function(){
+			var loginInfo = '${auth.userId}';
+			
+			var login=document.getElementById("login");
+			var signin=document.getElementById("signin");
+			var logout=document.getElementById("logout");
+			var profile=document.getElementById("profile");
+			if(loginInfo !=''){
+				logout.removeAttribute("hidden");
+				profile.removeAttribute("hidden");
+				alert("good");
+			}else{
+				alert("bad");
+				login.removeAttribute("hidden");
+				signin.removeAttribute("hidden");
+				
+			}
+			
+//		}
+	
+	
+	</script>
 
 
 
