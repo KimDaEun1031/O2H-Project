@@ -412,7 +412,7 @@
                 <ul class="dropdown">
                   <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
-                  <li><a href="#">공지사항</a></li>
+                  <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
               </li>
             </ul>

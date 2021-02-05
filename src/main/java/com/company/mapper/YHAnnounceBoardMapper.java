@@ -9,4 +9,6 @@ import com.company.domain.YHCriteria;
 
 public interface YHAnnounceBoardMapper {
 	List<YHAnnounceBoardVO> searchAll(YHCriteria cri);
+	int regist(YHAnnounceBoardVO vo);
+	YHAnnounceBoardVO read(int bno);
 }

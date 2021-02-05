@@ -3,7 +3,7 @@
 <mapper namespace="com.company.mapper.YHAnnounceBoardMapper">
 
 
-<select id="searchAll" resultType="com.company.domain.YHAnnouceReplyVO">
+<select id="searchAll" resultType="com.company.domain.YHAnnounceBoardVO">
 	<![CDATA[
 	select rn ,bno, title ,regdate,replycnt,written from(
 select rownum rn,bno,title,regdate,replycnt,written
@@ -13,7 +13,12 @@ where
 ]]>
 </select>
 
-
-
+<insert id="regist">
+insert into announce_board(bno,title,content)
+ values(seq_announce_board.nextval,#{title},#{content}) 
+</insert>
+<select id="read" resultType="com.company.domain.YHAnnounceBoardVO">
+select * from announce_board where bno=#{bno}
+</select>
 
 </mapper>

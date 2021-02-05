@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>Q&A게시판</span>
+              <span>announce게시판</span>
             </div>
           </div>
         </div>
@@ -17,7 +17,7 @@
 
     <!-- 게시글 작성 -->
 
-	<form action="/qandaboard/register" method="post">
+	<form action="/announce/getList" method="post">
     <div class="board_write_wrap">
       <div class="board_write">
         <div class="title">
@@ -46,7 +46,7 @@
       <input type="submit" value="등록">
       <a href="#">취소</a>
     </div>
+	<input type="hidden" name="pageNum" value="${pageNum }">
 	</form>
-	
    <%@include file="../includes/footer.jsp" %>
 </html>

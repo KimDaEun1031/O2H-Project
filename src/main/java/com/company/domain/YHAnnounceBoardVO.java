@@ -15,11 +15,12 @@ import lombok.ToString;
 @ToString
 public class YHAnnounceBoardVO {
 	private int bno;
-	private String writerId;
+	private String writer_id;
 	private String content;
-	private Date regDate;
+	private Date regdate;
 	private int written;
 	private int replycnt;
+	private String title;
 	private List<YHAnnouceReplyVO> replys;
 	private YHPageVO pageVo;
 }

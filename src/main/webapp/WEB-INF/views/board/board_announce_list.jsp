@@ -41,10 +41,10 @@
     		<tr>
          		<td>${vo.bno }</td>
    			<td><a href="${vo.bno }" class="move">${vo.title}</a></td>
-   			<td>${vo.writer_id }  </td>
           	<td><fmt:formatDate value="${vo.regdate }"
           			pattern="yyyy-MM-dd HH:mm" /></td>
          	<td>${vo.written }
+   			<td>${vo.replycnt }  </td>
          	</td>    		
          	</tr>
          </c:forEach>
@@ -69,21 +69,42 @@
 	</div>
 	<!-- end Pagination -->     
 	<div class="bt_wrap">
-	   <a href="/announce/gotoWrite" id="singinbtn"><button class="btn btn-primary">글 작성</button></a> 
+	   <button class="btn btn-primary" id="write" hidden="hidden">글 작성</button> 
 	</div>
 </div>
 
 
 <form action="/announce/read" id="actionForm">
-   <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }"/>
+			
+   <input type="hidden" name="pageNum" id="pageNum" value="1"/>
+   
    <input type="hidden" name="bno" />
 </form>      
 
+<form action="/announce/write" id="actionForRead">
+			
+   <input type="hidden" name="pageNum" id="pageNum" value="1"/>
+   
+</form>      
 
 <script>
  window.onload=function(){
-var actionForm=$("#actionForm")
-	
+	 var writebtn=document.getElementById("write");
+	 if('${auth.userId}'=='admin'){
+		 writebtn.removeAttribute("hidden");
+	 }
+	 var pageNumDiv=document.getElementById("pageNum")
+	 if("${pageNum}"=="1"){
+		 pageNumDiv.setAttribute("value",'${pageNum}')
+	 }
+	 var actionForm=$("#actionForm")
+	write.onclick=function(e){
+		 e.preventDefault();
+		 
+		 $("#actionForRead").submit();
+		 
+		 
+	 } 
 	$(".paginate_button a").click(function(e){
 		//a 태그의 기능을 중지
 		e.preventDefault();

@@ -18,5 +18,5 @@ public class YHAnnouceReplyVO {
 	private String replyWriterId;
 	private Date replyRegDate;
 	private Date replyUpdateDate; 
-	private String replyContent;
+	private String reply;
 }

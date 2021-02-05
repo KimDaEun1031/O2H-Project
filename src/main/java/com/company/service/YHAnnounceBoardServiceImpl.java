@@ -24,6 +24,18 @@ public class YHAnnounceBoardServiceImpl implements YHAnnounceBoardService{
 		
 		return mapper.searchAll(cir);
 	}
+
+	@Override
+	public int regist(YHAnnounceBoardVO vo) {
+		
+		return mapper.regist(vo);
+	}
+
+	@Override
+	public YHAnnounceBoardVO read(int bno) {
+		
+		return mapper.read(bno);
+	}
 		
 	
 	
