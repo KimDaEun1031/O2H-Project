@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.HYChangeVO;
 import com.company.domain.HYLoginVO;
-import com.company.domain.KDAuthVO;
+import com.company.domain.KDLoginInfoVO;
 import com.company.service.HYService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -156,7 +156,7 @@ public class HYController {
 	
 	//이거 안씀 - form 두개로 나눴음.
 	@PostMapping("/user/profile_setting")
-	public String PostProfileSetting(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+	public String PostProfileSetting(HYChangeVO change, @SessionAttribute KDLoginInfoVO auth, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 수정"+change);
 		change.setUserId(auth.getUserId());
 		
@@ -184,7 +184,7 @@ public class HYController {
 //	}
 	//이메일+첨부파일 수정
 	@PostMapping("/user/infoUpdateForm")
-	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO auth, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 수정"+change);
 		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 		Service.modifyInfo(change);
@@ -193,7 +193,7 @@ public class HYController {
 	}
 	//비밀번호 수정
 	@PostMapping("/user/passwordForm")
-	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
+	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO auth, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 수정"+change);
 		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 		Service.modifyPwd(change);
