@@ -31,19 +31,21 @@
             <dt>글쓴이</dt>
             <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${auth.userId }" readonly="readonly"/></dd>
           </dl>
-        
+          <!-- 
+          <dl>
+            <dt>비밀번호</dt>
+            <dd><input type="password" placeholder="비밀번호 입력" /></dd>
+          </dl>
+        </div> -->
         <div class="cont">
           <textarea name="content" placeholder="내용 입력"></textarea>
         </div>
       </div>
     </div>
-    
-	
     <div class="bt_wrap">
       <input type="submit" value="등록">
       <a href="#">취소</a>
     </div>
-    
 	</form>
 	
    <%@include file="../includes/footer.jsp" %>

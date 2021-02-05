@@ -16,4 +16,8 @@ public interface YHQandABoardMapper {
 	
 	public int totalCnt(YHCriteria cri);
 
+	public int update(YHQandABoardVO board);
+	
+	public int delete(int bno);
+	public int replyupdate(YHQandABoardVO board);
 }

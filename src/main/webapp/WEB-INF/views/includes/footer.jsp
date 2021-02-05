@@ -7,7 +7,7 @@
           <div class="col-lg-3">
             <div class="footer-left">
               <div class="footer-logo">
-                <a href="#"><img src="img/footer-logo.png" alt="" /></a>
+                <a href="#"><img src="/resources/img/footer-logo.png" alt="" /></a>
               </div>
               <ul>
                 <li>Address: 60-49 Road 11378 New York</li>
@@ -73,7 +73,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </div>
               <div class="payment-pic">
-                <img src="img/payment-method.png" alt="" />
+                <img src="/resources/img/payment-method.png" alt="" />
               </div>
             </div>
           </div>
@@ -82,16 +82,6 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Js Plugins -->
-    <script src="/resources/js/jquery-3.3.1.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/jquery-ui.min.js"></script>
-    <script src="/resources/js/jquery.countdown.min.js"></script>
-    <script src="/resources/js/jquery.nice-select.min.js"></script>
-    <script src="/resources/js/jquery.zoom.min.js"></script>
-    <script src="/resources/js/jquery.dd.min.js"></script>
-    <script src="/resources/js/jquery.slicknav.js"></script>
-    <script src="/resources/js/owl.carousel.min.js"></script>
-    <script src="/resources/js/main.js"></script>
+    
   </body>
 </html>

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="description" content="Fashi Template" />
     <meta name="keywords" content="Fashi, unica, creative, html" />
@@ -26,15 +27,27 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
+  
+   <!-- Js Plugins -->
+    <script src="/resources/js/jquery-3.3.1.min.js" defer="defer"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/jquery-ui.min.js"></script>
+    <script src="/resources/js/jquery.countdown.min.js"></script>
+    <script src="/resources/js/jquery.nice-select.min.js"></script>
+    <script src="/resources/js/jquery.zoom.min.js"></script>
+    <script src="/resources/js/jquery.dd.min.js"></script>
+    <script src="/resources/js/jquery.slicknav.js"></script>
+    <script src="/resources/js/owl.carousel.min.js"></script>
+    <script src="/resources/js/main.js"></script>
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
   <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="/resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+  <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- Custom fonts for this template -->
-  <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ <!--  <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
@@ -113,12 +126,12 @@
 
             <a class="anavbar-brand js-scroll-trigger" href="/">HOME</a>
 
-  
-            <script type="text/javascript">
-              document.getElementById("img-logo").onclick = function () {
-                location.href = "index.html";
-              };
-            </script>
+  			<!-- 에러나는곧 잠시 막음	
+             <script type="text/javascript">
+               document.getElementById("img-logo").onclick = function () {
+                location.href = "/";
+              }; 
+            </script> -->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
               aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>

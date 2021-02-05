@@ -43,6 +43,30 @@ public class YHQandABoardServiceImp implements YHQandABoardService {
 	
 		return mapper.QandASearchList(cri);
 	}
+
+
+
+	@Override
+	public int update(YHQandABoardVO board) {
+		
+		return mapper.update(board);
+	}
+
+
+
+	@Override
+	public int delete(int bno) {
+	
+		return mapper.delete(bno);
+	}
+
+
+
+	@Override
+	public int updatereply(YHQandABoardVO board) {
+		
+		return mapper.replyupdate(board);
+	}
 	
 	
 

@@ -12,4 +12,7 @@ public interface YHQandABoardService {
 	public List<YHQandABoardVO> QandABoardList(YHCriteria cri);
 	public YHQandABoardVO QandASelect(int bno);
 	public int getTotalCnt(YHCriteria cri);
+	public int update(YHQandABoardVO board);
+	public int delete(int bno);
+	public int updatereply(YHQandABoardVO board);
 }
