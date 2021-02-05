@@ -160,9 +160,9 @@
 			if('${auth}'!=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");
-			alert("good")
+			
 			}else{
-				alert("bad");
+				
 				login.removeAttribute("hidden");
 				signin.removeAttribute("hidden");
 				
