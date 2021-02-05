@@ -138,21 +138,7 @@
                   <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
                 </li>
       
-                <li class="nav-item">
-                 <%
-		            // 로그인 안되었을 경우 - 로그인, 회원가입 버튼을 보여준다.
-		            if(session.getAttribute("sessionID")==null){ 
-        		%>
-                	<a class="btn btn-success btn-lg" href="/register/login" role="button">로그인</a>
-                	<a class="btn btn-success btn-lg" href="/register/signup" role="button">회원가입</a>
-                <%
-		            // 로그인 되었을 경우 - 로그아웃, 내정보 버튼을 보여준다.
-		            }else{ 
-		        %>
-		            <a class="btn btn-success btn-lg" href="/" role="button">로그아웃</a>
-		            <a class="btn btn-success btn-lg" href="/user/user" role="button">내 정보</a>
-		        <%    }    %>    
-              
+                <li class="nav-item">                
                 	<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
                 	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success btn-lg" id="profile" href="#" hidden="hidden" role="button">내 정보</a>
