@@ -1,4 +1,4 @@
-<%@page import="com.company.domain.KDAuthVO"%>
+<%@page import="com.company.domain.KDLoginInfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>

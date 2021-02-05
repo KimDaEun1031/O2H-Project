@@ -16,9 +16,16 @@ create table user_board (
 
 select * from user_board;
 
+update user_board set userInfo='vmfhfdjlkdsk' where userId='test1';
+
+select userInfo from user_board;
+
 update user_board set auth=2 where userId='admin';
 
 alter table user_board add userInfo varchar2(300) default '프로필 정보란'; -- 추가
+alter table user_board drop column userInfo;
+
+ALTER TABLE user_board RENAME COLUMN auth TO user_level;
 
 select auth from user_board;
 

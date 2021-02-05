@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.company.domain.KDAuthVO;
+import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
 import com.company.domain.LoginVO;
 import com.company.service.KDService;

@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.company.domain.KDAuthVO;
+import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
+import com.company.domain.KDupdateInfoVO;
 import com.company.mapper.KDmapper;
 
 @Service
@@ -21,13 +22,18 @@ public class KDServiceImpl implements KDService {
 	}
 
 	@Override
-	public KDAuthVO isLogin(KDLoginVO kdlogin) {
+	public KDLoginInfoVO isLogin(KDLoginVO kdlogin) {
 		return mapper.selectByUser(kdlogin);
 	}
 
 	@Override
-	public boolean userUpdate(String userId) {
-		return mapper.updateUser(userId)>0?true:false;
+	public boolean userUpdate(KDupdateInfoVO updateProfile) {
+		return mapper.updateUser(updateProfile)>0?true:false;
+	}
+
+	@Override
+	public KDLoginInfoVO updateProfile(String userId) {
+		return mapper.selectProfile(userId);
 	}
 
 

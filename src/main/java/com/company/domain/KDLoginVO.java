@@ -22,4 +22,5 @@ public class KDLoginVO {
 	private Date regdate;
 	
 	private char auth;
+	private String userInfo;
 }

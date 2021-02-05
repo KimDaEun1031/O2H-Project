@@ -42,28 +42,21 @@
                 <!-- Section Header End. Col divide into columms-->
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
-                        <h1>FitURJC Account</h1>      
-                        <form role="form">
-                            <div class="form-group">
-                                <label for="email">이름</label>
-                                <input style="border-radius:0px!important" name="userName" class="form-control" id="email" value="${auth.userName}" readonly>
+                        <h1>FitURJC Account</h1>                                  
+                        <form role="form" method="POST">
+                        	<div class="form-group">
+                                <label for="userId">아이디</label>
+                                <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${auth.userId}" readonly>
                             </div>
-                        </form>
-                        <form role="form" method="post">
                             <div class="form-group">
-                                <label for="pwd">강사소개</label>
-                                <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="" >${auth.userInfo}</textarea>
-                            </div>
-                        </form>                 
-                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
-                            <button type="submit" class="btn btn-primary " id="update-btn"> Update </button>
-                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>                                           
-                            <script type="text/javascript">
-                                document.getElementById("cancel-btn").onclick = function () {
-                                    location.href = "user.html";
-                                };
-                            </script>
-                        </div>
+                                <label for="userInfo">강사소개</label>
+                                <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="userInfo">${auth.userInfo}</textarea>
+                            </div>             
+	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
+	                            <button type="submit" class="btn btn-primary " id="update-btn"> 프로필 수정 </button>
+	                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>                                           	                            
+	                        </div>
+                        </form>  
                     </div>
                 </div>
             </div>

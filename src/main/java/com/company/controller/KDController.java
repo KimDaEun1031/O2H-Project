@@ -4,13 +4,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-
-import com.company.domain.KDAuthVO;
+import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
+import com.company.domain.KDupdateInfoVO;
 import com.company.service.KDService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,12 +27,12 @@ public class KDController {
 	public String loginSuccess(KDLoginVO kdlogin, HttpSession session) {
 	
 		log.info("로그인 요청" );
-		KDAuthVO auth = service.isLogin(kdlogin);
+		KDLoginInfoVO auth = service.isLogin(kdlogin);
 		log.info("로그인 정보"+auth.getUserInfo());
 		
 		if(auth!=null) {
 			session.setAttribute("auth", auth);
-			session.removeAttribute("loginFail");			
+			session.removeAttribute("loginFail");	
 			return "/register/loginSuccess";
 		} else {
 			session.setAttribute("loginFail", "fail");
@@ -69,12 +70,13 @@ public class KDController {
 	
 	@GetMapping("/user/teacher_my")
 	public void teacherMypage() {
-		log.info("강사 마이페이지");
+		log.info("강사 마이페이지" );
 	}
 	
 	@GetMapping("/user/teacher_profile_setting")
-	public void profile_setting(KDAuthVO auth) {
-		log.info("프로필 설정 페이지"  +auth );
+	public void profile_setting() {	
+		log.info("프로필 설정 페이지");
+		
 	}
 	
 	@GetMapping("/user/admin_index")
@@ -83,7 +85,16 @@ public class KDController {
 	}
 	
 	@PostMapping("/user/teacher_profile_setting")
-	public void updateUserInfo(KDAuthVO auth) {
-		log.info("프로필 설정 " +auth );
+	public String updateUserInfo(HttpSession session, KDupdateInfoVO updateInfo) {
+		KDLoginInfoVO auth = (KDLoginInfoVO) session.getAttribute("auth");
+		log.info("프로필 설정 "+auth.getUserId(),auth.getUserInfo());
+		updateInfo.setUpdateInfo(auth.getUserInfo());
+		if(service.userUpdate(updateInfo)) {
+			session.setAttribute("auth", updateInfo);
+			return "/user/teacher_my";
+		} else {
+			return "/user/teache_profile_setting";			
+		}
+		
 	}
 }
