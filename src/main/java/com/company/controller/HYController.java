@@ -173,29 +173,30 @@ public class HYController {
 		return "/";
 	}
 	
-//	//이메일 수정
-//	@PostMapping("/user/infoUpdateForm")
-//	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDAuthVO auth, HttpSession session,RedirectAttributes rttr) {
-//		log.info("회원정보 수정"+change);
-//		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
-//		Service.modifyInfo(change);
-//		
-//		return "redirect:/";
-//	}
-	//이메일+첨부파일 수정
+	//이메일 수정
 	@PostMapping("/user/infoUpdateForm")
-	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO auth, HttpSession session,RedirectAttributes rttr) {
+	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 수정"+change);
-		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 		Service.modifyInfo(change);
 		
 		return "redirect:/";
 	}
+	//이메일+첨부파일 수정
+//	@PostMapping("/user/infoUpdateForm")
+//	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
+//		log.info("회원정보 수정"+change);
+//		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+//		Service.modifyInfo(change);
+//		
+//		return "redirect:/";
+//	}
+	
 	//비밀번호 수정
 	@PostMapping("/user/passwordForm")
-	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO auth, HttpSession session,RedirectAttributes rttr) {
+	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 수정"+change);
-		change.setUserId(auth.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나++처음 세션에 담은 변수명 그대로 여기서도 변수명을 똑같이 써줘야하는구나
 		Service.modifyPwd(change);
 		
 		return "redirect:/";
