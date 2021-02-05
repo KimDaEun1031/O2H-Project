@@ -70,7 +70,7 @@
 	</div>
 	<!-- end Pagination -->     
 	<div class="bt_wrap">
-	   <a href="/qandaboard/gotoWriterQuestion" id="singinbtn"><button class="btn btn-primary">글 작성</button></a> 
+	   <a href="/qandaboard/gotoWriterQuestion" ><button class="btn btn-primary" hidden="hidden" id="singinbtn">글 작성</button></a> 
 	</div>
 </div>
 
@@ -83,6 +83,11 @@
 
 <script>
  window.onload=function(){
+	 
+	 console.log("${auth}"+"123");
+	 if("${auth.userId}"!=""){
+			 document.getElementById("singinbtn").removeAttribute("hidden");
+	 }
 var actionForm=$("#actionForm")
 	
 	$(".paginate_button a").click(function(e){

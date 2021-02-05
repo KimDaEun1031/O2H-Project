@@ -45,7 +45,7 @@
           			pattern="yyyy-MM-dd HH:mm" /></td>
          	<td>${vo.written }
    			<td>${vo.replycnt }  </td>
-         	</td>    		
+         	   		
          	</tr>
          </c:forEach>
        </tbody>
