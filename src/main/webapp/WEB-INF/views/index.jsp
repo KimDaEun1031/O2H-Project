@@ -32,7 +32,7 @@
   <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="/resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+  <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- Custom fonts for this template -->
   <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -110,11 +110,11 @@
         <!-- Navigation  class="nav-link js-scroll-trigger"-->
         <nav class="navbar navbar-expand-lg navbar-light afixed-top" id="mainNav"><!-- fixed-top 수정해서 스크롤 제거 -->
           <div class="container">
-            <a class="anavbar-brand js-scroll-trigger" href="./index.html">HOME</a>
-            <script type="text/javascript">
+        <!--     <a class="anavbar-brand js-scroll-trigger" href="/">HOME</a> -->
+          <!--   <script type="text/javascript">
               document.getElementById("img-logo").onclick = function () {
                 location.href = "index.html";
-              };
+              }; -->
             </script>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
               aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,13 +132,14 @@
                   <a class="nav-link js-scroll-trigger" href="#services">Professionals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#facilities">Facilities</a>
+                  <a class="nav-link js-scroll-trigger" href="/user/profile_setting">테스트중</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
                 </li>
       
                 <li class="nav-item">
+<<<<<<< HEAD
                  <%
 		            // 로그인 안되었을 경우 - 로그인, 회원가입 버튼을 보여준다.
 		            if(session.getAttribute("sessionID")==null){ 
@@ -153,13 +154,41 @@
 		            <a class="btn btn-success btn-lg" href="/user/user" role="button">내 정보</a>
 		        <%    }    %>    
               
+=======
+                	<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
+                	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
+                	<a class="btn btn-success btn-lg" id="profile" href="#" hidden="hidden" role="button">내 정보</a>
+                	<a class="btn btn-primary btn-lg" id="logout" href="#" hidden="hidden" role="button">로그 아웃</a>                 
+>>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
                 </li>
               </ul>
             </div>
           </div>
         </nav>
 
-
+	<script>
+		window.onload =function(){
+			
+			
+			var login=document.getElementById("login");
+			var signin=document.getElementById("signin");
+			var logout=document.getElementById("logout");
+			var profile=document.getElementById("profile");
+			if('${auth}'!=''){
+				logout.removeAttribute("hidden");
+				profile.removeAttribute("hidden");
+			
+			}else{
+				
+				login.removeAttribute("hidden");
+				signin.removeAttribute("hidden");
+				
+			}
+			
+		}
+	
+	
+	</script>
 
 
 
@@ -171,7 +200,7 @@
           <div class="row">
             <div class="col-lg-2 col-md-2">
               <div class="logo">
-                <a href="./index.html">
+                <a href="/">
                   <img src="/resources/img/logo.png" alt="" />
                 </a>
               </div>
@@ -383,7 +412,7 @@
                 <ul class="dropdown">
                   <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
-                  <li><a href="#">공지사항</a></li>
+                  <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
               </li>
             </ul>

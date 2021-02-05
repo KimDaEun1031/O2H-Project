@@ -43,10 +43,53 @@ create table QandA_board(
 	);
 drop table QandA_board;
 CREATE SEQUENCE  seq_QandA_board;
-CREATE SEQUENCE  seq_announce_board;
 insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
 
+<<<<<<< HEAD
 select count(bno) from QANDA_BOARD;
 
+=======
+create table announce_board(
+	bno number primary key,
+	title varchar2(20) not null,
+	regdate date default Sysdate,
+	written number default 0,
+	content varchar2(100) not null,
+	replycnt number default 0
+	);
+	drop table announce_board;
+CREATE SEQUENCE  seq_announce_board;
+
+select seq_announce_board   FROM DUAL; 
+insert into announce_board(bno,title,content)
+ values(seq_announce_board.nextval,'dtd','ddtt') ;
+
+ select * from announce_board;
+ 
+ select rn ,bno, title ,regdate,replycnt,written 
+ from( select rownum rn,bno,title,regdate,replycnt,written from announce_board where rownum<=1*10)
+ where rn>(1-1)*10;
+ 
+ 
+-- 파일 첨부 테이블 생성
+create table fit_attach(
+	uuid varchar2(100) not null,
+	uploadPath varchar2(200) not null,
+	fileName varchar2(100) not null,
+	fileType char(1) not null,
+	userId varchar2(20)
+);
+
+--pk
+alter table fit_attach add constraint pk_attach primary key(uuid);
+
+--fk
+alter table fit_attach 
+add constraint fk_fit_attach foreign key(userId) references user_board(userId);
+
+select * from fit_attach;
+
+select * from user_board;
+>>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
 
 

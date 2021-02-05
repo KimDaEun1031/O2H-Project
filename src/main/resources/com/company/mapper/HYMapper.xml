@@ -6,6 +6,48 @@
 		delete from user_board where userId=#{userId} and password=#{password}
 	</delete>
 	
+	<!-- 수정 : 비밀번호 변경 -->
+	<update id="updateMember">
+		update user_board 
+		set password=#{new_password}
+		where userId=#{userId} and password=#{password}
+	</update>
+	<!-- 수정 : 이메일 변경 -->
+	<update id="updateInfo">
+		update user_board 
+		set userEmail=#{userEmail}
+		where userId=#{userId}
+	</update>
+	
+	<!-- profile -->
+	<!-- 어태치 -->
+	<insert id="insertAttach">
+		insert into fit_attach(uuid,uploadPath,fileName,fileType,userId) 
+		values(#{uuid},#{uploadPath},#{fileName},#{fileType},#{userId})
+	</insert>
+	<delete id="deleteAttach">
+		delete from fit_attach where userId=#{userId}
+	</delete>
+	
+	<!-- 보드 -->
+	<!-- 첨부물 가져오기 resultType 없어서 에러났었네 -->
+	<select id="attachList" resultType="com.company.domain.HYFileAttach">
+		select * from fit_attach where userId=#{userId}
+	</select>
+	
+	
+	
+	
+	<!-- 보드 수정 : title, content, updatedate -->
+	<!-- 보드에서도 첨부물을 수정할 때 뭐 따로 넣고 하진 않았음. fk잡고 select하는듯? -->
+<!-- 	<update id="update">
+		update spring_board set title=#{title}, content=#{content}, updatedate=sysdate 
+		where bno=#{bno}
+	</update>
+	 -->
+	
+	
+	
 	
 	
 </mapper>

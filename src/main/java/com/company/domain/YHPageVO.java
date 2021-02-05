@@ -1,9 +1,15 @@
 package com.company.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class YHPageVO { // 페이지 나누깅와 관련된 모든 정보를 가지는 객체
 	private int startPage;

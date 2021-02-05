@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.YHAnnounceBoardMapper">
+
+
+<select id="searchAll" resultType="com.company.domain.YHAnnounceBoardVO">
+	<![CDATA[
+	select rn ,bno, title ,regdate,replycnt,written from(
+select rownum rn,bno,title,regdate,replycnt,written
+from announce_board
+where 
+ rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+]]>
+</select>
+
+<insert id="regist">
+insert into announce_board(bno,title,content)
+ values(seq_announce_board.nextval,#{title},#{content}) 
+</insert>
+<select id="read" resultType="com.company.domain.YHAnnounceBoardVO">
+select * from announce_board where bno=#{bno}
+</select>
+
+</mapper>
