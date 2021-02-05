@@ -12,7 +12,7 @@
 		set password=#{new_password}
 		where userId=#{userId} and password=#{password}
 	</update>
-	<!-- 수정 : 이메일 변경 -->
+	<!-- 수정 : 이메일 변경은 되고 +첨부파일까지 되나보자... -->
 	<update id="updateInfo">
 		update user_board 
 		set userEmail=#{userEmail}

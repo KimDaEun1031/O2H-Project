@@ -46,9 +46,9 @@ public class HYController {
 	
 
 	//칼로리사전 AJAX
-	@GetMapping("/register/calorDict")
-	public String calor5() {
-		return "/HYviews/calorDict";
+	@GetMapping("/program/calorDict")
+	public void calor5() {
+
 	}
 	
 //	@GetMapping("/register/user")
@@ -57,9 +57,9 @@ public class HYController {
 //	}
 	
 
-	@GetMapping("/register/profile")
-	public String profile() {
-		return "/user/profile";
+	@GetMapping("/user/profile")
+	public void profile() {
+
 	}
 	
 	//////////
