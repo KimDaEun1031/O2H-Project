@@ -46,6 +46,12 @@
 		<property name="dataSource" ref="ds" />
 
 	</bean>
-<tx:annotation-driven/>
+	<tx:annotation-driven/>
+	
+	
+	<!-- 파일 업로드 -->
+	
+	
+	
 
 </beans>
