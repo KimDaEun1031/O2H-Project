@@ -1,0 +1,27 @@
+package com.company.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.company.domain.YHAnnounceBoardVO;
+import com.company.domain.YHCriteria;
+import com.company.mapper.YHAnnounceMapper;
+
+import lombok.extern.slf4j.Slf4j;
+
+public class YHAnnounceBoardServiceImpl implements YHAnnounceBoardService{
+	
+	@Autowired
+	private YHAnnounceMapper mapper;
+
+	@Override
+	public List<YHAnnounceBoardVO> ListAll(YHCriteria cir) {
+		
+		return mapper.searchAll(cir);
+	}
+		
+	
+	
+}

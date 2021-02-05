@@ -36,6 +36,15 @@ create table QandA_board(
 	);
 drop table QandA_board;
 CREATE SEQUENCE  seq_QandA_board;
-CREATE SEQUENCE  seq_announce_board;
 insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
 
+create table announce_board(
+	bno number primary key,
+	title varchar2(20) not null,
+	regdate date default Sysdate,
+	written number default 0,
+	content varchar2(100) not null,
+	replycnt number
+	);
+	drop table announce_board;
+CREATE SEQUENCE  seq_announce_board;

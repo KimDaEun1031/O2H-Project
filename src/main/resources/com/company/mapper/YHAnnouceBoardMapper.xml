@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.YHAnnouceBoardMapper">
+
+
+<select id="searchAll" resultType="com.company.domain.YHAnnouceReplyVO">
+	<![CDATA[
+	select rn ,bno, title ,regdate,updatedate,writer,replycnt from(
+select /*+INDEX_DESC(spring_board pk_spring_board)*/
+rownum rn,bno,title,regdate,updatedate,writer,replycnt
+from spring_board
+where 
+ rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+]]>
+</select>
+
+
+
+
+</mapper>

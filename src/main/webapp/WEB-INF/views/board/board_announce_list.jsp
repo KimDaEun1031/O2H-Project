@@ -33,7 +33,7 @@
             <th>제목</th>
             <th>글쓴이</th>
             <th>작성일</th>
-            <th>답변날짜</th>
+            <th>댓글 수</th>
           </tr>
         </thead>
         <tbody>
@@ -44,9 +44,7 @@
     			<td>${vo.writer_id }  </td>
 	          	<td><fmt:formatDate value="${vo.regdate }"
 	          			pattern="yyyy-MM-dd HH:mm" /></td>
-          		<td>
-          		<fmt:formatDate value="${vo.replyDate }"
-	          			pattern="yyyy-MM-dd HH:mm" /></td>
+          		<td>${vo.replyCnt }</td>
           		
           		
           		

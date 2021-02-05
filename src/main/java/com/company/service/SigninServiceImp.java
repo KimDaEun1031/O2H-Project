@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.domain.LoginVO;
-import com.company.mapper.YHmapper;
+import com.company.mapper.YHAnnounceMapper;
 @Service
 public class SigninServiceImp implements SigninService {
 	@Autowired
-	private YHmapper mapper;
+	private YHAnnounceMapper mapper;
 	@Override
 	public boolean regist(LoginVO loginVo) {
 		boolean flag=false;
