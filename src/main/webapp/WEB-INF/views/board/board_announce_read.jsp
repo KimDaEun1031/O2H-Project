@@ -28,7 +28,9 @@
          		
 				List<YHAnnouceReplyVO> list=(List<YHAnnouceReplyVO>)request.getAttribute("list");
          		 KDLoginInfoVO vo=(KDLoginInfoVO)session.getAttribute("loginInfo");
-         		String temp=vo.getUserId();
+         		String temp="";
+         		if(vo!=null){
+         		temp=vo.getUserId();}
          		String temp2="안녕하신가?";
          		System.out.println("temp="+temp);
          		
@@ -102,9 +104,11 @@
          	  <a href="/announce/deleteReply?rno=${vo.rno }">삭제</a>
          	</c:if>
          	<%
+         		
          		System.out.println(i);
          		temp2=(list.get(i)).getReplyer();
          			System.out.println(temp2+" 이것은 temp2");
+         			if(vo!=null){
          		if(vo.getUserId().equals(temp2) ){
          			System.out.println("들어왔다 temp2==" +temp2);
          			System.out.println("들어왔다 temp==" +temp);
@@ -114,7 +118,7 @@
          		<a href="/announce/deleteReply?rno=${vo.rno }&bno=${vo.bno}">삭제</a>
          	
          	
-         	<% }%>
+         	<% } }%>
          	</td>
          	   		
          	</tr>
