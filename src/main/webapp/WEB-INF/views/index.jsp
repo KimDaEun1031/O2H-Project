@@ -493,7 +493,7 @@
           <div class="col-lg-3">
             <div
               class="product-large set-bg"
-              data-setbg="img/products/women-large.jpg"
+              data-setbg="/resources/img/products/women-large.jpg"
             >
               <h2>추천상품</h2>
               <a href="#">자세히</a>

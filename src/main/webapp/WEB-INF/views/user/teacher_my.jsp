@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>${auth.userId}님의 마이페이지</h2>
+                        <h2>${loginInfo.userId}님의 마이페이지</h2>
                     </div>
                 </div>
             </div>
@@ -68,13 +68,13 @@
                         <div class="search-form">
                            <div class="product-item">
                                <div class="pi-pic">
-                                   <a href=""><img src="/resources/img/products/women-4.jpg" alt=""></a>
+                                   <a href="/user/teacher_profile_setting"><img src="/resources/img/products/women-4.jpg" alt=""></a>
                                                            
                                </div>
                                <div class="pi-text">
                                    <div class="catagory-name">담당 운동</div>
-                                       <h5>강사 이름</h5> 
-                                       <a class="btn btn-primary float-center" href="/user/teacher_profile_setting" role="button">설정</a> 
+                                       <h5>${loginInfo.userId}</h5> 
+                                       <a class="btn btn-primary float-center" href="/user/profile_setting" role="button">설정</a> 
                                </div>
                            </div>                   
                         </div>

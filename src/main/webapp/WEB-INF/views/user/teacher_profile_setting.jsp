@@ -43,7 +43,7 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>                                  
-                        <form role="form" method="POST">
+                        <form role="form" method="POST" id="profile-form">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
                                 <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>
@@ -52,9 +52,9 @@
                                 <label for="userInfo">강사소개</label>
                                 <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="userInfo">${loginInfo.userInfo}</textarea>
                             </div>             
-	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
-	                            <button type="submit" class="btn btn-primary " id="update-btn"> 프로필 수정 </button>
-	                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>                                           	                            
+	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">	                           
+	                            <button type="submit" class="btn btn-primary " id="update-btn" >수정 완료</button>
+	                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='teacher_my'">수정 취소</button>	                                                                 	                            
 	                        </div>
                         </form>  
                     </div>

@@ -2,7 +2,6 @@ package com.company.service;
 
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
-import com.company.domain.KDupdateInfoVO;
 
 public interface KDService {
 	public boolean registerInsert(KDLoginVO kdlogin);
