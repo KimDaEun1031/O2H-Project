@@ -29,10 +29,10 @@
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
+  <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
-  <link href="/resources/vendor/bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+  <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- Custom fonts for this template -->
   <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -110,11 +110,11 @@
         <!-- Navigation  class="nav-link js-scroll-trigger"-->
         <nav class="navbar navbar-expand-lg navbar-light afixed-top" id="mainNav"><!-- fixed-top 수정해서 스크롤 제거 -->
           <div class="container">
-            <a class="anavbar-brand js-scroll-trigger" href="./index.html">HOME</a>
-            <script type="text/javascript">
+        <!--     <a class="anavbar-brand js-scroll-trigger" href="/">HOME</a> -->
+          <!--   <script type="text/javascript">
               document.getElementById("img-logo").onclick = function () {
                 location.href = "index.html";
-              };
+              }; -->
             </script>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
               aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,22 +132,46 @@
                   <a class="nav-link js-scroll-trigger" href="#services">Professionals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#facilities">Facilities</a>
+                  <a class="nav-link js-scroll-trigger" href="/user/profile_setting">테스트중</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="/admin/admin_all">관리자</a>
+                  <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
                 </li>
       
-                <li class="nav-item">
-                	<a class="btn btn-success btn-lg" href="/register/login" role="button">로그인</a>
-                	<a class="btn btn-success btn-lg" href="/register/signup" role="button">회원가입</a>                 
+                <li class="nav-item">                
+                	<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
+                	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
+                	<a class="btn btn-success btn-lg" id="profile" href="#" hidden="hidden" role="button">내 정보</a>
+                	<a class="btn btn-primary btn-lg" id="logout" href="#" hidden="hidden" role="button">로그 아웃</a>                 
                 </li>
               </ul>
             </div>
           </div>
         </nav>
 
-
+	<script>
+		window.onload =function(){
+			
+			
+			var login=document.getElementById("login");
+			var signin=document.getElementById("signin");
+			var logout=document.getElementById("logout");
+			var profile=document.getElementById("profile");
+			if('${auth}'!=''){
+				logout.removeAttribute("hidden");
+				profile.removeAttribute("hidden");
+			
+			}else{
+				
+				login.removeAttribute("hidden");
+				signin.removeAttribute("hidden");
+				
+			}
+			
+		}
+	
+	
+	</script>
 
 
 
@@ -157,18 +181,115 @@
       <div class="container">
         <div class="inner-header">
           <div class="row">
+            <div class="col-lg-2 col-md-2">
+              <div class="logo">
+                <a href="/">
+                  <img src="/resources/img/logo.png" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-7">
+              <div class="advanced-search">
+                <button type="button" class="category-btn">
+                  전체 카테고리
+                </button>
+                <div class="input-group">
+                  <input type="text" placeholder="무엇이 필요하신가요?" />
+                  <button type="button"><i class="ti-search"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 text-right col-md-3">
+              <ul class="nav-right">
+                <li class="heart-icon">
+                  <a href="#">
+                    <i class="icon_heart_alt"></i>
+                    <span>1</span>
+                  </a>
+                </li>
+                <li class="cart-icon">
+                  <a href="./shopping-cart.html">
+                    <i class="icon_bag_alt"></i>
+                    <span>3</span>
+                  </a>
+                  <div class="cart-hover">
+                    <div class="select-items">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td class="si-pic">
+                              <img src="/resources/img/select-product-1.jpg" alt="" />
+                            </td>
+                            <td class="si-text">
+                              <div class="product-selected">
+                                <p>$60.00 x 1</p>
+                                <h6>Kabino Bedside Table</h6>
+                              </div>
+                            </td>
+                            <td class="si-close">
+                              <i class="ti-close"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="si-pic">
+                              <img src="/resources/img/select-product-2.jpg" alt="" />
+                            </td>
+                            <td class="si-text">
+                              <div class="product-selected">
+                                <p>$60.00 x 1</p>
+                                <h6>Kabino Bedside Table</h6>
+                              </div>
+                            </td>
+                            <td class="si-close">
+                              <i class="ti-close"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="select-total">
+                      <span>total:</span>
+                      <h5>$120.00</h5>
+                    </div>
+                    <div class="select-button">
+                      <a href="#" class="primary-btn view-card"
+                        >결제수단 보기</a
+                      >
+                      <a href="#" class="primary-btn checkout-btn">결제</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="cart-price">$150.00</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
       <div class="nav-item">
-        <div class="container"> 
+        <div class="container">
+          <div class="nav-depart">
+            <div class="depart-btn">
+              <i class="ti-menu"></i>
+              <span>전체 상품 목록</span>
+              <ul class="depart-hover">
+                <li class="active"><a href="#">보충제</a></li>
+                <li><a href="#">건강용품</a></li>
+                <li><a href="#">헬스용품</a></li>
+                <li><a href="#">패션</a></li>
+                <li><a href="#">브랜드</a></li>
+                <li><a href="#">...</a></li>
+                <li><a href="#">...</a></li>
+                <li><a href="#">...</a></li>
+              </ul>
+            </div>
+          </div>
           <nav class="nav-menu mobile-menu">
             <ul>
-              <li class="active"><a href="/user/admin_index">홈</a></li>
+              <li class="active"><a href="/">홈</a></li>
               <li>
-                <a href="#">신청</a>
+                <a href="#">PT</a>
                 <ul class="dropdown">
-                  <li><a href="#">전체 강</a></li>
+                  <li><a href="PT/teacher-all">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
                   <li><a href="#">...</a></li>
                 </ul>
@@ -274,7 +395,7 @@
                 <ul class="dropdown">
                   <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
                   <li><a href="#">문의하기</a></li>
-                  <li><a href="#">공지사항</a></li>
+                  <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
               </li>
             </ul>
@@ -284,101 +405,14 @@
       </div>
     </header>
     <!-- Header End -->
-
-   
-
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo" id="contact">
-      <div class="container">
-        <div class="logo-carousel owl-carousel">
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="resources/img/logo-carousel/logo-1.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="resources/img/logo-carousel/logo-2.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="resources/img/logo-carousel/logo-3.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="resources/img/logo-carousel/logo-4.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="resources/img/logo-carousel/logo-5.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Partner Logo Section End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="footer-left">
-              <div class="footer-logo">
-                <a href="#"><img src="resources/img/footer-logo.png" alt="" /></a>
-              </div>
-              <ul>
-                <li>Address: 60-49 Road 11378 New York</li>
-                <li>Phone: +65 11.188.888</li>
-                <li>Email: hello.colorlib@gmail.com</li>
-              </ul>
-              <div class="footer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-2 offset-lg-1">
-            <div class="footer-widget">
-              <h5>... 정보</h5>
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">결제 정보</a></li>
-                <li><a href="#">고객 센터</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="footer-widget">
-              <h5>마이페이지</h5>
-              <ul>
-                <li><a href="#">마이페이지</a></li>
-                <li><a href="#">장바구니</a></li>
-                <li><a href="#">...</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="newslatter-item">
-              <h5>소식지 가입</h5>
-              <p>최신 제품 및 특별 이벤트에 대한 이메일 업데이트를 받으세요.</p>
-              <form action="#" class="subscribe-form">
-                <input
-                  type="text"
-                  placeholder="당신의 이메일 주소를 적으세요"
-                />
-                <button type="button">가입</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="copyright-reserved">
+    
+    
+    
+    
+    
+    
+    
+     <div class="copyright-reserved">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
@@ -394,25 +428,25 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </div>
               <div class="payment-pic">
-                <img src="resources/img/payment-method.png" alt="" />
+                <img src="/resources/img/payment-method.png" alt="" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="resources/js/jquery-3.3.1.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/jquery-ui.min.js"></script>
-    <script src="resources/js/jquery.countdown.min.js"></script>
-    <script src="resources/js/jquery.nice-select.min.js"></script>
-    <script src="resources/js/jquery.zoom.min.js"></script>
-    <script src="resources/js/jquery.dd.min.js"></script>
-    <script src="resources/js/jquery.slicknav.js"></script>
-    <script src="resources/js/owl.carousel.min.js"></script>
-    <script src="resources/js/main.js"></script>
+    <script src="/resources/js/jquery-3.3.1.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/jquery-ui.min.js"></script>
+    <script src="/resources/js/jquery.countdown.min.js"></script>
+    <script src="/resources/js/jquery.nice-select.min.js"></script>
+    <script src="/resources/js/jquery.zoom.min.js"></script>
+    <script src="/resources/js/jquery.dd.min.js"></script>
+    <script src="/resources/js/jquery.slicknav.js"></script>
+    <script src="/resources/js/owl.carousel.min.js"></script>
+    <script src="/resources/js/main.js"></script>
   </body>
 </html>
+    
