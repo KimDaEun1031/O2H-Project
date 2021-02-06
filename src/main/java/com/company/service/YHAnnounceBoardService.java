@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.company.domain.YHAnnouceReplyVO;
 import com.company.domain.YHAnnounceBoardVO;
 import com.company.domain.YHCriteria;
 
@@ -15,4 +16,7 @@ public interface YHAnnounceBoardService {
 	YHAnnounceBoardVO read(int bno);
 	boolean announceDelete(int bno);
 	boolean announceUpdate(YHAnnounceBoardVO vo);
+	int replyInsert(YHAnnouceReplyVO vo);
+	List<YHAnnouceReplyVO> getReplyAll();
+	int deleteReply(int rno);
 }

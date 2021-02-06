@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.company.domain.YHAnnouceReplyVO;
 import com.company.domain.YHAnnounceBoardVO;
 import com.company.domain.YHCriteria;
 import com.company.mapper.YHAnnounceBoardMapper;
@@ -47,6 +48,24 @@ public class YHAnnounceBoardServiceImpl implements YHAnnounceBoardService{
 	public boolean announceUpdate(YHAnnounceBoardVO vo) {
 		
 		return mapper.announceUpdate(vo)==1;
+	}
+
+	@Override
+	public int replyInsert(YHAnnouceReplyVO vo) {
+		
+		return mapper.replyInsert(vo);
+	}
+
+	@Override
+	public List<YHAnnouceReplyVO> getReplyAll() {
+		
+		return mapper.getReplyAll();
+	}
+
+	@Override
+	public int deleteReply(int rno) {
+		
+		return mapper.deleteReply(rno);
 	}
 		
 	

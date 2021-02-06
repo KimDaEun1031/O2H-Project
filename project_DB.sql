@@ -73,7 +73,7 @@ insert into announce_board(bno,title,content)
  where rn>(1-1)*10;
  
 --------------------------------------------------
- 
+  select * from announce_reply
  create table announce_reply(
  	bno number references announce_board(bno),
  	rno number primary key,
@@ -83,7 +83,7 @@ insert into announce_board(bno,title,content)
  );
  
  CREATE SEQUENCE  seq_announce_reply;
- 
+ select seq_announce_reply.nextval from dual;
 
  
 -- 파일 첨부 테이블 생성

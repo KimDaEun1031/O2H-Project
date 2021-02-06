@@ -1,8 +1,12 @@
+<%@page import="com.company.domain.KDLoginVO"%>
+<%@page import="com.company.domain.YHAnnouceReplyVO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.company.domain.KDLoginInfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
 	<div class="container">
@@ -18,7 +22,19 @@
 
 <!-- 게시글 보기 -->
 
+<% int i=0; %>
 
+<%
+         		
+				List<YHAnnouceReplyVO> list=(List<YHAnnouceReplyVO>)request.getAttribute("list");
+         		 KDLoginInfoVO vo=(KDLoginInfoVO)session.getAttribute("loginInfo");
+         		String temp=vo.getUserId();
+         		String temp2="안녕하신가?";
+         		System.out.println("temp="+temp);
+         		
+         		System.out.println("temp2"+temp2);
+         		
+%>
 <div class="board_write_wrap">
 	<div class="board_write">
 		<div class="title">
@@ -71,11 +87,54 @@
 					<th>내용</th>	
 					<th>작성일</th>
 				</tr>
+				
+				<!-- 댓글 연속 영역 --> 
+				 <c:forEach var="vo" items="${list }">
+    			<tr>
+         		<td>${vo.rno }</td>
+   			<td>${vo.replyer}</td>
+         	<td>${vo.content }  </td>
+          	<td><fmt:formatDate value="${vo.regdate }"
+          			pattern="yyyy-MM-dd HH:mm" />
+         	<c:set var="userid" value="${loginInfo.userId}" />
+         	<c:set var="void" value="${vo.replyer}"/>
+         	<c:if test="${userid eq 'admin'}"> 
+         	  <a href="/announce/deleteReply?rno=${vo.rno }">삭제</a>
+         	</c:if>
+         	<%
+         		System.out.println(i);
+         		temp2=(list.get(i)).getReplyer();
+         			System.out.println(temp2+" 이것은 temp2");
+         		if(vo.getUserId().equals(temp2) ){
+         			System.out.println("들어왔다 temp2==" +temp2);
+         			System.out.println("들어왔다 temp==" +temp);
+         			System.out.println("들어왔다 vo.getUserId()==" +vo.getUserId());
+         			
+         	%>
+         		<a href="/announce/deleteReply?rno=${vo.rno }&bno=${vo.bno}">삭제</a>
+         	
+         	
+         	<% }%>
+         	</td>
+         	   		
+         	</tr>
+         	<%i++; %>
+         </c:forEach>
+				
 			</thead>
 		</table>
-		<form>
-			<input type="text">
-		</form>
+		댓글 작성
+		<form action="/announce/replyWrite" method="post">
+			
+			<input type="hidden" name="bno" value="${vo.bno}">
+		
+			<input type="hidden" name="replyer" value="${loginInfo.userId}">
+			
+			<textarea name="content" rows="1" cols="100"></textarea>
+				<input type="submit" id="replyWriteBtn" value="작성">	
+				
+			
+			</form>
 	</div>
 
 <div class="board_write_wrap">
@@ -121,6 +180,10 @@
 	   content.removeAttribute("readonly");
    }
   
+   //여기부터 댓글 부분
+   
+   
+   
    	</script>
 
 

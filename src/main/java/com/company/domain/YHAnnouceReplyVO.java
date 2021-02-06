@@ -14,9 +14,10 @@ import lombok.ToString;
 @ToString
 public class YHAnnouceReplyVO {
 	
+	private int rno;
+	private int bno;
 	
-	private String replyWriterId;
-	private Date replyRegDate;
-	private Date replyUpdateDate; 
-	private String reply;
+	private String replyer;
+	private Date regdate;
+	private String content;
 }
