@@ -74,6 +74,18 @@ insert into announce_board(bno,title,content)
  
 --------------------------------------------------
  
+ create table announce_reply(
+ 	bno number references announce_board(bno),
+ 	rno number primary key,
+ 	replyer varchar2(20),
+ 	regdate date,
+ 	content varchar2(30)
+ );
+ 
+ CREATE SEQUENCE  seq_announce_reply;
+ 
+
+ 
 -- 파일 첨부 테이블 생성
 create table fit_attach(
 	uuid varchar2(100) not null,

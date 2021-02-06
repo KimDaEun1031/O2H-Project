@@ -170,7 +170,7 @@
 
 <script>
 	//	window.onload =function(){
-			var loginInfo = '${auth.userId}';
+			var loginInfo = '${loginInfo.userId}';
 			
 			var login=document.getElementById("login");
 			var signin=document.getElementById("signin");

@@ -79,7 +79,7 @@
 </div>
 <script>
    window.onload=function(){
-   	var userid='${auth.userId}'
+   	var userid='${loginInfo.userId}'
    	var writer='${vo.writer_id }'
    	var hideonbush=document.getElementById("hob");
    	var hideonbush2=document.getElementById("hob2");

@@ -84,8 +84,8 @@
 <script>
  window.onload=function(){
 	 
-	 console.log("${auth}"+"123");
-	 if("${auth.userId}"!=""){
+	 console.log("${loginInfo}"+"123");
+	 if("${loginInfo.userId}"!=""){
 			 document.getElementById("singinbtn").removeAttribute("hidden");
 	 }
 var actionForm=$("#actionForm")
