@@ -10,4 +10,6 @@ public interface YHAnnounceBoardMapper {
 	List<YHAnnounceBoardVO> searchAll(YHCriteria cri);
 	int regist(YHAnnounceBoardVO vo);
 	YHAnnounceBoardVO read(int bno);
+	int announceDelete(int bno);
+	int announceUpdate(YHAnnounceBoardVO vo);
 }

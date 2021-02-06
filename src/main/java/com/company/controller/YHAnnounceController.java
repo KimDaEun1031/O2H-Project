@@ -47,7 +47,7 @@ public class YHAnnounceController {
 		log.info("announce write 작성"+board);
 		service.regist(board);
 		model.addAttribute(board);
-		return "/board/board_announce_list";
+		return "redirect:/announce/getList";
 	}
 	@GetMapping("/read")
 	public String AnnounceRead(Model model ,int bno) {
@@ -56,4 +56,19 @@ public class YHAnnounceController {
 		model.addAttribute("vo",board);
 		return "/board/board_announce_read";
 	}
+	@PostMapping("/update")
+	public String AnnouceUpdate(YHAnnounceBoardVO board) {
+		log.info("update 요청"+ board);
+		service.announceUpdate(board);
+		return "redirect:/announce/getList";
+	}
+	@GetMapping("/delete")
+	public String AnnounceDelete(int bno) {
+		log.info("announce 삭제 요청 bno=" +bno);
+		service.announceDelete(bno);
+		return "redirect:/announce/getList";
+		
+	}
+	
+
 }

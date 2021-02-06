@@ -36,6 +36,18 @@ public class YHAnnounceBoardServiceImpl implements YHAnnounceBoardService{
 		
 		return mapper.read(bno);
 	}
+
+	@Override
+	public boolean announceDelete(int bno) {
+		
+		return mapper.announceDelete(bno)==1?true:false;
+	}
+
+	@Override
+	public boolean announceUpdate(YHAnnounceBoardVO vo) {
+		
+		return mapper.announceUpdate(vo)==1;
+	}
 		
 	
 	

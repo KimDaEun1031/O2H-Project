@@ -86,7 +86,7 @@ public class YHQandABoardControllerDontTouch {
 		
 		if(service.update(board)>0) {
 			model.addAttribute("vo",service.QandASelect(board.getBno()));
-			return "/board/board_QandA_read";
+			return "redirect:gotoQandAList";
 		}else {
 			model.addAttribute("vo",service.QandASelect(board.getBno()));
 			
