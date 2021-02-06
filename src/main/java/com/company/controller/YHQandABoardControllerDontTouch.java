@@ -111,6 +111,9 @@ public class YHQandABoardControllerDontTouch {
 		log.info("댓글 update 요청"+board.getBno()+board.getReply());
 		
 		service.updatereply(board);
+		service.updateReplyDate(board.getBno());
 		return "redirect:gotoQandAList";
+	
 	}
+	
 }

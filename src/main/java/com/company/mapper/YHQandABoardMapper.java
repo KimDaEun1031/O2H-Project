@@ -20,4 +20,5 @@ public interface YHQandABoardMapper {
 	
 	public int delete(int bno);
 	public int replyupdate(YHQandABoardVO board);
+	public int updateReplyDate(int bno);
 }

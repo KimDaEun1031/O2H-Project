@@ -9,6 +9,8 @@ import com.company.domain.YHCriteria;
 import com.company.domain.YHQandABoardVO;
 import com.company.mapper.YHQandABoardMapper;
 
+
+
 @Service
 public class YHQandABoardServiceImp implements YHQandABoardService {
 	
@@ -66,6 +68,14 @@ public class YHQandABoardServiceImp implements YHQandABoardService {
 	public int updatereply(YHQandABoardVO board) {
 		
 		return mapper.replyupdate(board);
+	}
+
+
+
+	@Override
+	public int updateReplyDate(int bno) {
+		
+		return mapper.updateReplyDate(bno);
 	}
 	
 	

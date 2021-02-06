@@ -101,7 +101,7 @@
          	<c:set var="userid" value="${loginInfo.userId}" />
          	<c:set var="void" value="${vo.replyer}"/>
          	<c:if test="${userid eq 'admin'}"> 
-         	  <a href="/announce/deleteReply?rno=${vo.rno }">삭제</a>
+         	  <a href="/announce/deleteReply?rno=${vo.rno }">삭제요청</a>
          	</c:if>
          	<%
          		
@@ -115,7 +115,7 @@
          			System.out.println("들어왔다 vo.getUserId()==" +vo.getUserId());
          			
          	%>
-         		<a href="/announce/deleteReply?rno=${vo.rno }&bno=${vo.bno}">삭제</a>
+         		<a href="/announce/deleteReply?rno=${vo.rno }&bno=${vo.bno}">    삭제 요청</a>
          	
          	
          	<% } }%>
