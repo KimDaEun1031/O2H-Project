@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
-import com.company.domain.KDupdateInfoVO;
 import com.company.mapper.KDmapper;
 
 @Service

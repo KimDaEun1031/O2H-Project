@@ -4,14 +4,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
-import com.company.domain.KDupdateInfoVO;
 import com.company.service.KDService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +28,7 @@ public class KDController {
 		log.info("로그인 정보"+loginInfo.getUserInfo());
 		
 		if(loginInfo!=null) {
-			session.setAttribute("loginInfo", loginInfo); //loginInfo라는 변수에 loginInfo(서비스부분)정보들이 들어감
+			session.setAttribute("loginInfo", loginInfo);
 			session.removeAttribute("loginFail");	
 			return "/register/loginSuccess";
 		} else {
@@ -58,14 +55,11 @@ public class KDController {
 		log.info("회원가입 페이지 요청");
 	}
  	
+	//register END
+	
 	@GetMapping("/PT/teacher-all")
 	public void teacher_all() {
 		log.info("전체 강사 페이지 요청");
-	}
-	
-	@GetMapping("/shop/shop")
-	public void shop() {
-		log.info("쇼핑몰 페이지 요청");
 	}
 	
 	@GetMapping("/user/teacher_my")
@@ -79,13 +73,8 @@ public class KDController {
 		
 	}
 	
-	@GetMapping("/user/admin_index")
-	public void admin_index() {
-		log.info("관리자 페이지");
-	}
-	
 	@PostMapping("/user/teacher_profile_setting")
-	public String updateUserInfo(HttpSession session, KDLoginInfoVO loginInfo) {
+	public String updateUserProfileInfo(HttpSession session, KDLoginInfoVO loginInfo) {
 		KDLoginInfoVO loginInfoTemp = (KDLoginInfoVO) session.getAttribute("loginInfo");
 		loginInfo.setUserId(loginInfoTemp.getUserId());		
 		if(service.userUpdate(loginInfo)) {
@@ -96,4 +85,27 @@ public class KDController {
 		}
 		
 	}
+	
+	@GetMapping("/user/admin_index")
+	public void admin_index() {
+		log.info("관리자 페이지");
+	}
+	
+	//user-teacher END
+	
+	@GetMapping("/admin/admin_all")
+	public void adminAllBoard() {
+		log.info("관리자 게시판 페이지");
+	}
+	
+	@GetMapping("/shop/shop")
+	public void shop() {
+		log.info("쇼핑몰 페이지 요청");
+	}
+	
+
+	
+	//etc END
+	
+
 }

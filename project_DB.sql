@@ -29,6 +29,8 @@ ALTER TABLE user_board RENAME COLUMN auth TO user_level;
 
 select auth from user_board;
 
+---------------------------------------
+
 select * from QANDA_BOARD;
 create table QandA_board(
 	bno number primary key,
@@ -45,10 +47,10 @@ drop table QandA_board;
 CREATE SEQUENCE  seq_QandA_board;
 insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
 
-<<<<<<< HEAD
 select count(bno) from QANDA_BOARD;
 
-=======
+---------------------------------------------
+
 create table announce_board(
 	bno number primary key,
 	title varchar2(20) not null,
@@ -70,6 +72,7 @@ insert into announce_board(bno,title,content)
  from( select rownum rn,bno,title,regdate,replycnt,written from announce_board where rownum<=1*10)
  where rn>(1-1)*10;
  
+--------------------------------------------------
  
  create table announce_reply(
  	bno number references announce_board(bno),
@@ -102,6 +105,6 @@ add constraint fk_fit_attach foreign key(userId) references user_board(userId);
 select * from fit_attach;
 
 select * from user_board;
->>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
+
 
 
