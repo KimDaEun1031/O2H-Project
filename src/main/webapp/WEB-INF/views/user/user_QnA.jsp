@@ -1,5 +1,8 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -27,18 +30,11 @@
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
     
-    <style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;}
-		.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-		  overflow:hidden;padding:10px 5px;word-break:normal;}
-		.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-		  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-		.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-	</style>
+    
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
+  <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -52,6 +48,7 @@
   <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="/resources/css/creative.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
 
 
       <body id="page-top">
@@ -153,7 +150,7 @@
                 <nav class="nav-menu mobile-menu">
                     <ul>
                     	<li class="active"><a href="/">홈</a></li>
-                        <li><a href="/user/user_my">내 정보</a></li>                       
+                        <li><a href="/user/user_my">내 정보</a></li>
                         <li><a href="/user/user_QnA">문의 내역</a></li>
                         <li><a href="#">보관함</a></li>
                         <li><a href="/user/profile_setting">회원정보수정</a>
@@ -162,7 +159,6 @@
                                 <li><a href="/register/deleteID">회원 탈퇴</a></li>
                             </ul> 
                         </li>
-                        <li><a href="/user/teacher_my_stream">스트리밍</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -170,69 +166,116 @@
         </div>
     </header>
     <!-- Header End -->
-    
-     <!-- recommand 건강용품 Banner Section Begin -->
-    <section class="recommand-product one-banner">
-        <div class="container-fluid">
-            <div class="row">
-				<table class="tg">
-					<thead>
-					  <tr>
-					    <th class="tg-0pky">내 정보</th>
-					    <th class="tg-0pky"></th>
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr>
-					    <td class="tg-0pky">아이디</td>
-					    <td class="tg-0pky">${loginInfo.userId}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">비밀번호</td>
-					    <td class="tg-0pky">${loginInfo.password}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">이름</td>
-					    <td class="tg-0pky">${loginInfo.userName}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">휴대전화</td>
-					    <td class="tg-0pky">${loginInfo.phoneNumber}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">이메일</td>
-					    <td class="tg-0pky">${loginInfo.userEmail}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">주소</td>
-					    <td class="tg-0pky">${loginInfo.address}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">생년월일</td>
-					    <td class="tg-0pky">${loginInfo.userBirth}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">관심사1</td>
-					    <td class="tg-0pky"></td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">관심사2</td>
-					    <td class="tg-0pky"></td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">관심사3</td>
-					    <td class="tg-0pky"></td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">가입일</td>
-					    <td class="tg-0pky">${loginInfo.regDate}</td>
-					  </tr>
-					</tbody>
-				</table>
+     <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <span>Q&A게시판</span>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- Man Banner Section End -->
+      </div>
+    </div>
+   
+     
+
+	<div class="board_wrap" style="margin-left: 5%; margin-right: 5%">
+	     <table class="board_list" style="text-align: center;">
+	       <caption>
+	         게시판 목록
+	       </caption>
+	       <thead >
+	         <tr>
+	           <th>번호</th>
+	           <th>제목</th>
+	           <th>글쓴이</th>
+	           <th>작성일</th>
+	           <th>답변날짜</th>
+	         </tr>
+	       </thead>
+	       <tbody>
+	       
+	       		<c:forEach var="vo" items="${userlist}">  
+	       			
+		    		<tr>
+		         		<td>${vo.bno}</td>
+		   			<td><a href="${vo.bno}">${vo.title}</a></td>
+		   			<td>${vo.writer_id}</td>
+		          	<td><fmt:formatDate value="${vo.regdate }"
+		          			pattern="yyyy-MM-dd HH:mm" /></td>
+		         		<td>
+		         		<fmt:formatDate value="${vo.replyDate }"
+		          			pattern="yyyy-MM-dd HH:mm" /></td>         		
+		         	</tr>
+	         		
+	         </c:forEach>
+	       </tbody>
+	     </table>
+		      <!-- start Pagination -->
+		<div class="text-center" style="display: table; margin-left: auto; margin-right: auto;">
+			<ul class="pagination" >
+				<c:if test="${pageVO.prev }">
+					<li class="paginate_button previous"><a
+						href="${pageVO.startPage-1 }">Previous</a>
+				</c:if>
+				<c:forEach var="idx" begin="${pageVO.startPage}"
+					end="${pageVO.endPage}">
+					<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a
+						href="${idx}">${idx}</a>
+				</c:forEach>
+				<c:if test="${pageVO.next }">
+					<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
+				</c:if>
+			</ul>
+		</div>
+		<!-- end Pagination --> 	 
+	</div>
+	
+	
+	<form action="/qandaboard/read" id="actionForm">
+		<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }"/>
+   		<input type="hidden" name="bno" />
+	</form>      
+
+
+<script>
+ window.onload=function(){
+	 
+	 console.log("${loginInfo}"+"123");
+	 if("${loginInfo.userId}"!=""){
+			 document.getElementById("singinbtn").removeAttribute("hidden");
+	 }
+var actionForm=$("#actionForm")
+
+$(".paginate_button a").click(function(e){
+		//a 태그의 기능을 중지
+		e.preventDefault();
+    	
+		//pagenum의 값을 사용자가 선택한 값으로 변경
+		//$("actionForm  [name='pageNum']").attr(value='$(this).text')
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"))
+		console.log($(this).attr("href"));
+		console.log($(this));
+		actionForm.attr("action","gotoQandAList");
+		actionForm.submit();
+	})
+	 
+	
+$(".move").click(function(e){
+	e.preventDefault();		
+	/* 
+	actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'> ");
+	 */
+	 actionForm.find("input[name='bno']").val($(this).attr("href"))
+		
+	actionForm.attr("action","read"); // /board/read
+	actionForm.submit();
+
+})
+ }
+</script>
 
 
 

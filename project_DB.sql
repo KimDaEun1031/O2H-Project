@@ -27,11 +27,24 @@ alter table user_board drop column userInfo;
 
 ALTER TABLE user_board RENAME COLUMN auth TO user_level;
 
-select auth from user_board;
+select * from user_board where user_level='2';
+
+select writer_id from QANDA_BOARD where userId='1234';
+
+SELECT * FROM    ALL_CONSTRAINTS
+WHERE    TABLE_NAME = 'QANDA_BOARD';
+
+select qb.bno, qb.title, qb.writer_id, qb.userId, ub.userId
+from QANDA_BOARD qb, user_board ub
+where qb.userId = ub.userId
+
+select * from USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' order by regDate DESC;
+
+select count(userId) from USER_BOARD;
 
 ---------------------------------------
 
-select * from QANDA_BOARD;
+select * from QANDA_BOARD; --fk userId 추가
 create table QandA_board(
 	bno number primary key,
 	title varchar2(20) not null,
@@ -49,6 +62,18 @@ insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','
 
 select count(bno) from QANDA_BOARD;
 
+--추가
+
+alter table QANDA_BOARD add userId varchar2(20);
+
+alter table QANDA_BOARD drop column userId;
+
+alter table QANDA_BOARD 
+add CONSTRAINT fk_userId foreign key(userId) references user_board(userId);
+
+ALTER TABLE QANDA_BOARD MODIFY (replyDate DEFAULT sysdate);
+
+insert into QANDA_BOARD values(1,'test','1234',sysdate,1,'1','1','1',sysdate,'1234');
 ---------------------------------------------
 
 create table announce_board(

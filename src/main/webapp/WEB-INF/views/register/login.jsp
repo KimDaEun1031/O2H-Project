@@ -36,7 +36,7 @@
                                 Sign in to access your Authority account
                             </p>
                             <div class="mt-4">
-                                <form method="post" action="/register/loginSuccess">
+                                <form method="POST" action="/register/loginSuccess">
                                     <div class="form-group">
 
                                         <input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your ID" required autofocus>

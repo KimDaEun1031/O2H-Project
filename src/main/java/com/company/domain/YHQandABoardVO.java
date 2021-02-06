@@ -21,5 +21,6 @@ public class YHQandABoardVO {
  String replyer;
  Date regdate;
  Date replyDate;
+ String userId;
  
 }

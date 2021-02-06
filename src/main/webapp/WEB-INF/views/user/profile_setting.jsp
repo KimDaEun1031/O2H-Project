@@ -75,7 +75,7 @@
                             </div>
                             <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
 	                            <button type="submit" class="btn btn-primary " id="update-btn"> 개인정보 수정 </button>
-	                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>
+	                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='user_my'"> Cancel </button>
                             </div>
                         </form>
                         <br />
@@ -103,7 +103,7 @@
                             </div>-->
                         <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
                             <button type="submit" class="btn btn-primary passwordBtn" id="update-btn"> 비밀번호 수정 </button>
-                            <button type="reset" class="btn btn-primary " id="cancel-btn"> Cancel </button>
+                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='user_my'"> Cancel </button>
                         </div>
                         </form>
                         

@@ -45,68 +45,7 @@
   <link href="/resources/css/creative.css" rel="stylesheet">
 
 
-<!--기본 최상단 -->
-  <!-- <body> -->
-    <!-- Page Preloder -->
-    <!-- <div id="preloder">
-      <div class="loader"></div>
-    </div> -->
-
-    <!-- Header Section Begin -->
-    <!-- <header class="header-section">
-      <div class="header-top">
-        <div class="container">
-          <div class="ht-left">
-            <div class="mail-service">
-              <i class="fa fa-envelope"></i>
-              hello.colorlib@gmail.com
-            </div>
-            <div class="phone-service">
-              <i class="fa fa-phone"></i>
-              +65 11.188.888
-            </div>
-          </div>
-          <div class="ht-right">
-            <a href="./login.html" class="login-panel"
-              ><i class="fa fa-user"></i>로그인</a
-            >
-            <div class="lan-selector">
-              <select
-                class="language_drop"
-                name="countries"
-                id="countries"
-                style="width: 300px"
-              >
-                <option
-                  value="yt"
-                  data-image="img/flag-1.jpg"
-                  data-imagecss="flag yt"
-                  data-title="English"
-                >
-                  English
-                </option>
-                <option
-                  value="yu"
-                  data-image="img/flag-2.jpg"
-                  data-imagecss="flag yu"
-                  data-title="Bangladesh"
-                >
-                  German
-                </option>
-              </select>
-            </div>
-            <div class="top-social">
-              <a href="#"><i class="ti-facebook"></i></a>
-              <a href="#"><i class="ti-twitter-alt"></i></a>
-              <a href="#"><i class="ti-linkedin"></i></a>
-              <a href="#"><i class="ti-pinterest"></i></a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
       <body id="page-top">
-<!---->
         <!-- Navigation  class="nav-link js-scroll-trigger"-->
         <nav class="navbar navbar-expand-lg navbar-light afixed-top" id="mainNav"><!-- fixed-top 수정해서 스크롤 제거 -->
           <div class="container">
@@ -114,8 +53,8 @@
           <!--   <script type="text/javascript">
               document.getElementById("img-logo").onclick = function () {
                 location.href = "index.html";
-              }; -->
-            </script>
+              };
+            </script>  -->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
               aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -135,46 +74,56 @@
                   <a class="nav-link js-scroll-trigger" href="/user/profile_setting">테스트중</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
+                  <a class="nav-link js-scroll-trigger" href="#">contacts</a>
                 </li>
       
-                <li class="nav-item">                
-                	<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
+                <li class="nav-item">
+               		<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
                 	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
-                	<a class="btn btn-success btn-lg" id="profile" href="#" hidden="hidden" role="button">내 정보</a>
-                	<a class="btn btn-primary btn-lg" id="logout" href="#" hidden="hidden" role="button">로그 아웃</a>                 
+                	<a class="btn btn-success btn-lg" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
+                	<a class="btn btn-primary btn-lg" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>                 
                 </li>
               </ul>
             </div>
           </div>
         </nav>
+        
 
-	<script>
-		window.onload =function(){
-			
+<script>
+	//	window.onload =function(){
+			var loginInfo = '${loginInfo.userId}';
+			var loginInfolevel = '${loginInfo.user_level}';
 			
 			var login=document.getElementById("login");
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
 			var profile=document.getElementById("profile");
-			if('${loginInfo}'!=''){
+			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");
-			
+				profile.removeAttribute("hidden");				
+				
 			}else{
 				
 				login.removeAttribute("hidden");
 				signin.removeAttribute("hidden");
 				
 			}
+			if(loginInfo == 'admin') {
+				admin.removeAttribute("hidden");
+				$("#profile").attr("href","/user/admin_index");
+			}
 			
-		}
+			var teacher = 1;
+			if (loginInfolevel==teacher) {
+	   			$("#profile").attr("href","/user/teacher_my");
+	   		}
+			
+//		}
 	
 	
 	</script>
 
-
-
+        
       <!-- 추가 부분 -->
 
 
@@ -199,69 +148,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 text-right col-md-3">
-              <ul class="nav-right">
-                <li class="heart-icon">
-                  <a href="#">
-                    <i class="icon_heart_alt"></i>
-                    <span>1</span>
-                  </a>
-                </li>
-                <li class="cart-icon">
-                  <a href="./shopping-cart.html">
-                    <i class="icon_bag_alt"></i>
-                    <span>3</span>
-                  </a>
-                  <div class="cart-hover">
-                    <div class="select-items">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td class="si-pic">
-                              <img src="/resources/img/select-product-1.jpg" alt="" />
-                            </td>
-                            <td class="si-text">
-                              <div class="product-selected">
-                                <p>$60.00 x 1</p>
-                                <h6>Kabino Bedside Table</h6>
-                              </div>
-                            </td>
-                            <td class="si-close">
-                              <i class="ti-close"></i>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="si-pic">
-                              <img src="/resources/img/select-product-2.jpg" alt="" />
-                            </td>
-                            <td class="si-text">
-                              <div class="product-selected">
-                                <p>$60.00 x 1</p>
-                                <h6>Kabino Bedside Table</h6>
-                              </div>
-                            </td>
-                            <td class="si-close">
-                              <i class="ti-close"></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="select-total">
-                      <span>total:</span>
-                      <h5>$120.00</h5>
-                    </div>
-                    <div class="select-button">
-                      <a href="#" class="primary-btn view-card"
-                        >결제수단 보기</a
-                      >
-                      <a href="#" class="primary-btn checkout-btn">결제</a>
-                    </div>
-                  </div>
-                </li>
-                <li class="cart-price">$150.00</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -270,16 +156,12 @@
           <div class="nav-depart">
             <div class="depart-btn">
               <i class="ti-menu"></i>
-              <span>전체 상품 목록</span>
+              <span>전체 페이지 목록</span>
               <ul class="depart-hover">
-                <li class="active"><a href="#">보충제</a></li>
-                <li><a href="#">건강용품</a></li>
-                <li><a href="#">헬스용품</a></li>
-                <li><a href="#">패션</a></li>
-                <li><a href="#">브랜드</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">...</a></li>
+                <li><a href="#">PT</a></li>
+                <li><a href="#">홈쇼핑</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">프로그램</a></li>
               </ul>
             </div>
           </div>
@@ -291,91 +173,10 @@
                 <ul class="dropdown">
                   <li><a href="PT/teacher-all">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
-                  <li><a href="#">...</a></li>
                 </ul>
               </li>
               <li>
-                <a href="shop/shop">홈쇼핑</a>
-                <ul class="dropdown" id="one">
-                  <li id="on">
-                    <a href="#">식품</a>
-                    <!-- test -->
-                    <ul class="dropdown" id="two">
-                      <li id="on">
-                        <a href="#">단백질</a>
-                        <!-- test2 -->
-                        <ul class="dropdown" id="three">
-                          <li><a href="#">복합단백질/MRP</a></li>
-                          <li><a href="#">가성비/무맛 단백질</a></li>
-                          <li><a href="#">유기농/Grass Fed</a></li>
-                          <li><a href="#">분리유청(WPI,유당제거)</a></li>
-                          <li><a href="#">느린흡수/카제인</a></li>
-                          <li><a href="#">소고기/대두/기타단백질</a></li>
-                          <li><a href="#">프로틴스낵</a></li>
-                          <li><a href="#">프로틴/에너지바</a></li>
-                          <li><a href="#">프로틴음료/RTD</a></li>
-                          <li><a href="#">체중증가/게이너</a></li>
-                        </ul>
-                        <!-- test2 -->
-                      </li>
-                      <li id="on">
-                        <a href="#">다이어트</a>
-                        <!-- test2 -->
-                        <ul class="dropdown" id="three">
-                          <li><a href="#">도시락&샐러드</a></li>
-                          <li><a href="#">간편식</a></li>
-                          <li><a href="#">체지방관리</a></li>
-                        </ul>
-                        <!-- test2 -->
-                      </li>
-                      <li id="on">
-                        <a href="#">보조영양제</a>
-                        <!-- test2 -->
-                        <ul class="dropdown" id="three">
-                          <li><a href="#">아르기닌</a></li>
-                          <li><a href="#">크레아틴</a></li>
-                          <li><a href="#">동화대사</a></li>
-                          <li><a href="#">아미노산</a></li>
-                        </ul>
-                        <!-- test2 -->
-                      </li>
-                      <li id="on">
-                        <a href="#">다이어트2</a>
-                        <!-- test2 -->
-                        <ul class="dropdown" id="three">
-                          <li><a href="#">단일성분</a></li>
-                          <li><a href="#">복합성분</a></li>
-                          <li><a href="#">신진대사촉진</a></li>
-                          <li><a href="#">MCT오일</a></li>
-                          <li><a href="#">디톡스/배변</a></li>
-                        </ul>
-                        <!-- test2 -->
-                      </li>
-                    </ul>
-                    <!-- test -->
-                  </li>
-                  <li id="on">
-                    <a href="#">운동기구</a>
-                    <!-- test -->
-                    <ul class="dropdown" id="two">
-                      <li id="on"><a href="#">유산소운동기구</a></li>
-                      <li id="on"><a href="#">리프팅</a></li>
-                      <li id="on"><a href="#">보조기구</a></li>
-                    </ul>
-                    <!-- test -->
-                  </li>
-                  <li id="on">
-                    <a href="#">의류</a>
-                    <!-- test -->
-                    <ul class="dropdown" id="two">
-                      <li id="on"><a href="#">헬스장갑</a></li>
-                      <li id="on"><a href="#">리프팅벨트</a></li>
-                      <li id="on"><a href="#">패션</a></li>
-                    </ul>
-                    <!-- test -->
-                  </li>
-                </ul>
-              </li>
+                <a href="shop/shop">홈쇼핑</a>               
               <li>
                 <a href="./blog.html">커뮤니티</a>
                 <ul class="dropdown">

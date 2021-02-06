@@ -161,8 +161,7 @@
                                 <li><a href="/user/profile_setting">회원정보 수정</a></li>
                                 <li><a href="/register/deleteID">회원 탈퇴</a></li>
                             </ul> 
-                        </li>
-                        <li><a href="/user/teacher_my_stream">스트리밍</a></li>
+                        </li>                      
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

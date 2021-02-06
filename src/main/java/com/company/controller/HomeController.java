@@ -33,7 +33,7 @@ public class HomeController {
 	public String home() {
 		logger.info("Welcome home!");
 		
-		return "/index";
+		return "index";
 	}
 	
 }
