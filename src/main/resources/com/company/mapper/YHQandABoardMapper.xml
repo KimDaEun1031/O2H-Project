@@ -55,4 +55,10 @@ set reply=#{reply} where bno=#{bno}
 <delete id="delete">
 delete from QandA_board where bno=#{bno}
 </delete>
+
+<update id="updateReplyDate">
+update QandA_board 
+set replyDate=sysdate 
+where bno=#{bno}
+</update>
 </mapper>

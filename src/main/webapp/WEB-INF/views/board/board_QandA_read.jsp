@@ -24,7 +24,7 @@
         <div class="title">
           <dl>
             <dt>제목</dt>
-            <dd><input type="text" name="title" value="${vo.title}" readonly="readonly"/></dd>
+            <dd><input type="text" name="title" id="titleh" value="${vo.title}" readonly="readonly"/></dd>
           </dl>
         </div>
          <div class="info">
@@ -39,16 +39,15 @@
           </dl>
         </div> -->
         <div class="cont">
-          <textarea name="content" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
+          <textarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
         </div>
       </div>
     </div>
     </div>
     <div class="bt_wrap" id="ttld">
+   <input type="button" id="hob" value="수정" hidden="hidden">
+    <input type="button" id="hob2" value="삭제" hidden="hidden">
    
-    <a href="/qandaboard/update?bno=${param.bno}" hidden="hidden" id="hob">수정</a>
-   	<a href="/qandaboard/delete?bno=${param.bno}" hidden="hidden" id="hob2">삭제</a>
-  
     </div>
 	 <div class="board_write_wrap">
       <div class="board_write">
@@ -64,26 +63,47 @@
         </div>
       </div>
     </div>
+    <form id="updateForm" action="/qandaboard/update" method="post">
+    	<input type="hidden" name="title" id="titleHidden" value="${vo.title }">
+    	<input type="hidden" name="content" id="contentHidden" value="${vo.content }">
+    	<input type="hidden" name="bno" value="${vo.bno }">
+    </form>
     </div>
 	  <script>
    window.onload=function(){
+	var content=document.getElementById("contenth");
+	var title=document.getElementById("titleh");
+	var contentHidden=document.getElementById("contentHidden")
+	var titleHidden=document.getElementById("titleHidden")
    	var userid='${loginInfo.userId}'
    	var writer='${vo.writer_id }'
-   	var hideonbush=document.getElementById("hob");
-   	var hideonbush2=document.getElementById("hob2");
+   	var hideUpdateBtn=document.getElementById("hob");
+   	var hideDeleteBtn=document.getElementById("hob2");
    	var adminbtn=document.getElementById("adminonlybtn");
    	var reply=document.getElementById("reply");
-   	alert(writer);
-   	alert(userid);
+   	hideUpdateBtn.onclick=function(){
+   		alert("update 요청 ")
+   	}
    if(userid==writer || userid=="admin"){
-	  
-	  hob.removeAttribute("hidden");
- 	  hob2.removeAttribute("hidden");
+	  content.removeAttribute("readonly")
+	  title.removeAttribute("readonly")
+   		
+	  hideUpdateBtn.removeAttribute("hidden");
+	  hideDeleteBtn.removeAttribute("hidden");
    }
    if(userid=="admin"){
 	   adminbtn.removeAttribute("hidden");
 	   reply.removeAttribute("readonly");
+	   
    }
+   hideUpdateBtn.onclick=function(){
+	   contentHidden.value=content.value;
+	   titleHidden.value=title.value;
+   		alert(contentHidden.value);
+   		alert(titleHidden.value);
+   		document.getElementById("updateForm").submit();
+   }
+   
   }
    	</script> 
 	

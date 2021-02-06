@@ -17,7 +17,7 @@
 
     <!-- 게시글 작성 -->
 
-	<form action="/announce/getList" method="post">
+	<form action="/announce/register" method="post">
     <div class="board_write_wrap">
       <div class="board_write">
         <div class="title">

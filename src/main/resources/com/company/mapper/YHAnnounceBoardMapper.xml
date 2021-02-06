@@ -20,5 +20,27 @@ insert into announce_board(bno,title,content)
 <select id="read" resultType="com.company.domain.YHAnnounceBoardVO">
 select * from announce_board where bno=#{bno}
 </select>
+<delete id="announceDelete">
+delete from announce_board where bno=#{bno}
+</delete>
+<update id="announceUpdate">
+UPDATE announce_board SET title=#{title} ,content=#{content} WHERE  bno=#{bno}
 
+</update>
+
+<insert id="replyInsert">
+insert into announce_reply(bno ,rno,replyer,regdate,content)
+values (#{bno},seq_announce_reply.nextval,#{replyer},sysdate,#{content})
+
+
+
+</insert>
+
+<select id="getReplyAll" resultType="com.company.domain.YHAnnouceReplyVO">
+select * from announce_reply
+
+</select>
+<delete id="deleteReply">
+delete from announce_reply where rno=#{rno}
+</delete>
 </mapper>

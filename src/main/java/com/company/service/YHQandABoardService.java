@@ -15,4 +15,5 @@ public interface YHQandABoardService {
 	public int update(YHQandABoardVO board);
 	public int delete(int bno);
 	public int updatereply(YHQandABoardVO board);
+	public int updateReplyDate(int bno);
 }

@@ -2,13 +2,17 @@ package com.company.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.company.domain.KDLoginInfoVO;
 import com.company.domain.YHCriteria;
 import com.company.domain.YHPageVO;
 import com.company.domain.YHQandABoardVO;
@@ -37,9 +41,10 @@ public class YHQandABoardControllerDontTouch {
 	}
 	
 	@GetMapping("/read")
-	public String get(int bno,Model model) {
+	public String get(int bno,Model model,HttpSession session) {
 		log.info("Q&A 단일 게시물 이동");
 		YHQandABoardVO vo=service.QandASelect(bno);
+		
 		model.addAttribute("vo", vo);
 		
 		return "/board/board_QandA_read";
@@ -86,7 +91,7 @@ public class YHQandABoardControllerDontTouch {
 		
 		if(service.update(board)>0) {
 			model.addAttribute("vo",service.QandASelect(board.getBno()));
-			return "/board/board_QandA_read";
+			return "redirect:gotoQandAList";
 		}else {
 			model.addAttribute("vo",service.QandASelect(board.getBno()));
 			
@@ -106,6 +111,9 @@ public class YHQandABoardControllerDontTouch {
 		log.info("댓글 update 요청"+board.getBno()+board.getReply());
 		
 		service.updatereply(board);
+		service.updateReplyDate(board.getBno());
 		return "redirect:gotoQandAList";
+	
 	}
+	
 }

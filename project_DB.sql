@@ -42,6 +42,10 @@ select * from USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' orde
 
 select count(userId) from USER_BOARD;
 
+
+select auth from user_board;
+select * from chatroom1;
+
 ---------------------------------------
 
 select * from QANDA_BOARD; --fk userId 추가
@@ -74,6 +78,8 @@ add CONSTRAINT fk_userId foreign key(userId) references user_board(userId);
 ALTER TABLE QANDA_BOARD MODIFY (replyDate DEFAULT sysdate);
 
 insert into QANDA_BOARD values(1,'test','1234',sysdate,1,'1','1','1',sysdate,'1234');
+
+
 ---------------------------------------------
 
 create table announce_board(
@@ -98,7 +104,34 @@ insert into announce_board(bno,title,content)
  where rn>(1-1)*10;
  
 --------------------------------------------------
+  
  
+ create table chattingroom(
+ 	roomnumber number(1) primary key,
+ 	useable number(1) default 0
+ )
+ insert into chattingroom 
+ values(3,1)
+
+ create table chatroom1(
+ 	rno number default seq_chat.nextval,
+ 	fromid number(1),
+ 	content varchar2(100)
+ )
+ create table chatroom2(
+ 	rno number default seq_chat.nextval,
+ 	fromid number(1),
+ 	content varchar2(100),
+ )
+ create table chatroom3(
+ 	rno number default seq_chat.nextval,
+ 	fromid number(1),
+ 	content varchar2(100),
+ )
+CREATE SEQUENCE  seq_chat;
+ 
+ 
+ select * from announce_reply
  create table announce_reply(
  	bno number references announce_board(bno),
  	rno number primary key,
@@ -108,8 +141,11 @@ insert into announce_board(bno,title,content)
  );
  
  CREATE SEQUENCE  seq_announce_reply;
- 
+ select seq_announce_reply.nextval from dual;
 
+ 
+---------------------------------------------------------------
+ 
  
 -- 파일 첨부 테이블 생성
 create table fit_attach(
