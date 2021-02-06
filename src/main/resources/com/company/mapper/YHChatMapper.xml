@@ -25,6 +25,9 @@ update  chattingroom
 set useable=1 
 where roomnumber=1
 </update>
+<delete id="goOutRoom1remove">
+delete chatRoom1
+</delete>
 <update id="goOutRoom2">
 update  chattingroom
 set useable=1

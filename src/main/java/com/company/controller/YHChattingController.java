@@ -54,6 +54,7 @@ public class YHChattingController {
 	public String goOutRoom1() {
 		log.info("1번 방에서 나옴");
 		service.goInOutRoom1();
+		service.goOutRoom1remove();
 		return"redirect:/chat/roomList";
 	}
 	@GetMapping("/goOutRoom2")
@@ -66,6 +67,7 @@ public class YHChattingController {
 	public String goOutRoom3() {
 		log.info("3번 방에서 나옴");
 		service.goInOutRoom3();
+		
 		return"redirect:/chat/roomList";
 	}
 

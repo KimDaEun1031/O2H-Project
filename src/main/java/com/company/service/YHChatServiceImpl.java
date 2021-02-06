@@ -59,5 +59,10 @@ public class YHChatServiceImpl implements YHChatService {
 		
 		return mapper.getRoom1ChatList();
 	}
+	@Override
+	public int goOutRoom1remove() {
+		
+		return mapper.goOutRoom1remove();
+	}
 
 }

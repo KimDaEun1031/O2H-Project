@@ -21,7 +21,7 @@
 </div>
 
 <div style="padding: 10%">
-	<textarea rows="100" cols="100" readonly="readonly" id="chatBox"></textarea>
+	<textarea rows="20" cols="100" readonly="readonly" id="chatBox"></textarea>
 	<input type="text" size="100" style="width: 70" id="inputBox">
 	<button id="inputBtn">입력</button>
 	

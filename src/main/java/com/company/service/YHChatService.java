@@ -15,4 +15,5 @@ public interface YHChatService {
 	public int goInOutRoom3();
 	public int chatInsertRoom1(int fromId,String content);
 	public List<YHChatVO> getRoom1ChatList();
+	public int goOutRoom1remove();
 }

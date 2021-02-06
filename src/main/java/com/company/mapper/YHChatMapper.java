@@ -17,4 +17,5 @@ public interface YHChatMapper {
 	public int goOutRoom3();
 	public int chatInsertRoom1(@Param("fromid")int fromid,@Param("content")String content);
 	public List<YHChatVO> getRoom1ChatList();
+	public int goOutRoom1remove();
 }
