@@ -90,7 +90,7 @@
 <script>
  window.onload=function(){
 	 var writebtn=document.getElementById("write");
-	 if('${auth.userId}'=='admin'){
+	 if('${loginInfo.userId}'=='admin'){
 		 writebtn.removeAttribute("hidden");
 	 }
 	 var pageNumDiv=document.getElementById("pageNum")

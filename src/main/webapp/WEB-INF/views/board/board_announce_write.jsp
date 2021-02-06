@@ -29,7 +29,7 @@
          <div class="info">
           <dl>
             <dt>글쓴이</dt>
-            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${auth.userId }" readonly="readonly"/></dd>
+            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${loginINfo.userId }" readonly="readonly"/></dd>
           </dl>
           <!-- 
           <dl>

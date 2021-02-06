@@ -157,7 +157,7 @@
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
 			var profile=document.getElementById("profile");
-			if('${auth}'!=''){
+			if('${loginInfo}'!=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");
 			
