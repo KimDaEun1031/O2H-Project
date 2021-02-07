@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
+    <!-- 첨부물 css -->
+    <link rel="stylesheet" href="/resources/css/user_my.css" />
     
     <style type="text/css">
 		.tg  {border-collapse:collapse;border-spacing:0;}
@@ -232,8 +234,29 @@
         </div>
     </section>
     <!-- Man Banner Section End -->
-
-
+    
+    
+<!-- 첨부 파일 보여주기 -->
+<div class="bigPictureWrapper">
+	<div class="bigPicture"></div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"><i class="fa fas fa-file"></i> Files</div>
+			<div class="panel-body">				
+				<div class="uploadResult">
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 첨부물 보여주기 -->
+<script>
+	//현재 글 번호 가져오기->read->reply => 결과를 read
+	let userIdVal = ${loginInfo.userId};
+</script>
 
     <!-- Footer Section Begin -->
   <footer class="footer-section">
@@ -319,6 +342,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/resources/js/jquery.slicknav.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
 <script src="/resources/js/main.js"></script>
+<!-- 첨부물 보여주기 -->
+<!-- <script> 아래에 두니까.  //is not defined 에러나네. 위로 올리니까 안 나고
+								//Uncaught ReferenceError: 아이디 is not defined 위에 올려도 에러 나네.
+	//현재 글 번호 가져오기->read->reply => 결과를 read
+	let userIdVal = ${loginInfo.userId};
+</script> -->
+<script src="/resources/js/user_my.js"></script>
 </body>
 
 </html>

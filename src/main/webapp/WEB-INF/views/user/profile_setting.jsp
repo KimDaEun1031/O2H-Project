@@ -44,7 +44,7 @@
 					<!-- <div class="uploadResult">
 						<ul></ul>
 					</div> -->
-					<div class="uploadResult" style="visibility:hidden;">
+					<div class="uploadResult" style="display:none;">
 						<ul></ul>
 					</div>
                     <br>

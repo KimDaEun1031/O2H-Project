@@ -1,10 +1,13 @@
 package com.company.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.domain.HYChangeVO;
+import com.company.domain.HYFileAttach;
 import com.company.domain.HYLoginVO;
 import com.company.mapper.HYMapper;
   
@@ -53,6 +56,11 @@ public class HYServiceImpl implements HYService {
 		
 		
 		return result;
+	}
+
+	@Override
+	public List<HYFileAttach> getAttachList(String userId) {		
+		return mapper.attachList(userId);
 	}
 			  
   

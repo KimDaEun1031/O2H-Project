@@ -1,8 +1,13 @@
 package com.company.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.HYChangeVO;
+import com.company.domain.HYFileAttach;
 import com.company.domain.HYLoginVO;
 import com.company.domain.KDLoginInfoVO;
 import com.company.service.HYService;
@@ -22,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class HYController {
 	
 	@Autowired
-	private HYService Service;
+	private HYService service;
 
 	
 	@GetMapping("/register/deleteID")
@@ -35,7 +41,7 @@ public class HYController {
 	public String leavePost(HYLoginVO hylogin, HttpSession session) {
 		log.info("회원탈퇴 요청 "+hylogin); 
 		
-		if(Service.leave(hylogin)) {			
+		if(service.leave(hylogin)) {			
 			session.invalidate();
 			return "redirect:/";	
 		}else { //비밀번호가 틀린경우		
@@ -188,7 +194,7 @@ public class HYController {
 	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 이메일+첨부 수정"+change);
 		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
-		Service.modifyInfo(change);
+		service.modifyInfo(change);
 		
 		return "redirect:/user/user_my";
 	}
@@ -207,12 +213,17 @@ public class HYController {
 	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 비밀번호 수정"+change);
 		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나++처음 세션에 담은 변수명 그대로 여기서도 변수명을 똑같이 써줘야하는구나
-		Service.modifyPwd(change);
+		service.modifyPwd(change);
 		
 		return "redirect:/";
 	}
 	
-	
+	//첨부물 가져오기
+	@GetMapping(value = "/getAttachList",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<HYFileAttach>> getAttachList(String userId) {
+		log.info("첨부물 가져오기 : "+userId);
+		return new ResponseEntity<List<HYFileAttach>>(service.getAttachList(userId),HttpStatus.OK);	
+	}
 	
 	
 	

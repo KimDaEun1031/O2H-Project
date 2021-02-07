@@ -29,7 +29,7 @@
       <p>
         여러분의 삶에 음식은 어떤 의미를 갖나요?<br />
         칼로리 사전과 함께 건강한 다이어트와 꾸준한 운동을 시작해 보세요.
-        <a href="http://html5up.net">HTML5 UP</a>.
+        <a href="/">HOME</a>.
       </p>
     </header>
 
