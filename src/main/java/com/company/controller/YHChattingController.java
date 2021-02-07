@@ -56,20 +56,20 @@ public class YHChattingController {
 		log.info("1번 방에서 나옴");
 		service.goInOutRoom1();
 		service.goOutRoom1remove();
-		return"redirect:/chat/roomList";
+		return"redirect:/chat/chat_list";
 	}
 	@GetMapping("/goOutRoom2")
 	public String goOutRoom2() {
 		log.info("2번 방에서 나옴");
 		service.goInOutRoom2();
-		return"redirect:/chat/roomList";
+		return"redirect:/chat/chat_list";
 	}
 	@GetMapping("/goOutRoom3")
 	public String goOutRoom3() {
 		log.info("3번 방에서 나옴");
 		service.goInOutRoom3();
 		
-		return"redirect:/chat/roomList";
+		return"redirect:/chat/chat_list";
 	}
 
 }
