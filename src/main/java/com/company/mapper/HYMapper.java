@@ -15,7 +15,7 @@ public interface HYMapper {
 	public int updateMember(HYChangeVO change);
 	//profile 부분-보드mapper//일단 이메일-후에 첨부물 추가할듯
 	public int updateInfo(HYChangeVO change);
-	
+	//user_my 첨부물 리스트 가져오기
 	public List<HYFileAttach> attachList(String userId);
 	
 	

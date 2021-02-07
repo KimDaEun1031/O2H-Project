@@ -16,7 +16,8 @@
     <script type="text/javascript" src="/resources/js/uploadImg.js"></script>
 	<!-- CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+	
     <!-- Custom css -->
     <!-- Custom scripts for this template -->
     <script>
@@ -44,7 +45,7 @@
 					<!-- <div class="uploadResult">
 						<ul></ul>
 					</div> -->
-					<div class="uploadResult" style="visibility:hidden;">
+					<div class="uploadResult" style="display:none;">
 						<ul></ul>
 					</div>
                     <br>
@@ -74,7 +75,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input style="border-radius:0px!important" type="email" class="form-control" name="userEmail" id="email" placeholder="william99@fiturjc.com">
+                                <input style="border-radius:0px!important" type="email" class="form-control" name="userEmail" id="userEmail" placeholder="william99@fiturjc.com">
+                                <small id="userEmail" class="text-info"></small>
                             </div>
                             <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
 	                            <button type="submit" class="btn btn-primary " id="update-btn"> 개인정보 수정 </button>
@@ -86,17 +88,20 @@
                         <form role="form" class="passwordForm" method="post" action="passwordForm">
                             <div class="form-group">
                                 <label for="pwd">password:</label>
-                                <input style="border-radius:0px!important" type="password" name="password" class="form-control" id="pwd" placeholder="Enter password">
+                                <input style="border-radius:0px!important" type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+                                <small id="password" class="text-info"></small>
                             </div>
                             <div class="form-group">
                                 <label for="pwd">New password:</label>
-                                <input style="border-radius:0px!important" type="password" name="new_password" class="form-control" id="pwd" placeholder="Enter new password">
+                                <input style="border-radius:0px!important" type="password" name="new_password" class="form-control" id="new_password" placeholder="Enter new password">
+                                <small id="new_password" class="text-info"></small>
                             </div>
                         <!-- </form>
                         <form role="form" method="post"> -->
                             <div class="form-group">
                                 <label for="pwd">Confirm new password:</label>
-                                <input style="border-radius:0px!important" type="password" name="confirm_password" class="form-control" id="pwd" placeholder="Repeat new password">
+                                <input style="border-radius:0px!important" type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Repeat new password">
+                                <small id="confirm_password" class="text-info"></small>
                             </div>
                         <!-- </form>
                         <form role="form" method="post" 
