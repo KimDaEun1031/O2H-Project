@@ -104,7 +104,24 @@ insert into announce_board(bno,title,content)
  where rn>(1-1)*10;
  
 --------------------------------------------------
-  
+  -------------------------------------
+ 지역별 채팅창
+  create table areachattingroom(
+ 	area varchar2(10) primary key,
+  	userNum number default 0
+ 	)
+ 	insert into areachattingroom(area) 
+ 	values('제주');
+CREATE SEQUENCE  seq_area_chat;
+ 
+ 	create table area_chat(
+ 	rno number  default seq_area_chat.nextval primary key,
+ 	area varchar2(10),
+ 	user_id varchar2(20),
+	content varchar2(100)
+ 	);
+ select * from area_chat;
+ 
  
  create table chattingroom(
  	roomnumber number(1) primary key,
@@ -139,11 +156,14 @@ CREATE SEQUENCE  seq_chat;
  	regdate date,
  	content varchar2(30)
  );
- 
+ update areachattingroom  set userNum = (select userNum from areachattingroom where area = 'seoul')+1 
+ select * from areachattingroom;
  CREATE SEQUENCE  seq_announce_reply;
  select seq_announce_reply.nextval from dual;
 
- 
+ update  areachattingroom set userNum=0; 
+ select * from areachattingroom;
+ update areachattingroom set usernum = (usernum+1) where area='서울';
 ---------------------------------------------------------------
  
  
