@@ -149,7 +149,7 @@ body{
  var room3=document.getElementById("room3");
  var room4=document.getElementById("room4");
 	
- 	if( "${loginINfo_userId}" !=null){
+ 	if( "${loginInfo.userId}" !="" ){
 		
 		
 		room1.removeAttribute("hidden");
