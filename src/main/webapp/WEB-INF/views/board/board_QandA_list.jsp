@@ -88,7 +88,7 @@
 	 if("${loginInfo.userId}"!=""){
 			 document.getElementById("singinbtn").removeAttribute("hidden");
 	 }
-var actionForm=$("#actionForm")
+	var actionForm=$("#actionForm")
 	
 	$(".paginate_button a").click(function(e){
 		//a 태그의 기능을 중지
@@ -105,15 +105,15 @@ var actionForm=$("#actionForm")
 	
 	 
 	
-$(".move").click(function(e){
-	e.preventDefault();		
-	/* 
-	actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'> ");
-	 */
-	 actionForm.find("input[name='bno']").val($(this).attr("href"))
-		
-	actionForm.attr("action","read"); // /board/read
-	actionForm.submit();
+	$(".move").click(function(e){
+		e.preventDefault();		
+		/* 
+		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'> ");
+		 */
+		 actionForm.find("input[name='bno']").val($(this).attr("href"))
+			
+		actionForm.attr("action","read"); // /board/read
+		actionForm.submit();
 
 })
  }

@@ -89,10 +89,7 @@
         <button class="btn btn-primary mr-6" id="getPT">
           라이브 PT 시청하기
         </button>
-		<button class="btn btn-warning mr-6" id="gotoMainPage">메인페이지로 이동</button>
-		
-		
-        <button class="btn btn-success mr-6" id="getItem">상품 검색하기</button>
+		<a class="btn btn-success mr-6" href="/" role="button" id="main">메인페이지로 이동</a> 
 
         <button class="btn btn-info mr-6" id="getPost">
           커뮤니티 활동하기
@@ -106,9 +103,7 @@
           관리자에게 문의하기
         </button>
         
-        <a class="btn btn-success btn-lg" href="/" role="button" id="main">메인으로</a>
-        <input type="text" name="user_level" id="data" value="${loginInfo.user_level}" style="display:none;"/>
-        
+             
       </div>
     </div>
 
@@ -117,13 +112,10 @@
     </div>
    <script>
    		//auth 숫자에 따라 메인페이지 경로 변경
-   		var test = $("#data").val();
+   		var test = '${loginInfo.user_level}';
    		console.log(test);
-   		var teacher = "1";
    		var admin = "2";
-   		if(test==teacher) {
-   			$("#main").attr("href","/user/teacher_my");
-   		} else if (test==admin) {
+   		if (test==admin) {
    			$("#main").attr("href","/user/admin_index");
    		}
    </script>

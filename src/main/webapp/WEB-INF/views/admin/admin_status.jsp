@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../includes/admin_header.jsp" %>
+<link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
+	
+	
 	<section class="recommand-product one-banner">
         <div class="container-fluid">
-            <div class="row">               
+            <div class="row">
+                <div class="col-lg-3">
+                   <ul class="list-group" style="text-align: center; width: 200px; height: 500px; margin-left: 50%" >
+					  <li class="list-group-item active" style="background: #e7ab3c; border-color: #e7ab3c;">월별 현황 분석</li>
+					  <li class="list-group-item">회원가입 [ ${totalUser} ]</li>
+					  <li class="list-group-item">게시글 [ ${totalBoard} ]</li>
+					</ul>
+                </div>
                 <div class="col-lg-8 offset-lg-1">                
-                    <div class="product-list" style="text-align: center;">
+                    <div class="product-list">
                         <div class="row">
                             <div class="col-lg-4 col-lg-10">                             
 								<div class="board_wrap" style="margin-left: 1%; margin-right: 5%;">
@@ -45,7 +55,5 @@
             </div>
         </div>
     </section>
-   
-<%@include file="../includes/admin_footer.jsp" %>
 
- 
+<%@include file="../includes/admin_footer.jsp" %>

@@ -27,11 +27,28 @@ alter table user_board drop column userInfo;
 
 ALTER TABLE user_board RENAME COLUMN auth TO user_level;
 
+select * from user_board where user_level='2';
+
+select writer_id from QANDA_BOARD where userId='1234';
+
+SELECT * FROM    ALL_CONSTRAINTS
+WHERE    TABLE_NAME = 'QANDA_BOARD';
+
+select qb.bno, qb.title, qb.writer_id, qb.userId, ub.userId
+from QANDA_BOARD qb, user_board ub
+where qb.userId = ub.userId
+
+select * from USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' order by regDate DESC;
+
+select count(userId) from USER_BOARD;
+
+
 select auth from user_board;
 select * from chatroom1;
+
 ---------------------------------------
 
-select * from QANDA_BOARD;
+select * from QANDA_BOARD; --fk userId 추가
 create table QandA_board(
 	bno number primary key,
 	title varchar2(20) not null,
@@ -48,6 +65,20 @@ CREATE SEQUENCE  seq_QandA_board;
 insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','2020.11.11','1');
 
 select count(bno) from QANDA_BOARD;
+
+--추가
+
+alter table QANDA_BOARD add userId varchar2(20);
+
+alter table QANDA_BOARD drop column userId;
+
+alter table QANDA_BOARD 
+add CONSTRAINT fk_userId foreign key(userId) references user_board(userId);
+
+ALTER TABLE QANDA_BOARD MODIFY (replyDate DEFAULT sysdate);
+
+insert into QANDA_BOARD values(1,'test','1234',sysdate,1,'1','1','1',sysdate,'1234');
+
 
 ---------------------------------------------
 
@@ -81,11 +112,6 @@ insert into announce_board(bno,title,content)
  )
  insert into chattingroom 
  values(3,1)
- 
-
-
-
-
 
  create table chatroom1(
  	rno number default seq_chat.nextval,
@@ -117,6 +143,9 @@ CREATE SEQUENCE  seq_chat;
  CREATE SEQUENCE  seq_announce_reply;
  select seq_announce_reply.nextval from dual;
 
+ 
+---------------------------------------------------------------
+ 
  
 -- 파일 첨부 테이블 생성
 create table fit_attach(
