@@ -38,6 +38,12 @@ public class KDController {
 		log.info("고객 센터 페이지");
 		return "/board/board_announce_list";
 	}
+	
+	@GetMapping("/program/calendar")
+	public String calendarEx() {
+		log.info("달력 페이지");
+		return "/program/calendar";
+	}
 
 	
 	//etc END

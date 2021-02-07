@@ -151,7 +151,7 @@ body{
 	
  	if( "${loginINfo_userId}" !=null){
 		
-		alert("hello2")
+		
 		room1.removeAttribute("hidden");
 		room2.removeAttribute("hidden");
 		room3.removeAttribute("hidden");

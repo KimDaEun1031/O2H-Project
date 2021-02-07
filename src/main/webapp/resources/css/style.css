@@ -863,7 +863,7 @@ ol {
 
 .hero-items .single-hero-items {
   height: 725px;
-  padding-top: 210px;
+  padding-top: 10px;
 }
 
 .hero-items .single-hero-items span {
@@ -1378,6 +1378,7 @@ ol {
 
 .instagram-photo {
   overflow: hidden;
+ 
 }
 
 .instagram-photo .insta-item {
@@ -1386,6 +1387,7 @@ ol {
   height: 320px;
   text-align: center;
   position: relative;
+  padding: 5px 5px;
 }
 
 .instagram-photo .insta-item:hover:before {

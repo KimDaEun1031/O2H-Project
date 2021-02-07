@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
+    <!-- 첨부물 css -->
+    <link rel="stylesheet" href="/resources/css/user_my.css" />
     
     <style type="text/css">
 		.tg  {border-collapse:collapse;border-spacing:0;}
@@ -80,7 +82,7 @@
                   <a class="nav-link js-scroll-trigger" href="#services">Professionals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="/user/profile_setting">테스트중</a>
+                  <a class="nav-link js-scroll-trigger" href="#">Facilities</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
@@ -232,8 +234,29 @@
         </div>
     </section>
     <!-- Man Banner Section End -->
-
-
+    
+    
+<!-- 첨부 파일 보여주기 -->
+<div class="bigPictureWrapper">
+	<div class="bigPicture"></div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"><i class="fa fas fa-file"></i> Files</div>
+			<div class="panel-body">				
+				<div class="uploadResult">
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 첨부물 보여주기 -->
+<script>
+	//현재 글 번호 가져오기->read->reply => 결과를 read
+	var userIdVal = '${loginInfo.userId}';
+</script>
 
     <!-- Footer Section Begin -->
   <footer class="footer-section">
@@ -319,6 +342,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/resources/js/jquery.slicknav.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
 <script src="/resources/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/resources/js/user_my.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,104 @@
 /**
  * 파일첨부와 관련된 스크립트
+    passwordForm 유효성 검증-안되고 있음.
  */
-$(function(){
-	
-})
+$(function() {//비밀번호
+	$(".passwordForm").validate({
+		//규칙정의 - 이름
+		rules:{
+			password : {
+				required:true
+			},
+			new_password : {
+				required:true,
+				validPwd:true
+			},
+			confirm_password : {
+				required:true,
+				validPwd:true,
+				equalTo: "#new_password"
+			}
+		},//rules
+		//규칙에 대한 메세지 정의
+		messages:{
+			password : {
+				required:"현재 비밀번호를 입력해 주세요."
+				
+			},
+			new_password : {
+				required:"새로운 비밀번호를 입력해 주세요."
+			},
+			confirm_password : {
+				required:"새로운 비밀번호를 입력해 주세요.",
+				equalTo: "이전 비밀번호와 다릅니다"
+			}
+		},//messages
+		
+		errorPlacement:function(error,element) {
+			$(element).closest("form")
+					  .find("small[id='"+element.attr('id')+"']")
+					  .append(error);
+		},//messages
+		
+		success : function(label) {
+			var name = label.attr('for');
+			label.text(name+ ' is ok!');
+		}
+
+
+	});//"#modifyform").validate
+});//function()
+
+//사용자 검증 메소드 추가
+$.validator.addMethod("validPwd", function(value) {
+	var regPwd = /^(?=.*[\d])[A-Za-z\d!@#$%^&*]{5,15}$/;
+	return regPwd.test(value);
+}, "비밀번호를 5~15자리로 만들어 주세요");
+
+
+$(function() { //이메일
+	$(".infoUpdateForm").validate({
+		//규칙정의 - 이름
+		rules:{
+			userEmail : {
+				required:true,
+				validEmail:true
+			}
+		},//rules
+		//규칙에 대한 메세지 정의
+		messages:{
+			userEmail : {
+				required:"이메일을 입력해주세요."				
+			}
+		},//messages
+		
+		errorPlacement:function(error,element) {
+			$(element).closest("form")
+					  .find("small[id='"+element.attr('id')+"']")
+					  .append(error);
+		},//messages
+		
+		success : function(label) {
+			var name = label.attr('for');
+			label.text(name+ ' is ok!');
+		}
+
+
+	});//"#modifyform").validate
+});//function()
+
+//사용자 검증 메소드 추가
+$.validator.addMethod("validEmail", function(value) {
+	var regEmail = /^.+@.+\..+$/;
+	return regEmail.test(value);
+}, "email을 확인해 주세요.");
+
+
+/**
+ * 파일첨부와 관련된 스크립트
+
+ */
+
 
 $(function(){
 	
@@ -11,10 +106,12 @@ $(function(){
 	//$("button[type='submit']").click(function(e){
 	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
-		
+
 		var str = "";
 		//첨부파일 영역에 정보 수집
-		$(".uploadResult ul li").each(function(idx,obj){//인덱스랑 행이라고 했는데 행을 영역 잡은건가
+		$(".uploadResult ul li").each(function(idx,obj){
+		//$("#myImg").each(function(idx,obj){ //str이 안잡혀서 영역 다시 잡음-근데 에러가 나네? 400.
+		//$("input[name='uploadFile']").each(function(idx,obj){ //아래 append 한 부분꺼 영역 가져옴
 			var job = $(obj);
 			//수집된 정보를 hidden 태그로 작성
 			str+="<input type='hidden' name='attachList["+idx+"].uuid' value='"+job.data("uuid")+"'>";
@@ -33,6 +130,7 @@ $(function(){
 		//3. 전송
 		form.submit();
 		
+		
 	})
 	
 	
@@ -42,7 +140,6 @@ $(function(){
 	//현재 목록의 파일을 서버로 보내서 저장하기
 	//첨부파일 버튼 바꿀거면 여기서 어떻게 함수 변경해서-안해도 잘 되네
 	$("input[type='file']").change(function(){
-	//$("label[for='files']").change(function(){
 		console.log("업로드 호출");
 		
 
@@ -73,6 +170,7 @@ $(function(){
 			success:function(result){
 				console.log(result);
 				showUploadedFile(result); // 서버에서 돌아온 결과를 브라우저에 뿌려 - 여기서는 파일명을 뿌리는거지
+				showUploadedFile2(result); // 서버에서 돌아온 결과를 브라우저에 뿌려 - 여기서는 파일명을 뿌리는거지
 				$("input[name='uploadFile']").val(""); //업로드 성공 후 기존 파일명 제거
 			},
 			error:function(xhr,status,error){
@@ -92,10 +190,41 @@ $(function(){
 			
 	
 	}// 첨부파일 보여주기 종료 
+	
+	
+	//게시글 등록 버튼 등작-과 관련된 스크립트<- 위에 있는 이게 못 읽어서
+	//원래 있던거 추가함 display:none 으로 하고
+	function showUploadedFile2(uploadResultArr) { // 받을 변수 하나 설정해 둔+위에서 
+			//결과를 보여줄 영역 가져오기
+			var uploadResult = $(".uploadResult ul");
+			var str="";		
+			$(uploadResultArr).each(function(idx,obj) { // var i=0 - idx - 인덱스 /// obj - 행 가져오기
+				if(obj.fileType){//formDate에 넣어서 보내고 - 서버에 들어갔다가 결과 가지고 나온거?-vo files에 넣고서 돌렸지
+					//썸네일 이미지 경로 uploadPath - 2021\01\20
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					
+					//원본 이미지 경로
+					var originPath = obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName;
+					
+					originPath = originPath.replace(new RegExp(/\\/g),"/");
+					
+					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
+					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
+					str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">"; 			//새미콜론 없어도 뜨네?!
+					str+="<img src='/display?fileName="+fileCallPath+"'><div>"+obj.fileName+"</a>";
+					str+="<button type='button' class='btn btn-warning btn-circle' data-file='";
+					str+=fileCallPath+"' data-type='image'>";
+					str+="<i class='fa fa-times'></i>"
+					str+="</button>"
+					str+="</div></li>";			
+				}
+			}); //  - .each
+			uploadResult.append(str); // append - 뒤에 가져다 붙이기
+		}// 첨부파일 보여주기 종료 - showUploadedFile
 
 
 
-
+/*
 	//x 버튼 클릭 - 이벤트 위임
 	$(".uploadResult").on("click","button",function(){
 		
@@ -131,7 +260,7 @@ $(function(){
 		},1000);
 	})// 이미지 닫기 종료
 
-
+*/
 
 
 
