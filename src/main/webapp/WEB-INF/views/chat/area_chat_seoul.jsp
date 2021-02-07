@@ -103,7 +103,7 @@
 		
 		
 		
-		xhr.open("get", "/chatAjax/seoul?content= 님이 되장했습니다&user_id=${loginInfo.userId}");
+		xhr.open("get", "/chatAjax/seoul?content= 님이 퇴장했습니다&user_id=${loginInfo.userId}");
 		xhr.send();
 		location.replace("/areaChat/goOutSeoul");
 
