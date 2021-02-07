@@ -253,10 +253,10 @@
 	</div>
 </div>
 <!-- 첨부물 보여주기 -->
-<script>
+<!-- <script> 위에서 이미 선언해서 에러났던거였나?
 	//현재 글 번호 가져오기->read->reply => 결과를 read
 	let userIdVal = ${loginInfo.userId};
-</script>
+</script> -->
 
     <!-- Footer Section Begin -->
   <footer class="footer-section">

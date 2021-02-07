@@ -1,9 +1,100 @@
 /**
  * 파일첨부와 관련된 스크립트
+    passwordForm 유효성 검증-안되고 있음.
  */
-$(function(){
-	
-})
+$(function() {//비밀번호
+	$(".passwordForm").validate({
+		//규칙정의 - 이름
+		rules:{
+			password : {
+				required:true
+			},
+			new_password : {
+				required:true,
+				validPwd:true
+			},
+			confirm_password : {
+				required:true,
+				validPwd:true,
+				equalTo: "#new_password"
+			}
+		},//rules
+		//규칙에 대한 메세지 정의
+		messages:{
+			password : {
+				required:"현재 비밀번호를 입력해 주세요."
+				
+			},
+			new_password : {
+				required:"새로운 비밀번호를 입력해 주세요."
+			},
+			confirm_password : {
+				required:"새로운 비밀번호를 입력해 주세요.",
+				equalTo: "이전 비밀번호와 다릅니다"
+			}
+		},//messages
+		
+		errorPlacement:function(error,element) {
+			$(element).closest("form")
+					  .find("small[id='"+element.attr('id')+"']")
+					  .append(error);
+		},//messages
+		
+		success : function(label) {
+			var name = label.attr('for');
+			label.text(name+ ' is ok!');
+		}
+
+
+	});//"#modifyform").validate
+});//function()
+
+//사용자 검증 메소드 추가
+$.validator.addMethod("validPwd", function(value) {
+	var regPwd = /^(?=.*[\d])[A-Za-z\d!@#$%^&*]{5,15}$/;
+	return regPwd.test(value);
+}, "비밀번호를 5~15자리로 만들어 주세요");
+
+
+$(function() { //이메일
+	$(".infoUpdateForm").validate({
+		//규칙정의 - 이름
+		rules:{
+			userEmail : {
+				required:true,
+				validEmail:true
+			}
+		},//rules
+		//규칙에 대한 메세지 정의
+		messages:{
+			userEmail : {
+				required:"이메일을 입력해주세요."				
+			}
+		},//messages
+		
+		errorPlacement:function(error,element) {
+			$(element).closest("form")
+					  .find("small[id='"+element.attr('id')+"']")
+					  .append(error);
+		},//messages
+		
+		success : function(label) {
+			var name = label.attr('for');
+			label.text(name+ ' is ok!');
+		}
+
+
+	});//"#modifyform").validate
+});//function()
+
+//사용자 검증 메소드 추가
+$.validator.addMethod("validEmail", function(value) {
+	var regEmail = /^.+@.+\..+$/;
+	return regEmail.test(value);
+}, "email을 확인해 주세요.");
+
+
+
 
 $(function(){
 	

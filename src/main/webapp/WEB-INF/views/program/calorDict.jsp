@@ -20,6 +20,19 @@
       .box3 {
         margin-left: 20%;
       }
+      .box4 {
+        margin-left: 8%;
+      }
+      table, th, td {
+        border: 1px solid #bcbcbc;
+      }
+      table {
+        width: 700px;
+        height: 200px;
+      }
+      td {
+        text-align: center;
+      }
     </style>
   </head>
   <body class="is-preload">
@@ -67,8 +80,11 @@
     </div>
     <br />
     <br />
-    <div>
+    <!-- <div>
       <div class="box3"></div>
+    </div> -->
+    <div>
+      <div class="box4"></div>
     </div>
 
     <!-- Footer -->
@@ -173,7 +189,8 @@
             console.log(data);
 
             $(data.I2790.row).each(function (idx, item) {
-              var str = "<ul>";
+              //var str = "<ul>";
+              var str2 = "<table><thead><tr>";
 
               //식품이름
               var descKor = item.DESC_KOR;
@@ -202,7 +219,9 @@
               var servingSize = item.SERVING_SIZE;
               //자료출처
               var subRefName = item.SUB_REF_NAME;
-
+			  
+           /* 
+              //ul-li 나열형
               str += "<li>식품이름 : " + descKor + "</li>";
               str += "<li>식품유형 : " + groupName + "</li>";
               str += "<li>열량(1회제공량당) : " + nutrCont1 + "</li>";
@@ -216,8 +235,25 @@
               str += "<li>트랜스지방(g) : " + nutrCont9 + "</li>";
               str += "<li>트랜스지방(g) : " + servingSize + "</li>";
               str += "<li>자료출처 : " + subRefName + "</li></ul>";
+           */
+              
+              //tr-td 테이블형
+              str2 += "<th colspan='2'>식품이름 : " + descKor + "</th></thead>";
+              str2 += "<tbody><tr><td>식품유형 : </td><td>" + groupName + "</td></tr>";
+              str2 += "<tr><td>열량(1회제공량당) : </td><td>" + nutrCont1 + "</td></tr>";
+              str2 += "<tr><td>탄수화물(g) : </td><td>" + nutrCont2 + "</td></tr>";
+              str2 += "<tr><td>단백질(g) : </td><td>" + nutrCont3 + "</td></tr>";
+              str2 += "<tr><td>지방(g) : </td><td>" + nutrCont4 + "</td></tr>";
+              str2 += "<tr><td>당류(g) : </td><td>" + nutrCont5 + "</td></tr>";
+              str2 += "<tr><td>나트륨(mg) : </td><td>" + nutrCont6 + "</td></tr>";
+              str2 += "<tr><td>콜레스테롤(mg) : </td><td>" + nutrCont7 + "</td></tr>";
+              str2 += "<tr><td>포화지방산(g) : </td><td>" + nutrCont8 + "</td></tr>";
+              str2 += "<tr><td>트랜스지방(g) : </td><td>" + nutrCont9 + "</td></tr>";
+              str2 += "<tr><td>트랜스지방(g) : </td><td>" + servingSize + "</td></tr>";
+              str2 += "<tr><td>자료출처 : </td><td>" + subRefName + "</td></tr></tbody></table>";
 
-              $(".box3").html(str);
+             //$(".box3").html(str);
+              $(".box4").html(str2); //그냥 box3에 추가하면 str2만 적용되는구나
               //모달
               //$(".modal-body").html(str);
               //$("#myModal").modal("show");

@@ -195,8 +195,9 @@ public class HYController {
 		log.info("회원정보 이메일+첨부 수정"+change);
 		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 		service.modifyInfo(change);
+		session.invalidate();
 		
-		return "redirect:/user/user_my";
+		return "redirect:/register/login";
 	}
 //	//이메일+첨부파일 수정
 //	@PostMapping("/user/infoUpdateForm")
@@ -208,17 +209,36 @@ public class HYController {
 //		return "redirect:/";
 //	}
 	
-	//비밀번호 수정
+//	//비밀번호 수정-문제있네
+//	@PostMapping("/user/passwordForm")
+//	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
+//		log.info("회원정보 비밀번호 수정"+change);
+//		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나++처음 세션에 담은 변수명 그대로 여기서도 변수명을 똑같이 써줘야하는구나
+//		service.modifyPwd(change);
+//		session.invalidate();
+//		return "redirect:/register/login";
+//	}
+	//비밀번호 수정2-문제있네-new!=confirm 맞지 않는데 그냥 넘어가버림
 	@PostMapping("/user/passwordForm")
 	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 비밀번호 수정"+change);
 		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나++처음 세션에 담은 변수명 그대로 여기서도 변수명을 똑같이 써줘야하는구나
-		service.modifyPwd(change);
-		
-		return "redirect:/";
+		if(service.modifyPwd(change)) {
+			session.invalidate();
+			return "redirect:/register/login";			
+		}else {
+			//실패 -> 비밀번호 변경 폼 보여주기 이동-현재 비밀번호가 틀리면 나오는구나
+			rttr.addFlashAttribute("error", "현재 비밀번호를 확인해 주세요");
+			return "redirect:/user/profile_setting";
+		}
 	}
+
 	
-	//첨부물 가져오기
+	
+	
+	
+	
+	//첨부물 가져오기 - 안 되고 있음.
 	@GetMapping(value = "/getAttachList",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<HYFileAttach>> getAttachList(String userId) {
 		log.info("첨부물 가져오기 : "+userId);

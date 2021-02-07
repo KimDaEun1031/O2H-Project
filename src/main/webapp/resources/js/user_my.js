@@ -9,7 +9,7 @@ $(document).ready(function(){
 	$.getJSON({
 		url:'getAttachList',
 		data: {
-			userId:userIdVal	//at HTMLDocument.<anonymous> 에러남
+			userId:loginInfo	//at HTMLDocument.<anonymous> 에러남
 		},
 		success:function(data){
 			console.log(data);
@@ -24,14 +24,6 @@ $(document).ready(function(){
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 					str+="<img src='/display?fileName="+fileCallPath+"'><div>"+obj.fileName;
-					str+="</div></li>";	
-				}else{
-
-					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
-					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";	
-					
-					str+="<img src='/resources/img/attach.png'><div>"+obj.fileName+"</a>";
-					//str+="<img src='/resources/img/attach.png'><div>"+obj.fileName;
 					str+="</div></li>";	
 				}
 								
