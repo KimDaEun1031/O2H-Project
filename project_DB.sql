@@ -103,6 +103,15 @@ insert into announce_board(bno,title,content)
  from( select rownum rn,bno,title,regdate,replycnt,written from announce_board where rownum<=1*10)
  where rn>(1-1)*10;
  
+ select * from announce_reply
+ create table announce_reply(
+ 	bno number references announce_board(bno),
+ 	rno number primary key,
+ 	replyer varchar2(20),
+ 	regdate date,
+ 	content varchar2(30)
+ );
+ 
 --------------------------------------------------
   
  
@@ -130,15 +139,6 @@ insert into announce_board(bno,title,content)
  )
 CREATE SEQUENCE  seq_chat;
  
- 
- select * from announce_reply
- create table announce_reply(
- 	bno number references announce_board(bno),
- 	rno number primary key,
- 	replyer varchar2(20),
- 	regdate date,
- 	content varchar2(30)
- );
  
  CREATE SEQUENCE  seq_announce_reply;
  select seq_announce_reply.nextval from dual;
@@ -168,4 +168,21 @@ select * from fit_attach;
 select * from user_board;
 
 
+------------------------------------------------------------
 
+-- 달력 테이블
+create table calendar_ex (
+	cal_title varchar2(50) not null,
+	cal_start date default sysdate,
+	cal_end date default sysdate,
+	cal_description varchar2(200),
+	cal_type varchar2(30) not null,
+	cal_username varchar2(25) not null,
+	cal_backgroundColor varchar2(10) not null,
+	cal_textColor varchar2(10) default '#ffffff',
+	cal_allDay char(1) default '0'
+);
+
+select * from calendar_ex;
+
+insert into calendar_ex values('calex',sysdate,sysdate,'','운동','test','red','#ffffff','0'); 

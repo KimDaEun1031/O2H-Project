@@ -42,7 +42,7 @@
   <!-- Plugin CSS -->
   <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="/resources/css/creative.css" rel="stylesheet">
+  <link href="/resources/css/creative-index.css" rel="stylesheet">
 
 
       <body id="page-top">
@@ -60,10 +60,12 @@
               <span class="navbar-toggler-icon"></span>
             </button>
       
-            <!-- Navigation -->
+            
       
             <div class="collapse navbar-collapse" id="navbarResponsive">
+            
               <ul class="navbar-nav ml-auto">
+              <!-- Navigation 
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#activities">Activities</a>
                 </li>
@@ -75,13 +77,14 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#">contacts</a>
-                </li>
+                </li>-->
       
-                <li class="nav-item">
-               		<a class="btn btn-success btn-lg" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
-                	<a class="btn btn-primary btn-lg" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
-                	<a class="btn btn-success btn-lg" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
-                	<a class="btn btn-primary btn-lg" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>                 
+                <li class="nav-items">
+               		<a class="btn btn-success" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
+                	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
+                	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
+                	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
+                	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a>                 
                 </li>
               </ul>
             </div>
@@ -109,8 +112,7 @@
 				
 			}
 			if(loginInfo == 'admin') {
-				admin.removeAttribute("hidden");
-				$("#profile").attr("href","/user/admin_index");
+				admin.removeAttribute("hidden");				
 			}
 			
 			var teacher = 1;
@@ -161,7 +163,7 @@
                 <li><a href="#">PT</a></li>
                 <li><a href="#">홈쇼핑</a></li>
                 <li><a href="#">커뮤니티</a></li>
-                <li><a href="#">프로그램</a></li>
+                <li><a href="/program/calorDict">프로그램</a></li>
               </ul>
             </div>
           </div>
@@ -176,9 +178,9 @@
                 </ul>
               </li>
               <li>
-                <a href="shop/shop">홈쇼핑</a>               
+                <a href="">홈쇼핑</a>               
               <li>
-                <a href="./blog.html">커뮤니티</a>
+                <a href="">커뮤니티</a>
                 <ul class="dropdown">
                   <li><a href="#">온라인미팅</a></li>
                   <li><a href="#">오프라인미팅</a></li>
@@ -186,13 +188,14 @@
                 </ul>
               </li>
               <li>
-                <a href="#">프로그램</a>
+                <a href="/program/calorDict">프로그램</a>
                 <ul class="dropdown">
-                  <li><a href="#">칼로리사전</a></li>
+                  <li><a href="/program/calorDict">칼로리사전</a></li>
+                  <li><a href="/program/calendar">달력</a></li>
                 </ul>
               </li>
               <li>
-                <a href="./contact.html">고객센터</a>
+                <a href="/announce/getList">고객센터</a>
                 <ul class="dropdown">
                   <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
 
@@ -212,32 +215,18 @@
     <!-- Hero Section Begin -->
     <section class="hero-section">
       <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-3.jpg">
+        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-3.png" onclick="location.href='#'">
           <div class="container">
             <div class="row">
-              <div class="col-lg-5">
-                <span>Bag,kids</span>
-                <h1>Black friday</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
-                </p>
-                <a href="#" class="primary-btn">Shop Now</a>
+              <div class="col-lg-5">               
               </div>
             </div>
           </div>
         </div>
-        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-2.jpg">
+        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-2.png" onclick="location.href='#'">
           <div class="container">
             <div class="row">
-              <div class="col-lg-5">
-                <span>Bag,kids</span>
-                <h1>Black friday</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore
-                </p>
-                <a href="#" class="primary-btn">Shop Now</a>
+              <div class="col-lg-5">              
               </div>
             </div>
           </div>
@@ -248,11 +237,16 @@
 
     <!-- Instagram Section Begin -->
     <div class="banner-section spad" id="activities">
+      <div class="col-lg-8 offset-lg-2">
+         <div class="filter-control">
+         	<a href="" style="color: black; font-size: 30px;">추천 강사</a>          
+         </div>
+      </div>
       <div class="instagram-photo">
         <div class="insta-item set-bg" data-setbg="/resources/img/insta-1.jpg">
           <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
+            <h5><a href="">스트리밍 중</a></h5>
           </div>
         </div>
         <div class="insta-item set-bg" data-setbg="/resources/img/insta-2.jpg">
@@ -294,10 +288,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3">
-            <div
-              class="product-large set-bg"
-              data-setbg="/resources/img/products/women-large.jpg"
-            >
+            <div class="product-large set-bg" data-setbg="/resources/img/products/women-large.jpg">
               <h2>추천상품</h2>
               <a href="#">자세히</a>
             </div>
@@ -633,80 +624,9 @@
             </div>
           </div>
         </div>
-        <div class="benefit-items">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="single-benefit">
-                <div class="sb-icon">
-                  <img src="/resources/img/icon-1.png" alt="" />
-                </div>
-                <div class="sb-text">
-                  <h6>무료 배송</h6>
-                  <p>23000원 이상 구매시</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="single-benefit">
-                <div class="sb-icon">
-                  <img src="/resources/img/icon-2.png" alt="" />
-                </div>
-                <div class="sb-text">
-                  <h6>정시 배달</h6>
-                  <p>오전 10시 이전 주문시</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="single-benefit">
-                <div class="sb-icon">
-                  <img src="/resources/img/icon-1.png" alt="" />
-                </div>
-                <div class="sb-text">
-                  <h6>안전 결제</h6>
-                  <p>100% 안전 결제 보장</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </div>       
     </section>
     <!-- Latest Blog Section End -->
-
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo" id="contact">
-      <div class="container">
-        <div class="logo-carousel owl-carousel">
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="/resources/img/logo-carousel/logo-1.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="/resources/img/logo-carousel/logo-2.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="/resources/img/logo-carousel/logo-3.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="/resources/img/logo-carousel/logo-4.png" alt="" />
-            </div>
-          </div>
-          <div class="logo-item">
-            <div class="tablecell-inner">
-              <img src="/resources/img/logo-carousel/logo-5.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
@@ -718,51 +638,37 @@
                 <a href="#"><img src="/resources/img/footer-logo.png" alt="" /></a>
               </div>
               <ul>
-                <li>Address: 60-49 Road 11378 New York</li>
+                <li>Address: 솔데스크</li>
                 <li>Phone: +65 11.188.888</li>
                 <li>Email: hello.colorlib@gmail.com</li>
               </ul>
               <div class="footer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                <a href="http://www.instagram.com"><i class="fa fa-instagram"></i></a>
+                <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                <a href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a>
               </div>
             </div>
           </div>
           <div class="col-lg-2 offset-lg-1">
             <div class="footer-widget">
-              <h5>... 정보</h5>
+              <h5>Information</h5>
               <ul>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">결제 정보</a></li>
                 <li><a href="#">고객 센터</a></li>
               </ul>
             </div>
           </div>
           <div class="col-lg-2">
             <div class="footer-widget">
-              <h5>마이페이지</h5>
+              <h5>My Account</h5>
               <ul>
-                <li><a href="#">마이페이지</a></li>
-                <li><a href="#">장바구니</a></li>
-                <li><a href="#">...</a></li>
+                <li><a href="#">내 정보</a></li>
+                <li><a href="#">회원수정</a></li>
+                <li><a href="#">회원탈퇴</a></li>
               </ul>
             </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="newslatter-item">
-              <h5>소식지 가입</h5>
-              <p>최신 제품 및 특별 이벤트에 대한 이메일 업데이트를 받으세요.</p>
-              <form action="#" class="subscribe-form">
-                <input
-                  type="text"
-                  placeholder="당신의 이메일 주소를 적으세요"
-                />
-                <button type="button">가입</button>
-              </form>
-            </div>
-          </div>
+          </div>         
         </div>
       </div>
       <div class="copyright-reserved">
@@ -777,12 +683,9 @@
                 </script>
                 All rights reserved | This template is made with
                 <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <a href="/" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </div>
-              <div class="payment-pic">
-                <img src="/resources/img/payment-method.png" alt="" />
-              </div>
+              </div>            
             </div>
           </div>
         </div>

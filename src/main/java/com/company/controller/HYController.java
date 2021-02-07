@@ -48,7 +48,7 @@ public class HYController {
 	//칼로리사전 AJAX
 	@GetMapping("/program/calorDict")
 	public void calor5() {
-
+		log.info("칼로리 사전 페이지");
 	}
 	
 //	@GetMapping("/register/user")
