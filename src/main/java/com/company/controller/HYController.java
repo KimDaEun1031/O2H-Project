@@ -173,19 +173,29 @@ public class HYController {
 		return "/";
 	}
 	
-	//이메일 수정
+//	//이메일 수정-문제있네 수정 내용이 홈페이지에 바로 반영이 안되고 있음.
+//	@PostMapping("/user/infoUpdateForm")
+//	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
+//		log.info("회원정보 이메일 수정"+change);
+//		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+//		Service.modifyInfo(change);
+//		
+//		return "redirect:/user/user_my";
+//	}
+	
+	//이메일 수정-문제있네 수정 내용이 홈페이지에 바로 반영이 안되고 있음.
 	@PostMapping("/user/infoUpdateForm")
 	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
-		log.info("회원정보 수정"+change);
+		log.info("회원정보 이메일+첨부 수정"+change);
 		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 		Service.modifyInfo(change);
 		
-		return "redirect:/";
+		return "redirect:/user/user_my";
 	}
-	//이메일+첨부파일 수정
+//	//이메일+첨부파일 수정
 //	@PostMapping("/user/infoUpdateForm")
 //	public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
-//		log.info("회원정보 수정"+change);
+//		log.info("회원정보 이메일+첨부파일 수정"+change);
 //		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 //		Service.modifyInfo(change);
 //		
@@ -195,7 +205,7 @@ public class HYController {
 	//비밀번호 수정
 	@PostMapping("/user/passwordForm")
 	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
-		log.info("회원정보 수정"+change);
+		log.info("회원정보 비밀번호 수정"+change);
 		change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나++처음 세션에 담은 변수명 그대로 여기서도 변수명을 똑같이 써줘야하는구나
 		Service.modifyPwd(change);
 		

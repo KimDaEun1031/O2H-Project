@@ -153,6 +153,7 @@ public class HYUploadAjaxController {
 		return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
 	} // download end
 	
+	
 	//서버에서 파일 삭제
 	@PostMapping("/deleteFile")
 	public ResponseEntity<String> deleteFile(String fileName, String type){

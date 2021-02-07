@@ -37,7 +37,7 @@ public class HYServiceImpl implements HYService {
 		//이거 체인지에 그냥 안 걸리던데.. controller에서 넣어줘야하냐?
 		
 		//첨부물 전체 삭제
-		mapper.deleteAttach(change.getUserId());//로그인이니까 change가 아닌듯?
+		mapper.deleteAttach(change.getUserId());//로그인이니까 change가 아닌듯?//됐다
 		//게시물 수정
 		boolean result = mapper.updateInfo(change)>0?true:false;
 		
