@@ -205,7 +205,7 @@
               <li>
                 <a href="#">프로그램</a>
                 <ul class="dropdown">
-                  <li><a href="#">칼로리사전</a></li>
+                  <li><a href="/program/calorDict">칼로리사전</a></li>
                 </ul>
               </li>
               <li>

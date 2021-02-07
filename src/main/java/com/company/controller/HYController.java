@@ -218,7 +218,7 @@ public class HYController {
 //		session.invalidate();
 //		return "redirect:/register/login";
 //	}
-	//비밀번호 수정2-문제있네-new!=confirm 맞지 않는데 그냥 넘어가버림
+	//비밀번호 수정2-문제있네-new!=confirm 맞지 않는데 그냥 넘어가버림-validate 넣으니까 됨.
 	@PostMapping("/user/passwordForm")
 	public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 		log.info("회원정보 비밀번호 수정"+change);
@@ -233,13 +233,23 @@ public class HYController {
 		}
 	}
 
+	//program/test
+	@GetMapping("/program/test")
+	public void myAttachTest() {
+
+	}
 	
 	
 	
 	
-	
+//	//첨부물 가져오기 - 안 되고 있음.
+//	@GetMapping(value = "/program/getAttachList",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+//	public ResponseEntity<List<HYFileAttach>> getAttachListTest(String userId) {
+//		log.info("첨부물 가져오기 : "+userId);
+//		return new ResponseEntity<List<HYFileAttach>>(service.getAttachList(userId),HttpStatus.OK);	
+//	}
 	//첨부물 가져오기 - 안 되고 있음.
-	@GetMapping(value = "/getAttachList",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(value = "/user/getAttachList",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<HYFileAttach>> getAttachList(String userId) {
 		log.info("첨부물 가져오기 : "+userId);
 		return new ResponseEntity<List<HYFileAttach>>(service.getAttachList(userId),HttpStatus.OK);	

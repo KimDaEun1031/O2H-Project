@@ -94,6 +94,10 @@ $.validator.addMethod("validEmail", function(value) {
 }, "email을 확인해 주세요.");
 
 
+/**
+ * 파일첨부와 관련된 스크립트
+
+ */
 
 
 $(function(){
@@ -186,7 +190,10 @@ $(function(){
 			
 	
 	}// 첨부파일 보여주기 종료 
-
+	
+	
+	//게시글 등록 버튼 등작-과 관련된 스크립트<- 위에 있는 이게 못 읽어서
+	//원래 있던거 추가함 display:none 으로 하고
 	function showUploadedFile2(uploadResultArr) { // 받을 변수 하나 설정해 둔+위에서 
 			//결과를 보여줄 영역 가져오기
 			var uploadResult = $(".uploadResult ul");

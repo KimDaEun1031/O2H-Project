@@ -82,7 +82,7 @@
                   <a class="nav-link js-scroll-trigger" href="#services">Professionals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="/user/profile_setting">테스트중</a>
+                  <a class="nav-link js-scroll-trigger" href="#">Facilities</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="/user/teacher_my">마이페이지(임시)</a>
@@ -253,10 +253,10 @@
 	</div>
 </div>
 <!-- 첨부물 보여주기 -->
-<!-- <script> 위에서 이미 선언해서 에러났던거였나?
+<script>
 	//현재 글 번호 가져오기->read->reply => 결과를 read
-	let userIdVal = ${loginInfo.userId};
-</script> -->
+	var userIdVal = '${loginInfo.userId}';
+</script>
 
     <!-- Footer Section Begin -->
   <footer class="footer-section">
@@ -342,12 +342,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/resources/js/jquery.slicknav.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
 <script src="/resources/js/main.js"></script>
-<!-- 첨부물 보여주기 -->
-<!-- <script> 아래에 두니까.  //is not defined 에러나네. 위로 올리니까 안 나고
-								//Uncaught ReferenceError: 아이디 is not defined 위에 올려도 에러 나네.
-	//현재 글 번호 가져오기->read->reply => 결과를 read
-	let userIdVal = ${loginInfo.userId};
-</script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/resources/js/user_my.js"></script>
 </body>
 

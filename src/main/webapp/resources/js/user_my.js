@@ -7,9 +7,11 @@ $(document).ready(function(){
 	var uploadResult = $(".uploadResult ul"); // 에러!!!
 	
 	$.getJSON({
-		url:'getAttachList',
+		//url:'getAttachList',
+		//url:'/program/getAttachList',
+		url:'/user/getAttachList',
 		data: {
-			userId:loginInfo	//at HTMLDocument.<anonymous> 에러남
+			userId:userIdVal	//at HTMLDocument.<anonymous> 에러남
 		},
 		success:function(data){
 			console.log(data);
