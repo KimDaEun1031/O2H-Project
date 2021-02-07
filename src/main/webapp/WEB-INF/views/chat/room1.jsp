@@ -45,7 +45,7 @@
 	var xhr = new XMLHttpRequest();
 	
 	inputBtn.onclick = function(e) {
-		alert("sibal..pigonhee");
+		
 		inputText = inputArea.value;
 		inputArea.value = "";
 		var xhr = new XMLHttpRequest();
@@ -59,13 +59,14 @@
 					
 					
 					var str="";
-					for(var i=0;i<wantJson.length;i++){
+					for(var i=wantJson.length-1;i>=0;i--){
+						
 						if(wantJson[i].fromId==2){
 							str+="당신 : "+wantJson[i].content+"\n";
 						}else{
 							str+="운영자 :"+wantJson[i].content+"\n";
 						}
-						console.log(str +"ㅇㅅㅇ?");
+						
 						chatBox.value = str;	
 					}
 				}
@@ -73,14 +74,14 @@
 		}
 		
 		
-		alert(isAdmin);
+		
 		xhr.open("get", "/chatAjax/room1?content=" + inputText + "&fromid="
 				+ isAdmin);
 		xhr.send();
 	}
 
 	goOutBtn.onclick = function(e) {
-		alert("hello");
+		
 		e.preventDefault();
 		location.replace("/chat/goOutRoom1");
 

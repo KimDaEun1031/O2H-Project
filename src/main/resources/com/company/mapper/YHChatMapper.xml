@@ -44,6 +44,6 @@ values (#{fromid} ,#{content})
 
 </insert>
 <select id="getRoom1ChatList" resultType="com.company.domain.YHChatVO">
- select * from chatRoom1
+ select * from chatRoom1 order by rno desc
 </select>
 </mapper>
