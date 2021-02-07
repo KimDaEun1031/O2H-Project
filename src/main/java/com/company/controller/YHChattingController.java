@@ -22,7 +22,8 @@ public class YHChattingController {
 	@Autowired
 	private YHChatService service;
 	
-	@GetMapping("/roomList")
+	//@GetMapping("/roomList")
+	@GetMapping("/chat_list")
 	public String gotoChatWithAdmin(Model model) {
 		List<YHChatRoomVO> list=service.getList();
 		log.info("문의 하기 페이지로 이동"+list);
