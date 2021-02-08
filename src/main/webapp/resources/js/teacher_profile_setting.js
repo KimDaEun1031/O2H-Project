@@ -7,7 +7,7 @@
 $(function(){
 	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
-	$("button[type='submit']").click(function(e){ //버튼 하나니까. 상관없지
+	$("button[type='submit']").click(function(e){ //teacher_profile_setting은 폼이 하나라서 이렇게 해도 될듯
 	//$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
 
@@ -28,7 +28,7 @@ $(function(){
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1. 게시글 등록 폼 가져오기
 		//var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
-		var form = $("form"); //폼이 하나니까 상관없지
+		var form = $("form"); ///teacher_profile_setting은 폼이 하나지
 		//2. 폼에 추가하기
 		form.append(str);
 		//3. 전송
@@ -63,7 +63,7 @@ $(function(){
 		
 
 		$.ajax({
-			url:'/photoBoardUploadAjax',
+			url:'/uploadAjax',
 			type:'post',
 			processData:false, //데이터를 query string 형태로 보낼 것인지 결정
 			contentType:false, //기본값은 application/x-www-form-urlencoded임(파일첨부이므로 multipart/form-data로 보내야 함)
@@ -89,9 +89,8 @@ $(function(){
 		var profileImg = $("#myImg");	
 			
 		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
-		//var fileCallPath = encodeURIComponent(profile.uploadPath+profile.uuid+"_"+profile.fileName); //썸네일 말고 원본이 뜨게 해보자-이거만 하니까 안나와서 아래도 바꿈.-안나옴.
 		
-		profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);			
+		profileImg.attr('src','/display?fileName='+fileCallPath);			
 			
 	
 	}// 첨부파일 보여주기 종료 
@@ -107,7 +106,6 @@ $(function(){
 				if(obj.fileType){//formDate에 넣어서 보내고 - 서버에 들어갔다가 결과 가지고 나온거?-vo files에 넣고서 돌렸지
 					//썸네일 이미지 경로 uploadPath - 2021\01\20
 					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
-					//var fileCallPath = encodeURIComponent(obj.uploadPath+obj.uuid+"_"+obj.fileName); //썸네일이 아니라 원본이 뜨게 해보자.
 					
 					//원본 이미지 경로
 					var originPath = obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName;
@@ -117,7 +115,7 @@ $(function(){
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 					str+="<a href=\"javascript:showImage(\'"+originPath+"\')\">"; 			//새미콜론 없어도 뜨네?!
-					str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName+"</a>";
+					str+="<img src='/display?fileName="+fileCallPath+"'><div>"+obj.fileName+"</a>";
 					str+="<button type='button' class='btn btn-warning btn-circle' data-file='";
 					str+=fileCallPath+"' data-type='image'>";
 					str+="<i class='fa fa-times'></i>"
@@ -130,7 +128,7 @@ $(function(){
 
 
 
-
+/*
 	//x 버튼 클릭 - 이벤트 위임
 	$(".uploadResult").on("click","button",function(){
 		
@@ -144,7 +142,7 @@ $(function(){
 		
 		//서버 폴더에서 제거
 		$.ajax({
-			url:'/photoBoardDeleteFile',
+			url:'/deleteFile',
 			type:'post',
 			data:{
 				fileName:targetFile,
@@ -166,7 +164,7 @@ $(function(){
 		},1000);
 	})// 이미지 닫기 종료
 
-
+*/
 
 
 
@@ -174,6 +172,6 @@ $(function(){
 
 function showImage(fileCallPath) {
 	$(".bigPictureWrapper").css("display","flex").show();
-	$(".bigPicture").html("<img src='/photoBoardDisplay?fileName="+fileCallPath+"'>")
+	$(".bigPicture").html("<img src='/display?fileName="+fileCallPath+"'>")
 					.animate({width:'100%', hight:'100%'},1000);
 }

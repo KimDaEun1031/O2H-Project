@@ -68,8 +68,14 @@
                         <div class="search-form">
                            <div class="product-item">
                                <div class="pi-pic">
-                                   <a href="/user/teacher_profile_setting"><img src="/resources/img/products/women-4.jpg" alt=""></a>
-                                                           
+                                   <a href="/user/teacher_profile_setting"><img id="myImg" src="/resources/img/products/women-4.jpg" alt=""></a>
+                                   
+                                   
+	                            <!-- 첨부물 보여주기 -->
+								<script>
+									//현재 글 번호 가져오기->read->reply => 결과를 read
+									var userIdVal = '${loginInfo.userId}';
+								</script>                         
                                </div>
                                <div class="pi-text">
                                    <div class="catagory-name">담당 운동</div>
@@ -186,6 +192,9 @@
     <script src="resources/js/jquery.slicknav.js"></script>
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/resources/js/teacher_my_stream.js"></script>
   </body>
 </html>
 	
