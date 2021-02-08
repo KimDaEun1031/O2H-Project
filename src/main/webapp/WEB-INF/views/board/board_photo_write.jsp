@@ -21,7 +21,7 @@
              <span id="profile_pic">
                  <img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' />
              </span>
-			<div class="uploadResult" style="display:none;">
+			<div class="uploadResult">
 				<ul></ul>
 			</div>
 			<div class="bigPictureWrapper">
@@ -39,30 +39,30 @@
     </div>
     
     
-	<form action="" method="post"  role="form">
     <div class="board_write_wrap">
       <div class="board_write">
-        <div class="title">
-          <dl>
-            <dt>제목</dt>
-            <dd><input type="text" name="title" placeholder="제목 입력" /></dd>
-          </dl>
-        </div>
-         <div class="info">
-          <dl>
-            <dt>글쓴이</dt>
-            <dd><input type="text" name="writer" placeholder="글쓴이 입력"<%--  value="${loginInfo.userId }" readonly="readonly" --%>/></dd>
-          </dl>
-        
+		<form action="" method="post" role="form">
+	        <div class="title">
+	          <dl>
+	            <dt>제목</dt>
+	            <dd><input type="text" name="title" placeholder="제목 입력" /></dd>
+	          </dl>
+	        </div>
+	         <div class="info">
+	          <dl>
+	            <dt>글쓴이</dt>
+	            <dd><input type="text" name="writer" placeholder="글쓴이 입력"<%--  value="${loginInfo.userId }" readonly="readonly" --%>/></dd>
+	          </dl>   
     
 	
-    <div class="bt_wrap">
-      <input type="submit" value="등록">
-      <a href="#">취소</a>
-    </div>
+		    <div class="bt_wrap">
+		      <input type="submit" value="등록">
+		      <a href="#">취소</a>
+		    </div>
     
 	</form>
-	
+	</div>
+	</div>
 <script src="/resources/js/photoBoardWrite.js"></script>
 <%@include file="../includes/footer.jsp" %>
 </html>

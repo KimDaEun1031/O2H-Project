@@ -50,10 +50,10 @@ public class HYPhotoBoardController {
 			board.getAttachList().forEach(attach -> log.info(""+attach));
 		}
 		
-		log.info("게시글 번호 "+board.getBno()); //bno가 0이 뜨는데 첨부파일 안되는 거랑 관련이 있나?
 		if(service.regist(board)) {
 			//등록성공 메시지를 모달로 띄우기 위해 조금 전 등록된 글 번호 보내기
 			rttr.addFlashAttribute("result", board.getBno());
+			log.info("게시글 번호 "+board.getBno()); //여기서 bno 가 뜨면 되는거에요
 			//return "redirect:/board/board_photo_list";
 			return "redirect:/"; //일단 리스트 없으니까 여기로 감
 		}
