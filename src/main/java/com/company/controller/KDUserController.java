@@ -60,9 +60,10 @@ public class KDUserController {
 		loginInfo.setUserId(loginInfoTemp.getUserId());		
 		if(service.userUpdate(loginInfo)) {
 			session.setAttribute("loginInfo", loginInfo);
-			return "/teacher_my";
+			log.info("수정 완료");
+			return "/teacher_my_stream";
 		} else {
-			return "/teache_profile_setting";			
+			return "/teacher_profile_setting";			
 		}
 		
 	}

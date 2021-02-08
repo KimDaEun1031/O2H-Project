@@ -43,7 +43,7 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>                                  
-                        <form role="form" method="POST" id="profile-form">
+                        <form role="form" method="get" id="profile-form" action="/user/teacher_my_stream">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
                                 <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>

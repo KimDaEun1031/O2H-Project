@@ -157,7 +157,7 @@ CREATE SEQUENCE  seq_area_chat;
 CREATE SEQUENCE  seq_chat;
  
  
-<<<<<<< HEAD
+
  select * from announce_reply
  create table announce_reply(
  	bno number references announce_board(bno),
@@ -168,8 +168,7 @@ CREATE SEQUENCE  seq_chat;
  );
  update areachattingroom  set userNum = (select userNum from areachattingroom where area = 'seoul')+1 
  select * from areachattingroom;
-=======
->>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
+
  CREATE SEQUENCE  seq_announce_reply;
  select seq_announce_reply.nextval from dual;
 

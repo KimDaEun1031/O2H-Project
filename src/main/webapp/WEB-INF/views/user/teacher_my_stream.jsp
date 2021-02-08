@@ -74,7 +74,7 @@
                                <div class="pi-text">
                                    <div class="catagory-name">담당 운동</div>
                                        <h5>${loginInfo.userId}</h5> 
-                                       <a class="btn btn-primary float-center" href="/user/profile_setting" role="button">설정</a> 
+                                       <a class="btn btn-primary float-center" href="/user/teacher_profile_setting" role="button">설정</a> 
                                </div>
                            </div>                   
                         </div>
