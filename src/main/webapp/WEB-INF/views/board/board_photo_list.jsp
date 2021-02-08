@@ -37,6 +37,7 @@
          </tr>
        </thead>
        <tbody>
+       <!-- 게시판 리스트 반복문 -->
          <c:forEach var="vo" items="${list }">
     		<tr>
          		<td>${vo.bno }</td>

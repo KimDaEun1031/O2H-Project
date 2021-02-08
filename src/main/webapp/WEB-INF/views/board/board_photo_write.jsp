@@ -16,32 +16,16 @@
     </div>
 
     <!-- 게시글 작성 -->
-
-	<form action="/qandaboard/register" method="post">
-    <div class="board_write_wrap">
-      <div class="board_write">
-        <div class="title">
-          <dl>
-            <dt>제목</dt>
-            <dd><input type="text" name="title" placeholder="제목 입력" /></dd>
-          </dl>
-        </div>
-         <div class="info">
-          <dl>
-            <dt>글쓴이</dt>
-            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${loginInfo.userId }" readonly="readonly"/></dd>
-          </dl>
-        
-        <!-- <div class="cont">
-          <textarea name="content" placeholder="내용 입력"></textarea>
-        </div> -->
-        
+<!-- 첨부파일 -->
         <div id="imageForm" class="col-l-3 col-md-3 col-sm-3 col-xs-12 section-header wow fadeInDown">
              <span id="profile_pic">
                  <img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' />
              </span>
 			<div class="uploadResult" style="display:none;">
 				<ul></ul>
+			</div>
+			<div class="bigPictureWrapper">
+				<div class="bigPicture"></div>
 			</div>
             <br>
             <%-- 파일등록 --%>
@@ -53,6 +37,23 @@
         
       </div>
     </div>
+    
+    
+	<form action="" method="post"  role="form">
+    <div class="board_write_wrap">
+      <div class="board_write">
+        <div class="title">
+          <dl>
+            <dt>제목</dt>
+            <dd><input type="text" name="title" placeholder="제목 입력" /></dd>
+          </dl>
+        </div>
+         <div class="info">
+          <dl>
+            <dt>글쓴이</dt>
+            <dd><input type="text" name="writer" placeholder="글쓴이 입력"<%--  value="${loginInfo.userId }" readonly="readonly" --%>/></dd>
+          </dl>
+        
     
 	
     <div class="bt_wrap">
