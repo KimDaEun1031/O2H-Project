@@ -146,5 +146,5 @@
           <div id="mobile-menu-wrap"></div>
         </div>
       </div>
-    </header>
+    </head>
     <!-- Header End -->

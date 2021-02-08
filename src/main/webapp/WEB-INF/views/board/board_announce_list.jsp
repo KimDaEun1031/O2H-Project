@@ -60,7 +60,7 @@
 			<c:forEach var="idx" begin="${pageVO.startPage}"
 				end="${pageVO.endPage}">
 				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a
-					href="${idx}">${idx}</a>
+					href="${idx}">${idx+1}</a>
 			</c:forEach>
 			<c:if test="${pageVO.next }">
 				<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
@@ -94,7 +94,7 @@
 		 writebtn.removeAttribute("hidden");
 	 }
 	 var pageNumDiv=document.getElementById("pageNum")
-	 if("${pageNum}"=="1"){
+	 if("${pageNum}"!="1"){
 		 pageNumDiv.setAttribute("value",'${pageNum}')
 	 }
 	 var actionForm=$("#actionForm")
@@ -114,7 +114,7 @@
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"))
 		console.log($(this).attr("href"));
 		console.log($(this));
-		actionForm.attr("action","gotoAnnouceList");
+		actionForm.attr("action","getList");
 		actionForm.submit();
 	})
 	

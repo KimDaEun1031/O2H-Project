@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.YHAreaChatMapper">
+
+<select id="ChatList" resultType="com.company.domain.YHAreaChatVO">
+select * from areachattingroom
+</select>
+
+
+<select id="seoulGetChat20" resultType="com.company.domain.YHAreaChatGetVO">
+  <![CDATA[ select * from area_chat where area='seoul' and rownum<=20 order by rno desc  ]]>
+</select>
+<select id="seoulGetChat5" resultType="com.company.domain.YHAreaChatGetVO">
+  <![CDATA[ select * from area_chat where area='seoul' and rownum<=5 order by rno desc  ]]>
+</select>
+
+<insert id="seoulChatInsert">
+insert into area_chat(area ,user_id,content) 
+values('seoul',#{user_id},#{content})
+</insert>
+<update id="seoulUserNumPlus">
+update areachattingroom  set userNum =userNum+1 where area = '서울'
+</update>
+<update id="seoulUserNumMinus">
+update areachattingroom  set userNum =userNum -1 where area = '서울'
+</update>
+</mapper>

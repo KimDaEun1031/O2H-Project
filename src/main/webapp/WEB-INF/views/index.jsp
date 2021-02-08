@@ -184,7 +184,7 @@
               <li>
                 <a href="">커뮤니티</a>
                 <ul class="dropdown">
-                  <li><a href="#">온라인미팅</a></li>
+                  <li><a href="/areaChat/chatRoomList">지역별 온라인 채팅</a></li>
                   <li><a href="#">오프라인미팅</a></li>
                   <li><a href="#">중고장터</a></li>
                 </ul>
