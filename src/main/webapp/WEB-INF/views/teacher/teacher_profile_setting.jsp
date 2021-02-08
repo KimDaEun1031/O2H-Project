@@ -48,7 +48,7 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>                                  
-                        <form role="form" method="post" id="profile-form" action="teacherProfileSetting">
+                        <form role="form" method="GET" id="profile-form" action="teacher_my_stream">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
                                 <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>
@@ -59,38 +59,13 @@
                             </div>             
 	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">	                           
 	                            <button type="submit" class="btn btn-primary " id="update-btn" >수정 완료</button>
-	                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='teacher_my'">수정 취소</button>	                                                                 	                            
+	                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='teacher_my_stream'">수정 취소</button>	                                                                 	                            
 	                        </div>
                         </form>  
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="footer-containertent">
-                        <p class="mt-4 social-login text-center">
-                            <a href="#" class="btn btn-twitter">
-                                <em class="ion-social-twitter"></em>
-                            </a>
-                            <a href="#" class="btn btn-facebook">
-                                <em class="ion-social-facebook"></em>
-                            </a>
-                            <a href="#" class="btn btn-linkedin">
-                                <em class="ion-social-linkedin"></em>
-                            </a>
-                            <a href="#" class="btn btn-google">
-                                <em class="ion-social-googleplus"></em>
-                            </a>
-                            <a href="#" class="btn btn-github">
-                                <em class="ion-social-github"></em>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 <script src="/resources/js/teacher_profile_setting.js"></script>
 </body>

@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>announce게시판</span>
+              <span>공지게시판</span>
             </div>
           </div>
         </div>
@@ -38,13 +38,13 @@
           </dl>
         </div> -->
         <div class="cont">
-          <textarea name="content" placeholder="내용 입력"></textarea>
+          <textarea name="content" placeholder="내용 입력" style="resize: none;"></textarea>
         </div>
       </div>
     </div>
     <div class="bt_wrap">
-      <input type="submit" value="등록">
-      <a href="#">취소</a>
+      <button type="submit" class="btn btn-success " id="update-btn" value="등록"> 등록 </button>
+	  <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='getList'" value="취소"> 취소 </button>
     </div>
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	</form>

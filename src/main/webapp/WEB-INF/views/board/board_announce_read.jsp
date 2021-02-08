@@ -63,7 +63,7 @@
           </dl>
         </div> -->
 			<div class="cont">
-				<textarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
+				<textarea name="content" id="contenth" placeholder="내용 입력" style="resize: none;" readonly="readonly"> ${vo.content }</textarea>
 			</div>
 		</div>
 	</div>
@@ -74,10 +74,11 @@
 	<input type="hidden" id="content" name="content">
 	<input type="hidden" id="bno" name="bno" value="${vo.bno}">
  
-
-	 <input type="button" id="hob" value="수정" hidden="hidden" onclick="hello()">
-	<!-- <input type="button"  hidden="hidden" id="hob" value="수정"> -->
-	<a href="/announce/delete?bno=${param.bno}" hidden="hidden" id="hob2"> <input type="button" value="삭제">   </a>
+	<div style="margin-bottom: 10px;">
+		<input type="button" id="hob" value="수정" class="btn btn-warning" hidden="hidden" onclick="hello()">
+		<!-- <input type="button"  hidden="hidden" id="hob" value="수정"> -->
+		<a href="/announce/delete?bno=${param.bno}" hidden="hidden" id="hob2" type="button" class="btn btn-primary" value="삭제">삭제</a>
+	</div>	 
 	</form>
 	<div style="margin-left:10%; width: 80%">
 		<table class="board_list" style="text-align: center;">
@@ -127,18 +128,17 @@
 				
 			</thead>
 		</table>
-		댓글 작성
+		<div style="margin-top: 10px;">댓글 작성</div>
 		<form action="/announce/replyWrite" method="post">
 			
 			<input type="hidden" name="bno" value="${vo.bno}">
 		
 			<input type="hidden" name="replyer" value="${loginInfo.userId}">
 			
-			<textarea name="content" rows="1" cols="100"></textarea>
-				<input type="submit" id="replyWriteBtn" value="작성">	
-				
+			<textarea name="content" rows="5" cols="80" style="resize: none; margin-top: 15px;"></textarea>
 			
-			</form>
+			<input type="submit" id="replyWriteBtn" style="margin-bottom: 20px;" class="btn btn-secondary" value="작성">	
+		</form>
 	</div>
 
 <div class="board_write_wrap">

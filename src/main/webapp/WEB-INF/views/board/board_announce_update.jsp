@@ -31,7 +31,7 @@
           <dl>
             <dt>글쓴이</dt>
            
-            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${vo.writer_id}" readonly="readonly"/></dd>
+            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${vo.writer_id}" style="resize: none;" readonly="readonly"/></dd>
           </dl>
           <!-- 
           <dl>

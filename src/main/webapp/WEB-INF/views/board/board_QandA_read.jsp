@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>Q&A게시판</span>
+              <a href="/qandaboard/gotoQandAList"><span>Q&A게시판</span></a>${vo.writer_id}님이 작성하신 게시판입니다.
             </div>
           </div>
         </div>
@@ -39,15 +39,14 @@
           </dl>
         </div> -->
         <div class="cont">
-          <textarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
+          <textarea name="content" id="contenth" placeholder="내용 입력" style="resize: none;" readonly="readonly"> ${vo.content }</textarea>
         </div>
       </div>
     </div>
     </div>
-    <div class="bt_wrap" id="ttld">
-   <input type="button" id="hob" value="수정" hidden="hidden">
-    <input type="button" id="hob2" value="삭제" hidden="hidden">
-   
+    <div class="bt_wrap" id="ttld" style="margin-bottom: 10px;">
+    <input type="button" id="hob"  class="btn btn-warning" value="수정" hidden="hidden">
+    <input type="button" id="hob2"  class="btn btn-primary" value="삭제" hidden="hidden">
     </div>
 	 <div class="board_write_wrap">
       <div class="board_write">
@@ -56,9 +55,9 @@
        	운영자 답변란
         <div class="cont">
         <form method="post" action="/qandaboard/replyupdate">
-          <textarea  readonly="readonly" name="reply" id="reply">${vo.reply } </textarea>
+          <textarea  readonly="readonly" name="reply" id="reply" style="resize: none;">${vo.reply } </textarea>
           <input type="hidden" name="bno" value="${vo.bno}">
-          <button hidden="hidden" id="adminonlybtn"> 수정하기</button>
+          <button hidden="hidden" id="adminonlybtn" class="btn btn-outline-warning"> 수정하기</button>
          </form>
         </div>
       </div>

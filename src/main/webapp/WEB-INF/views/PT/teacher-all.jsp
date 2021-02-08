@@ -44,7 +44,7 @@
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="img/iconLogo.ico" />
+  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -94,13 +94,12 @@
                   <a class="nav-link js-scroll-trigger" href="#">contacts</a>
                 </li>-->
       
-                <li class="nav-items">
+                 <li class="nav-items">
                		<a class="btn btn-success" id="login" href="/register/login" hidden="hidden" role="button">로그인</a>
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>
+                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
                 	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
                 </li>
               </ul>
@@ -134,10 +133,7 @@
 				admin.removeAttribute("hidden");				
 			}
 			
-			var teacher = 1;
-			if (loginInfolevel==teacher) {
-	   			$("#profile").attr("href","/user/teacher_my");
-	   		}
+			
 			
 //		}
 	
@@ -192,7 +188,7 @@
               <li>
                 <a href="#">PT</a>
                 <ul class="dropdown">
-                  <li><a href="PT/teacher-all">전체 강사</a></li>
+                  <li><a href="/PT/teacher-all">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
                 </ul>
               </li>
@@ -210,16 +206,13 @@
                 <a href="/program/calorDict">프로그램</a>
                 <ul class="dropdown">
                   <li><a href="/program/calorDict">칼로리사전</a></li>
-                  <li><a href="/program/cal">달력</a></li>
                 </ul>
               </li>
               <li>
                 <a href="/announce/getList">고객센터</a>
                 <ul class="dropdown">
                   <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
-
                   <li><a href="/chat/chat_list">실시간 문의</a></li>
-
                   <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
               </li>
@@ -270,13 +263,7 @@
 	                                </a> 		                                                       
 	                            </div>	                               			
 							</div>   
-							<script>
-								var uploadPath = '${teacherlist.uploadPath}';
-								var uuid = '${teacherlist.uuid}';
-								var fileName = '${teacherlist.fileName}';
-								var fileCallPath = encodeURIComponent(uploadPath+"\\s_"+uuid+"_"+fileName);	
-								console.log("파일인코딩 "+fileCallPath);
-							</script>							
+											
 	                    </c:forEach>
                     </div>
                 </div>

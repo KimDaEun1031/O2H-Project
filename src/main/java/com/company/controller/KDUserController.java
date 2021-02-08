@@ -20,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/user/*")
 public class KDUserController {
 	
 	@Autowired
@@ -29,20 +28,14 @@ public class KDUserController {
 	@Autowired
 	YHQandABoardService yhservice;
 	
-	@GetMapping("/user_my")
+	@GetMapping("/user/user_my")
 	public void Mypage(HttpSession session, KDLoginInfoVO loginInfo) {
 		KDLoginInfoVO loginInfoTemp = (KDLoginInfoVO) session.getAttribute("loginInfo");
 		log.info("유저 마이페이지" +loginInfoTemp);
 		service.ProfileInfo(loginInfoTemp);		
 	}
-	
-	@GetMapping("/teacher_profile_setting")
-	public void teacher_profile_setting() {	
-		log.info("프로필 설정 페이지");
 		
-	}
-	
-	@GetMapping("/user_QnA")
+	@GetMapping("/user/user_QnA")
 	public String userQnA(YHQandABoardVO yhqnavo, Model model) {
 		log.info("문의내역 페이지"+yhqnavo);
 		List<YHQandABoardVO> userlist= service.QnAUsers();
@@ -51,31 +44,27 @@ public class KDUserController {
 		return "/user/user_QnA";
 	}
 	
-	@PostMapping("/teacher_profile_setting")
+	@PostMapping("/teacher/teacher_profile_setting")
 	public String updateUserProfileInfo(HttpSession session, KDLoginInfoVO loginInfo) {
 		KDLoginInfoVO loginInfoTemp = (KDLoginInfoVO) session.getAttribute("loginInfo");
 		loginInfo.setUserId(loginInfoTemp.getUserId());		
 		if(service.userUpdate(loginInfo)) {
 			session.setAttribute("loginInfo", loginInfo);
 			log.info("수정 완료");
-			return "/teacher_my_stream";
+			return "/teacher/teacher_my_stream";
 		} else {
-			return "/teacher_profile_setting";			
+			return "/teacher/teacher_profile_setting";			
 		}
 		
 	}
 	
-	@GetMapping("/user/admin_index")
-	public void admin_index() {
-		log.info("관리자 페이지");
+	@GetMapping("/teacher/teacher_profile_setting")
+	public void teacher_profile_setting() {	
+		log.info("프로필 설정 페이지");
+		
 	}
-	
-	@GetMapping("/teacher_my")
-	public void teacherpage() {
-		log.info("강사 시 마이페이지");
-	}
-	
-	@GetMapping("/teacher_my_stream")
+		
+	@GetMapping("/teacher/teacher_my_stream")
 	public void teacherStreampage() {
 		log.info("강사 스트림 마이페이지");
 	}

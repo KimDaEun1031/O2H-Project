@@ -51,17 +51,15 @@
          </c:forEach>
        </tbody>
      </table>
+     <br />
      <!-- start Pagination -->
-	<div class="text-center" style="display: table; margin-left: auto; margin-right: auto;">
+	<div class="text-center" style="display: table; margin-left: auto; margin-right: auto; ">
 		<ul class="pagination" >
 			<c:if test="${pageVO.prev }">
-				<li class="paginate_button previous"><a
-					href="${pageVO.startPage-1 }">Previous</a>
+				<li class="paginate_button previous" ><a href="${pageVO.startPage-1 }">Previous</a>
 			</c:if>
-			<c:forEach var="idx" begin="${pageVO.startPage}"
-				end="${pageVO.endPage}">
-				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a
-					href="${idx}">${idx}</a>
+			<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px" href="${idx}">${idx}</a>
 			</c:forEach>
 			<c:if test="${pageVO.next }">
 				<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
@@ -70,7 +68,7 @@
 	</div>
 	<!-- end Pagination -->     
 	<div class="bt_wrap">
-	   <a href="/qandaboard/gotoWriterQuestion" ><button class="btn btn-primary" hidden="hidden" id="singinbtn">글 작성</button></a> 
+	   <a href="/qandaboard/gotoWriterQuestion" ><button class="btn btn-info" hidden="hidden" id="singinbtn">글 작성</button></a> 
 	</div>
 </div>
 

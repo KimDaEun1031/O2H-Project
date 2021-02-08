@@ -51,24 +51,28 @@ body{
 		
 	} */
 	/* 중앙 정렬 안 됨 */
-	  #msg1{
+	 #msg1{
 		float: left;
-		margin-left: 400px;
+		width:400px;
+		margin-left: 300px;
 	}
 	 #msg2{
 		float: right;
-		margin-right: 400px;
+		width:400px;
+		margin-right: 300px;
 	}
 	 #clear{
 		clear: both;
 	}
 	 #msg3{
 		float: left;
-		margin-left: 400px;
+		width:400px;
+		margin-left: 300px;
 	}
 	 #msg4{
 		float: right;
-		margin-right: 400px;
+		width:400px;
+		margin-right: 300px;
 	} 
 	.bigDiv1{
 	position: absolute;
@@ -156,6 +160,7 @@ body{
 		room2.removeAttribute("hidden");
 		room3.removeAttribute("hidden");
 		room4.removeAttribute("hidden");
+
 		
 	}
 	

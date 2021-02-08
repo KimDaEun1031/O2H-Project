@@ -51,6 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
+                        <button type="button" class="btn btn-outline-success" style="float: right;" onclick="location.href='/'">h</button>
                         <h2>${loginInfo.userId}님의 마이페이지</h2>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                         <div class="search-form">
                            <div class="product-item">
                                <div class="pi-pic">
-                                   <a href="/user/teacher_profile_setting"><img id="myImg" src="/resources/img/products/women-4.jpg" alt=""></a>
+                                   <a href="/teacher/teacher_profile_setting"><img id="myImg" src="/resources/img/products/women-4.jpg" alt=""></a>
                                    
                                    
 	                            <!-- 첨부물 보여주기 -->
@@ -80,7 +81,7 @@
                                <div class="pi-text">
                                    <div class="catagory-name">담당 운동</div>
                                        <h5>${loginInfo.userId}</h5> 
-                                       <a class="btn btn-primary float-center" href="/user/teacher_profile_setting" role="button">설정</a> 
+                                       <a class="btn btn-primary float-center" href="/teacher/teacher_profile_setting" role="button">설정</a> 
                                </div>
                            </div>                   
                         </div>
@@ -194,7 +195,7 @@
     <script src="resources/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="/resources/js/teacher_my_stream.js"></script>
+	<script src="/resources/js/teacher_my_stream.js"></script>
   </body>
 </html>
 	
