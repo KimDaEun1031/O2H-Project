@@ -27,7 +27,7 @@
        <caption>
          게시판 목록
        </caption>
-       <thead >
+       <%-- <thead >
          <tr>
            <th>번호</th>
            <th>제목</th>
@@ -35,13 +35,16 @@
            <th>작성일</th>
            <th>조회수</th>
          </tr>
+         <tr>
+           <th>번호</th>
+         </tr>
        </thead>
        <tbody>
        <!-- 게시판 리스트 반복문 -->
          <c:forEach var="vo" items="${list }">
     		<tr>
          		<td>${vo.bno }</td>
-   			<td><a href="${vo.bno }" class="move">${vo.title}</a></td>
+   			<td><a href="${vo.bno }" class="move">${vo.title}</a><strong>[${vo.replycnt}]</strong></td>
    			<td>${vo.writer_id }  </td>
           	<td><fmt:formatDate value="${vo.regdate }"
           			pattern="yyyy-MM-dd HH:mm" /></td>
@@ -51,23 +54,24 @@
          	</tr>
          </c:forEach>
        </tbody>
-     </table>
-     <!--  -->
-     
-     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-03.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Clocks</h2>
-                        <a href="photo-detail.html">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">18 Oct 2020</span>
-                    <span>9,906 views</span>
-                </div>
-            </div>
-     
+     </table> --%>
+     <!-- 게시판 리스트 반복문 : 박스형태 -->
+     <c:forEach var="vo" items="${list }">
+	    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+	       <figure class="effect-ming tm-video-item">
+	           <a href="${vo.bno}" class="move"><img src="img/img-06.jpg" alt="Image" class="img-fluid"></a>
+	           <figcaption class="d-flex align-items-center justify-content-center">
+	               <a href="${vo.bno}" class="move"><h2>${vo.title }</h2></a>
+	               <!-- <a href="photo-detail.html">View more</a> -->
+	           </figcaption>                    
+	       </figure>
+	       <div class="d-flex justify-content-between tm-text-gray">
+	           <span class="tm-text-gray-light"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd HH:mm"/></span>
+	           <span><td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy-MM-dd HH:mm"/></td></span>
+	       </div>
+	   </div>
+    </c:forEach>
+     <!-- 여기가 원래 검색버튼 자리 -->
      
      
      <!-- start Pagination -->
@@ -95,12 +99,22 @@
 
 
 <form action="/qandaboard/read" id="actionForm">
-   <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }"/>
-   <input type="hidden" name="bno" />
+<%--    <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }"/>
+   <input type="hidden" name="bno" /> --%>
+   	<input type="hidden" name="type" value="${pageVO.cri.type }"/>
+	<input type="hidden" name="keyword" value="${pageVO.cri.keyword }"/>
+	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }" />
+	<input type="hidden" name="amount" value="${pageVO.cri.amount }"  />
 </form>      
 
 
 <script>
+//BoardController 넘긴 값 가져오기
+var result = '${result}';
+console.log(result);
+
+
+
  window.onload=function(){
 	 
 	 console.log("${loginInfo}"+"123");
@@ -138,5 +152,5 @@
  }
 </script>
    
-  
+<script src="/resources/js/photoBoardList.js"></script>
 <%@include file="../includes/footer.jsp" %>

@@ -7,7 +7,7 @@
 $(function(){
 	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
-	$("button[type='submit']").click(function(e){ //버튼 하나니까. 상관없지
+	$("input[type='submit']").click(function(e){ //버튼 하나니까. 상관없지
 	//$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
 
@@ -28,7 +28,7 @@ $(function(){
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1. 게시글 등록 폼 가져오기
 		//var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
-		var form = $("form"); //폼이 하나니까 상관없지
+		var form = $("form[role='form']"); //폼이 하나니까 상관없지 //선생님 제가 열심히 해보겠습니다!!! 감사합니다!!!!!
 		//2. 폼에 추가하기
 		form.append(str);
 		//3. 전송

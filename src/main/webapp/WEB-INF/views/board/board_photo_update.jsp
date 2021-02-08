@@ -53,5 +53,6 @@
     <input type="hidden" name="bno" value="${vo.bno }">
 	</form>
 	
+<script src="/resources/js/photoBoardUpdate.js"></script>
    <%@include file="../includes/footer.jsp" %>
 </html>

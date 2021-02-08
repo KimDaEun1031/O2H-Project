@@ -248,8 +248,7 @@ create table photo_attach(
 	bno number(10)
 );
 
---bno로 잡은 pk 제거하고 uuid로 새롭게 만들어
-
+--pk
 alter table photo_attach add constraint pk_photo_attach primary key(uuid);
 
 --fk

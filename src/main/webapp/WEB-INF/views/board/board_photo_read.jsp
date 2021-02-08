@@ -30,7 +30,7 @@
          <div class="info">
           <dl>
             <dt>글쓴이</dt>
-            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${vo.writer_id }" readonly="readonly"/></dd>
+            <dd><input type="text" name="writer" placeholder="글쓴이 입력" value="${vo.writer}" readonly="readonly"/></dd>
           </dl>
           <!-- 
           <dl>
@@ -38,8 +38,18 @@
             <dd><input type="password" placeholder="비밀번호 입력" /></dd>
           </dl>
         </div> -->
-        <div class="cont">
+        <%-- <div class="cont">
           <textarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
+        </div> --%>
+        <img id="myImg" src="/resources/img/products/women-4.jpg" alt="">
+        
+        <!-- 첨부물 보여주기 -->
+		<script>
+			//현재 글 번호 가져오기->read->reply => 결과를 read
+			var userIdVal = '${loginInfo.userId}';
+		</script>
+        <div class="cont">
+          <%-- <textarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea> --%>
         </div>
       </div>
     </div>
@@ -49,8 +59,8 @@
     <input type="button" id="hob2" value="삭제" hidden="hidden">
    
     </div>
-	 <div class="board_write_wrap">
-      <div class="board_write">
+ <%--	 <div class="board_write_wrap">
+     <div class="board_write">
         <div class="title">
          
        	운영자 답변란
@@ -62,52 +72,52 @@
          </form>
         </div>
       </div>
-    </div>
-    <form id="updateForm" action="/qandaboard/update" method="post">
-    	<input type="hidden" name="title" id="titleHidden" value="${vo.title }">
-    	<input type="hidden" name="content" id="contentHidden" value="${vo.content }">
-    	<input type="hidden" name="bno" value="${vo.bno }">
-    </form>
-    </div>
-	  <script>
-   window.onload=function(){
+	</div>
+   </div> --%>
+<form id="updateForm" action="/qandaboard/update" method="post">
+	<input type="hidden" name="title" id="titleHidden" value="${vo.title }">
+	<input type="hidden" name="content" id="contentHidden" value="${vo.content }">
+	<input type="hidden" name="bno" value="${vo.bno }">
+</form>
+<script>
+  window.onload=function(){
 	var content=document.getElementById("contenth");
 	var title=document.getElementById("titleh");
 	var contentHidden=document.getElementById("contentHidden")
 	var titleHidden=document.getElementById("titleHidden")
-   	var userid='${loginInfo.userId}'
-   	var writer='${vo.writer_id }'
-   	var hideUpdateBtn=document.getElementById("hob");
-   	var hideDeleteBtn=document.getElementById("hob2");
-   	var adminbtn=document.getElementById("adminonlybtn");
-   	var reply=document.getElementById("reply");
-   	hideUpdateBtn.onclick=function(){
-   		alert("update 요청 ")
-   	}
-   if(userid==writer || userid=="admin"){
-	  content.removeAttribute("readonly")
-	  title.removeAttribute("readonly")
-   		
-	  hideUpdateBtn.removeAttribute("hidden");
-	  hideDeleteBtn.removeAttribute("hidden");
-   }
-   if(userid=="admin"){
-	   adminbtn.removeAttribute("hidden");
-	   reply.removeAttribute("readonly");
-	   
-   }
-   hideUpdateBtn.onclick=function(){
-	   contentHidden.value=content.value;
-	   titleHidden.value=title.value;
-   		alert(contentHidden.value);
-   		alert(titleHidden.value);
-   		document.getElementById("updateForm").submit();
-   }
+  	var userid='${loginInfo.userId}'
+  	var writer='${vo.writer_id }'
+  	var hideUpdateBtn=document.getElementById("hob");
+  	var hideDeleteBtn=document.getElementById("hob2");
+  	var adminbtn=document.getElementById("adminonlybtn");
+  	var reply=document.getElementById("reply");
+  	hideUpdateBtn.onclick=function(){
+  		alert("update 요청 ")
+  	}
+  if(userid==writer || userid=="admin"){
+  content.removeAttribute("readonly")
+  title.removeAttribute("readonly")
+  		
+  hideUpdateBtn.removeAttribute("hidden");
+  hideDeleteBtn.removeAttribute("hidden");
+  }
+  if(userid=="admin"){
+   adminbtn.removeAttribute("hidden");
+   reply.removeAttribute("readonly");
    
   }
-   	</script> 
+  hideUpdateBtn.onclick=function(){
+   contentHidden.value=content.value;
+   titleHidden.value=title.value;
+  		alert(contentHidden.value);
+  		alert(titleHidden.value);
+  		document.getElementById("updateForm").submit();
+  }
+  
+ }
+</script> 
 	
 	
-	
+<script src="/resources/js/photoBoardRead.js"></script>
    <%@include file="../includes/footer.jsp" %>
 </html>

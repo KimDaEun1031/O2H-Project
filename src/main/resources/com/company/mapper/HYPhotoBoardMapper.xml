@@ -32,10 +32,11 @@
 				from spring_board where rownum<=(#{pageNum}*#{amount}))
 			where rn> (#{pageNum}-1)*#{amount}
 		]]> -->
+		<!-- "REPLYCNT": 부적합한 식별자 떠서 지움 -->
 		<![CDATA[
 			select *
 			from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
-				rownum rn, bno, title, writer, regdate, updatedate, replycnt
+				rownum rn, bno, title, writer, regdate, updatedate
 				from photo_board where 				
 			]]>	
 				<include refid="criteria"></include>
