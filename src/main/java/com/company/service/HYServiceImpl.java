@@ -35,9 +35,10 @@ public class HYServiceImpl implements HYService {
 //	}
 	
 	//이메일+첨부파일
+	//teacher_profile_setting 정보+첨부파일
 	@Override
 	public boolean modifyInfo(HYChangeVO change) {	
-		//이거 체인지에 그냥 안 걸리던데.. controller에서 넣어줘야하냐?
+		//이거 체인지에 그냥 안 걸리던데.. controller에서 넣어줘야하냐?-아님 걸림
 		
 		//첨부물 전체 삭제
 		mapper.deleteAttach(change.getUserId());//로그인이니까 change가 아닌듯?//됐다
@@ -61,6 +62,31 @@ public class HYServiceImpl implements HYService {
 	@Override
 	public List<HYFileAttach> getAttachList(String userId) {		
 		return mapper.attachList(userId);
+	}
+	
+	
+	
+	//teacher_profile_setting info+첨부파일
+	@Override
+	public boolean modifyTeacherInfo(HYChangeVO change) {
+		
+		//첨부물 전체 삭제
+		mapper.deleteAttach(change.getUserId());//로그인이니까 change가 아닌듯?//됐다
+		//게시물 수정
+		boolean result = mapper.updateTeacherInfo(change)>0?true:false;
+		
+		//첨부파일이 null 이거나 size() 가 0 이라면 68-70작업 미실시
+		if(change.getAttachList()==null || change.getAttachList().size()<=0) {
+			return result;
+		}
+		//첨부물 삽입
+		change.getAttachList().forEach(attach -> {
+			attach.setUserId(change.getUserId());
+			mapper.insertAttach(attach);
+		});
+		
+		
+		return result;
 	}
 			  
   

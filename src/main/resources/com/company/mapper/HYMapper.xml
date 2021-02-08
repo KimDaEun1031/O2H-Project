@@ -12,10 +12,16 @@
 		set password=#{new_password}
 		where userId=#{userId} and password=#{password}
 	</update>
-	<!-- 수정 : 이메일 변경은 되고 +첨부파일까지 되나보자... -->
+	<!-- 수정 : 이메일 변경은 되고 +첨부파일 -->
 	<update id="updateInfo">
 		update user_board 
 		set userEmail=#{userEmail}
+		where userId=#{userId}
+	</update>
+	<!-- 수정 : teacher_profile_setting info +첨부파일까지 되나보자... -->
+	<update id="updateTeacherInfo">
+		update user_board 
+		set userInfo=#{userInfo}
 		where userId=#{userId}
 	</update>
 	

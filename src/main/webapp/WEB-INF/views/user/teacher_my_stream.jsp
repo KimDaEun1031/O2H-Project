@@ -186,6 +186,9 @@
     <script src="resources/js/jquery.slicknav.js"></script>
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/resources/js/teacher_my_stream.js"></script>
   </body>
 </html>
 	

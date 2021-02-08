@@ -23,6 +23,7 @@ public interface HYMapper {
 	public int insertAttach(HYFileAttach attach);
 	public int deleteAttach(String userId);
 	
-	
+	//teacher_profile_setting info+첨부파일
+	public int updateTeacherInfo(HYChangeVO change);
 	
 }

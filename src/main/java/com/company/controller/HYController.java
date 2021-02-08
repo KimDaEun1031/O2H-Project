@@ -104,7 +104,7 @@ public class HYController {
 //			return "redirect:/user/user_my";
 //		}
 		
-		//이메일 수정-문제있네 수정 내용이 홈페이지에 바로 반영이 안되고 있음.
+		//이메일 수정-문제있네 수정 내용이 홈페이지에 바로 반영이 안되고 있음.-발리데이션으로 함
 		@PostMapping("/user/infoUpdateForm")
 		public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
 			log.info("회원정보 이메일+첨부 수정"+change);
@@ -183,7 +183,20 @@ public class HYController {
 
 		}
 		
+		////////////////////////////
 		
+		
+		
+		//teacher_profile_setting 정보+첨부파일
+		@PostMapping("/user/teacherProfileSetting")
+		public String teacherProfileSetting(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
+			log.info("teacher_profile_setting Info + 첨부 수정"+change);
+			change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+			service.modifyTeacherInfo(change);
+			session.invalidate();
+			
+			return "redirect:/register/login";
+		}
 	
 	
 	
