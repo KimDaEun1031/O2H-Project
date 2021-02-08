@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/resources/css/nice-select.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
@@ -84,7 +84,8 @@
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a>                 
+                	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a> 
+                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>                   
                 </li>
               </ul>
             </div>
@@ -103,7 +104,8 @@
 			var profile=document.getElementById("profile");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");				
+				profile.removeAttribute("hidden");		
+				stream.removeAttribute("hidden");	
 				
 			}else{
 				
@@ -191,7 +193,7 @@
                 <a href="/program/calorDict">프로그램</a>
                 <ul class="dropdown">
                   <li><a href="/program/calorDict">칼로리사전</a></li>
-                  <li><a href="/program/calendar">달력</a></li>
+                  <li><a href="/program/cal">달력</a></li>
                 </ul>
               </li>
               <li>

@@ -77,6 +77,11 @@ public class KDUserController {
 		log.info("강사 시 마이페이지");
 	}
 	
+	@GetMapping("/teacher_my_stream")
+	public void teacherStreampage() {
+		log.info("강사 스트림 마이페이지");
+	}
+	
 	//user-teacher END
 
 }

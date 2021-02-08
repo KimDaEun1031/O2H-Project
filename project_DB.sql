@@ -183,6 +183,9 @@ create table calendar_ex (
 	cal_allDay char(1) default '0'
 );
 
+select cal_title, cal_start, cal_end, cal_description, cal_type, cal_username, cal_backgroundColor, cal_textColor, cal_allDay 
+from calendar_ex
+
 select * from calendar_ex;
 
 insert into calendar_ex values('calex',sysdate,sysdate,'','운동','test','red','#ffffff','0'); 

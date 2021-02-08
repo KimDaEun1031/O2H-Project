@@ -39,10 +39,10 @@ public class KDController {
 		return "/board/board_announce_list";
 	}
 	
-	@GetMapping("/program/calendar")
+	@GetMapping("/program/cal")
 	public String calendarEx() {
 		log.info("달력 페이지");
-		return "/program/calendar";
+		return "/program/cal";
 	}
 
 	
