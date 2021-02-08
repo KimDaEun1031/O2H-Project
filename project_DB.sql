@@ -218,3 +218,44 @@ create table calendar_ex (
 select * from calendar_ex;
 
 insert into calendar_ex values('calex',sysdate,sysdate,'','운동','test','red','#ffffff','0'); 
+
+
+---------------------------------------------------------------
+
+-- 사진 게시판 테이블 생성
+create table photo_board(
+	bno number(10,0),
+	title varchar2(200) not null,
+	writer varchar2(50) not null,
+	regdate date default sysdate,
+	updatedate date default sysdate
+);
+--pk
+alter table photo_board add constraint pk_photo_board primary key(bno);
+
+create sequence seq_photo_board;
+
+select * from photo_board;
+
+-- 사진 게시판 파일 첨부 테이블 생성
+create table photo_attach(
+	uuid varchar2(100) not null,
+	uploadPath varchar2(200) not null,
+	fileName varchar2(100) not null,
+	fileType char(1) not null,
+	bno number(10)
+);
+
+--bno로 잡은 pk 제거하고 uuid로 새롭게 만들어
+
+alter table photo_attach add constraint pk_photo_attach primary key(uuid);
+
+--fk
+alter table photo_attach 
+add constraint fk_photo_attach foreign key(bno) references photo_board(bno);
+
+
+select * from photo_attach;
+
+---------------------------------------------------------------
+
