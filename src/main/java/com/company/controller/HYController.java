@@ -175,7 +175,7 @@ public class HYController {
 		//프로필
 		@GetMapping("/user/profile")
 		public void getProfile() {
-
+			log.info("프로필 페이지 요청");
 		}
 
 		@GetMapping("/board/board_view")

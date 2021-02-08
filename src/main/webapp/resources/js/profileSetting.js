@@ -186,7 +186,9 @@ $(function(){
 			
 		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
 		
-		profileImg.attr('src','/display?fileName='+fileCallPath);			
+		profileImg.attr('src','/display?fileName='+fileCallPath);	
+		
+		console.log(profileImg);		
 			
 	
 	}// 첨부파일 보여주기 종료 

@@ -115,12 +115,15 @@ public class HYUploadAjaxController {
 		File f = new File(uploadFolder+"\\"+fileName);
 		
 		ResponseEntity<byte[]> entity = null;
+		log.info("썸네일 요청f "+f);
 		
 		HttpHeaders headers = new HttpHeaders();
 		try {
 			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
+			log.info("썸네일 요청h "+headers);
 			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
 					headers,HttpStatus.OK);
+			log.info("썸네일 요청e "+entity);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
