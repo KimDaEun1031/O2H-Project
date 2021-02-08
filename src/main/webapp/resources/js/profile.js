@@ -21,16 +21,24 @@ $(document).ready(function(){
 			$(data).each(function(idx,obj){
 				if(obj.fileType){
 					//썸네일 이미지 경로 uploadPath - 2021\01\20
-					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					/*var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
 				
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 					str+="<img src='/display?fileName="+fileCallPath+"'><div>"+obj.fileName;
-					str+="</div></li>";	
+					str+="</div></li>";*/	
+					
+					//이렇게 되는구나 - 와 신기하다.
+					var profileImg = $("#myImg");
+					
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					
+					profileImg.attr('src','/display?fileName='+fileCallPath);
+					
 				}
 								
 			})//each 종료
-			uploadResult.html(str);
+			//uploadResult.html(str);
 		} //success
 	}) //getJSON 종료
 	
