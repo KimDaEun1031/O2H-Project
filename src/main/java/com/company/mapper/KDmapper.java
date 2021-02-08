@@ -5,6 +5,7 @@ import java.util.List;
 import com.company.domain.KDAdminTotalVO;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
+import com.company.domain.KDTeacherInfoVO;
 import com.company.domain.YHCriteria;
 import com.company.domain.YHQandABoardVO;
 
@@ -18,6 +19,7 @@ public interface KDmapper {
 	public List<YHQandABoardVO> QnAUser();
 	public List<KDLoginInfoVO> selectByNew();
 	public List<KDLoginInfoVO> memberControl(YHCriteria cri);
+	public List<KDTeacherInfoVO> selectByRecommendTeacher();
 	
 	
 	public int selectByAlluser(KDAdminTotalVO admint); 

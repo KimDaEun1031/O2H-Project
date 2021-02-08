@@ -26,6 +26,20 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
+    
+    <!-- Js Plugins -->
+    <script src="/resources/js/jquery-3.3.1.min.js" defer ="defer"></script>
+    <script src="/resources/js/bootstrap.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery-ui.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.countdown.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.nice-select.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.zoom.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.dd.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.slicknav.js" defer ="defer"></script>
+    <script src="/resources/js/owl.carousel.min.js" defer ="defer"></script>
+    <script src="/resources/js/main.js" defer ="defer"></script>
+    
+    
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
@@ -85,7 +99,8 @@
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
                 	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>                   
+                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>
+                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
                 </li>
               </ul>
             </div>
@@ -106,6 +121,7 @@
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");		
 				stream.removeAttribute("hidden");	
+				test.removeAttribute("hidden");	
 				
 			}else{
 				
@@ -695,16 +711,6 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Js Plugins -->
-    <script src="/resources/js/jquery-3.3.1.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/jquery-ui.min.js"></script>
-    <script src="/resources/js/jquery.countdown.min.js"></script>
-    <script src="/resources/js/jquery.nice-select.min.js"></script>
-    <script src="/resources/js/jquery.zoom.min.js"></script>
-    <script src="/resources/js/jquery.dd.min.js"></script>
-    <script src="/resources/js/jquery.slicknav.js"></script>
-    <script src="/resources/js/owl.carousel.min.js"></script>
-    <script src="/resources/js/main.js"></script>
+   
   </body>
 </html>

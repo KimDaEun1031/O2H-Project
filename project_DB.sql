@@ -16,11 +16,14 @@ create table user_board (
 
 select * from user_board;
 
+insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,user_level) 
+values('test','test8','test123','1','1','1','1','1','1','1','1');
+
 update user_board set userInfo='vmfhfdjlkdsk' where userId='test1';
 
 select userInfo from user_board;
 
-update user_board set auth=2 where userId='admin';
+update user_board set user_level=1 where userId='test3';
 
 alter table user_board add userInfo varchar2(300) default '프로필 정보란'; -- 추가
 alter table user_board drop column userInfo;
@@ -41,7 +44,6 @@ where qb.userId = ub.userId
 select * from USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' order by regDate DESC;
 
 select count(userId) from USER_BOARD;
-
 
 select auth from user_board;
 select * from chatroom1;
@@ -261,3 +263,30 @@ select * from photo_attach;
 
 ---------------------------------------------------------------
 
+-- 선생님 정보테이블
+create table teacher_Info (
+	userId varchar2(20) not null,
+	main_sports_charge varchar2(50) not null	
+	);
+	
+alter table teacher_Info add teacher_level char(1) default '0';
+-- 0 일반 강사 1 추천 강사  --> 관리자가 임의로 설정
+
+update teacher_Info set teacher_level=1 where userId='test8'
+	
+alter table teacher_Info add constraint pk_userid primary key(userId);
+
+alter table teacher_Info 
+add constraint fk_user_id foreign key(userId) references user_board(userId);
+
+select * from teacher_Info;
+
+insert into teacher_Info values('test8','다이어트');
+
+select ti.userId, ti.main_sports_charge, ti.teacher_level ,ub.userId, ub.user_level, ub.userName
+from teacher_Info ti, user_board ub
+where ti.userId = ub.userId
+
+select ti.userId, ti.main_sports_charge, ti.teacher_level ,ub.userId, ub.user_level, ub.userName
+from teacher_Info ti, user_board ub
+where ti.userId = ub.userId and teacher_level = '1'
