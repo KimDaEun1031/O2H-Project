@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.company.domain.KDLoginInfoVO;
-import com.company.domain.KDLoginVO;
-import com.company.domain.YHCriteria;
-import com.company.domain.YHPageVO;
 import com.company.domain.YHQandABoardVO;
 import com.company.service.KDService;
 import com.company.service.YHQandABoardService;

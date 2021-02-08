@@ -48,6 +48,7 @@ select count(userId) from USER_BOARD;
 select auth from user_board;
 select * from chatroom1;
 
+select userId, uuid, uploadPath, fileName, fileType from fit_attach;
 ---------------------------------------
 
 select * from QANDA_BOARD; --fk userId 추가
@@ -262,31 +263,38 @@ add constraint fk_photo_attach foreign key(bno) references photo_board(bno);
 select * from photo_attach;
 
 ---------------------------------------------------------------
-
--- 선생님 정보테이블
-create table teacher_Info (
+-- 강사 테이블
+create table teacher_Info(
 	userId varchar2(20) not null,
-	main_sports_charge varchar2(50) not null	
+	main_sports varchar2(50) not null,
+	teacher_level char(1) default '1'
 	);
-	
-alter table teacher_Info add teacher_level char(1) default '0';
--- 0 일반 강사 1 추천 강사  --> 관리자가 임의로 설정
 
-update teacher_Info set teacher_level=1 where userId='test8'
-	
-alter table teacher_Info add constraint pk_userid primary key(userId);
+drop table teacher_Info;
+
+alter table teacher_Info add constraint pk_teacher_userId primary key(userId);
 
 alter table teacher_Info 
-add constraint fk_user_id foreign key(userId) references user_board(userId);
+add constraint fk_teacher_userId foreign key(userId) references user_board(userId);
 
-select * from teacher_Info;
+insert into teacher_info values('test8','홈트','1');
+	
+SELECT
+    ti.userid,
+    ti.main_sports,
+    ti.teacher_level,
+    ub.user_level,
+    ub.username,
+    fa.uuid,
+    fa.uploadpath,
+    fa.filename,
+    fa.filetype
+FROM
+    teacher_info   ti,
+    user_board     ub,
+    fit_attach     fa
+WHERE
+    ti.userid = ub.userid
+    AND fa.userid = ub.userid
+    AND teacher_level = '1'
 
-insert into teacher_Info values('test8','다이어트');
-
-select ti.userId, ti.main_sports_charge, ti.teacher_level ,ub.userId, ub.user_level, ub.userName
-from teacher_Info ti, user_board ub
-where ti.userId = ub.userId
-
-select ti.userId, ti.main_sports_charge, ti.teacher_level ,ub.userId, ub.user_level, ub.userName
-from teacher_Info ti, user_board ub
-where ti.userId = ub.userId and teacher_level = '1'

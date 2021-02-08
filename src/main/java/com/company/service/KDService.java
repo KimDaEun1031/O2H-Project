@@ -2,6 +2,7 @@ package com.company.service;
 
 import java.util.List;
 
+import com.company.domain.HYFileAttach;
 import com.company.domain.KDAdminTotalVO;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
@@ -19,8 +20,8 @@ public interface KDService {
 	public List<YHQandABoardVO> QnAUsers();
 	public List<KDLoginInfoVO> selectByNewUser();
 	public List<KDLoginInfoVO> memberControls(YHCriteria cri);
-	public List<KDTeacherInfoVO> teacherInfo();
-	
+
 	public int getTotalUser(KDAdminTotalVO admint);
 	public int getTotalBoard(KDAdminTotalVO admint);
+	public List<KDTeacherInfoVO> teacherInfo();
 }

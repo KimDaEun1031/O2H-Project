@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -30,12 +32,116 @@
     <link rel="stylesheet" href="/resources/css/user_my.css" />
     
     <style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;}
-		.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-		  overflow:hidden;padding:10px 5px;word-break:normal;}
-		.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-		  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-		.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+    	* {
+		  margin: 0px;
+		  padding: 0px;
+		  box-sizing: border-box;
+		}
+		body,
+		html {
+		  height: 100%;
+		  font-family: sans-serif;
+		}
+		
+		.limiter {
+		  width: 100%;
+		  margin: 0 auto;
+		  color: white;
+		}
+		
+		.container-table100 {
+		  width: 100%;
+		  min-height: 100px;
+		  background: #ffffff;
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -moz-box;
+		  display: -ms-flexbox;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  flex-wrap: wrap;
+		  padding: 33px 30px;
+		}
+		
+		.wrap-table100 {
+		  width: 1170px;
+		}
+		
+		table {
+		  border-spacing: 1;
+		  border-collapse: separate;
+		  background: white;
+		  border-radius: 40px;
+		  overflow: hidden;
+		  width: 100%;
+		  margin: 0 auto;
+		  position: relative;
+		}
+		table * {
+		  position: relative;
+		}
+		table td,
+		table th {
+		  padding-left: 8px;
+		}
+		table thead tr {
+		  height: 60px;
+		  background: #e7ab3c;
+		}
+		table tbody tr {
+		  height: 50px;
+		}
+		table tbody tr:last-child {
+		  border: 0;
+		}
+		table td,
+		table th {
+		  text-align: center;
+		}
+		
+		.table100-head th {
+		  font-family: OpenSans-Regular;
+		  color: #fff;
+		  line-height: 1.2;
+		  font-weight: unset;
+		  font-weight: bold;
+		}
+		
+		tbody tr:nth-child(even) {
+		  background-color: #f5f5f5;
+		}
+		
+		tbody tr {
+		  font-family: OpenSans-Regular;
+		  font-size: 15px;
+		  color: #808080;
+		  line-height: 1.2;
+		  font-weight: unset;
+		}
+		
+		.column1 {
+		  width: 260px;
+		  font-size: 23px;
+		  font-weight: bold;
+		}
+		
+		.column2 {
+		  width: 260px;
+		  font-weight: bold;
+		  font-size: 20px;
+		}
+		
+		.column3 {
+		  width: 200px;
+		  padding: 10px;
+		}
+		.profile-img {
+		  height: 300px;
+		}
+		
+
+		
 	</style>
   </head>
 
@@ -173,85 +279,61 @@
     <!-- Header End -->
     
      <!-- recommand 건강용품 Banner Section Begin -->
-    <section class="recommand-product one-banner">
-        <div class="container-fluid">
-            <div class="row">
-				<table class="tg">
+    <div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
 					<thead>
+					  <tr class="table100-head">
+					    <th class="column3" rowspan="8"><img id="myImg" class="profile-img" src="/resources/img/profile/fiturjc_default_user.jpg" alt="Profile Image"  style='object-fit:contain' /></th>
+					    <th class="column1">아이디</th>
+					    <th class="column2">${loginInfo.userId}</th>
+					  </tr>
 					  <tr>
-					    <th class="tg-0pky">내 정보</th>
-					    <th class="tg-0pky"></th>
+					    <td class="column1">이름</td>
+					    <td class="column2">${loginInfo.userName}</td>
+					  </tr>
+					  <tr>
+					    <td class="column1">휴대전화</td>
+					    <td class="column2">${loginInfo.phoneNumber}</td>
+					  </tr>
+					  <tr>
+					    <td class="column1">이메일</td>
+					    <td class="column2">${loginInfo.userEmail}</td>
+					  </tr>
+					  <tr>
+					    <td class="column1">주소</td>
+					    <td class="column2">${loginInfo.address}</td>
+					  </tr>
+					  <tr>
+					    <td class="column1">생년월일</td>
+					    <td class="column2">${loginInfo.userBirth}</td>
+					  </tr>
+					  <tr>
+					    <td class="column1">관심사</td>
+					    <td class="column2"></td>
+					  </tr>
+					  <tr>
+					    <td class="column1">가입일</td>
+					    <td class="column2"><fmt:formatDate value="${loginInfo.regDate}" pattern="yyyy-MM-dd" /></td>
 					  </tr>
 					</thead>
-					<tbody>
-					  <tr>
-					    <td class="tg-0pky">아이디</td>
-					    <td class="tg-0pky">${loginInfo.userId}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">비밀번호</td>
-					    <td class="tg-0pky">${loginInfo.password}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">이름</td>
-					    <td class="tg-0pky">${loginInfo.userName}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">휴대전화</td>
-					    <td class="tg-0pky">${loginInfo.phoneNumber}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">이메일</td>
-					    <td class="tg-0pky">${loginInfo.userEmail}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">주소</td>
-					    <td class="tg-0pky">${loginInfo.address}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">생년월일</td>
-					    <td class="tg-0pky">${loginInfo.userBirth}</td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">관심사1</td>
-					    <td class="tg-0pky"></td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">관심사2</td>
-					    <td class="tg-0pky"></td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">관심사3</td>
-					    <td class="tg-0pky"></td>
-					  </tr>
-					  <tr>
-					    <td class="tg-0pky">가입일</td>
-					    <td class="tg-0pky">${loginInfo.regDate}</td>
-					  </tr>
-					</tbody>
-				</table>
-            </div>
-        </div>
-    </section>
-    <!-- Man Banner Section End -->
+					</table>
+ 				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<p style="text-align: center; font-size: 20px; font-weight: bold;"> 프로필 이미지는 회원정보수정에서 하실 수 있습니다. </p>
+	</div>
     
     
 	<!-- 첨부 파일 보여주기 -->
 	<div class="bigPictureWrapper">
 		<div class="bigPicture"></div>
 	</div>
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="panel panel-default">
-				<div class="panel-heading"><i class="fa fas fa-file"></i> Files</div>
-				<div class="panel-body">				
-					<div class="uploadResult">
-						<ul></ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<!-- 첨부물 보여주기 -->
 <script>
 	//현재 글 번호 가져오기->read->reply => 결과를 read

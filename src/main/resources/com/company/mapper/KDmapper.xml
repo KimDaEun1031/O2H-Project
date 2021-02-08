@@ -68,10 +68,31 @@
 		from calendar_ex
 	</select>
 	
-	<!-- 강사 목록 -->
+	<!-- 강사 목록 
 	<select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO">
-		select ti.userId, ti.main_sports_charge, ti.teacher_level ,ub.userId, ub.user_level, ub.userName
-		from teacher_Info ti, user_board ub
-		where ti.userId = ub.userId and teacher_level = '1'
+		SELECT
+		    ti.userid,
+		    ti.main_sports,
+		    ti.teacher_level,
+		    ub.user_level,
+		    ub.username,
+		    fa.uuid,
+		    fa.uploadpath,
+		    fa.filename,
+		    fa.filetype
+		FROM
+		    teacher_info   ti,
+		    user_board     ub,
+		    fit_attach     fa
+		WHERE
+		    ti.userid = ub.userid
+		    AND fa.userid = ub.userid
+		    AND teacher_level = '1'
+	</select> -->
+	
+	<!-- 강사 목록 간편 -->
+	<select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO">
+		select userId, uuid, uploadPath, fileName, fileType from fit_attach
 	</select>
+	
 </mapper>

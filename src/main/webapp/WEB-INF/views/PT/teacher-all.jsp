@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" />
@@ -244,7 +245,7 @@
             </div>
         </div>
     </div>
-    <script src="/resources/js/profile.js"></script>
+    
     
       <!-- recommand 보충제 Banner Section Begin --> 
     <section class="women-banner spad">
@@ -257,24 +258,26 @@
                         </ul>
                     </div>
                     <div class="product-slider owl-carousel">
-                        <c:forEach var="teacher" items="${teacherlist}">
-	                        <div class="product-item">
+                    	<c:forEach var="teacherlist" items="${teacherlist}">  	      		                    
+							<div class="product-item">
 	                            <div class="pi-pic">
+			                        <a href="#"><img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' /></a>	
+								</div>
+								<div class="pi-text">
+	                                <div class="catagory-name">${teacherlist.main_sports}</div>
 	                                <a href="#">
-	                                	<img id="myImg" src="/resources/img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
-	                                	<div class="uploadResult">
-											<ul></ul>
-										</div>
-	                                </a>	                                                        
-	                            </div>
-	                            <div class="pi-text">
-	                                <div class="catagory-name">${teacher.main_sports_charge}</div>
-	                                <a href="#">
-	                                    <h5>${teacher.userName}</h5>
-	                                </a>                           
-	                            </div>  
-	                        </div>
-                         </c:forEach>           
+	                                    <h5>${teacherlist.userName}</h5>	                                    
+	                                </a> 		                                                       
+	                            </div>	                               			
+							</div>   
+							<script>
+								var uploadPath = '${teacherlist.uploadPath}';
+								var uuid = '${teacherlist.uuid}';
+								var fileName = '${teacherlist.fileName}';
+								var fileCallPath = encodeURIComponent(uploadPath+"\\s_"+uuid+"_"+fileName);	
+								console.log("파일인코딩 "+fileCallPath);
+							</script>							
+	                    </c:forEach>
                     </div>
                 </div>
             </div>
@@ -294,4 +297,5 @@
             <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>          
         </div>      
     </section>
+    
 <%@include file="../includes/footer.jsp" %>

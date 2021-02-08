@@ -100,7 +100,7 @@
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
                 	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a> 
                 	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>
-                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
+                	<a class="btn btn-success" id="test" href="/user/profile2" hidden="hidden" role="button">테스트</a>                   
                 </li>
               </ul>
             </div>

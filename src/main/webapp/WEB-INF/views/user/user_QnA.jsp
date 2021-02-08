@@ -195,21 +195,15 @@
 	           <th>답변날짜</th>
 	         </tr>
 	       </thead>
-	       <tbody>
-	       
-	       		<c:forEach var="vo" items="${userlist}">  
-	       			
-		    		<tr>
-		         		<td>${vo.bno}</td>
-		   			<td><a href="${vo.bno}">${vo.title}</a></td>
-		   			<td>${vo.writer_id}</td>
-		          	<td><fmt:formatDate value="${vo.regdate }"
-		          			pattern="yyyy-MM-dd HH:mm" /></td>
-		         		<td>
-		         		<fmt:formatDate value="${vo.replyDate }"
-		          			pattern="yyyy-MM-dd HH:mm" /></td>         		
-		         	</tr>
-	         		
+	       <tbody>	       
+       		<c:forEach var="vo" items="${userlist}">  	       			
+	    		<tr>
+	         		<td>${vo.bno}</td>
+	   				<td><a href="${vo.bno}">${vo.title}</a></td>
+	   				<td>${vo.writer_id}</td>
+	          		<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd HH:mm" /></td>
+	         		<td><fmt:formatDate value="${vo.replyDate }" pattern="yyyy-MM-dd HH:mm" /></td>         		
+	         	</tr>	         		
 	         </c:forEach>
 	       </tbody>
 	     </table>
