@@ -4,95 +4,101 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.KDmapper">
 	<!-- 로그인 확인 -->
-	<select id="selectByUser" resultType="com.company.domain.KDLoginInfoVO">
-		select userId,userName,user_level, userInfo , password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,regDate from user_board where userId=#{userId} and password=#{password}
+	<select id="selectByUser"
+		resultType="com.company.domain.KDLoginInfoVO">
+		select userId,userName,user_level, userInfo ,
+		password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,regDate
+		from user_board where userId=#{userId} and password=#{password}
 	</select>
-	
-	<select id="selectProfile" resultType="com.company.domain.KDLoginInfoVO">
-		select userId,userName,user_level, userInfo , password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,regDate from user_board where userId=#{userId}
+
+	<select id="selectProfile"
+		resultType="com.company.domain.KDLoginInfoVO">
+		select userId,userName,user_level, userInfo ,
+		password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,regDate
+		from user_board where userId=#{userId}
 	</select>
-	
+
 	<!-- 정보란 수정 -->
 	<update id="updateUser">
-		update user_board set userInfo=#{userInfo} where userId=#{userId}
+		update user_board set userInfo=#{userInfo} where
+		userId=#{userId}
 	</update>
 
-	
+
 	<!-- 회원가입 - register -->
 	<insert id="insertRegister">
-		insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3) 
+		insert into
+		user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3)
 		values(#{userName},#{userId},#{password},#{address},#{phoneNumber},#{userEmail},#{userBirth},#{favorite_activity[0]},#{favorite_activity[1]},#{favorite_activity[2]})
 	</insert>
-	
-	<!-- 문의내역 조회 수정 필수-->
-	<select id="QnAUser" resultType="com.company.domain.YHQandABoardVO">
-		select qb.bno, qb.title, qb.writer_id, qb.regdate, qb.replydate ,qb.userId, ub.userId
+
+	<!-- 문의내역 조회 수정 필수 -->
+	<select id="QnAUser"
+		resultType="com.company.domain.YHQandABoardVO">
+		select qb.bno, qb.title, qb.writer_id, qb.regdate,
+		qb.replydate ,qb.userId, ub.userId
 		from QANDA_BOARD qb, user_board ub
 		where qb.userId = ub.userId
 	</select>
-	
+
 	<!-- 신규가입자 목록 -->
-	<select id="selectByNew" resultType="com.company.domain.KDLoginInfoVO">
-		select userId,userName,userEmail,regDate,user_level from USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' order by regDate DESC
+	<select id="selectByNew"
+		resultType="com.company.domain.KDLoginInfoVO">
+		select userId,userName,userEmail,regDate,user_level from
+		USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' order by
+		regDate DESC
 	</select>
-	
+
 	<!-- 회원가입자 수 -->
 	<select id="selectByAlluser" resultType="Integer">
-		select count(userId) from USER_BOARD
+		select count(userId)
+		from USER_BOARD
 	</select>
-	
+
 	<!-- 게시글 수 -->
 	<select id="selectByAllboard" resultType="Integer">
-		select count(bno) from QANDA_BOARD
+		select count(bno) from
+		QANDA_BOARD
 	</select>
 	
 	<!-- 관리자 리스트 -->
-	<select id="selectByAdmin" resultType="com.company.domain.KDLoginInfoVO">
-		select userId,userName,userEmail,regDate from USER_BOARD where user_level='2'
+	<select id="selectByAdmin"
+		resultType="com.company.domain.KDLoginInfoVO">
+		select userId,userName,userEmail,regDate from USER_BOARD
+		where user_level='2'
 	</select>
-	
+
 	<!-- 회원 관리 -->
-	<select id="memberControl" resultType="com.company.domain.KDLoginInfoVO">	
-	    select rn ,userId, userName ,regDate, userEmail , user_level from(
+	<select id="memberControl"
+		resultType="com.company.domain.KDLoginInfoVO">
+		select rn ,userId, userName ,regDate, userEmail , user_level from(
 		select rownum rn,userId,userName,regDate,userEmail,user_level
-		from USER_BOARD
+		from
+		USER_BOARD
 		where 
 		<![CDATA[
 		 rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
 		]]>
 	</select>
-	
+
 	<!-- 달력 가져오기 -->
 	<select id="calEx" resultType="com.company.domain.KDCalexVO">
-		select cal_title, cal_start, cal_end, cal_description, cal_type, cal_username, cal_backgroundColor, cal_textColor, cal_allDay 
+		select cal_title, cal_start,
+		cal_end, cal_description, cal_type, cal_username, cal_backgroundColor,
+		cal_textColor, cal_allDay
 		from calendar_ex
 	</select>
-	
-	<!-- 강사 목록 
-	<select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO">
-		SELECT
-		    ti.userid,
-		    ti.main_sports,
-		    ti.teacher_level,
-		    ub.user_level,
-		    ub.username,
-		    fa.uuid,
-		    fa.uploadpath,
-		    fa.filename,
-		    fa.filetype
-		FROM
-		    teacher_info   ti,
-		    user_board     ub,
-		    fit_attach     fa
-		WHERE
-		    ti.userid = ub.userid
-		    AND fa.userid = ub.userid
-		    AND teacher_level = '1'
-	</select> -->
-	
+
+	<!-- 강사 목록 <select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO"> 
+		SELECT ti.userid, ti.main_sports, ti.teacher_level, ub.user_level, ub.username, 
+		fa.uuid, fa.uploadpath, fa.filename, fa.filetype FROM teacher_info ti, user_board 
+		ub, fit_attach fa WHERE ti.userid = ub.userid AND fa.userid = ub.userid AND 
+		teacher_level = '1' </select> -->
+
 	<!-- 강사 목록 간편 -->
-	<select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO">
-		select userId, uuid, uploadPath, fileName, fileType from fit_attach
+	<select id="selectByEx" resultType="com.company.domain.HYFileAttach">
+		select userId, uuid, uploadPath, fileName, fileType from
+		fit_attach
 	</select>
-	
+
 </mapper>

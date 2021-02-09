@@ -24,4 +24,6 @@ public interface KDService {
 	public int getTotalUser(KDAdminTotalVO admint);
 	public int getTotalBoard(KDAdminTotalVO admint);
 	public List<KDTeacherInfoVO> teacherInfo();
+	
+	List<HYFileAttach> exampleTeacher();
 }

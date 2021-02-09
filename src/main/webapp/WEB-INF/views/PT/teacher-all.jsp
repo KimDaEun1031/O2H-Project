@@ -241,35 +241,40 @@
     
     
       <!-- recommand 보충제 Banner Section Begin --> 
-    <section class="women-banner spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="filter-control">
-                        <ul>
-                            <li class="active">추천 강사</li>                       
-                        </ul>
-                    </div>
-                    <div class="product-slider owl-carousel">
-                    	<c:forEach var="teacherlist" items="${teacherlist}">  	      		                    
-							<div class="product-item">
-	                            <div class="pi-pic">
-			                        <a href="#"><img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' /></a>	
+				<c:forEach var="volist" items="${list}" begin="0" end="21">
+                    <div class="col-md-3" id="personal_information">
+                        <span id="profile_pic">
+                            <img id="myImg" src="/resources/img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
+                           	
+                            <!-- 첨부 파일 보여주기 -->
+							<div class="bigPictureWrapper">
+								<div class="bigPicture"></div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="panel panel-default">
+										<div class="panel-heading"><i class="fa fas fa-file"></i> </div>
+										<div class="panel-body">				
+											<div class="uploadResult">
+												<ul></ul>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="pi-text">
-	                                <div class="catagory-name">${teacherlist.main_sports}</div>
-	                                <a href="#">
-	                                    <h5>${teacherlist.userName}</h5>	                                    
-	                                </a> 		                                                       
-	                            </div>	                               			
-							</div>   
-											
-	                    </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+							</div>
+						</span>
+					</div>
+							<!-- 첨부물 보여주기 -->
+							<script>
+								//현재 글 번호 가져오기->read->reply => 결과를 read							
+								var arr = new Array();
+								var userIdVal = '${volist.userId}';
+								arr[0]	= userIdVal;								
+								console.log(arr[0]);
+							</script> 
+					</c:forEach>
+					
+
     <!-- recommand 보충제 Banner Section End -->
 
     <section class="teacher-section" >
@@ -284,5 +289,5 @@
             <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>          
         </div>      
     </section>
-    
+    <script src="/resources/js/profile-teacher.js"></script>
 <%@include file="../includes/footer.jsp" %>

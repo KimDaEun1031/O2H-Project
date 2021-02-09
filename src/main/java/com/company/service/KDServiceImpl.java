@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.domain.HYFileAttach;
 import com.company.domain.KDAdminTotalVO;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
@@ -73,6 +74,11 @@ public class KDServiceImpl implements KDService {
 	@Override
 	public List<KDTeacherInfoVO> teacherInfo() {
 		return mapper.selectByRecommendTeacher();
+	}
+
+	@Override
+	public List<HYFileAttach> exampleTeacher() {		
+		return mapper.selectByEx();
 	}
 
 

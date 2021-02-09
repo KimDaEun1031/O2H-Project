@@ -10,5 +10,4 @@ public class HYFileAttach {
 	private boolean fileType;
 	private String userId;
 	
-	private char user_level;
 }
