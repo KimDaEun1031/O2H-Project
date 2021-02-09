@@ -1,3 +1,4 @@
+<%@page import="com.company.domain.YHQandABoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
@@ -8,7 +9,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>공지게시판</span>
+              <span>Q&A게시판</span>
             </div>
           </div>
         </div>
@@ -17,7 +18,7 @@
 
     <!-- 게시글 작성 -->
 
-	<form action="/announce/register" method="post">
+	<form action="/qandaboard/update" method="post">
     <div class="board_write_wrap">
       <div class="board_write">
         <div class="title">
@@ -29,7 +30,8 @@
          <div class="info">
           <dl>
             <dt>글쓴이</dt>
-            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${loginInfo.userId }" readonly="readonly"/></dd>
+           
+            <dd><input type="text" name="writer_id" placeholder="글쓴이 입력" value="${vo.writer_id}" readonly="readonly"/></dd>
           </dl>
           <!-- 
           <dl>
@@ -38,15 +40,19 @@
           </dl>
         </div> -->
         <div class="cont">
-          <textarea name="content" placeholder="내용 입력" style="resize: none;"></textarea>
+          <textarea name="content" placeholder="내용 입력"></textarea>
         </div>
       </div>
     </div>
+    
+	
     <div class="bt_wrap">
-      <button type="submit" class="btn btn-success " id="update-btn" value="등록"> 등록 </button>
-	  <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='getList'" value="취소"> 취소 </button>
+      <input type="submit" value="등록">
+      <a href="#">취소</a>
     </div>
-	<input type="hidden" name="pageNum" value="${pageNum }">
+    <input type="hidden" name="bno" value="${vo.bno }">
 	</form>
+	
+<script src="/resources/js/photoBoardUpdate.js"></script>
    <%@include file="../includes/footer.jsp" %>
 </html>

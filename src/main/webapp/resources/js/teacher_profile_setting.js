@@ -1,101 +1,5 @@
 /**
  * 파일첨부와 관련된 스크립트
-    passwordForm 유효성 검증-안되고 있음.
- */
-$(function() {//비밀번호
-	$(".passwordForm").validate({
-		//규칙정의 - 이름
-		rules:{
-			password : {
-				required:true
-			},
-			new_password : {
-				required:true,
-				validPwd:true
-			},
-			confirm_password : {
-				required:true,
-				validPwd:true,
-				equalTo: "#new_password"
-			}
-		},//rules
-		//규칙에 대한 메세지 정의
-		messages:{
-			password : {
-				required:"현재 비밀번호를 입력해 주세요."
-				
-			},
-			new_password : {
-				required:"새로운 비밀번호를 입력해 주세요."
-			},
-			confirm_password : {
-				required:"새로운 비밀번호를 입력해 주세요.",
-				equalTo: "이전 비밀번호와 다릅니다"
-			}
-		},//messages
-		
-		errorPlacement:function(error,element) {
-			$(element).closest("form")
-					  .find("small[id='"+element.attr('id')+"']")
-					  .append(error);
-		},//messages
-		
-		success : function(label) {
-			var name = label.attr('for');
-			label.text(name+ ' is ok!');
-		}
-
-
-	});//"#modifyform").validate
-});//function()
-
-//사용자 검증 메소드 추가
-$.validator.addMethod("validPwd", function(value) {
-	var regPwd = /^(?=.*[\d])[A-Za-z\d!@#$%^&*]{5,15}$/;
-	return regPwd.test(value);
-}, "비밀번호를 5~15자리로 만들어 주세요");
-
-
-$(function() { //이메일
-	$(".infoUpdateForm").validate({
-		//규칙정의 - 이름
-		rules:{
-			userEmail : {
-				required:true,
-				validEmail:true
-			}
-		},//rules
-		//규칙에 대한 메세지 정의
-		messages:{
-			userEmail : {
-				required:"이메일을 입력해주세요."				
-			}
-		},//messages
-		
-		errorPlacement:function(error,element) {
-			$(element).closest("form")
-					  .find("small[id='"+element.attr('id')+"']")
-					  .append(error);
-		},//messages
-		
-		success : function(label) {
-			var name = label.attr('for');
-			label.text(name+ ' is ok!');
-		}
-
-
-	});//"#modifyform").validate
-});//function()
-
-//사용자 검증 메소드 추가
-$.validator.addMethod("validEmail", function(value) {
-	var regEmail = /^.+@.+\..+$/;
-	return regEmail.test(value);
-}, "email을 확인해 주세요.");
-
-
-/**
- * 파일첨부와 관련된 스크립트
 
  */
 
@@ -103,8 +7,8 @@ $.validator.addMethod("validEmail", function(value) {
 $(function(){
 	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
-	//$("button[type='submit']").click(function(e){
-	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
+	$("button[type='submit']").click(function(e){ //teacher_profile_setting은 폼이 하나라서 이렇게 해도 될듯
+	//$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
 
 		var str = "";
@@ -123,8 +27,8 @@ $(function(){
 		
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1. 게시글 등록 폼 가져오기
-		var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
-		//var form = $("form");
+		//var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
+		var form = $("form"); ///teacher_profile_setting은 폼이 하나지
 		//2. 폼에 추가하기
 		form.append(str);
 		//3. 전송
@@ -186,9 +90,7 @@ $(function(){
 			
 		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
 		
-		profileImg.attr('src','/display?fileName='+fileCallPath);	
-		
-		console.log(profileImg);		
+		profileImg.attr('src','/display?fileName='+fileCallPath);			
 			
 	
 	}// 첨부파일 보여주기 종료 

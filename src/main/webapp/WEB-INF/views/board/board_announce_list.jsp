@@ -50,17 +50,15 @@
          </c:forEach>
        </tbody>
      </table>
+     <br />
      <!-- start Pagination -->
 	<div class="text-center" style="display: table; margin-left: auto; margin-right: auto;">
 		<ul class="pagination" >
 			<c:if test="${pageVO.prev }">
-				<li class="paginate_button previous"><a
-					href="${pageVO.startPage-1 }">Previous</a>
+				<li class="paginate_button previous"><a href="${pageVO.startPage-1 }">Previous</a>
 			</c:if>
-			<c:forEach var="idx" begin="${pageVO.startPage}"
-				end="${pageVO.endPage}">
-				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a
-					href="${idx}">${idx+1}</a>
+			<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px" href="${idx}">${idx+1}</a>
 			</c:forEach>
 			<c:if test="${pageVO.next }">
 				<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
@@ -69,7 +67,7 @@
 	</div>
 	<!-- end Pagination -->     
 	<div class="bt_wrap">
-	   <button class="btn btn-primary" id="write" hidden="hidden">글 작성</button> 
+	   <button class="btn btn-info" id="write" hidden="hidden">글 작성</button> 
 	</div>
 </div>
 

@@ -18,10 +18,7 @@ public class KDController {
 	@Autowired
 	private KDService service;
 	
-	@GetMapping("/PT/teacher-all")
-	public void teacher_all() {
-		log.info("전체 강사 페이지 요청");
-	}
+	
 	
 	@GetMapping("/admin/admin_all")
 	public void adminAllBoard() {

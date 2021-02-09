@@ -30,12 +30,17 @@
                 <!-- Section Header -->
                 <div id="imageForm" class="col-l-3 col-md-3 col-sm-3 col-xs-12 section-header wow fadeInDown">
                     <span id="profile_pic">
-                        <img id="myImg" src="/resources/img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
+                        <img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' />
                     </span>
+					<div class="uploadResult" style="display:none;">
+						<ul></ul>
+					</div>
                     <br>
                     <div>
-                        <label for="files" class="btn btn-primary" id="changeImgBtn">Select Image</label>
-                        <input id="files" style="visibility:hidden;" type="file">
+                        <!-- <label for="files" class="btn btn-primary" id="changeImgBtn">Select Image</label>
+                        <input id="files" style="visibility:hidden;" type="file"> -->
+                        <label for="files" class="btn btn-primary" id="changeImgBtn">Select Image</label>		
+					    <input id="files" name="uploadFile" id="" type="file" accept='image/jpeg,image/gif,image/png' style="visibility:hidden;">
                     </div>
 
                 </div>
@@ -43,7 +48,7 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>                                  
-                        <form role="form" method="get" id="profile-form" action="/user/teacher_my_stream">
+                        <form role="form" method="GET" id="profile-form" action="teacher_my_stream">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
                                 <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>
@@ -54,37 +59,13 @@
                             </div>             
 	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">	                           
 	                            <button type="submit" class="btn btn-primary " id="update-btn" >수정 완료</button>
-	                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='teacher_my'">수정 취소</button>	                                                                 	                            
+	                            <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='teacher_my_stream'">수정 취소</button>	                                                                 	                            
 	                        </div>
                         </form>  
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="footer-containertent">
-                        <p class="mt-4 social-login text-center">
-                            <a href="#" class="btn btn-twitter">
-                                <em class="ion-social-twitter"></em>
-                            </a>
-                            <a href="#" class="btn btn-facebook">
-                                <em class="ion-social-facebook"></em>
-                            </a>
-                            <a href="#" class="btn btn-linkedin">
-                                <em class="ion-social-linkedin"></em>
-                            </a>
-                            <a href="#" class="btn btn-google">
-                                <em class="ion-social-googleplus"></em>
-                            </a>
-                            <a href="#" class="btn btn-github">
-                                <em class="ion-social-github"></em>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
+<script src="/resources/js/teacher_profile_setting.js"></script>
 </body>

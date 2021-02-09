@@ -24,7 +24,7 @@
 		values(#{userName},#{userId},#{password},#{address},#{phoneNumber},#{userEmail},#{userBirth},#{favorite_activity[0]},#{favorite_activity[1]},#{favorite_activity[2]})
 	</insert>
 	
-	<!-- 문의내역 조회 -->
+	<!-- 문의내역 조회 수정 필수-->
 	<select id="QnAUser" resultType="com.company.domain.YHQandABoardVO">
 		select qb.bno, qb.title, qb.writer_id, qb.regdate, qb.replydate ,qb.userId, ub.userId
 		from QANDA_BOARD qb, user_board ub
@@ -67,4 +67,32 @@
 		select cal_title, cal_start, cal_end, cal_description, cal_type, cal_username, cal_backgroundColor, cal_textColor, cal_allDay 
 		from calendar_ex
 	</select>
+	
+	<!-- 강사 목록 
+	<select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO">
+		SELECT
+		    ti.userid,
+		    ti.main_sports,
+		    ti.teacher_level,
+		    ub.user_level,
+		    ub.username,
+		    fa.uuid,
+		    fa.uploadpath,
+		    fa.filename,
+		    fa.filetype
+		FROM
+		    teacher_info   ti,
+		    user_board     ub,
+		    fit_attach     fa
+		WHERE
+		    ti.userid = ub.userid
+		    AND fa.userid = ub.userid
+		    AND teacher_level = '1'
+	</select> -->
+	
+	<!-- 강사 목록 간편 -->
+	<select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO">
+		select userId, uuid, uploadPath, fileName, fileType from fit_attach
+	</select>
+	
 </mapper>

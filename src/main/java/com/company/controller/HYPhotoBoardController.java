@@ -45,11 +45,17 @@ public class HYPhotoBoardController {
 	public String photoBoardWritePost(HYPhotoBoardVO board, RedirectAttributes rttr) {
 		log.info("포토보드 게시글 등록"+board);
 		
-		log.info("게시글 번호 "+board.getBno());
+		//파일첨부 확인
+		if(board.getAttachList()!=null) { // 열어둬도 상관없음
+			board.getAttachList().forEach(attach -> log.info(""+attach));
+		}
+		
 		if(service.regist(board)) {
 			//등록성공 메시지를 모달로 띄우기 위해 조금 전 등록된 글 번호 보내기
-			//rttr.addFlashAttribute("result", board.getBno());
-			return "redirect:/board/board_photo_list";
+			rttr.addFlashAttribute("result", board.getBno());
+			log.info("게시글 번호 "+board.getBno()); //여기서 bno 가 뜨면 되는거에요
+			//return "redirect:/board/board_photo_list";
+			return "redirect:/"; //일단 리스트 없으니까 여기로 감
 		}
 			return "board_photo_write";	
 	}

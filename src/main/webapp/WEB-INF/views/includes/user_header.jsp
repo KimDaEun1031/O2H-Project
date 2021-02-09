@@ -13,10 +13,7 @@
     <title>Fashi | Template</title>
 
     <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" />
@@ -27,9 +24,9 @@
     <link rel="stylesheet" href="/resources/css/nice-select.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
     
-     <!-- Js Plugins -->
+    <!-- Js Plugins -->
     <script src="/resources/js/jquery-3.3.1.min.js" defer ="defer"></script>
     <script src="/resources/js/bootstrap.min.js" defer ="defer"></script>
     <script src="/resources/js/jquery-ui.min.js" defer ="defer"></script>
@@ -42,10 +39,11 @@
     <script src="/resources/js/main.js" defer ="defer"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     
+    
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="img/iconLogo.ico" />
+  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -100,17 +98,64 @@
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>
+                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a>                	
                 	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        
+    <!-- 추가 부분 -->
 
-<script>
+
+      <div class="container">
+        <div class="inner-header">
+          <div class="row">
+            <div class="col-lg-2 col-md-2">
+              <div class="logo">
+                <a href="/">
+                  <img src="/resources/img/logo.png" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-7">
+              <div class="advanced-search">
+                <button type="button" class="category-btn">
+                  전체 카테고리
+                </button>
+                <div class="input-group">
+                  <input type="text" placeholder="무엇이 필요하신가요?" />
+                  <button type="button"><i class="ti-search"></i></button>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+     <div class="nav-item">
+            <div class="container">              
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                    	<li class="active"><a href="/">홈</a></li>
+                        <li><a href="/user/user_my">내 정보</a></li>                       
+                        <li><a href="/user/user_QnA">문의 내역</a></li>
+                        <li><a href="#">보관함</a></li>
+                        <li><a href="/user/profile_setting">회원정보수정</a>
+                            <ul class="dropdown">
+                                <li><a href="/user/profile_setting">회원정보 수정</a></li>
+                                <li><a href="/register/deleteID">회원 탈퇴</a></li>
+                            </ul> 
+                        </li>  
+                        <li><a href="/teacher/teacher_my_stream" hidden="hidden" id="stream">스트리밍</a></li>                          
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    
+    <script>
 	//	window.onload =function(){
 			var loginInfo = '${loginInfo.userId}';
 			var loginInfolevel = '${loginInfo.user_level}';
@@ -119,6 +164,7 @@
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
 			var profile=document.getElementById("profile");
+			var stream=document.getElementById("stream");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");		
@@ -137,44 +183,11 @@
 			
 			var teacher = 1;
 			if (loginInfolevel==teacher) {
-	   			$("#profile").attr("href","/user/teacher_my");
-	   			//jquery 인식 안되서 cdn 가져왔습니다.
+				stream.removeAttribute("hidden");
 	   		}
+		
 			
 //		}
 	
 	
 	</script>
-
-
-
-      <!-- 추가 부분 -->
-
-
-      <div class="container">
-        <div class="inner-header">
-          <div class="row">
-          </div>
-        </div>
-      </div>
-      <div class="nav-item">
-        <div class="container"> 
-          <nav class="nav-menu mobile-menu">
-            <ul>
-              <li class="active"><a href="/user/admin_index">홈</a></li>
-              <li>
-                <a href="/admin/admin_status">월별현황분석</a>               
-              </li>
-              <li>
-                <a href="/admin/admin_member">회원관리</a>               
-              </li>
-              <li>
-                <a href="/announce/getList">고객센터</a>               
-              </li>                          
-            </ul>
-          </nav>
-          <div id="mobile-menu-wrap"></div>
-        </div>
-      </div>
-    </head>
-    <!-- Header End -->

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.company.domain.KDAdminTotalVO;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
+import com.company.domain.KDTeacherInfoVO;
 import com.company.domain.YHCriteria;
 import com.company.domain.YHQandABoardVO;
 import com.company.mapper.KDmapper;
@@ -67,6 +68,11 @@ public class KDServiceImpl implements KDService {
 	@Override
 	public List<KDLoginInfoVO> memberControls(YHCriteria cri) {
 		return mapper.memberControl(cri);
+	}
+
+	@Override
+	public List<KDTeacherInfoVO> teacherInfo() {
+		return mapper.selectByRecommendTeacher();
 	}
 
 

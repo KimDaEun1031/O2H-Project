@@ -26,6 +26,21 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
+    
+    <!-- Js Plugins -->
+    <script src="/resources/js/jquery-3.3.1.min.js" defer ="defer"></script>
+    <script src="/resources/js/bootstrap.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery-ui.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.countdown.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.nice-select.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.zoom.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.dd.min.js" defer ="defer"></script>
+    <script src="/resources/js/jquery.slicknav.js" defer ="defer"></script>
+    <script src="/resources/js/owl.carousel.min.js" defer ="defer"></script>
+    <script src="/resources/js/main.js" defer ="defer"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
+    
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
@@ -84,8 +99,8 @@
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/user/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>                   
+                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
+                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
                 </li>
               </ul>
             </div>
@@ -106,6 +121,7 @@
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");		
 				stream.removeAttribute("hidden");	
+				test.removeAttribute("hidden");	
 				
 			}else{
 				
@@ -117,10 +133,6 @@
 				admin.removeAttribute("hidden");				
 			}
 			
-			var teacher = 1;
-			if (loginInfolevel==teacher) {
-	   			$("#profile").attr("href","/user/teacher_my");
-	   		}
 			
 //		}
 	
@@ -143,13 +155,13 @@
             </div>
             <div class="col-lg-7 col-md-7">
               <div class="advanced-search">
-                <button type="button" class="category-btn">
-                  전체 카테고리
-                </button>
+              
+                <button type="button" class="category-btn" value="카테고리" > 전체 카테고리 </button>                
                 <div class="input-group">
                   <input type="text" placeholder="무엇이 필요하신가요?" />
                   <button type="button"><i class="ti-search"></i></button>
                 </div>
+           
               </div>
             </div>
           </div>
@@ -175,7 +187,7 @@
               <li>
                 <a href="#">PT</a>
                 <ul class="dropdown">
-                  <li><a href="PT/teacher-all">전체 강사</a></li>
+                  <li><a href="/PT/teacher-all">전체 강사</a></li>
                   <li><a href="#">스트리밍</a></li>
                 </ul>
               </li>
@@ -193,16 +205,13 @@
                 <a href="/program/calorDict">프로그램</a>
                 <ul class="dropdown">
                   <li><a href="/program/calorDict">칼로리사전</a></li>
-                  <li><a href="/program/cal">달력</a></li>
                 </ul>
               </li>
               <li>
                 <a href="/announce/getList">고객센터</a>
                 <ul class="dropdown">
                   <li><a href="/qandaboard/gotoQandAList">Q&A</a></li>
-
                   <li><a href="/chat/chat_list">실시간 문의</a></li>
-
                   <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
               </li>
@@ -695,16 +704,6 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Js Plugins -->
-    <script src="/resources/js/jquery-3.3.1.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/jquery-ui.min.js"></script>
-    <script src="/resources/js/jquery.countdown.min.js"></script>
-    <script src="/resources/js/jquery.nice-select.min.js"></script>
-    <script src="/resources/js/jquery.zoom.min.js"></script>
-    <script src="/resources/js/jquery.dd.min.js"></script>
-    <script src="/resources/js/jquery.slicknav.js"></script>
-    <script src="/resources/js/owl.carousel.min.js"></script>
-    <script src="/resources/js/main.js"></script>
+   
   </body>
 </html>

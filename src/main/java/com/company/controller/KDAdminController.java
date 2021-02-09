@@ -29,6 +29,11 @@ public class KDAdminController {
 	@Autowired
 	YHQandABoardService yhservice;
 	
+	@GetMapping("/admin/admin_index")
+	public void admin_index() {
+		log.info("관리자 페이지");
+	}	
+	
 	@GetMapping("/admin_status")
 	public String admin_status(Model model, KDLoginInfoVO loginInfo, KDAdminTotalVO admint) {
 		log.info("관리자 월별현황페이지");

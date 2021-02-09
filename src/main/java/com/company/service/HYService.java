@@ -12,8 +12,16 @@ public interface HYService {
 	//비밀번호 수정
 	//public boolean update(ChangeVO change);
 	public boolean modifyPwd(HYChangeVO change);
-	//이메일 수정 + 첨부파일은 아직 아님
+	//이메일 수정 + 첨부파일
 	public boolean modifyInfo(HYChangeVO change);
 	//전체 첨부물 조회
 	public List<HYFileAttach> getAttachList(String userId);
+	
+	//teacher_profile_setting info + 첨부파일은 아직 아님
+	public boolean modifyTeacherInfo(HYChangeVO change);
+	
+	
+	
+	
+	
 }

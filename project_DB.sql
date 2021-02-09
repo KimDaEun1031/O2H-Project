@@ -16,11 +16,14 @@ create table user_board (
 
 select * from user_board;
 
+insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,user_level) 
+values('test','test8','test123','1','1','1','1','1','1','1','1');
+
 update user_board set userInfo='vmfhfdjlkdsk' where userId='test1';
 
 select userInfo from user_board;
 
-update user_board set auth=2 where userId='admin';
+update user_board set user_level=1 where userId='test3';
 
 alter table user_board add userInfo varchar2(300) default '프로필 정보란'; -- 추가
 alter table user_board drop column userInfo;
@@ -42,10 +45,10 @@ select * from USER_BOARD where to_char(regDate,'yyyy-mm-dd') > '2021-01-01' orde
 
 select count(userId) from USER_BOARD;
 
-
 select auth from user_board;
 select * from chatroom1;
 
+select userId, uuid, uploadPath, fileName, fileType from fit_attach;
 ---------------------------------------
 
 select * from QANDA_BOARD; --fk userId 추가
@@ -248,8 +251,7 @@ create table photo_attach(
 	bno number(10)
 );
 
---bno로 잡은 pk 제거하고 uuid로 새롭게 만들어
-
+--pk
 alter table photo_attach add constraint pk_photo_attach primary key(uuid);
 
 --fk
@@ -260,6 +262,40 @@ add constraint fk_photo_attach foreign key(bno) references photo_board(bno);
 select * from photo_attach;
 
 ---------------------------------------------------------------
+-- 강사 테이블
+create table teacher_Info(
+	userId varchar2(20) not null,
+	main_sports varchar2(50) not null,
+	teacher_level char(1) default '1'
+	);
+
+drop table teacher_Info;
+
+alter table teacher_Info add constraint pk_teacher_userId primary key(userId);
+
+alter table teacher_Info 
+add constraint fk_teacher_userId foreign key(userId) references user_board(userId);
+
+insert into teacher_info values('test8','홈트','1');
+	
+SELECT
+    ti.userid,
+    ti.main_sports,
+    ti.teacher_level,
+    ub.user_level,
+    ub.username,
+    fa.uuid,
+    fa.uploadpath,
+    fa.filename,
+    fa.filetype
+FROM
+    teacher_info   ti,
+    user_board     ub,
+    fit_attach     fa
+WHERE
+    ti.userid = ub.userid
+    AND fa.userid = ub.userid
+    AND teacher_level = '1'
 
 --운동 자랑 게시판 
 create table comunity_board(
