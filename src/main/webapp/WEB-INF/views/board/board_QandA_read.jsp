@@ -67,6 +67,9 @@
     	<input type="hidden" name="content" id="contentHidden" value="${vo.content }">
     	<input type="hidden" name="bno" value="${vo.bno }">
     </form>
+    <form id="deleteForm" action="/qandaboard/delete" method="get">
+    	<input type="hidden" name="bno" value="${vo.bno }">
+    </form>
     </div>
 	  <script>
    window.onload=function(){
@@ -102,7 +105,10 @@
    		alert(titleHidden.value);
    		document.getElementById("updateForm").submit();
    }
-   
+   hideDeleteBtn.onclick=function(){
+	   document.getElementById("deleteForm").submit();
+	   
+   }
   }
    	</script> 
 	

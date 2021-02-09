@@ -16,4 +16,5 @@ public interface YHAnnounceBoardMapper {
 	int replyInsert(YHAnnouceReplyVO vo);
 	List<YHAnnouceReplyVO> getReplyAll();
 	int deleteReply(int rno);
+	int replyDeletes(int bno);
 }

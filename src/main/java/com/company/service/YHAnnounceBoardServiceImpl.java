@@ -40,7 +40,7 @@ public class YHAnnounceBoardServiceImpl implements YHAnnounceBoardService{
 
 	@Override
 	public boolean announceDelete(int bno) {
-		
+		mapper.replyDeletes(bno);
 		return mapper.announceDelete(bno)==1?true:false;
 	}
 
