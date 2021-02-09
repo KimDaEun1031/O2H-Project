@@ -12,7 +12,7 @@ create table user_board (
     interest3 varchar2(50) not null,
     regDate date default sysdate,
     auth char(1) default 0 -- 0 user 1 teacher 2 admin
-    );
+    ); 
 
 select * from user_board;
 
@@ -261,3 +261,28 @@ select * from photo_attach;
 
 ---------------------------------------------------------------
 
+--운동 자랑 게시판 
+create table comunity_board(
+	bno number default seq_comunity_board.nextval,
+	fileName varchar2(30) default 'default.jpg'	,
+	title varchar2(30) ,
+	writer varchar2(30),
+	content varchar2(100),
+	seenNum number default 0,
+	regdate date default sysdate ,
+	replyCnt number default 0
+)
+
+create table comunity_reply(
+	rno number default seq_comunity_reply.nextval,
+	bno number ,
+	replyer varchar2(30),
+	content varchar2(100),
+	regdate date default sysdate
+)
+drop table comunity_board;
+select * from comunity_board;
+
+
+CREATE SEQUENCE  seq_comunity_board;
+create sequence seq_comunity_reply;

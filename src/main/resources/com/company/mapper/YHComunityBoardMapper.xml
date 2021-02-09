@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.YHComunityBoardMapper">
+<insert id="insert">
+insert into comunity_board (title ,writer,content,fileName)
+values(#{title},#{writer_id},#{content},#{filename})
+</insert>
+
+<select id="boardList" resultType="com.company.domain.YHComunityBoardVO">
+select * from comunity_board 
+</select>
+<select id="read" resultType="com.company.domain.YHComunityBoardVO">
+select * from comunity_board where bno=#{bno}
+</select>
+
+
+</mapper>
