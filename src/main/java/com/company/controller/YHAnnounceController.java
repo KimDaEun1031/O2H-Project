@@ -69,6 +69,7 @@ public class YHAnnounceController {
 	@GetMapping("/delete")
 	public String AnnounceDelete(int bno) {
 		log.info("announce 삭제 요청 bno=" +bno);
+		
 		service.announceDelete(bno);
 		return "redirect:/announce/getList";
 		
