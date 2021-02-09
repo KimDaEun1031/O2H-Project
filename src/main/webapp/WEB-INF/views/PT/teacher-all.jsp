@@ -240,54 +240,17 @@
     </div>
     
     
-      <!-- recommand 보충제 Banner Section Begin --> 
-				<c:forEach var="volist" items="${list}" begin="0" end="21">
-                    <div class="col-md-3" id="personal_information">
-                        <span id="profile_pic">
-                            <img id="myImg" src="/resources/img/profile/fiturjc_default_user.jpg" class="img-circle" alt="Profile Image" style='object-fit:contain' />
-                           	
-                            <!-- 첨부 파일 보여주기 -->
-							<div class="bigPictureWrapper">
-								<div class="bigPicture"></div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="panel panel-default">
-										<div class="panel-heading"><i class="fa fas fa-file"></i> </div>
-										<div class="panel-body">				
-											<div class="uploadResult">
-												<ul></ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</span>
-					</div>
-							<!-- 첨부물 보여주기 -->
-							<script>
-								//현재 글 번호 가져오기->read->reply => 결과를 read							
-								var arr = new Array();
-								var userIdVal = '${volist.userId}';
-								arr[0]	= userIdVal;								
-								console.log(arr[0]);
-							</script> 
+      <!-- 전체 강사 리스트 -->
+      <section class="teacher-section" >
+	    <h3>전체 강사 보기</h3> 
+	    	<div class="teacher" style="text-align: center">
+	    		<a href="">
+					<c:forEach var="volist" items="${list}">                   			        
+			            <img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""> 			       	       			 
 					</c:forEach>
-					
+				</a> 
+			</div>  
+	  </section>		
 
-    <!-- recommand 보충제 Banner Section End -->
-
-    <section class="teacher-section" >
-        <h3>전체 강사 보기</h3>
-        <div class="teacher" style="text-align: center">
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>  
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>          
-        </div>      
-    </section>
-    <script src="/resources/js/profile-teacher.js"></script>
+   
 <%@include file="../includes/footer.jsp" %>
