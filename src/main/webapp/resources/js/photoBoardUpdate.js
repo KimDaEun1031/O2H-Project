@@ -3,42 +3,99 @@
 
  */
 
-
-$(function(){
+$(document).ready(function(){
 	
-	//게시글 등록 버튼 등작-과 관련된 스크립트
-	//$("button[type='submit']").click(function(e){
-	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
-		e.preventDefault();
-
-		var str = "";
-		//첨부파일 영역에 정보 수집
-		$(".uploadResult ul li").each(function(idx,obj){
-		//$("#myImg").each(function(idx,obj){ //str이 안잡혀서 영역 다시 잡음-근데 에러가 나네? 400.
-		//$("input[name='uploadFile']").each(function(idx,obj){ //아래 append 한 부분꺼 영역 가져옴
-			var job = $(obj);
-			//수집된 정보를 hidden 태그로 작성
-			str+="<input type='hidden' name='attachList["+idx+"].uuid' value='"+job.data("uuid")+"'>";
-			str+="<input type='hidden' name='attachList["+idx+"].uploadPath' value='"+job.data("path")+"'>";
-			str+="<input type='hidden' name='attachList["+idx+"].fileName' value='"+job.data("filename")+"'>";
-			str+="<input type='hidden' name='attachList["+idx+"].fileType' value='"+job.data("type")+"'>";			
-		})
-		console.log(str);
+	var uploadResult = $(".uploadResult ul"); // 에러!!!
+	
+	$.getJSON({
+		//url:'getAttachList',
+		//url:'/program/getAttachList',
+		//url:'/user/getAttachList',
+		url:'/board/getAttachList',
+		data: {
+			bno:bnoVal	//at HTMLDocument.<anonymous> 에러남-변수''에 담으니까 에러 없어짐.
+		},
+		success:function(data){
+			console.log(data);
+			
+			var str = "";
+			
+			$(data).each(function(idx,obj){
+				if(obj.fileType){
+					//썸네일 이미지 경로 uploadPath - 2021\01\20
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+				
+					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
+					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
+					str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName;
+					str+="</div></li>";	
+					
+					//이렇게 되는구나 - 와 신기하다.
+					var profileImg = $("#myImg");
+					
+					//var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName); //썸네일로 보기
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName); //원본으로 보기
+					
+					profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);
+					
+				}
+								
+			})//each 종료
+			uploadResult.html(str);
+		} //success
+	}) //getJSON 종료
+	
+	//이미지 클릭시 원본 이미지 보여주기, 일반파일은 다운로드
+	$(uploadResult).on("click","li",function(){
+		var liObj = $(this);
 		
-		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
-		//1. 게시글 등록 폼 가져오기
-		var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
-		//var form = $("form");
-		//2. 폼에 추가하기
-		form.append(str);
-		//3. 전송
-		form.submit();
-		
-		
+		var path = encodeURIComponent(liObj.data("path")+"\\"+liObj.data("uuid")+"_"
+					+liObj.data("filename"));
+				
+		if(liObj.data("type")){
+			showImage(path.replace(new RegExp(/\\/g),"/"));
+		}else{
+			location.href="/photoBoardDownload?fileName="+path;
+		}		
 	})
 	
 	
+	
+	//크게 열린 이미지 다시 닫기
+	$(".bigPictureWrapper").click(function(){
+		$(".bigPicture").animate({width:'0%', hight:'0%'},1000);
+		setTimeout(function(){
+			$(".bigPictureWrapper").hide();
+		},1000);
+	})// 이미지 닫기 종료
 
+	
+	//x 버튼 클릭 - 이벤트 위임
+	$(".uploadResult").on("click","button",function(){
+		
+		//해당 파일 경로 가져오기
+		var targetFile=$(this).data("file");
+		//파일 타입 가져오기
+		var type=$(this).data("type");
+		//span 태그가 속한 부모 li 태그 가져오기-가장 가까운 태그 가져오기 .closest
+		var targetLi=$(this).closest("li");
+
+		
+		//서버 폴더에서 제거
+		$.ajax({
+			url:'/photoBoardDeleteFile',
+			type:'post',
+			data:{
+				fileName:targetFile,
+				type:type
+			},
+			success:function(result){
+				console.log(result);
+				//화면 목록에서 제거
+				targetLi.remove();
+			}
+		})	
+	})// x버튼 종료
 	
 	//파일버튼이 클릭되어 변화가 일어나는 경우
 	//현재 목록의 파일을 서버로 보내서 저장하기
@@ -83,12 +140,15 @@ $(function(){
 		})	
 
 	})//파일첨부 종료
+
+
 	
 	function showUploadedFile(profile) { // 받을 변수 하나 설정해 둔+위에서 
 		//결과를 보여줄 영역 가져오기
 		var profileImg = $("#myImg");	
 			
-		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
+		//var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	//썸네일로 보여주기
+		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\"+profile.uuid+"_"+profile.fileName);		//원본 이미지로 보여주기
 		
 		profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);			
 			
@@ -127,49 +187,7 @@ $(function(){
 		}// 첨부파일 보여주기 종료 - showUploadedFile
 
 
-
-
-	//x 버튼 클릭 - 이벤트 위임
-	$(".uploadResult").on("click","button",function(){
-		
-		//해당 파일 경로 가져오기
-		var targetFile=$(this).data("file");
-		//파일 타입 가져오기
-		var type=$(this).data("type");
-		//span 태그가 속한 부모 li 태그 가져오기-가장 가까운 태그 가져오기 .closest
-		var targetLi=$(this).closest("li");
-
-		
-		//서버 폴더에서 제거
-		$.ajax({
-			url:'/photoBoardDeleteFile',
-			type:'post',
-			data:{
-				fileName:targetFile,
-				type:type
-			},
-			success:function(result){
-				console.log(result);
-				//화면 목록에서 제거
-				targetLi.remove();
-			}
-		})	
-	})// x버튼 종료
-	
-	//크게 열린 이미지 다시 닫기
-	$(".bigPictureWrapper").click(function(){
-		$(".bigPicture").animate({width:'0%', hight:'0%'},1000);
-		setTimeout(function(){
-			$(".bigPictureWrapper").hide();
-		},1000);
-	})// 이미지 닫기 종료
-
-
-
-
-
 })
-
 function showImage(fileCallPath) {
 	$(".bigPictureWrapper").css("display","flex").show();
 	$(".bigPicture").html("<img src='/photoBoardDisplay?fileName="+fileCallPath+"'>")

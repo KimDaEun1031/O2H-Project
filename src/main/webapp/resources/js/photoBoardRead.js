@@ -9,9 +9,10 @@ $(document).ready(function(){
 	$.getJSON({
 		//url:'getAttachList',
 		//url:'/program/getAttachList',
-		url:'/user/getAttachList',
+		//url:'/user/getAttachList',
+		url:'/board/getAttachList',
 		data: {
-			userId:userIdVal	//at HTMLDocument.<anonymous> 에러남-변수''에 담으니까 에러 없어짐.
+			bno:bnoVal	//at HTMLDocument.<anonymous> 에러남-변수''에 담으니까 에러 없어짐.
 		},
 		success:function(data){
 			console.log(data);
@@ -21,24 +22,26 @@ $(document).ready(function(){
 			$(data).each(function(idx,obj){
 				if(obj.fileType){
 					//썸네일 이미지 경로 uploadPath - 2021\01\20
-					/*var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
 				
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 					str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName;
-					str+="</div></li>";*/	
+					//str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"; //이거 그냥 파일명 지우면 되는구나
+					str+="</div></li>";	
 					
 					//이렇게 되는구나 - 와 신기하다.
 					var profileImg = $("#myImg");
 					
-					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					//var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName); //썸네일로 보기
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName); //원본으로 보기
 					
 					profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);
 					
 				}
-								
+
 			})//each 종료
-			//uploadResult.html(str);
+			uploadResult.html(str);
 		} //success
 	}) //getJSON 종료
 	

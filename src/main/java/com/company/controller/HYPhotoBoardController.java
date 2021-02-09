@@ -54,8 +54,8 @@ public class HYPhotoBoardController {
 			//등록성공 메시지를 모달로 띄우기 위해 조금 전 등록된 글 번호 보내기
 			rttr.addFlashAttribute("result", board.getBno());
 			log.info("게시글 번호 "+board.getBno()); //여기서 bno 가 뜨면 되는거에요
-			//return "redirect:/board/board_photo_list";
-			return "redirect:/"; //일단 리스트 없으니까 여기로 감
+			return "redirect:/board/board_photo_list";
+			//return "redirect:/"; //일단 리스트 없으니까 여기로 감
 		}
 			return "board_photo_write";	
 	}
@@ -70,15 +70,35 @@ public class HYPhotoBoardController {
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));
 	}
+	//게시글 목록 보기-뭔가 엉망이랑 board꺼 가지고 와서 test 해봄 - 여전히 엉망
+	@GetMapping("/list")
+	public void List(Model model, HYPhotoBoardCriteria cri) {
+		log.info("포토보드 전체 리스트 요청");
+		//전체목록 요청
+		List<HYPhotoBoardVO> list = service.getList(cri);
+		int total = service.getTotalCnt(cri);
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));
+	}
 	
 	//특정 게시물 보기
-	@GetMapping("/board_photo_read, /board_photo_update")
+	@GetMapping({"/board_photo_read", "/board_photo_update"}) //배열로+"" 주고
 	public void GetphotoBoardReadUpdate(int bno,@ModelAttribute("cri") HYPhotoBoardCriteria cri, Model model) {
 		log.info("포토보드 특정 게시물 보기 "+bno);
 		log.info("Criteria "+cri);	
 		HYPhotoBoardVO board = service.getRow(bno);
 		model.addAttribute("board", board);	
+		log.info("보드에 담긴 정보 확인 "+board);	
+		
 	}
+//	@GetMapping("/board_photo_read") //옆에 update 주소 빼니까 들어가지네-2개 주소 쓰는 방식에 error
+//	public void GetphotoBoardReadUpdate(int bno) {
+//		log.info("포토보드 특정 게시물 보기 "+bno);
+//		//log.info("Criteria "+cri);	
+//		HYPhotoBoardVO board = service.getRow(bno);
+//		//model.addAttribute("board", board);	
+//	}
+
 	
 	//특정 게시물 삭제
 	@PostMapping("/remove")
@@ -92,12 +112,12 @@ public class HYPhotoBoardController {
 			rttr.addFlashAttribute("result", "success"); 
 		}
 		
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+		//rttr.addAttribute("type", cri.getType());
+		//rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addAttribute("pageNum", cri.getPageNum()); // 주소줄에 따라가는 형태
 		rttr.addAttribute("amount", cri.getAmount());
 		
-		return "redirect:list";
+		return "redirect:board_photo_list";
 	}
 	
 	private void deleteFiles(List<HYPhotoBoardFileAttach> attachList) {
@@ -144,8 +164,8 @@ public class HYPhotoBoardController {
 		service.modify(board);	
 		
 		rttr.addFlashAttribute("result", "success");
-		rttr.addAttribute("type", cri.getType());	//보기에서 넣어주는게 아니라 수정post 에서 넣어줘야하는거였네
-		rttr.addAttribute("keyword", cri.getKeyword());
+		//rttr.addAttribute("type", cri.getType());	//보기에서 넣어주는게 아니라 수정post 에서 넣어줘야하는거였네
+		//rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
 		

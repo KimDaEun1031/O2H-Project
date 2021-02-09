@@ -25,15 +25,15 @@
 	<select id="list" resultType="com.company.domain.HYPhotoBoardVO">
 		<!-- select * from spring_board where bno>0 order by bno desc -->
 		
-<!-- 		<![CDATA[
-			select *
-			from (select /*+INDEX_DESC(spring_board pk_spring_board)*/ 
-				rownum rn, bno, title, writer, regdate, updatedate
-				from spring_board where rownum<=(#{pageNum}*#{amount}))
-			where rn> (#{pageNum}-1)*#{amount}
-		]]> -->
-		<!-- "REPLYCNT": 부적합한 식별자 떠서 지움 -->
 		<![CDATA[
+			select *
+			from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
+				rownum rn, bno, title, writer, regdate, updatedate
+				from photo_board where rownum<=(#{pageNum}*#{amount}))
+			where rn> (#{pageNum}-1)*#{amount}
+		]]>
+		<!-- "REPLYCNT": 부적합한 식별자 떠서 지움 -->
+		<!-- <![CDATA[
 			select *
 			from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
 				rownum rn, bno, title, writer, regdate, updatedate
@@ -43,15 +43,21 @@
 			<![CDATA[
 				rownum<=(#{pageNum}*#{amount}))
 			where rn> (#{pageNum}-1)*#{amount}
-		]]>
+		]]> -->
 	</select>
+	
+	<!-- 전체 게시물 수 -->
+	<!-- <select id="totalCnt" resultType="int">
+		select count(*) from spring_board where bno>0
+		select count(*) from photo_board where 
+		<include refid="criteria"></include>
+		bno>0
+	</select> -->
 	
 	<!-- 전체 게시물 수 -->
 	<select id="totalCnt" resultType="int">
 		<!-- select count(*) from spring_board where bno>0 -->
-		select count(*) from photo_board where 
-		<include refid="criteria"></include>
-		bno>0
+		select count(*) from photo_board where bno>0
 	</select>
 
 	<!-- 특정번호조회 -->
@@ -73,7 +79,7 @@
 
 
 	<!-- 동적 SQL -->
-	<sql id="criteria">
+	<!-- <sql id="criteria">
 		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
 			<foreach collection="typeArr" item="type">
 				<trim prefix="OR">
@@ -91,7 +97,7 @@
 				</trim>
 			</foreach>
 		</trim>
-	</sql>
+	</sql> -->
 	
 	<!-- 첨부물 부분 mapper 합침 -->
 	
