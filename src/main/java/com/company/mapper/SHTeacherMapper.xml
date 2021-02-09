@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.SHTeacherMapper">
+	<resultMap type="com.company.domain.SHProfileVO" id="profileMap">
+		<result property="userName" column="username" />
+		<result property="userId" column="userid" />
+		<result property="password" column="password" />
+		<result property="address" column="address" />
+		<result property="phoneNumber" column="phonenumber" />
+		<result property="userEmail" column="useremail" />
+		<result property="userBirth" column="userbirth" />
+		<result property="user_level" column="user_level" />
+		<result property="userInfo" column="userinfo" />
+		<result property="teacherInfo" column="teacherinfo" />
+		<result property="mainSports" column="main_sports" />
+		<result property="channelId" column="channelid" />
+		<result property="teacher_level" column="teacher_level" />
+		<collection property="favorite_activity" ofType="String">
+			<result property="favorite_activity" column="interest1" />
+			<result property="favorite_activity" column="interest2" />
+			<result property="favorite_activity" column="interest3" />
+		</collection>
+	</resultMap>
+	
+	<select id="countVideo" resultType="int">
+		SELECT COUNT(userId) AS userId
+		FROM teacher_video
+		WHERE userId = #{userId}
+	</select>
+	
+	<select id="selectVideoRow" parameterType="com.company.domain.SHVideoVO" resultType="com.company.domain.SHVideoVO">
+		SELECT /*+INDEX_ASC(teacher_video pk_teacher_video)*/ userId, videoId, videoInfo, regDate, updateDate
+		FROM teacher_video
+		WHERE userId = #{userId} AND videoId = #{videoId}
+	</select>
+	
+	<select id="selectVideoList" resultType="com.company.domain.SHVideoVO">
+		<![CDATA[
+			SELECT rn, userId, videoId, videoInfo, regDate, updateDate
+			FROM (
+				SELECT ROWNUM AS rn, userId, videoId, videoInfo, regDate, updateDate
+				FROM (
+					SELECT userId, videoId, videoInfo, regDate, updateDate
+					FROM teacher_video
+					WHERE userId = #{userId}
+					ORDER BY regDate
+				)
+			)
+			WHERE rn > (#{page} - 1) * #{pageCount} AND rn <= #{page} * #{pageCount}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="com.company.domain.SHVideoVO">
+		INSERT INTO teacher_video(userId, videoId, videoInfo)
+		VALUES(#{userId}, #{videoId}, #{videoInfo})
+	</insert>
+
+	<update id="update" parameterType="com.company.domain.SHVideoVO">
+		UPDATE teacher_video
+		SET videoInfo = #{videoInfo}, updateDate = SYSDATE
+		WHERE userId = #{userId} AND videoId = #{videoId}
+	</update>
+	<delete id="delete" parameterType="com.company.domain.SHVideoVO">
+		DELETE FROM teacher_video
+		WHERE userId = #{userId} AND videoId = #{videoId}
+	</delete>
+	
+	<insert id="registUser">
+		INSERT INTO user_board(userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3) 
+		VALUES(#{userName}, #{userId}, #{password}, #{address}, #{phoneNumber}, #{userEmail}, #{userBirth}, #{favorite_activity[0]}, #{favorite_activity[1]}, #{favorite_activity[2]})
+	</insert>
+	
+	<insert id="registTeacher">
+		INSERT INTO teacher_info(userId) 
+		VALUES(#{userId})
+	</insert>
+	
+	<update id="updateProfile" parameterType="com.company.domain.SHProfileVO">
+		UPDATE teacher_info
+		SET teacherInfo = #{teacherInfo}, main_sports = #{mainSports}, channelId = #{channelId}
+		WHERE userId = #{userId}
+	</update>
+	
+	<select id="countProfile" resultType="int">
+		SELECT COUNT(userId) AS userId
+		FROM user_board
+		WHERE user_level = '1'
+	</select>
+	
+	<select id="countRecommendProfile" resultType="int">
+		SELECT COUNT(users.userId) AS userId
+		FROM user_board users
+		INNER JOIN teacher_info teacher
+		ON users.userId = teacher.userId
+		WHERE teacher.teacher_level = '1'
+	</select>
+	
+	<select id="selectProfileList" resultMap="profileMap">
+		<![CDATA[
+			SELECT rn, userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3, user_level, userInfo, teacherInfo, main_sports, channelId, teacher_level
+			FROM (
+				SELECT ROWNUM AS rn, userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3, user_level, userInfo, teacherInfo, main_sports, channelId, teacher_level
+				FROM (
+					SELECT users.userName AS userName, users.userId AS userId, users.password AS password, users.address AS address, users.phoneNumber AS phoneNumber, users.userEmail AS userEmail, users.userBirth AS userBirth, users.interest1 AS interest1, users.interest2 AS interest2, users.interest3 AS interest3, users.user_level AS user_level, users.userInfo AS userInfo, teacher.teacherInfo AS teacherInfo, teacher.main_sports AS main_sports, teacher.channelId AS channelId, teacher.teacher_level AS teacher_level
+					FROM user_board users
+					INNER JOIN teacher_info teacher
+					ON users.userId = teacher.userId
+					ORDER BY users.userId
+				)
+			)
+			WHERE rn > (#{page} - 1) * #{pageCount} AND rn <= #{page} * #{pageCount}
+		]]>
+	</select>
+	
+	<select id="selectRecommendProfileList" resultMap="profileMap">
+		<![CDATA[
+			SELECT rn, userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3, user_level, userInfo, teacherInfo, main_sports, channelId, teacher_level
+			FROM (
+				SELECT ROWNUM AS rn, userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3, user_level, userInfo, teacherInfo, main_sports, channelId, teacher_level
+				FROM (
+					SELECT users.userName AS userName, users.userId AS userId, users.password AS password, users.address AS address, users.phoneNumber AS phoneNumber, users.userEmail AS userEmail, users.userBirth AS userBirth, users.interest1 AS interest1, users.interest2 AS interest2, users.interest3 AS interest3, users.user_level AS user_level, users.userInfo AS userInfo, teacher.teacherInfo AS teacherInfo, teacher.main_sports AS main_sports, teacher.channelId AS channelId, teacher.teacher_level AS teacher_level
+					FROM user_board users
+					INNER JOIN teacher_info teacher
+					ON users.userId = teacher.userId
+					WHERE teacher.teacher_level = '1'
+					ORDER BY users.userId
+				)
+			)
+			WHERE rn > (#{page} - 1) * #{pageCount} AND rn <= #{page} * #{pageCount}
+		]]>
+	</select>
+	
+	<select id="selectProfileRow" resultMap="profileMap">
+		SELECT users.userName AS userName, users.userId AS userId, users.password AS password, users.address AS address, users.phoneNumber AS phoneNumber, users.userEmail AS userEmail, users.userBirth AS userBirth, users.interest1 AS interest1, users.interest2 AS interest2, users.interest3 AS interest3, users.user_level AS user_level, users.userInfo AS userInfo, teacher.teacherInfo AS teacherInfo, teacher.main_sports AS main_sports, teacher.channelId AS channelId, teacher.teacher_level AS teacher_level
+		FROM user_board users
+		INNER JOIN teacher_info teacher
+		ON users.userId = teacher.userId
+		WHERE users.userId = #{userId}
+	</select>
+	
+	<select id="getUserId" resultType="String">
+		SELECT userId
+		FROM user_board
+		WHERE user_level = '1'
+	</select>
+</mapper>
