@@ -69,6 +69,11 @@ public class KDUserController {
 		log.info("강사 스트림 마이페이지");
 	}
 	
+	@GetMapping("/user/user_calendar")
+	public void userCalendar() {
+		log.info("내 정보 일정 관리 페이지");
+	}
+	
 	//user-teacher END
 
 }

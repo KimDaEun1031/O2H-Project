@@ -100,7 +100,7 @@
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
                 	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
+                	<a class="btn btn-success" id="test" href="/user/teacher_page" hidden="hidden" role="button">강사 테스트</a>                   
                 </li>
               </ul>
             </div>
@@ -119,8 +119,7 @@
 			var profile=document.getElementById("profile");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");		
-				stream.removeAttribute("hidden");	
+				profile.removeAttribute("hidden");						
 				test.removeAttribute("hidden");	
 				
 			}else{
@@ -188,7 +187,7 @@
                 <a href="#">PT</a>
                 <ul class="dropdown">
                   <li><a href="/PT/teacher-all">전체 강사</a></li>
-                  <li><a href="#">스트리밍</a></li>
+                  <li><a href="/PT/teacher_list">스트리밍</a></li>
                 </ul>
               </li>
               <li>

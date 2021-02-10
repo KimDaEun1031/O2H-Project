@@ -299,6 +299,10 @@ CREATE TABLE teacher_video (
 	CONSTRAINT fk_teacher_video FOREIGN KEY(userId) REFERENCES user_board(userId) ON DELETE CASCADE 
 );
 
+SELECT * FROM user_board users INNER JOIN teacher_info teacher ON users.userId = teacher.userId WHERE teacher.teacher_level = '1'
+
+select * from teacher_Info;
+
 SELECT
     ti.userid,
     ti.main_sports,
