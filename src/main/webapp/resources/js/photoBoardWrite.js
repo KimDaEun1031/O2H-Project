@@ -7,7 +7,7 @@
 $(function(){
 	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
-	$("input[type='submit']").click(function(e){ //버튼 하나니까. 상관없지
+	$("input[type='submit']").click(function(e){ //버튼 하나니까. 상관없지 - 버튼 아니였음. 
 	//$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
 
@@ -28,7 +28,7 @@ $(function(){
 		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
 		//1. 게시글 등록 폼 가져오기
 		//var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
-		var form = $("form[role='form']"); //폼이 하나니까 상관없지 //선생님 제가 열심히 해보겠습니다!!! 감사합니다!!!!!
+		var form = $("form[role='form']"); //폼이 하나니까 상관없지 + 아니야. form 이 header 쪽에 하나 더 있었던듯. 입력이 안됐었음. 210208
 		//2. 폼에 추가하기
 		form.append(str);
 		//3. 전송
@@ -84,12 +84,13 @@ $(function(){
 
 	})//파일첨부 종료
 	
+	//img 태그에 넣어서 보여주는 방식
 	function showUploadedFile(profile) { // 받을 변수 하나 설정해 둔+위에서 
 		//결과를 보여줄 영역 가져오기
 		var profileImg = $("#myImg");	
 			
-		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
-		//var fileCallPath = encodeURIComponent(profile.uploadPath+profile.uuid+"_"+profile.fileName); //썸네일 말고 원본이 뜨게 해보자-이거만 하니까 안나와서 아래도 바꿈.-안나옴.
+		//var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
+		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\"+profile.uuid+"_"+profile.fileName); //썸네일 말고 원본이 뜨게 해보자-이거만 하니까 안나와서 아래도 바꿈.-안나옴.
 		
 		profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);			
 			
@@ -99,6 +100,7 @@ $(function(){
 	
 	//게시글 등록 버튼 등작-과 관련된 스크립트<- 위에 있는 이게 못 읽어서
 	//원래 있던거 추가함 display:none 으로 하고
+	//ul-li로 보여주는 방식 - 이거 없으면 못 읽어옴
 	function showUploadedFile2(uploadResultArr) { // 받을 변수 하나 설정해 둔+위에서 
 			//결과를 보여줄 영역 가져오기
 			var uploadResult = $(".uploadResult ul");

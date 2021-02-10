@@ -24,12 +24,24 @@
    
    <context:component-scan base-package="com.company.controller" />
 
-   
    <!-- fileupload 객체 생성 -->
    <beans:bean id="multipartResolver" 
       class="org.springframework.web.multipart.commons.CommonsMultipartResolver">   
    </beans:bean> 
    
-  
+   <!-- Interceptor 빈 등록 -->
+   <context:component-scan base-package="com.company.interceptor" />
+   <!-- Interceptor 설정 -->
+   <interceptors>
+		<interceptor>
+			<mapping path="/user/teacher_page" />
+			<mapping path="/user/teacher_profile" />
+			<mapping path="/user/teacher_video" />
+			<mapping path="/user/teacherProfileUpload" />
+			<mapping path="/video/movie/**" />
+			<beans:bean id="teacherInterceptor" class="com.company.interceptor.SHTeacherInterceptor">
+			</beans:bean>
+		</interceptor>
+	</interceptors>
    
 </beans:beans>

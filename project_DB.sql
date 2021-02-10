@@ -277,7 +277,28 @@ alter table teacher_Info
 add constraint fk_teacher_userId foreign key(userId) references user_board(userId);
 
 insert into teacher_info values('test8','홈트','1');
-	
+
+-- 강사 주 종목 컬럼 무결성 임시 해제
+ALTER TABLE teacher_Info MODIFY main_sports NULL;
+ALTER TABLE teacher_Info MODIFY main_sports DEFAULT 'none';
+
+-- 강사 프로필 정보 컬럼 추가
+ALTER TABLE teacher_Info ADD teacherInfo VARCHAR2(300) DEFAULT 'none';
+
+-- 강사 라이브 채널ID 컬럼 추가
+ALTER TABLE teacher_Info ADD channelId VARCHAR2(50) DEFAULT 'none';
+		
+-- 강사 유튜브 비디오 주소 테이블 추가
+CREATE TABLE teacher_video (
+	userId VARCHAR2(100),
+	videoId VARCHAR2(100),
+	videoInfo VARCHAR2(100),
+	regDate DATE DEFAULT SYSDATE,
+	updateDate DATE DEFAULT SYSDATE,
+	CONSTRAINT pk_teacher_video PRIMARY KEY(userId, videoId),
+	CONSTRAINT fk_teacher_video FOREIGN KEY(userId) REFERENCES user_board(userId) ON DELETE CASCADE 
+);
+
 SELECT
     ti.userid,
     ti.main_sports,
