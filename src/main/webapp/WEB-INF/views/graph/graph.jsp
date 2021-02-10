@@ -1,4 +1,5 @@
 <%@page import="com.company.domain.YHCalVO"%>
+
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -33,6 +34,7 @@
 		var temp=new Array();
 		
 		var tempArr = ${list};
+		var tempBrr=${list2};
 		console.log(tempArr);
 		
 		
@@ -239,7 +241,7 @@
                 label: "월간 달리기 시간",
                 backgroundColor: "rgba(51,51,255,0.5)",
                 borderColor: "rgba(51,51,244,0.5)",
-                data: runtime,
+                data: tempBrr,
               },
             ],
           },

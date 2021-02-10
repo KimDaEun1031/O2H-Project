@@ -39,9 +39,10 @@ public class YHChartController {
 		List<YHCalVO> list=service.select(vo);
 		System.out.println(list);
 		int arr[]=new int[31];
-		
+		int brr[]=new int[31];
 		for(int i=0;i<31;i++) {
 			arr[i]=0;
+			brr[i]=0;
 		}
 		
 		for(int i=0;i<list.size();i++) {
@@ -52,6 +53,7 @@ public class YHChartController {
 			if(temp/100==month+100*year) {
 			temp= temp%100;
 			arr[temp]=list.get(i).getCal();
+			brr[temp]=list.get(i).getExtime();
 			}
 			}
 		
@@ -61,9 +63,13 @@ public class YHChartController {
 		for(int i=0;i<arr.length;i++) {
 			list2.add(arr[i]);
 		}
-	    log.info(list2.toString());
+		List<Integer> list3=new ArrayList<Integer>();
+		for(int i=0;i<arr.length;i++) {
+			list3.add(brr[i]);
+		}
+	    log.info(list3.toString());
 		model.addAttribute("list",list2);
-		
+		model.addAttribute("list2",list3);
 		
 		return "graph/graph";
 	}
