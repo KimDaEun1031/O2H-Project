@@ -37,16 +37,11 @@
       	text-decoration: none;
       	
       }
-      #chart {
-      	  display: -moz-flex;
-		  display: -webkit-flex;
-		  display: -ms-flex;
-		  display: flex;
-		  position: relative;
-      }
       #date {
       	background-color: rgba(0,0,0,0);
+      	margin: 10px;
       }
+      
     </style>
   </head>
   <body class="is-preload">
@@ -84,16 +79,18 @@
       <input type="button" value="확인" id="btn1" />
     </form>
     <br />
-    
-    <input style="margin: 30px; font-size: 16px;" type="date" name ="date" id="date" value="2021-01-01">   	
-    <form id="chart">
+    <form>
+    <input type="date" name ="date" id="date" value="2021-01-01">   	
+    	.h
     	<select name="time" id="time" >
 	    	<option value="mor" selected="selected">아침</option>
 	        <option value="lun">점심</option>
 	        <option value="aft">저녁</option>
     	</select>
+    	
     	<input type="text" name="cal" id="cal"> <!-- 칼로리 입력 칸 and 누르면 입력 되는 칸 -->  	
-		<input type="button" value="입력" id="calBtn" />    	   	
+		<input type="button" value="입력" id="calBtn" />   
+		 	   	
     	<input type="text" name="mor" id="mor" value="0">
     	<input type="text" name="lun" id="lun" value="0">
     	<input type="text" name="aft" id="aft" value="0">
@@ -103,7 +100,7 @@
     	 <input type="button" value="저장하기" id="submit" /><br />
     	 <input type="hidden" name="user_id" value="temp"><br />
     	 <p id="result"></p>
-    </form>
+	</form>
     	<script>
     	var date=document.getElementById("date");
     	var mor=document.getElementById("mor");

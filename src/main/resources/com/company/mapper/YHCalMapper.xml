@@ -11,9 +11,13 @@ update cal_board_table
 set cal=#{cal}, extime=#{extime}
 where user_id=#{user_id} and dates=#{dates}
 </update>
-<select id="select" resultType="Integer">
+<select id="select" resultType="com.company.domain.YHCalVO">
 <![CDATA[
+<<<<<<< HEAD
 select cal , extime from cal_board_table 
+=======
+select *  from cal_board_table 
+>>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
 where user_id=#{user_id} and rownum<30 order by dates 
 ]]>
 </select>

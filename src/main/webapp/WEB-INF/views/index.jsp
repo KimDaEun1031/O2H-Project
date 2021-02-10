@@ -169,9 +169,9 @@
       <div class="nav-item">
         <div class="container">
           <div class="nav-depart">
-            <div class="depart-btn">
+             <div class="depart-btn">
               <i class="ti-menu"></i>
-              <span>전체 페이지 목록</span>
+              <span>페이지 목록</span>
               <ul class="depart-hover">
                 <li><a href="#">PT</a></li>
                 <li><a href="#">홈쇼핑</a></li>
@@ -213,6 +213,10 @@
                   <li><a href="/chat/chat_list">실시간 문의</a></li>
                   <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
+              </li>
+               <li>
+                <a href="#">주변 헬스장</a>
+                
               </li>
             </ul>
           </nav>
