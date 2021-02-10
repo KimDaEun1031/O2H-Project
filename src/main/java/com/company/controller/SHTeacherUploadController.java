@@ -36,12 +36,12 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Controller
 public class SHTeacherUploadController {
 	
-	// 강사 프로필 이미지 폴더
-	public static final String profileUploadFolder = "D:\\projectFiles\\profile";
-	// 강사 프로필 이미지 임시파일 폴더
-	public static final String temporaryUploadFolder = "D:\\projectFiles\\profile\\temp";
-	// 강사 기본 프로필 이미지 파일
-	public static final String defaultImageFile = "D:\\projectFiles\\profile\\default\\default.jpg";
+	// 강사 프로필 이미지 폴더  "D:\\projectFiles\\profile";
+	public static final String profileUploadFolder = "C:\\Fitness_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\projectSource\\photo";
+	// 강사 프로필 이미지 임시파일 폴더 "D:\\projectFiles\\profile\\temp";
+	public static final String temporaryUploadFolder = "C:\\Fitness_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\projectSource\\photo";
+	// 강사 기본 프로필 이미지 파일 "D:\\projectFiles\\profile\\default\\default.jpg";
+	public static final String defaultImageFile = "C:\\Fitness_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\projectSource\\photo\\2021\\02\\09\\s_aa9c5e71-246f-4c20-8400-50e4a8db038f_avatar-1295429_640.png";
 	
 	@Autowired
 	private SHTeacherService service;

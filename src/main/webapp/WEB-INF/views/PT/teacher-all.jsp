@@ -224,7 +224,7 @@
     </header>
     <!-- Header End -->
 
-	<!-- Breadcrumb Section Begin -->
+	<!-- Breadcrumb Section Begin <img class="teacher-img" src="/resources/img/profile/profile_default.png" alt="">-->
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
@@ -239,14 +239,15 @@
         </div>
     </div>
     
-    
+      <br /><br />
       <!-- 전체 강사 리스트 -->
       <section class="teacher-section" >
 	    <h3>전체 강사 보기</h3> 
-	    	<div class="teacher" style="text-align: center">
+	    	<div class="teacher" >
 	    		<a href="">
 					<c:forEach var="volist" items="${list}">                   			        
-			            <img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""> 			       	       			 
+			            
+			            <h4>${volist.userId}</h4>			       	       			 
 					</c:forEach>
 				</a> 
 			</div>  

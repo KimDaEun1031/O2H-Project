@@ -3,10 +3,12 @@
 <%@include file="../includes/header.jsp" %>
 
 <div>
+	<h2>추천 강사 리스트</h2>
     <ul class="recommendProfileList"></ul>
     <div class="recommendPageBtn"></div>
 </div>
 <div>
+	<h2>프로필 리스트</h2>
     <ul class="profileList"></ul>
     <div class="pageBtn"></div>
 </div>
