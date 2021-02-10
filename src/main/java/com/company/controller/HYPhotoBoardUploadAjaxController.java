@@ -81,10 +81,7 @@ public class HYPhotoBoardUploadAjaxController {
 			File saveFile = new File(uploadPath, uploadFileName);
 
 			try {
-				//서버에 저장
-				//f.transferTo(saveFile);
-				//이미지인지 일반 파일인지 확인
-				if(checkImageType(saveFile)) {
+					
 					attach.setFileType(true);
 					//이미지라면 썸네일로 한번 더 저장
 					// C:\\upload\\2021\\01\\20\\s_12315sdfkijl_원본파일명.jsp
@@ -93,7 +90,7 @@ public class HYPhotoBoardUploadAjaxController {
 					Thumbnailator.createThumbnail(in, thumbnail, 200,200);
 					in.close();
 					thumbnail.close();				
-				}
+				
 				//서버에 저장 - 에러나서 서버에 저장을 나중에 함
 				f.transferTo(saveFile);				
 			} catch (IllegalStateException e) {
@@ -126,6 +123,45 @@ public class HYPhotoBoardUploadAjaxController {
 		}
 		return entity;
 	}
+	
+	
+	
+//	@GetMapping("/photoBoardDisplay2")
+//	//@PostMapping("/photoBoardDisplay2")
+//	public ResponseEntity<byte[]> getFile2(String fileName,HttpServletRequest req){
+//		
+//		log.info("처음 포토보드 "+fileName);
+//		
+//		try {
+//			fileName=URLDecoder.decode(fileName, "utf-8");
+//			log.info("2 포토보드 "+fileName);
+//
+//			
+//		} catch (UnsupportedEncodingException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//
+//		
+//		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
+//		File f = new File(uploadFolder+"\\"+fileName);
+//		
+//		
+//		
+//		
+//		ResponseEntity<byte[]> entity = null;
+//		
+//		HttpHeaders headers = new HttpHeaders();
+//		try {
+//			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
+//			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
+//					headers,HttpStatus.OK);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		return entity;
+//	}
+//	
 	
 	
 	//다운로드
@@ -198,7 +234,8 @@ public class HYPhotoBoardUploadAjaxController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date(); // 시간,날짜가 길게 나옴
 		String str = sdf.format(date); // 2021-01-21
-		return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
+		//return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
+		return str.replace("_", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
 	} // getFolder end
 	
 	

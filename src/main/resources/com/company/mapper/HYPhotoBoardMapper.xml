@@ -22,8 +22,8 @@
 	</update>
 	
 	<!-- 전체조회 -->
-	<select id="list" resultType="com.company.domain.HYPhotoBoardVO">
-		<!-- select * from spring_board where bno>0 order by bno desc -->
+	<!-- <select id="list" resultType="com.company.domain.HYPhotoBoardVO">
+		select * from spring_board where bno>0 order by bno desc
 		
 		<![CDATA[
 			select *
@@ -32,8 +32,8 @@
 				from photo_board where rownum<=(#{pageNum}*#{amount}))
 			where rn> (#{pageNum}-1)*#{amount}
 		]]>
-		<!-- "REPLYCNT": 부적합한 식별자 떠서 지움 -->
-		<!-- <![CDATA[
+		"REPLYCNT": 부적합한 식별자 떠서 지움
+		<![CDATA[
 			select *
 			from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
 				rownum rn, bno, title, writer, regdate, updatedate
@@ -43,8 +43,8 @@
 			<![CDATA[
 				rownum<=(#{pageNum}*#{amount}))
 			where rn> (#{pageNum}-1)*#{amount}
-		]]> -->
-	</select>
+		]]>
+	</select> -->
 	
 	<!-- 전체 게시물 수 -->
 	<!-- <select id="totalCnt" resultType="int">
@@ -110,7 +110,35 @@
 	</delete>
 	
 	
+	<!-- ResultSet 에 담긴 데이터를 객체에 로드 -->
+	<resultMap type="com.company.domain.HYPhotoBoardFileAttach" id="attachMap">
+		<result property="uuid" column="uuid"/>
+		<result property="uploadPath" column="uploadPath"/>
+		<result property="fileName" column="fileName"/>
+		<result property="fileType" column="fileType"/>
+		<result property="bno" column="bno"/>
+	</resultMap>
 	
+	<resultMap type="com.company.domain.HYPhotoBoardVO" id="boardMap">
+		<id property="bno" column="bno"/>
+		<result property="bno" column="bno"/>
+		<result property="title" column="title"/>
+		<result property="writer" column="writer"/>
+		<result property="regdate" column="regdate"/>
+		<result property="updatedate" column="updatedate"/>
+		<collection property="attach" resultMap="attachMap" />
+	</resultMap>	
+	
+	<select id="list" resultMap="boardMap">
+		<![CDATA[
+		select board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+		from(select /*+INDEX_DESC(photo_board pk_photo_board)*/ rownum rn, bno, title, writer, regdate, updatedate
+			 from photo_board where rownum<=(#{pageNum}*#{amount})) board left outer join photo_attach on board.bno = photo_attach.bno     
+		where rn> (#{pageNum}-1)*#{amount} order by rn
+		]]>	
+	</select>
 	
 	
 	

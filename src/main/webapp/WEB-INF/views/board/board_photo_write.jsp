@@ -2,14 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../includes/header.jsp" %>
-
+<<link rel="stylesheet" href="/resources/css/photoWrite.css" />
     <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
+    <div class="breacrumb-section" style="margin-bottom:10px">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>Q&A게시판</span>
+              <a href="board_photo_list"><span>사진 게시판</span></a>
+              <span>
+              	<label for="files" class="btn btn-primary active" id="changeImgBtn">Select Image</label>
+              </span>
             </div>
           </div>
         </div>
@@ -17,27 +20,23 @@
     </div>
 
     <!-- 게시글 작성 -->
-<!-- 첨부파일 -->
-        <div id="imageForm" class="col-l-3 col-md-3 col-sm-3 col-xs-12 section-header wow fadeInDown">
-             <span id="profile_pic">
-                 <img id="myImg" src=""/><!--  class="img-circle" alt="Profile Image" style='object-fit:contain'  -->
-             </span>
-			<div class="uploadResult">
-				<ul></ul>
-			</div>
-			<div class="bigPictureWrapper">
-				<div class="bigPicture"></div>
-			</div>
-            <br>
-            <%-- 파일등록 --%>
-			<div>	
-				<label for="files" class="btn btn-primary active" id="changeImgBtn">Select Image</label>		
-				<input id="files" name="uploadFile" id="" type="file" accept='image/jpeg,image/gif,image/png' style="visibility:hidden;">
-			</div>        
-         </div>
-        <%-- 파일등록 --%>
+	<!-- 첨부파일 -->  
+			
+         <%-- 파일등록 --%>
+    <div class="container">
+    	<div style="text-align:center">
+     		<img id="myImg" src=""/>
+     	</div>
+		<div class="row">
+		  <div class="col align-self-start">					
+			<input id="files" name="uploadFile" id="" type="file" accept='image/jpeg,image/gif,image/png' style="visibility:hidden;">
+		  </div>  
+		</div>
+	</div>      
       </div>
-    </div>
+     <%-- 파일등록 --%>
+      </div>
+    <!-- </div> -->
     
     
     <div class="board_write_wrap">
@@ -62,9 +61,9 @@
     
 	
 		    <div class="bt_wrap">
-		      <input type="submit" value="등록">
-		      <input type="reset" value="취소">
-		      <input type="reset" data-oper='list' onclick="location.href='/board/board_photo_list'" value="리스트">
+		      <button type="submit" class="btn btn-success">등록</button>
+		      <button type="reset" class="btn btn-danger">취소</button>
+		      <button type="button" class="btn btn-info" onclick="location.href='/board/board_photo_list'">목록</button>		  
 		    </div>
     
 	</form>

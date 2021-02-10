@@ -23,5 +23,5 @@ public class HYPhotoBoardVO {
 	private int replycnt;
 	
 	//파일 첨부 목록
-	private List<HYPhotoBoardFileAttach> attachList;
+	private HYPhotoBoardFileAttach attach;
 }

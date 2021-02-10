@@ -238,6 +238,30 @@ add constraint fk_photo_attach foreign key(bno) references photo_board(bno);
 
 select * from photo_attach;
 
+-- 게시물과 업로드 조인
+
+select *
+		from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
+			rownum rn, board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+			from photo_board board left outer join photo_attach 
+			on board.bno = photo_attach.bno
+			where rownum<=(1*9))
+		where rn> (1-1)*9;	
+		
+	           
+     
+select board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+from(select /*+INDEX_DESC(photo_board pk_photo_board)*/ rownum rn, bno, title, writer, regdate, updatedate
+	 from photo_board where rownum<=(1*9)) board left outer join photo_attach on board.bno = photo_attach.bno     
+where rn> (1-1)*9 order by rn;
+
+select * from photo_attach where bno=33;
+delete from photo_attach where bno=33;
+
 ---------------------------------------------------------------
 -- 강사 테이블
 create table teacher_Info(

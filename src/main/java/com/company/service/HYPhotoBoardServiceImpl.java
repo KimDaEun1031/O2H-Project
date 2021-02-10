@@ -30,13 +30,13 @@ public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 		boolean result = mapper.insert(board)>0?true:false;
 		
 		//첨부파일이 null 이거나 size() 가 0 이라면 30~33작업 미실시
-		if(board.getAttachList()==null || board.getAttachList().size()<=0) {
+		if(board.getAttach()==null) {
 			return result;
 		}		
-		board.getAttachList().forEach(attach -> {
-			attach.setBno(board.getBno());
-			mapper.insertAttach(attach);
-		});
+		
+		board.getAttach().setBno(board.getBno());
+		mapper.insertAttach(board.getAttach());
+		
 		return result;
 	}
 
@@ -68,14 +68,14 @@ public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 		boolean result = mapper.update(board)>0?true:false;
 		
 		//첨부파일이 null 이거나 size() 가 0 이라면 68-70작업 미실시
-		if(board.getAttachList()==null || board.getAttachList().size()<=0) {
+		if(board.getAttach()==null) {
 			return result;
 		}
 		//첨부물 삽입
-		board.getAttachList().forEach(attach -> {
-			attach.setBno(board.getBno());
-			mapper.insertAttach(attach);
-		});
+		
+		board.getAttach().setBno(board.getBno());
+		mapper.insertAttach(board.getAttach());
+		
 		
 		return result;
 	}

@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>사진 게시판</span>
+              <a href="board_photo_list"><span>사진 게시판</span></a>
             </div>
           </div>
         </div>
@@ -55,11 +55,8 @@
 	          <<t>		</t>extarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
 	        </<di></di>v> --%>
 	        	<img id="myImg" src="" alt="">      	
-	        	<!-- 첨부 파일 보여주기 -->
-				<div class="bigPictureWrapper">
-					<div class="bigPicture"></div>
-				</div>
-				<div class="row">
+	        	
+				<div class="row" style="margin-top:10px">
 					<div class="col-lg-12">
 						<div class="panel panel-default">
 							<div class="panel-heading"><!-- <i class="fa fas fa-file"></i> Files --></div>
@@ -82,10 +79,16 @@
 	     	 </div>
 	       </div>
 	    </div>
-    <div class="bt_wrap" id="ttld">    
+    <div class="bt_wrap" id="ttld">  
+      
 	   	<input type="submit" data-oper='modify' id="hob" value="수정" >
 	    <input type="submit" data-oper='remove' id="hob2" value="삭제">   
-	    <input type="reset" data-oper='list' onclick="location.href='/board/board_photo_list'" value="리스트">
+	   <%-- <c:if test="${loginInfo.userId == board.writer}"> 
+	   	<input type="submit" data-oper='modify' id="hob" value="수정" >
+	    <input type="submit" data-oper='remove' id="hob2" value="삭제">   
+	   </c:if> --%> <!-- 나중에 로그인 전용으로 글 쓸 수 있게 하려면 막은 거 풀면 됨 -->
+	    <!-- <input type="reset" data-oper='list' onclick="location.href='/board/board_photo_list'" value="리스트"> --><!-- 아래 스크립트 걸라고 막았음 -->
+	    <input type="submit" data-oper='list' value="리스트">
     </div>
     
     
@@ -94,10 +97,10 @@
 <!-- http://localhost:8080/board/read?type=&keyword=&pageNum=1&amount=10&bno=1219 -->
 <!-- ocalhost:8080/board/modify?type=T&keyword=스프링&bno=1215&pageNum=1&amount=10 -->
 	<input type="hidden" name="bno" value="${board.bno }" />
-	<%-- <input type="hidden" name="type" value="${cri.type }" />
-	<input type="hidden" name="keyword" value="${cri.keyword }" />
 	<input type="hidden" name="pageNum" value="${cri.pageNum }" />
-	<input type="hidden" name="amount" value="${cri.amount }" /> --%>
+	<input type="hidden" name="amount" value="${cri.amount }" />
+	<%-- <input type="hidden" name="type" value="${cri.type }" />
+	<input type="hidden" name="keyword" value="${cri.keyword }" /> --%>
 </form>	   
  <%--	 <div class="board_write_wrap">
      <div class="board_write">
@@ -121,6 +124,8 @@
 	<input type="hidden" name="bno" value="${vo.bno }">
 </form>
 <script>
+var a = '${cri.pageNum }';
+console.log(a);
   window.onload=function(){
 	var content=document.getElementById("contenth");
 	var title=document.getElementById("titleh");
@@ -133,7 +138,7 @@
   	var adminbtn=document.getElementById("adminonlybtn");
   	var reply=document.getElementById("reply");
   	hideUpdateBtn.onclick=function(){
-  		alert("update 요청 ")
+  		alert(bnoVal+"번 게시물을 수정합니다.");
   	}
  /*  if(userid==writer || userid=="admin"){
   content.removeAttribute("readonly")
@@ -168,11 +173,14 @@ $(function(){
 		var oper = $(this).data("oper");
 		console.log(oper);
 		
-		if(oper == 'remove'){//삭제
+		if(oper == 'remove'){ //삭제
 			form.attr("action","remove")
 				.attr("method","post");
-		}else if(oper == 'modify'){//수정
+		}else if(oper == 'modify'){ //수정
 			form.attr("action","board_photo_update");
+		}else if(oper == 'list'){ //리스크
+			form.find("input[name='bno']").remove();
+			form.attr("action","board_photo_list");
 		}
 		form.submit();
 	})
