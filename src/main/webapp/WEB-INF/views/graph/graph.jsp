@@ -34,7 +34,7 @@
 		
 		var tempArr = ${list};
 		console.log(tempArr);
-		var reverseTempArr=tempArr.reverse();
+		
 		
 	<% 
 		// List<YHCalVO> list=(List<YHCalVO>)request.getAttribute("list");
@@ -233,7 +233,7 @@
                 label: "월간 칼로리 섭취량",
                 backgroundColor: "rgba(255,99,132,0.6)",
                 borderColor: "rgba(243,99,132,0.5)",
-                data: reverseTempArr,
+                data: tempArr,
               },
               {
                 label: "월간 달리기 시간",

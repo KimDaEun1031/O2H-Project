@@ -11,9 +11,9 @@ update cal_board_table
 set cal=#{cal}
 where user_id=#{user_id} and dates=#{dates}
 </update>
-<select id="select" resultType="Integer">
+<select id="select" resultType="com.company.domain.YHCalVO">
 <![CDATA[
-select cal  from cal_board_table 
+select *  from cal_board_table 
 where user_id=#{user_id} and rownum<30 order by dates 
 ]]>
 </select>

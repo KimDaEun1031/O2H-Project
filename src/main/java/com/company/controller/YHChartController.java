@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,12 +26,43 @@ public class YHChartController {
 	public String hellochart(Model model,YHCalVO vo) {
 		
 		Date now=new Date();
+		int day=now.getDate();
+		int month=now.getMonth()+1;
+		int year=now.getYear()+1900;
+		System.out.println(day);
+		System.out.println(month);
+		System.out.println(year);
+		int fullday=year*10000+month*100+day;
 		
-		vo.setDates(20210201);
+		vo.setDates(fullday);
 		vo.setUser_id("temp");
 		List<YHCalVO> list=service.select(vo);
-		model.addAttribute("list",list);
-		log.info(list.toString());
+		System.out.println(list);
+		int arr[]=new int[31];
+		
+		for(int i=0;i<31;i++) {
+			arr[i]=0;
+		}
+		
+		for(int i=0;i<list.size();i++) {
+			
+			
+			
+			int temp= list.get(i).getDates();
+			if(temp/100==month+100*year) {
+			temp= temp%100;
+			arr[temp]=list.get(i).getCal();
+			}
+			}
+		
+
+		
+		List<Integer> list2=new ArrayList<Integer>();
+		for(int i=0;i<arr.length;i++) {
+			list2.add(arr[i]);
+		}
+	    log.info(list2.toString());
+		model.addAttribute("list",list2);
 		
 		
 		return "graph/graph";

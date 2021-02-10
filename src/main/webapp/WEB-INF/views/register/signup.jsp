@@ -297,10 +297,10 @@ body {
 <body>
   <div class="container">
     <div class="header">
-      <h2>Create Account</h2>
-      <a href="/register/teacherSignup">강사 회원가입</a>
+      <h2>Create Account </h2>
+      
     </div>
-
+		
     <form id="form" class="form" action="/signnup" method="post">
       <div class="form-control">
         <label for="userId">UserID</label>
