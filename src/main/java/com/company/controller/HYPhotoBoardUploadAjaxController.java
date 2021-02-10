@@ -35,8 +35,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 
 @Controller
 @Slf4j
-public class HYPhotoBoardUploadAjaxController { //profile_setting, user_my
-
+public class HYPhotoBoardUploadAjaxController {
 	@GetMapping("/photoBoardUploadAjax")
 	public void uploadAjax() {
 		log.info("ajax 업로드 폼 요청");

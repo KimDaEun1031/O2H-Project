@@ -14,8 +14,11 @@ import com.company.domain.HYPhotoBoardFileAttach;
 import com.company.domain.HYPhotoBoardVO;
 import com.company.mapper.HYMapper;
 import com.company.mapper.HYPhotoBoardMapper;
+
+import lombok.extern.slf4j.Slf4j;
   
-@Service 
+@Service
+@Slf4j
 public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 	  
 	@Autowired 
@@ -60,7 +63,8 @@ public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 
 		//첨부물 전체 삭제
 		mapper.deleteAttach(board.getBno());
-		//게시물 수정
+		//게시물 수정-여기에 걸려가지고 첨부파일은 삭제되고 에러 떴구나.
+		log.info("업데이트 에러 확인 "+board);
 		boolean result = mapper.update(board)>0?true:false;
 		
 		//첨부파일이 null 이거나 size() 가 0 이라면 68-70작업 미실시

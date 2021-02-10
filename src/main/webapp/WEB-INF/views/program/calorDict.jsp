@@ -71,6 +71,87 @@
       <input type="button" value="확인" id="btn1" />
     </form>
     <br />
+    <form>
+    	<input type="date" name ="date" id="date" value="2021-01-01" style="background-color: rgba(0,0,0,0)">
+    	
+    	<select name="time" id="time" >
+    	<option value="mor" selected="selected">아침</option>
+        <option value="lun">점심</option>
+        <option value="aft">저녁</option>
+    	</select>
+    	
+    	<input type="text" name="cal" id="cal">
+    	
+    	 <input type="button" value="입력" id="calBtn" />
+    	
+    	
+    	<input type="text" name="mor" id="mor" value="0">
+    	<input type="text" name="lun" id="lun" value="0">
+    	<input type="text" name="aft" id="aft" value="0">
+    	<br />하루 총 칼로리
+    	<input type="text" name="total" id="total" value="0">
+    	 <input type="button" value="저장하기" id="submit" />
+    	 <input type="hidden" name="user_id" value="temp">  
+    	 <p id="result"></p>
+    </form>
+    	<script>
+    	var date=document.getElementById("date");
+    	var mor=document.getElementById("mor");
+    	var lun=document.getElementById("lun");
+    	var aft=document.getElementById("aft");
+    	var total=document.getElementById("total");
+    	var calBtn=document.getElementById("calBtn");
+    	var time=document.getElementById("time");
+    	var cal=document.getElementById("cal");
+    	var submitBtn=document.getElementById("submit")
+    	  var want;
+  	  	var result=document.getElementById("result");
+    	submitBtn.onclick=function(){
+    	
+    	
+    	var xhr=new XMLHttpRequest();
+    	  xhr.onreadystatechange=function(){
+    	   
+    		 if(xhr.readyState==4){
+    	      if(xhr.status==200){
+    	        want=xhr.response;
+    	        total.value=want;
+    	        
+    	      }
+    	    }
+    	  }
+    	  console.log("/restCal/insert?date="+date.value+"&cal="+total.value)
+    	  xhr.open("get","/restCal/insert?date="+date.value+"&cal="+total.value+"&user_id=temp");
+    	  xhr.send();
+
+    	}
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	calBtn.onclick=function(){
+    		if(time.value=="mor"){
+    			mor.value=cal.value;
+    		}
+    		if(time.value=="lun"){
+    			lun.value=cal.value;
+    		}
+    		if(time.value=="aft"){
+    			aft.value=cal.value;
+    		}
+    		total.value=parseInt(mor.value)+parseInt(lun.value)+parseInt(aft.value);
+    	}
+    	</script>
+    <br />
     <p></p>
 
     <!-- 결과 -->
@@ -87,6 +168,10 @@
     <div>
       <div class="box4"></div>
     </div>
+    <div style="height: 10px">
+    
+    </div>
+    
 
     <!-- Scripts -->
     <script src="/resources/assets/js/main.js"></script>
@@ -153,7 +238,7 @@
         var url =
           "http://openapi.foodsafetykorea.go.kr/api/13239511b85e435cb61b/I2790/json/1/5/FOOD_CD=" +
           foodCd;
-
+	var caltemp=document.getElementById("cal");
         $.get({
           url: url,
           success: function (data) {
@@ -166,10 +251,11 @@
               //식품이름
               var descKor = item.DESC_KOR;
               //식품유형-식품군
-              //var groupName = item.GROUP_NAME;
+              var groupName = item.GROUP_NAME;
               var groupName = $("#val1").val();
               //열량(kcal)(1회제공량당)
               var nutrCont1 = item.NUTR_CONT1;
+            	caltemp.value=item.NUTR_CONT1;
               //탄수화물(g)(1회제공량당)
               var nutrCont2 = item.NUTR_CONT2;
               //단백질(g)(1회제공량당)
