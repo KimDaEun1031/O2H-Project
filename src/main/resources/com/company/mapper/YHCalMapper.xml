@@ -13,11 +13,7 @@ where user_id=#{user_id} and dates=#{dates}
 </update>
 <select id="select" resultType="com.company.domain.YHCalVO">
 <![CDATA[
-<<<<<<< HEAD
-select cal , extime from cal_board_table 
-=======
-select *  from cal_board_table 
->>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
+select cal , extime ,dates from cal_board_table 
 where user_id=#{user_id} and rownum<30 order by dates 
 ]]>
 </select>

@@ -25,7 +25,8 @@ public class YHCalController {
 	public String insert(YHCalVO vo,String date){
 		log.info("rest" +vo.toString()+" ㅇㅅㅇ :"+date);
 		vo.setDates(Integer.parseInt(date.replaceAll("-", "")));
-		log.info("rest" +vo.toString()+" ㅇㅅㅇ :"+date);
+	
+		log.info("rest 안녕" +vo.toString());
 		if(service.update(vo)!=1) {
 		service.insert(vo);
 		}
