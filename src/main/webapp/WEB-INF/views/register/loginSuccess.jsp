@@ -116,7 +116,7 @@
    		console.log(test);
    		var admin = "2";
    		if (test==admin) {
-   			$("#main").attr("href","/user/admin_index");
+   			$("#main").attr("href","/admin/admin_index");
    		}
    </script>
    <script>
