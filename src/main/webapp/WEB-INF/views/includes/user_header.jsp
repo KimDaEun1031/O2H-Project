@@ -147,7 +147,7 @@
                         </li>  
                         <li><a href="/teacher/teacher_my_stream" hidden="hidden" id="stream">스트리밍</a></li>                          
                         <li><a href="/user/user_calendar" id="calendar">일정관리</a></li>                          
-                        <li><a href="https://jayschat.netlify.app" id="stream">내 음악</a></li>                          
+                        <li><a href="http://jaysmusicplayer.netlify.app" id="stream">내 음악</a></li>                          
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

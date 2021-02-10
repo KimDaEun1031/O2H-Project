@@ -6,9 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/calendar.css" />
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/c92986acdf.js" crossorigin="anonymous"></script>
     <script src="/resources/js/calendar.js" defer></script>
     <title>Document</title>
@@ -46,21 +44,13 @@
             Today's To Do List
         </h1>
         <div class="textToDo">
-      		<input type="text" >	
-        	<input type="hidden" name="user_id" value="temp">     
-        	<input type="text" name="total" id="total" value="0">       	
-        	<input type="text" name="extime" id="extime" value="0">       	
-        	<a class="textToDo-button" href="/helloworld/see" role="button" id="submit">보내기</a>   
-            <!-- 삭제시 달력 사라짐 -->
-           	<button class="textToDo-button add" hidden="hidden" ></button>
-            <button class="textToDo-button reset" hidden="hidden" ></button>
-            <button class="textToDo-button allreset" hidden="hidden" ></button>
-        	
+            <input type="text" class="textToDo-text">
+        	<input type="text"/>
+            <button class="textToDo-button add">Add</button>
+            <button class="textToDo-button reset">Reset</button>
+            <button class="textToDo-button allreset">All reset</button>
         </div>
         <ul class="todoList"></ul>
     </section>
-    
-    
-   
 </body>
 </html>

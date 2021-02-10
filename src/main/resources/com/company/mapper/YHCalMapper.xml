@@ -3,17 +3,17 @@
 <mapper namespace="com.company.mapper.YHCalMapper">
 
 <insert id="insert">
-insert into cal_board_table(user_id,dates,cal,flag) 
-values(#{user_id},#{dates},#{cal},'o')
+insert into cal_board_table(user_id,dates,cal,flag,extime) 
+values(#{user_id},#{dates},#{cal},'o',#{extime})
 </insert>
 <update id="update">
 update cal_board_table
-set cal=#{cal}
+set cal=#{cal}, extime=#{extime}
 where user_id=#{user_id} and dates=#{dates}
 </update>
 <select id="select" resultType="Integer">
 <![CDATA[
-select cal  from cal_board_table 
+select cal , extime from cal_board_table 
 where user_id=#{user_id} and rownum<30 order by dates 
 ]]>
 </select>

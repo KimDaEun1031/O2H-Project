@@ -2,6 +2,7 @@
  * 
  */
 
+
 const Day = document.querySelector('.day');
 const month = document.querySelector('.month-name');
 const date = new Date();
@@ -32,6 +33,8 @@ let mon = currentMon;
 
 let clickEventArr = [];
 let storeToDo = [];
+var test = yearOfChoice +"-0"+ MonOfChoice +"-"+ DayOfChoice;
+
 
 function isLeapYear(year){
     return (year%4==0)&&(year%400==0||year%100!=0);
@@ -159,7 +162,7 @@ function preMonthOrYear(){
 function main(){
     setMonthTitle(year,mon);
     makeCalendar(year,mon,getDayOfMon(mon,year));
-    todoTitle.textContent = `What are you going to do on ${year}.${mon}.${currentDay} 👀⁉`;
+    todoTitle.textContent = `오늘의 날짜는 ${year}.${mon}.${currentDay} 입니다.`;
     displayToDoOnDays();
 }
 
@@ -214,11 +217,15 @@ Day.addEventListener('click',(event)=>{
     if(event.target.tagName==='UL')return;
     if(event.target.className!=='disabled'){
         clearEvent();
-        todoTitle.textContent = `What are you going to do on ${year}.${mon}.${event.target.textContent} 👀⁉`;
+        todoTitle.textContent = `오늘의 날짜는 ${year}.${mon}.${event.target.textContent} 입니다.`;
         event.target.style.border='3px solid red';
         DayOfChoice = (event.target.textContent)*1;
         MonOfChoice = mon;
         yearOfChoice = year;
+		
+		 var test = yearOfChoice +"-0"+ MonOfChoice +"-"+ DayOfChoice;
+                console.log(test);
+                input.value=""+test
         
         displayToDoOnDays();
         clickEventArr.push(event.target);
@@ -228,92 +235,34 @@ Day.addEventListener('click',(event)=>{
     
 });
 
-function keepStore(){
-    const YMD = year+'-'+mon+'-'+DayOfChoice;
-    let arrayToDo;
-    let arr = new Array();
-    const elementToDo = document.createElement('li');
-    if(!localStorage.getItem(YMD)){
-        return arr;
-    }
-    if(localStorage.getItem(YMD).includes(',')){
-        arrayToDo = localStorage.getItem(YMD).split(',');
-        arrayToDo.forEach((value)=>{
-            arr.push(value);
-        });
-    }
-    else{
-        arr.push(localStorage.getItem(YMD));
-    }
-    return arr;
-}
-
-function addToDoList(){
-    if(input.value === ''){
-        alert('please input you are going to do');
-        return;
-    }
-
-    storeToDo = keepStore();
-    storeToDo.push(input.value);
-    
-    const YMD = year+'-'+mon+'-'+DayOfChoice;
-    localStorage.setItem(YMD,storeToDo);
-    
-    displayToDoOnDays();
-    input.value="";
-    input.focus();
-}
-
-add.addEventListener('click',(event)=>{
-    addToDoList();
-});
-
-input.addEventListener('keypress',(event)=>{
-    if(event.key==='Enter'){
-       addToDoList();
-    }
-});
-
-reset.addEventListener('click',()=>{
-    const result = prompt(`Do you really want to reset TODO on ${year} ${mon} ${DayOfChoice}? Enter (y/n)`);
-    const YMD = year+'-'+mon+'-'+DayOfChoice;
-    if(result==='y'){
-        localStorage.removeItem(YMD);
-        displayToDoOnDays();
-    }
-});
-
-allReset.addEventListener('click',()=>{
-    const result = prompt(`Do you really want to clear all TODO? Enter (y/n) not recomended💥`);
-    if(result==='y'){
-        localStorage.clear();
-        displayToDoOnDays();
-    }
-});
-
-todoList.addEventListener('click',(event)=>{
-    if(event.target.className==='far fa-minus-square'){
-        console.log("a: "+event.target.parentNode.parentNode.textContent);
-             
-        const YMD = year+'-'+mon+'-'+DayOfChoice;
-        
-        if(localStorage.getItem(YMD).includes(',')){
-            let array = localStorage.getItem(YMD).split(',');
-            let copyArray = [];
-            array.forEach((value)=>{
-                if(value !== event.target.parentNode.parentNode.textContent){
-                    copyArray.push(value);
-                }
-            });
-            localStorage.setItem(YMD,copyArray);
-        }
-        else{
-            localStorage.removeItem(YMD);
-        }
-        
-        todoList.removeChild(event.target.parentNode.parentNode);
-    }
-}); 
 
 main();
+
+var submitBtn=document.getElementById("submit");
+var want;
+var want2;
+var total=document.getElementById("total");    	
+var extime=document.getElementById("extime");    	
+console.log(test)
+
+submitBtn.onclick=function(){
+	
+	
+	var xhr=new XMLHttpRequest();
+	  xhr.onreadystatechange=function(){
+	   
+		 if(xhr.readyState==4){
+	      if(xhr.status==200){
+	        want=xhr.response;
+	        want2=xhr.response;
+	        total.value=want;
+	        extime.value=want2;
+	        
+	      }
+	    }
+	  }
+	  console.log("/restCal/insert?date="+test+"&cal="+total.value+"&extime="+extime.value)
+	  xhr.open("get","/restCal/insert?date="+test+"&cal="+total.value+"&user_id=temp"+"&extime="+extime.value);
+	  xhr.send();
+
+	}

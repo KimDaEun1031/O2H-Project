@@ -81,13 +81,7 @@
 		]]>
 	</select>
 
-	<!-- 달력 가져오기 -->
-	<select id="calEx" resultType="com.company.domain.KDCalexVO">
-		select cal_title, cal_start,
-		cal_end, cal_description, cal_type, cal_username, cal_backgroundColor,
-		cal_textColor, cal_allDay
-		from calendar_ex
-	</select>
+	
 
 	<!-- 강사 목록 <select id="selectByRecommendTeacher" resultType="com.company.domain.KDTeacherInfoVO"> 
 		SELECT ti.userid, ti.main_sports, ti.teacher_level, ub.user_level, ub.username, 

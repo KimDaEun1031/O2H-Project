@@ -33,7 +33,20 @@
       td {
         text-align: center;
       }
-      a { text-decoration: none; }
+      a { 
+      	text-decoration: none;
+      	
+      }
+      #chart {
+      	  display: -moz-flex;
+		  display: -webkit-flex;
+		  display: -ms-flex;
+		  display: flex;
+		  position: relative;
+      }
+      #date {
+      	background-color: rgba(0,0,0,0);
+      }
     </style>
   </head>
   <body class="is-preload">
@@ -43,7 +56,7 @@
       <p>
         여러분의 삶에 음식은 어떤 의미를 갖나요?<br />
         칼로리 사전과 함께 건강한 다이어트와 꾸준한 운동을 시작해 보세요.        
-        <a href="/">HOME</a>.
+        <a href="/">HOME</a>
       </p>
     </header>
 
@@ -71,27 +84,24 @@
       <input type="button" value="확인" id="btn1" />
     </form>
     <br />
-    <form>
-    	<input type="date" name ="date" id="date" value="2021-01-01" style="background-color: rgba(0,0,0,0)">
-    	
+    
+    <input style="margin: 30px; font-size: 16px;" type="date" name ="date" id="date" value="2021-01-01">   	
+    <form id="chart">
     	<select name="time" id="time" >
-    	<option value="mor" selected="selected">아침</option>
-        <option value="lun">점심</option>
-        <option value="aft">저녁</option>
+	    	<option value="mor" selected="selected">아침</option>
+	        <option value="lun">점심</option>
+	        <option value="aft">저녁</option>
     	</select>
-    	
-    	<input type="text" name="cal" id="cal">
-    	
-    	 <input type="button" value="입력" id="calBtn" />
-    	
-    	
+    	<input type="text" name="cal" id="cal"> <!-- 칼로리 입력 칸 and 누르면 입력 되는 칸 -->  	
+		<input type="button" value="입력" id="calBtn" />    	   	
     	<input type="text" name="mor" id="mor" value="0">
     	<input type="text" name="lun" id="lun" value="0">
     	<input type="text" name="aft" id="aft" value="0">
+
     	<br />하루 총 칼로리
-    	<input type="text" name="total" id="total" value="0">
-    	 <input type="button" value="저장하기" id="submit" />
-    	 <input type="hidden" name="user_id" value="temp">  
+    	<input type="text" name="total" id="total" value="0"><br />
+    	 <input type="button" value="저장하기" id="submit" /><br />
+    	 <input type="hidden" name="user_id" value="temp"><br />
     	 <p id="result"></p>
     </form>
     	<script>
@@ -125,17 +135,6 @@
     	  xhr.send();
 
     	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	
     	calBtn.onclick=function(){

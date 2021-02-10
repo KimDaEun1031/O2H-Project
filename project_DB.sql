@@ -202,29 +202,6 @@ select * from fit_attach;
 select * from user_board;
 
 
-------------------------------------------------------------
-
--- 달력 테이블
-create table calendar_ex (
-	cal_title varchar2(50) not null,
-	cal_start date default sysdate,
-	cal_end date default sysdate,
-	cal_description varchar2(200),
-	cal_type varchar2(30) not null,
-	cal_username varchar2(25) not null,
-	cal_backgroundColor varchar2(10) not null,
-	cal_textColor varchar2(10) default '#ffffff',
-	cal_allDay char(1) default '0'
-);
-
-select cal_title, cal_start, cal_end, cal_description, cal_type, cal_username, cal_backgroundColor, cal_textColor, cal_allDay 
-from calendar_ex
-
-select * from calendar_ex;
-
-insert into calendar_ex values('calex',sysdate,sysdate,'','운동','test','red','#ffffff','0'); 
-
-
 ---------------------------------------------------------------
 
 -- 사진 게시판 테이블 생성
@@ -344,6 +321,7 @@ create table comunity_reply(
 drop table comunity_board;
 select * from comunity_board;
 
+---------------------------------------
 
 create table cal_board_table(
 user_id varchar2(30),
@@ -354,10 +332,12 @@ flag char(1) ,
 primary key(user_id,dates)
 )
 
-select * from cal_board_table
+select * from cal_board_table;
 drop table cal_board_table;
 
+insert into cal_board_table values('temp',20210102,400,0,'o');
 
 
 CREATE SEQUENCE  seq_comunity_board;
 create sequence seq_comunity_reply;
+
