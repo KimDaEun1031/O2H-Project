@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.YHCalMapper">
+
+<insert id="insert">
+insert into cal_board_table(user_id,dates,cal,flag) 
+values(#{user_id},#{dates},#{cal},'o')
+</insert>
+<update id="update">
+update cal_board_table
+set cal=#{cal}
+where user_id=#{user_id} and dates=#{dates}
+</update>
+<select id="select" resultType="Integer">
+<![CDATA[
+select cal  from cal_board_table 
+where user_id=#{user_id} and rownum<30 order by dates 
+]]>
+</select>
+</mapper>

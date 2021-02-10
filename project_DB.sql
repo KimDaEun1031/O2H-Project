@@ -320,5 +320,19 @@ drop table comunity_board;
 select * from comunity_board;
 
 
+create table cal_board_table(
+user_id varchar2(30),
+dates number ,
+cal number default 0,
+extime number default 0,
+flag char(1) ,
+primary key(user_id,dates)
+)
+
+select * from cal_board_table
+drop table cal_board_table;
+
+
+
 CREATE SEQUENCE  seq_comunity_board;
 create sequence seq_comunity_reply;
