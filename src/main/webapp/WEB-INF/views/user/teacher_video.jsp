@@ -95,8 +95,8 @@
 		var closeBtn = $("button#closeBtn");
 		
 		var page = 1;
-		var pageCount = 1;
-		var listCount = 1;
+		var pageCount = 10;
+		var listCount = 10;
 		
 		var totalCnt = 0;
 

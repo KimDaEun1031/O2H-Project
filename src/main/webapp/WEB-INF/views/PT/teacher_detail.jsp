@@ -22,8 +22,8 @@
 		var userId = "${profile.userId}";
 		var channelId = "${profile.channelId}";
 		var page = 1;
-		var pageCount = 1;
-		var listCount = 1;
+		var pageCount = 10;
+		var listCount = 10;
 		
 		var getLive = null;
 		var getList = null;

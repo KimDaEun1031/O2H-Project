@@ -22,12 +22,12 @@ var recommendProfileList = $(".recommendProfileList");
 var recommendPageBtn = $(".recommendPageBtn");
 
 var page = 1;
-var pageCount = 1;
-var listCount = 1;
+var pageCount = 10;
+var listCount = 10;
 
 var recommendPage = 1;
-var recommendPageCount = 1;
-var recommendListCount = 1;
+var recommendPageCount = 10;
+var recommendListCount = 10;
 
 var showList = null;
 var countPage = null;
