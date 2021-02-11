@@ -34,8 +34,8 @@ public class HYServiceImpl implements HYService {
 //		return mapper.updateInfo(change)>0?true:false;
 //	}
 	
-	//이메일+첨부파일
-	//teacher_profile_setting 정보+첨부파일
+	//이메일+첨부파일  /// 210212 + 이름,주소,번호,이메일,생일 추가 변경
+	//profile_setting 정보+첨부파일
 	@Override
 	public boolean modifyInfo(HYChangeVO change) {	
 		//이거 체인지에 그냥 안 걸리던데.. controller에서 넣어줘야하냐?-아님 걸림

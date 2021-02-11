@@ -8,20 +8,19 @@
 -->
 <html>
   <head>
-    <title>Eventually by HTML5 UP</title>
+    <title>칼로리 사전</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/resources/assets/css/main.css" />
     <style>
-      #msg,
-      .box3 {
-        margin-left: 20%;
+      #msg {
+      	font-size: 20px;
+      	margin: 5px;
       }
       .box4 {
         margin-left: 8%;
+        font-size: 20px;
+        margin-bottom: 3%;
       }
       table, th, td {
         border: 1px solid #bcbcbc;
@@ -33,7 +32,39 @@
       td {
         text-align: center;
       }
-      a { text-decoration: none; }
+      a { 
+      	text-decoration: none;
+      	
+      }
+      #date {
+      	background-color: rgba(0,0,0,0);
+      	margin-bottom: 30px;
+      }
+      .flex-container {
+		  display: flex;
+		}
+	.flex-container-cal {
+	  display: flex;
+	}
+		
+	.flex-container > div {
+	  margin: 10px;
+	  padding: 20px;
+	  font-size: 30px;
+	}
+	.flex-container-cal > div {
+	  margin: 10px;
+	  padding: 20px;
+	  font-size: 30px;
+	}
+	.info {
+		border-radius: 6px;
+		border: 2px solid rgba(255, 255, 255, 0.35);
+		padding: 5px;
+		margin-bottom: 5px;
+	
+	}
+	
     </style>
   </head>
   <body class="is-preload">
@@ -43,7 +74,7 @@
       <p>
         여러분의 삶에 음식은 어떤 의미를 갖나요?<br />
         칼로리 사전과 함께 건강한 다이어트와 꾸준한 운동을 시작해 보세요.        
-        <a href="/">HOME</a>.
+        <a href="/">HOME</a>
       </p>
     </header>
 
@@ -63,37 +94,49 @@
         <option value="10">10</option>
       </select>
       <input type="text" id="val1" placeholder="식품군 ex)면류 or 구이류" />
-      <input
-        type="text"
-        id="val2"
-        placeholder="식품명 ex)삼양라면 or 삼치구이"
-      />
+      <input type="text" id="val2" placeholder="식품명 ex)삼양라면 or 삼치구이"/>
       <input type="button" value="확인" id="btn1" />
     </form>
     <br />
     <form>
-    	<input type="date" name ="date" id="date" value="2021-01-01" style="background-color: rgba(0,0,0,0)">
-    	
-    	<select name="time" id="time" >
-    	<option value="mor" selected="selected">아침</option>
-        <option value="lun">점심</option>
-        <option value="aft">저녁</option>
-    	</select>
-    	
-    	<input type="text" name="cal" id="cal">
-    	
-    	 <input type="button" value="입력" id="calBtn" />
-    	
-    	
-    	<input type="text" name="mor" id="mor" value="0">
-    	<input type="text" name="lun" id="lun" value="0">
-    	<input type="text" name="aft" id="aft" value="0">
-    	<br />하루 총 칼로리
-    	<input type="text" name="total" id="total" value="0">
-    	 <input type="button" value="저장하기" id="submit" />
-    	 <input type="hidden" name="user_id" value="temp">  
-    	 <p id="result"></p>
-    </form>
+    <input type="date" name ="date" id="date" value="2021-01-01">   	
+    	<div class="flex-container">
+	    	<select name="time" id="time" style="margin-right:15px;">
+		    	<option value="mor" selected="selected">아침</option>
+		        <option value="lun">점심</option>
+		        <option value="aft">저녁</option>
+	    	</select>
+	    	
+	    	<input type="text" name="cal" id="cal" placeholder="칼로리 입력칸" style="margin-right:15px;"> <!-- 칼로리 입력 칸 and 누르면 입력 되는 칸 -->  	
+			<input type="button" value="입력" id="calBtn" style="margin-right:15px;"/>	
+			
+			<br />
+	    	<input type="text" name="mor" id="mor" value="0" style="margin-left: 5px; margin-right: 5px; ">
+	    	<input type="text" name="lun" id="lun" value="0" style="margin-left: 5px; margin-right: 5px;">
+	    	<input type="text" name="aft" id="aft" value="0" style="margin-left: 5px; margin-right: 5px;">
+		</div>
+	    	<br />하루 총 칼로리
+	    	<input type="text" name="total" id="total" value="0" style="margin-top: 5px;">
+	    	 <input type="button" value="저장하기" id="submit" style="margin-top: 10px;" /> 
+	    	 <input type="hidden" name="user_id" value="temp">
+	    	 <p id="result"></p>
+
+	</form>
+	<form>
+		<div class="flex-container">
+			<!-- 결과 -->
+		    <div class="modal" tabindex="-1" id="myModal">
+		      <div class="modal-dialog">
+		      	<div style="font-size: 20px;" class="info">제품명을 클릭 시 칼로리 입력칸에 칼로리가 자동으로 들어갑니다.</div>
+		        <div class="modal-content" id="msg"></div>
+		      </div>
+		    </div>
+			<div>
+	      		<div class="box4"></div>
+	    	</div>
+	    </div>
+	
+	</form>
     	<script>
     	var date=document.getElementById("date");
     	var mor=document.getElementById("mor");
@@ -115,7 +158,8 @@
     		 if(xhr.readyState==4){
     	      if(xhr.status==200){
     	        want=xhr.response;
-    	        total.value=want;
+    	        result.innerHTML=want;
+    	        //토탈 자리
     	        
     	      }
     	    }
@@ -125,17 +169,6 @@
     	  xhr.send();
 
     	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	
     	calBtn.onclick=function(){
@@ -165,9 +198,7 @@
     <!-- <div>
       <div class="box3"></div>
     </div> -->
-    <div>
-      <div class="box4"></div>
-    </div>
+    
     <div style="height: 10px">
     
     </div>
@@ -219,7 +250,8 @@
                 //식품명
                 var descKor = item.DESC_KOR; //영진위 cd는 숫자, 이건 문자='' 필수
                 //<a href='' onclick="javascript:info(p1012)">;
-                /* str += "<a href='#' onclick='javascript:info("+foodCd+")'>"+descKor+"</a><br>"; */ str +=
+                /* str += "<a href='#' onclick='javascript:info("+foodCd+")'>"+descKor+"</a><br>"; */ 
+                str +=
                   "<a href=\"javascript:info('" +
                   foodCd +
                   "')\">" +

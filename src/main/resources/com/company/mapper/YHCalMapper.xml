@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.YHCalMapper">
-
-<insert id="insert">
-insert into cal_board_table(user_id,dates,cal,flag) 
-values(#{user_id},#{dates},#{cal},'o')
-</insert>
-<update id="update">
-update cal_board_table
-set cal=#{cal}
-where user_id=#{user_id} and dates=#{dates}
-</update>
-<select id="select" resultType="com.company.domain.YHCalVO">
-<![CDATA[
-select *  from cal_board_table 
-where user_id=#{user_id} and rownum<30 order by dates 
-]]>
-</select>
+		<!-- 칼로리 사전 및 차트 - 칼로리 등록 -->
+		<insert id="insert">
+			insert into cal_board_table(user_id,dates,cal,flag,extime) 
+			values(#{user_id},#{dates},#{cal},'o',#{extime})
+		</insert>
+		
+		<!-- 칼로리 사전 및 차트 - 칼로리 갱신 및 수정 -->
+		<update id="update">
+			update cal_board_table
+			set cal=#{cal}, extime=#{extime}
+			where user_id=#{user_id} and dates=#{dates}
+		</update>
+		
+		<!-- 칼로리 차트 - 칼로리 정보 리스트 -->
+		<select id="select" resultType="com.company.domain.YHCalVO">
+			<![CDATA[
+				select cal , extime ,dates from cal_board_table 
+				where user_id=#{user_id} and rownum<30 order by dates 
+			]]>
+		</select>
 </mapper>

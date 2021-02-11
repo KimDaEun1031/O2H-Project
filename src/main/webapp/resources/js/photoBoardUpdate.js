@@ -24,24 +24,27 @@ $(document).ready(function(){
 				if(obj.fileType){
 					//썸네일 이미지 경로 uploadPath - 2021\01\20
 					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
-				
+				/*
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 					str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName;
 					str+="</div></li>";	
-					
-					//이렇게 되는구나 - 와 신기하다.
+					*/
+																									//이렇게 되는구나 - 와 신기하다.
 					var profileImg = $("#myImg");
 					
 					//var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName); //썸네일로 보기
 					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName); //원본으로 보기
 					
 					profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);
-					
+					profileImg.attr('data-path',profile.uploadPath);
+					profileImg.attr('data-uuid',profile.uuid);
+					profileImg.attr('data-filename',profile.fileName);
+					profileImg.attr('data-type',profile.fileType);
 				}
 								
 			})//each 종료
-			uploadResult.html(str);
+			//uploadResult.html(str);
 		} //success
 	}) //getJSON 종료
 	
@@ -104,7 +107,7 @@ $(document).ready(function(){
 		console.log("업로드 호출");
 		
 
-		var inputFile = $("input[name='uploadFile']");
+		var inputFile = $("input[name='uploadFile']");	//이거네
 		console.log(inputFile);
 		
 		//첨부 파일 목록
@@ -131,7 +134,7 @@ $(document).ready(function(){
 			success:function(result){
 				console.log(result);
 				showUploadedFile(result); // 서버에서 돌아온 결과를 브라우저에 뿌려 - 여기서는 파일명을 뿌리는거지
-				showUploadedFile2(result); // 서버에서 돌아온 결과를 브라우저에 뿌려 - 여기서는 파일명을 뿌리는거지
+				//showUploadedFile2(result); // 서버에서 돌아온 결과를 브라우저에 뿌려 - 여기서는 파일명을 뿌리는거지
 				$("input[name='uploadFile']").val(""); //업로드 성공 후 기존 파일명 제거
 			},
 			error:function(xhr,status,error){
@@ -151,7 +154,10 @@ $(document).ready(function(){
 		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\"+profile.uuid+"_"+profile.fileName);		//원본 이미지로 보여주기
 		
 		profileImg.attr('src','/photoBoardDisplay?fileName='+fileCallPath);			
-			
+		profileImg.attr('data-path',profile.uploadPath);
+		profileImg.attr('data-uuid',profile.uuid);
+		profileImg.attr('data-filename',profile.fileName);
+		profileImg.attr('data-type',profile.fileType);	
 	
 	}// 첨부파일 보여주기 종료 
 	

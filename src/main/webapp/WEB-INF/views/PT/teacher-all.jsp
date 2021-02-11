@@ -224,7 +224,7 @@
     </header>
     <!-- Header End -->
 
-	<!-- Breadcrumb Section Begin -->
+	<!-- Breadcrumb Section Begin <img class="teacher-img" src="/resources/img/profile/profile_default.png" alt="">-->
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
@@ -239,50 +239,19 @@
         </div>
     </div>
     
-    
-      <!-- recommand 보충제 Banner Section Begin --> 
-    <section class="women-banner spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="filter-control">
-                        <ul>
-                            <li class="active">추천 강사</li>                       
-                        </ul>
-                    </div>
-                    <div class="product-slider owl-carousel">
-                    	<c:forEach var="teacherlist" items="${teacherlist}">  	      		                    
-							<div class="product-item">
-	                            <div class="pi-pic">
-			                        <a href="#"><img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' /></a>	
-								</div>
-								<div class="pi-text">
-	                                <div class="catagory-name">${teacherlist.main_sports}</div>
-	                                <a href="#">
-	                                    <h5>${teacherlist.userName}</h5>	                                    
-	                                </a> 		                                                       
-	                            </div>	                               			
-							</div>   
-											
-	                    </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- recommand 보충제 Banner Section End -->
+      <br /><br />
+      <!-- 전체 강사 리스트 -->
+      <section class="teacher-section" >
+	    <h3>전체 강사 보기</h3> 
+	    	<div class="teacher" >
+	    		<a href="">
+					<c:forEach var="volist" items="${list}">                   			        
+			            
+			            <h4>${volist.userId}</h4>			       	       			 
+					</c:forEach>
+				</a> 
+			</div>  
+	  </section>		
 
-    <section class="teacher-section" >
-        <h3>전체 강사 보기</h3>
-        <div class="teacher" style="text-align: center">
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>  
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>
-            <a href=""><img class="teacher-img" src="/resources/img/products/women-4.jpg" alt=""></a>          
-        </div>      
-    </section>
-    
+   
 <%@include file="../includes/footer.jsp" %>

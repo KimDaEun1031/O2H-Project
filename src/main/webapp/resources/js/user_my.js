@@ -33,7 +33,6 @@ $(document).ready(function(){
 					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
 					
 					profileImg.attr('src','/display?fileName='+fileCallPath);
-					console.log(profileImg);
 				}
 								
 			})//each 종료

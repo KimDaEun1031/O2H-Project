@@ -9,9 +9,9 @@ $(document).ready(function(){
 	$.getJSON({
 		//url:'getAttachList',
 		//url:'/program/getAttachList',
-		url:'/user/teacherInfo',
+		url:'/user/getAttachList',
 		data: {
-			userId:userIdVal	//at HTMLDocument.<anonymous> 에러남-변수''에 담으니까 에러 없어짐.
+			userId:userIdVal
 		},
 		success:function(data){
 			console.log(data);

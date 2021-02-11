@@ -16,7 +16,7 @@ public interface HYPhotoBoardMapper {
 	public List<HYPhotoBoardVO> list(HYPhotoBoardCriteria cri);
 	public HYPhotoBoardVO read(int bno);
 	public int totalCnt(HYPhotoBoardCriteria cri);
-	public int updateReplyCnt(@Param("bno") int bno, @Param("amount") int amount);
+	public int updateReplyCnt(@Param("bno") int bno, @Param("amount") int amount);//댓글 없는 상태임.
 	public List<HYPhotoBoardFileAttach> attachList(int bno);
 	
 	//첨부물 부분 mapper 합침

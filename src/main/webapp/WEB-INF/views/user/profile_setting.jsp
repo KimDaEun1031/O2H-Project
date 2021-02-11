@@ -70,13 +70,25 @@
                                 <input style="border-radius:0px;background-color:black;!important" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
                             </div>
                             <div class="form-group">
-                                <label for="name">Username:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" readonly value="${loginInfo.userName}">
+                                <label for="name">User Name:</label>
+                                <input style="border-radius:0px;background-color:black;!important" type="name" name="userName" class="form-control" id="name" value="${loginInfo.userName}">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Address:</label>
+                                <input style="border-radius:0px;background-color:black;!important" type="name" name="address" class="form-control" id="name" value="${loginInfo.address}">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Phone Number:</label>
+                                <input style="border-radius:0px;background-color:black;!important" type="name" name="phoneNumber" class="form-control" id="name" value="${loginInfo.phoneNumber}">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input style="border-radius:0px!important" type="email" class="form-control" name="userEmail" id="userEmail" placeholder="william99@fiturjc.com">
+                                <input style="border-radius:0px!important" type="email" class="form-control" name="userEmail" id="userEmail" placeholder="william99@fiturjc.com" value="${loginInfo.userEmail}">
                                 <small id="userEmail" class="text-info"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">User Birth:</label>
+                                <input style="border-radius:0px;background-color:black;!important" type="name" name="userBirth" class="form-control" id="name" value="${loginInfo.userBirth}">
                             </div>
                             <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
 	                            <button type="submit" class="btn btn-primary " id="update-btn"> 개인정보 수정 </button>
