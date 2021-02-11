@@ -119,7 +119,7 @@
 	    	<br />하루 총 칼로리
 	    	<input type="text" name="total" id="total" value="0" style="margin-top: 5px;">
 	    	 <input type="button" value="저장하기" id="submit" style="margin-top: 10px;" /> 
-	    	 <input type="hidden" name="user_id" value="temp">
+	    	 <input type="hidden" name="user_id" value="${loginInfo.userId}">
 	    	 <p id="result"></p>
 
 	</form>
@@ -176,7 +176,7 @@
     	    }
     	  }
     	  console.log("/restCal/insert?date="+date.value+"&cal="+total.value)
-    	  xhr.open("get","/restCal/insert?date="+date.value+"&cal="+total.value+"&user_id=temp");
+    	  xhr.open("get","/restCal/insert?date="+date.value+"&cal="+total.value+"&user_id=${loginInfo.userId}");
     	  xhr.send();
 
     	}
