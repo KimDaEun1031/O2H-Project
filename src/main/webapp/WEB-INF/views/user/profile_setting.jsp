@@ -67,11 +67,11 @@
                         <form role="form" method="post" class="infoUpdateForm" action="infoUpdateForm">
                             <div class="form-group">
                                 <label for="name">UserId:</label>
-                                <input style="border-radius:0px;background-color:black;!important" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
+                                <input style="border-radius:0px;background-color:black;!important" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
                             </div>
                             <div class="form-group">
                                 <label for="name">Username:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" readonly value="${loginInfo.userName}">
+                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" value="${loginInfo.userName}">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>

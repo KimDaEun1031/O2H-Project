@@ -19,7 +19,7 @@ select * from user_board;
 insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,user_level) 
 values('test','test8','test123','1','1','1','1','1','1','1','1');
 
-update user_board set userInfo='vmfhfdjlkdsk' where userId='test1';
+update user_board set userId='solaryeori1324', userName='여리나', userEmail='solaryeori@gmail.com', password='sol123456', address='대한민국', userBirth='01023234545'  where userId='test1';
 
 select userInfo from user_board;
 
