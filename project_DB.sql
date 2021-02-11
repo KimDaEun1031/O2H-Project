@@ -175,12 +175,12 @@ insert INTO area_chat (
  create table chatroom2(
  	rno number default seq_chat.nextval,
  	fromid number(1),
- 	content varchar2(100),
+ 	content varchar2(100)
  )
  create table chatroom3(
  	rno number default seq_chat.nextval,
  	fromid number(1),
- 	content varchar2(100),
+ 	content varchar2(100)
  )
 CREATE SEQUENCE  seq_chat;
 

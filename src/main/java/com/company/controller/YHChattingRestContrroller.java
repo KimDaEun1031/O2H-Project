@@ -35,6 +35,23 @@ public class YHChattingRestContrroller {
 		return entity;
 	}
 	
+	@GetMapping("/room2")
+	public ResponseEntity<List<YHChatVO>> room2(String content,int fromid){
+		log.info("room2 문자 입력 content:" +content +" admin여부 :" +fromid);
+		service.chatInsertRoom2(fromid, content);
+		List<YHChatVO> list=service.getRoom2ChatList();
+		ResponseEntity<List<YHChatVO>> entity=new ResponseEntity<List<YHChatVO>>(list,HttpStatus.OK);
+		return entity;
+	}
+	
+	@GetMapping("/room3")
+	public ResponseEntity<List<YHChatVO>> room3(String content,int fromid){
+		log.info("room3 문자 입력 content:" +content +" admin여부 :" +fromid);
+		service.chatInsertRoom3(fromid, content);
+		List<YHChatVO> list=service.getRoom3ChatList();
+		ResponseEntity<List<YHChatVO>> entity=new ResponseEntity<List<YHChatVO>>(list,HttpStatus.OK);
+		return entity;
+	}
 	@GetMapping("/seoul")
 	public ResponseEntity<List<YHAreaChatGetVO>> seoul(YHAreaChatGetVO vo){
 		log.info("room1 문자 입력 content:" +vo.getContent() +"  유저의 이름 :" +vo.getUser_id());

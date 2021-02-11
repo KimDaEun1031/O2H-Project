@@ -37,19 +37,19 @@
 	String room3State=vo3.getUseable()==1?"사용가능":"사용불가";
 %>
 			<tr>
-				<td>1번방</td>
+				<td>이용 불편 문의</td>
 				<td>
 				<a href="/chat/gotoRoom1"><%=room1State %></a>
 				</td>
 
 			</tr>
 			<tr>
-				<td>2번방</td>
+				<td>강사 관련 문의</td>
 				<td><a href="/chat/gotoRoom2"><%=room2State %></a></td>
 
 			</tr>
 			<tr>
-				<td>3번방</td>
+				<td>기타 문의</td>
 				<td><a href="/chat/gotoRoom3"><%=room3State %></a></td>
 
 			</tr>

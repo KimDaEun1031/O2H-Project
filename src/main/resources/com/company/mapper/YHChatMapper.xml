@@ -48,10 +48,24 @@
 		<delete id="goOutRoom1remove">
 			delete chatRoom1
 		</delete>
+		<delete id="goOutRoom2remove">
+			delete chatRoom2
+		</delete>
+		<delete id="goOutRoom3remove">
+			delete chatRoom3
+		</delete>
 		
 		<!-- 뭔지 모르겠어요 -->
 		<insert id="chatInsertRoom1">
 			insert into chatroom1(fromid, content)
+			values (#{fromid} ,#{content})		
+		</insert>
+		<insert id="chatInsertRoom2">
+			insert into chatroom2(fromid, content)
+			values (#{fromid} ,#{content})		
+		</insert>
+		<insert id="chatInsertRoom3">
+			insert into chatroom3(fromid, content)
 			values (#{fromid} ,#{content})		
 		</insert>
 		
@@ -63,6 +77,26 @@
 			    content
 			FROM
 			    chatroom1
+			ORDER BY
+			    rno DESC
+		</select>
+		<select id="getRoom2ChatList" resultType="com.company.domain.YHChatVO">
+		 	SELECT
+			    rno,
+			    fromid,
+			    content
+			FROM
+			    chatroom2
+			ORDER BY
+			    rno DESC
+		</select>
+		<select id="getRoom3ChatList" resultType="com.company.domain.YHChatVO">
+		 	SELECT
+			    rno,
+			    fromid,
+			    content
+			FROM
+			    chatroom3
 			ORDER BY
 			    rno DESC
 		</select>
