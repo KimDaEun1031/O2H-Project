@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.KDAdminMapper">
+	<!-- 신규가입자 목록 -->
+	<select id="selectByNew" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    userid,
+		    username,
+		    useremail,
+		    regdate,
+		    user_level
+		FROM
+		    user_board
+		WHERE
+		    to_char(regdate, 'yyyy-mm-dd') > '2021-01-01'
+		ORDER BY
+		    regdate DESC
+	</select>
+
+	<!-- 회원가입자 수 -->
+	<select id="selectByAlluser" resultType="Integer">
+		SELECT
+		    COUNT(userid)
+		FROM
+		    user_board
+	</select>
+
+	<!-- 게시글 수 -->
+	<select id="selectByAllboard" resultType="Integer">
+		SELECT
+		    COUNT(bno)
+		FROM
+		    qanda_board
+	</select>
+	
+	<!-- 관리자 리스트 -->
+	<select id="selectByAdmin" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    userid,
+		    username,
+		    useremail,
+		    regdate
+		FROM
+		    user_board
+		WHERE
+		    user_level = '2'
+	</select>
+
+	<!-- 회원 관리 -->
+	<select id="memberControl" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    rn,
+		    userid,
+		    username,
+		    regdate,
+		    useremail,
+		    user_level
+		FROM( SELECT
+		    ROWNUM rn,
+		    userid,
+		    username,
+		    regdate,
+		    useremail,
+		    user_level
+		FROM
+		    user_board
+		WHERE 
+		<![CDATA[
+		 rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+		]]>
+	</select>
+</mapper>

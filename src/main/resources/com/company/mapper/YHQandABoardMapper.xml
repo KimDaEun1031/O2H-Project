@@ -2,63 +2,88 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.YHQandABoardMapper">
 
-<insert id="insert">
-	<selectKey keyProperty="bno" order="BEFORE" resultType="int">
-		select seq_QandA_board.nextval from dual
-	</selectKey>
+		<!-- 질의응답 게시판 글 등록 -->
+		<insert id="insert">
+			<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+				select seq_QandA_board.nextval from dual
+			</selectKey>		
+				insert into QandA_board(bno,title,content,writer_id) 
+				values(#{bno},#{title},#{content},#{writer_id})
+		</insert>
 
-	insert into QandA_board(bno,title,content,writer_id) 
-	values(#{bno},#{title},#{content},#{writer_id})
-</insert>
+		<!-- 질의응답 게시판 전체 조회 -->
+		<!-- <select id="QandASearchList" resultType="com.company.domain.YHQandABoardVO">	
+			select * from QANDA_BOARD
+		</select> -->
+		<select id="QandASearchList" resultType="com.company.domain.YHQandABoardVO">
+			SELECT
+			    rn,
+			    bno,
+			    title,
+			    regdate,
+			    replydate,
+			    writer_id
+			FROM( SELECT
+			    ROWNUM rn,
+			    bno,
+			    title,
+			    regdate,
+			    replydate,
+			    writer_id
+			FROM
+			    qanda_board
+			WHERE 		
+			<![CDATA[
+			 	rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+			]]> order by bno desc
+		</select>
 
-<!-- 전체조회 -->
-<!-- <select id="QandASearchList" resultType="com.company.domain.YHQandABoardVO">
-	
-select * from QANDA_BOARD
-
-</select> -->
-<select id="QandASearchList" resultType="com.company.domain.YHQandABoardVO">
-	
-	select rn ,bno, title ,regdate,replydate,writer_id from(
-select rownum rn,bno,title,regdate,replydate,writer_id
-from QandA_Board
-where 
-<![CDATA[
- rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
-]]> order by bno desc
-</select>
-
-<!-- 단일 조회 -->
-<select id="QandASelect" resultType="com.company.domain.YHQandABoardVO">
-select * from qanda_board where bno=#{bno}
-</select>
-
-<!-- 전체 개시물 수  -->
-<select id="totalCnt" resultType="int">
-select count(*) from QandA_board where 
-	
-	
- bno>0
-</select>
-
-<update id="update">
-update QandA_board 
-set title=#{title},content=#{content} 
-where bno=#{bno}
-
-</update>
-<update id="replyupdate">
-update QandA_board 
-set reply=#{reply} where bno=#{bno}
-
-</update>
-<delete id="delete">
-delete from QandA_board where bno=#{bno}
-</delete>
-
-<update id="updateReplyDate">
-update QandA_board 
-set replyDate=sysdate 
-where bno=#{bno}
-</update>
+		<!-- 질의응답 게시판 단일 조회 -->
+		<select id="QandASelect" resultType="com.company.domain.YHQandABoardVO">
+			SELECT
+			    bno,
+			    title,
+			    writer_id,
+			    regdate,
+			    written,
+			    content,
+			    replyer_id,
+			    reply,
+			    replydate,
+			    userid
+			FROM
+			    qanda_board where bno =#{bno}
+		</select>
+		
+		<!-- 질의응답 게시판 전체 개시물 수  -->
+		<select id="totalCnt" resultType="int">
+			select count(*) 
+			from QandA_board 
+			where bno>0
+		</select>
+		
+		<!-- 질의응답 게시판 글 수정 -->
+		<update id="update">
+			update QandA_board 
+			set title=#{title},content=#{content} 
+			where bno=#{bno}		
+		</update>
+		
+		<!-- 질의응답 게시판 글 삭제 -->
+		<delete id="delete">
+			delete from QandA_board where bno=#{bno}
+		</delete>
+		
+		<!-- 질의응답 게시판 댓글 수정 -->
+		<update id="replyupdate">
+			update QandA_board 
+			set reply=#{reply} where bno=#{bno}		
+		</update>
+		
+		<!-- 질의응답 게시판 댓글 날짜 갱신 -->
+		<update id="updateReplyDate">
+			update QandA_board 
+			set replyDate=sysdate 
+			where bno=#{bno}
+		</update>
 </mapper>

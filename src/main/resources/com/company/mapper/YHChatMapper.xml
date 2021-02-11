@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.YHChatMapper">
-<select id="getList" resultType="com.company.domain.YHChatRoomVO">
-select * from chattingroom
-
-</select>
-<update id="goIntoRoom1">
-update  chattingroom
-set useable=2 
-where roomnumber=1
-</update>
-<update id="goIntoRoom2">
-update  chattingroom
-set useable=2 
-where roomnumber=2
-</update>
-<update id="goIntoRoom3">
-update  chattingroom
-set useable=2 
-where roomnumber=3
-</update>
-<update id="goOutRoom1">
-update  chattingroom
-set useable=1 
-where roomnumber=1
-</update>
-<delete id="goOutRoom1remove">
-delete chatRoom1
-</delete>
-<update id="goOutRoom2">
-update  chattingroom
-set useable=1
-where roomnumber=2
-</update>
-<update id="goOutRoom3">
-update  chattingroom
-set useable=1 
-where roomnumber=3
-</update>
-<insert id="chatInsertRoom1">
-insert into chatroom1(fromid, content)
-values (#{fromid} ,#{content})
-
-</insert>
-<select id="getRoom1ChatList" resultType="com.company.domain.YHChatVO">
- select * from chatRoom1 order by rno desc
-</select>
+		<!-- 실시간문의 게시판 리스트 -->
+		<select id="getList" resultType="com.company.domain.YHChatRoomVO">
+			SELECT
+			    roomnumber,
+			    useable
+			FROM
+			    chattingroom		
+		</select>
+		
+		<!-- 방 들어옴 -->
+		<update id="goIntoRoom1">
+			update  chattingroom
+			set useable=2 
+			where roomnumber=1
+		</update>
+		<update id="goIntoRoom2">
+			update  chattingroom
+			set useable=2 
+			where roomnumber=2
+		</update>
+		<update id="goIntoRoom3">
+			update  chattingroom
+			set useable=2 
+			where roomnumber=3
+		</update>
+		
+		<!-- 방 나감 -->
+		<update id="goOutRoom1">
+		update  chattingroom
+		set useable=1 
+		where roomnumber=1
+		</update>
+		<update id="goOutRoom2">
+		update  chattingroom
+		set useable=1
+		where roomnumber=2
+		</update>
+		<update id="goOutRoom3">
+		update  chattingroom
+		set useable=1 
+		where roomnumber=3
+		</update>
+		
+		<!-- 방 삭제 실수로 실행해버렸는데..-->
+		<delete id="goOutRoom1remove">
+			delete chatRoom1
+		</delete>
+		
+		<!-- 뭔지 모르겠어요 -->
+		<insert id="chatInsertRoom1">
+			insert into chatroom1(fromid, content)
+			values (#{fromid} ,#{content})		
+		</insert>
+		
+		<!-- 1번 채팅방 리스트 조회 -->
+		<select id="getRoom1ChatList" resultType="com.company.domain.YHChatVO">
+		 	SELECT
+			    rno,
+			    fromid,
+			    content
+			FROM
+			    chatroom1
+			ORDER BY
+			    rno DESC
+		</select>
 </mapper>

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
 import com.company.domain.LoginVO;
-import com.company.service.KDService;
+import com.company.service.KDAdminService;
+import com.company.service.KDRegisterService;
 import com.company.service.SigninService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class YHController {
 	@Autowired
-	private KDService service;
+	private KDRegisterService service;
 	
 	@GetMapping("/gotoSignin")
 	public String gotoSignin() {

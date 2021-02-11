@@ -10,20 +10,14 @@ import com.company.domain.KDTeacherInfoVO;
 import com.company.domain.YHCriteria;
 import com.company.domain.YHQandABoardVO;
 
-public interface KDService {
-	public KDLoginInfoVO isLogin(KDLoginVO kdlogin);
-	public boolean registerInsert(KDLoginVO kdlogin);
-	public boolean userUpdate(KDLoginInfoVO loginInfo);
-	public KDLoginInfoVO ProfileInfo(KDLoginInfoVO loginInfo);
-	
+public interface KDAdminService {
+	//회원관리 - 관리자 리스트
 	public List<KDLoginInfoVO> AdminInfo();
-	public List<YHQandABoardVO> QnAUsers();
-	public List<KDLoginInfoVO> selectByNewUser();
+	//회원관리 - 회원 관리
 	public List<KDLoginInfoVO> memberControls(YHCriteria cri);
-
+	//월별현황 - 신규가입자 리스트
+	public List<KDLoginInfoVO> selectByNewUser();
+	//월별 현황 - 가입자 수 / 게시물 수
 	public int getTotalUser(KDAdminTotalVO admint);
 	public int getTotalBoard(KDAdminTotalVO admint);
-	public List<KDTeacherInfoVO> teacherInfo();
-	
-	List<HYFileAttach> exampleTeacher();
 }

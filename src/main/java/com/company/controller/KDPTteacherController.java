@@ -14,7 +14,7 @@ import com.company.domain.HYFileAttach;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDTeacherInfoVO;
 import com.company.service.HYService;
-import com.company.service.KDService;
+import com.company.service.KDAdminService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class KDPTteacherController {
 	
 	@Autowired
-	private KDService service;
+	private KDAdminService service;
 	
 	@Autowired
 	private HYService hyservice;

@@ -13,7 +13,7 @@ import com.company.domain.KDAdminTotalVO;
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.YHCriteria;
 import com.company.domain.YHPageVO;
-import com.company.service.KDService;
+import com.company.service.KDAdminService;
 import com.company.service.YHQandABoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class KDAdminController {
 	
 	@Autowired
-	private KDService service;
+	private KDAdminService service;
 	
 	@Autowired
 	YHQandABoardService yhservice;
