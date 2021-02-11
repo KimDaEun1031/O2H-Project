@@ -22,13 +22,13 @@ $(document).ready(function(){
 			$(data).each(function(idx,obj){
 				if(obj.fileType){
 					//썸네일 이미지 경로 uploadPath - 2021\01\20
-					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					/*var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
 				
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
 					str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName;
 					//str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"; //이거 그냥 파일명 지우면 되는구나
-					str+="</div></li>";	
+					str+="</div></li>";	*/
 					
 					//이렇게 되는구나 - 와 신기하다.
 					var profileImg = $("#myImg");

@@ -16,7 +16,7 @@ public class HYPhotoBoardCriteria {
 	
 	
 	public HYPhotoBoardCriteria() {
-		this(1, 10);
+		this(1, 9); //이미지 리스트 최적화
 	}
 	
 	public HYPhotoBoardCriteria(int pageNum, int amount) {

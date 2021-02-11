@@ -244,7 +244,17 @@ alter table photo_board add constraint pk_photo_board primary key(bno);
 
 create sequence seq_photo_board;
 
+--게시판 내용 열 추가
+ALTER TABLE photo_board ADD content VARCHAR2(1000) DEFAULT 'none';
+alter table photo_board drop column content;
+ALTER TABLE photo_board ADD content VARCHAR2(1000);
+
+-- 첨부파일 업로드 확인
+insert into PHOTO_BOARD(bno,title,writer,regdate,updatedate,content) values(seq_photo_board.nextval,'attachTestNull','attachTestNull',sysdate,sysdate,'attachTestNull');
+
+
 select * from photo_board;
+
 
 -- 사진 게시판 파일 첨부 테이블 생성
 create table photo_attach(
@@ -264,6 +274,30 @@ add constraint fk_photo_attach foreign key(bno) references photo_board(bno);
 
 
 select * from photo_attach;
+
+-- 게시물과 업로드 조인
+
+select *
+		from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
+			rownum rn, board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+			from photo_board board left outer join photo_attach 
+			on board.bno = photo_attach.bno
+			where rownum<=(1*9))
+		where rn> (1-1)*9;	
+		
+	           
+     
+select board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+from(select /*+INDEX_DESC(photo_board pk_photo_board)*/ rownum rn, bno, title, writer, regdate, updatedate
+	 from photo_board where rownum<=(1*9)) board left outer join photo_attach on board.bno = photo_attach.bno     
+where rn> (1-1)*9 order by rn;
+
+select * from photo_attach where bno=33;
+delete from photo_attach where bno=33;
 
 ---------------------------------------------------------------
 -- 강사 테이블

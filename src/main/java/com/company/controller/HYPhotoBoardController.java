@@ -43,12 +43,7 @@ public class HYPhotoBoardController {
 	//게시글 작성
 	@PostMapping("/board_photo_write")
 	public String photoBoardWritePost(HYPhotoBoardVO board, RedirectAttributes rttr) {
-		log.info("포토보드 게시글 등록"+board);
-		
-		//파일첨부 확인
-		if(board.getAttachList()!=null) { // 열어둬도 상관없음
-			board.getAttachList().forEach(attach -> log.info(""+attach));
-		}
+		log.info("포토보드 게시글 등록"+board);	
 		
 		if(service.regist(board)) {
 			//등록성공 메시지를 모달로 띄우기 위해 조금 전 등록된 글 번호 보내기
@@ -60,26 +55,51 @@ public class HYPhotoBoardController {
 			return "board_photo_write";	
 	}
 	
-	//게시글 목록 보기
+	//게시글 목록 보기-first 210210
+//	@GetMapping("/board_photo_list")
+//	public void photoBoardList(Model model, HYPhotoBoardCriteria cri) {
+//		log.info("포토보드 전체 리스트 요청");
+//		//전체목록 요청
+//		List<HYPhotoBoardVO> list = service.getList(cri);
+//		int total = service.getTotalCnt(cri);
+//		model.addAttribute("list", list);
+//		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));
+//	}
+	
+	
+	//게시글 목록 보기-쌤.
 	@GetMapping("/board_photo_list")
 	public void photoBoardList(Model model, HYPhotoBoardCriteria cri) {
-		log.info("포토보드 전체 리스트 요청");
+		log.info("포토보드 전체 리스트 요청 "+cri);
 		//전체목록 요청
-		List<HYPhotoBoardVO> list = service.getList(cri);
+		List<HYPhotoBoardVO> list = service.getList(cri);	
+
+		//경로 때문에 수정
+		for(HYPhotoBoardVO vo : list) {
+			HYPhotoBoardFileAttach attach= vo.getAttach();
+			
+			String path = attach.getUploadPath();		
+			if(path!=null)
+				attach.setUploadPath(path.replaceAll("\\\\", "/"));			
+		}		
+
 		int total = service.getTotalCnt(cri);
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));
 	}
+	
+
+	
 	//게시글 목록 보기-뭔가 엉망이랑 board꺼 가지고 와서 test 해봄 - 여전히 엉망
-	@GetMapping("/list")
-	public void List(Model model, HYPhotoBoardCriteria cri) {
-		log.info("포토보드 전체 리스트 요청");
-		//전체목록 요청
-		List<HYPhotoBoardVO> list = service.getList(cri);
-		int total = service.getTotalCnt(cri);
-		model.addAttribute("list", list);
-		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));
-	}
+//	@GetMapping("/list")
+//	public void List(Model model, HYPhotoBoardCriteria cri) {
+//		log.info("포토보드 전체 리스트 요청");
+//		//전체목록 요청
+//		List<HYPhotoBoardVO> list = service.getList(cri);
+//		int total = service.getTotalCnt(cri);
+//		model.addAttribute("list", list);
+//		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));
+//	}
 	
 	//특정 게시물 보기
 	@GetMapping({"/board_photo_read", "/board_photo_update"}) //배열로+"" 주고
@@ -156,10 +176,6 @@ public class HYPhotoBoardController {
 		log.info("게시물 수정 "+board);	
 		log.info("Criteria 주소 확인 - "+cri);	
 		
-		//파일첨부 확인
-		if(board.getAttachList()!=null) { // 열어둬도 상관없음
-			board.getAttachList().forEach(attach -> log.info(""+attach));
-		}
 		
 		service.modify(board);	
 		

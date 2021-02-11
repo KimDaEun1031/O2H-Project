@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -81,10 +82,7 @@ public class HYPhotoBoardUploadAjaxController {
 			File saveFile = new File(uploadPath, uploadFileName);
 
 			try {
-				//서버에 저장
-				//f.transferTo(saveFile);
-				//이미지인지 일반 파일인지 확인
-				if(checkImageType(saveFile)) {
+					
 					attach.setFileType(true);
 					//이미지라면 썸네일로 한번 더 저장
 					// C:\\upload\\2021\\01\\20\\s_12315sdfkijl_원본파일명.jsp
@@ -93,7 +91,7 @@ public class HYPhotoBoardUploadAjaxController {
 					Thumbnailator.createThumbnail(in, thumbnail, 200,200);
 					in.close();
 					thumbnail.close();				
-				}
+				
 				//서버에 저장 - 에러나서 서버에 저장을 나중에 함
 				f.transferTo(saveFile);				
 			} catch (IllegalStateException e) {
@@ -106,13 +104,59 @@ public class HYPhotoBoardUploadAjaxController {
 		return new ResponseEntity<HYFileAttach>(attach,HttpStatus.OK); 
 	} // uploadPost end
 	
-	@GetMapping("/photoBoardDisplay")
+//	@GetMapping("/photoBoardDisplay") //원본
+//	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
+//		log.info("썸네일 요청 "+fileName);
+//		
+//		
+//		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
+//		File f = new File(uploadFolder+"\\"+fileName);
+//		
+//		ResponseEntity<byte[]> entity = null;
+//		
+//		HttpHeaders headers = new HttpHeaders();
+//		try {
+//			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
+//			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
+//					headers,HttpStatus.OK);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} 
+//		return entity;
+//	}
+	
+//	@GetMapping("/photoBoardDisplay")//NoSuchFileException 예외처리로 해보기
+//	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
+//		log.info("썸네일 요청 "+fileName);
+//		
+//		
+//		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
+//		File f = new File(uploadFolder+"\\"+fileName);
+//		
+//		ResponseEntity<byte[]> entity = null;
+//		
+//		HttpHeaders headers = new HttpHeaders();
+//		try {
+//			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
+//			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
+//					headers,HttpStatus.OK);
+//		} catch (NoSuchFileException x) {
+//			System.err.format("%s: no such" + " file or directory%n", entity);
+//			entity = new ResponseEntity("/resources/img/profile/fiturjc_default_user.jpg",HttpStatus.OK);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} 
+//		return entity;
+//	}
+	
+	@GetMapping("/photoBoardDisplay") //파일 없을 때 상태로 값으로 예외처리하기
 	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
 		log.info("썸네일 요청 "+fileName);
 		
 		
 		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
 		File f = new File(uploadFolder+"\\"+fileName);
+		File fx = new File(uploadFolder+"\\"+"Koala.jpg");
 		
 		ResponseEntity<byte[]> entity = null;
 		
@@ -123,11 +167,16 @@ public class HYPhotoBoardUploadAjaxController {
 					headers,HttpStatus.OK);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+			try {
+				entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(fx),
+						headers,HttpStatus.OK);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		} 
 		return entity;
 	}
-	
-	
+
 	//다운로드
 	@GetMapping(value = "/photoBoardDownload", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<Resource> download(String fileName) {
@@ -199,6 +248,7 @@ public class HYPhotoBoardUploadAjaxController {
 		Date date = new Date(); // 시간,날짜가 길게 나옴
 		String str = sdf.format(date); // 2021-01-21
 		return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
+		//return str.replace("_", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
 	} // getFolder end
 	
 	
