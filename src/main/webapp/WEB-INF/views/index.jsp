@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -26,6 +28,7 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
+    <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
     
     <!-- Js Plugins -->
     <script src="/resources/js/jquery-3.3.1.min.js" defer ="defer"></script>
@@ -167,19 +170,7 @@
         </div>
       </div>
       <div class="nav-item">
-        <div class="container">
-          <div class="nav-depart">
-             <div class="depart-btn">
-              <i class="ti-menu"></i>
-              <span>페이지 목록</span>
-              <ul class="depart-hover">
-                <li><a href="#">PT</a></li>
-                <li><a href="#">홈쇼핑</a></li>
-                <li><a href="#">커뮤니티</a></li>
-                <li><a href="/program/calorDict">프로그램</a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="container">        
           <nav class="nav-menu mobile-menu">
             <ul>
               <li class="active"><a href="/">홈</a></li>
@@ -204,6 +195,8 @@
                 <a href="/program/calorDict">프로그램</a>
                 <ul class="dropdown">
                   <li><a href="/program/calorDict">칼로리사전</a></li>
+                  <li><a href="/program/BMI">BMI계산기</a></li>
+                 
                 </ul>
               </li>
               <li>
@@ -238,6 +231,14 @@
           </div>
         </div>
         <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-2.png" onclick="location.href='#'">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5">              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-1.png" onclick="location.href='#'">
           <div class="container">
             <div class="row">
               <div class="col-lg-5">              
@@ -297,350 +298,130 @@
     </div>
     <!-- Instagram Section End -->
 
-    <!-- Women Banner Section Begin -->
-    <section class="women-banner spad" id="">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="product-large set-bg" data-setbg="/resources/img/products/women-large.jpg">
-              <h2>추천상품</h2>
-              <a href="#">자세히</a>
-            </div>
-          </div>
-          <div class="col-lg-8 offset-lg-1">
-            <div class="filter-control">
-              <ul>
-                <li class="active">보충제</li>
-                <li>건강</li>
-                <li>패션</li>
-                <li>헬스</li>
-              </ul>
-            </div>
-            <div class="product-slider owl-carousel">
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/women-1.jpg" alt="" />
-                  <div class="sale">Sale</div>
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Coat</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">
-                    $14.00
-                    <span>$35.00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/women-2.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Shoes</div>
-                  <a href="#">
-                    <h5>Guangzhou sweater</h5>
-                  </a>
-                  <div class="product-price">$13.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/women-3.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/women-4.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Converse Shoes</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Women Banner Section End -->
+    <!-- 프로그램 메뉴 및 맵 -->
+    <div class="flex-container">
+    	<div>
+    		<a href="/program/BMI"><img src="/resources/img/BMI_Button.png" style="width: 300px; height: 300px;" alt="" /></a>
+	    	<a href="/program/calorDict"><img src="/resources/img/CAL_Button.png" style="width: 300px; height: 300px;" alt="" /></a>   	
+	    	<a href=""><img src="/resources/img/MAP_Button.png" style="width: 300px; height: 300px;" alt="" /></a> 	
+    	</div>
+    </div>
+    <!-- 프로그램 & 맵 end -->
 
-    <!-- Man Banner Section Begin -->
-    <section class="man-banner spad" id="services">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="filter-control">
-              <ul>
-                <li class="active">...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-              </ul>
-            </div>
-            <div class="product-slider owl-carousel">
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/man-1.jpg" alt="" />
-                  <div class="sale">Sale</div>
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Coat</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">
-                    $14.00
-                    <span>$35.00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/man-2.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Shoes</div>
-                  <a href="#">
-                    <h5>Guangzhou sweater</h5>
-                  </a>
-                  <div class="product-price">$13.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/man-3.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Pure Pineapple</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-              <div class="product-item">
-                <div class="pi-pic">
-                  <img src="/resources/img/products/man-4.jpg" alt="" />
-                  <div class="icon">
-                    <i class="icon_heart_alt"></i>
-                  </div>
-                  <ul>
-                    <li class="w-icon active">
-                      <a href="#"><i class="icon_bag_alt"></i></a>
-                    </li>
-                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                    <li class="w-icon">
-                      <a href="#"><i class="fa fa-random"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="pi-text">
-                  <div class="catagory-name">Towel</div>
-                  <a href="#">
-                    <h5>Converse Shoes</h5>
-                  </a>
-                  <div class="product-price">$34.00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 offset-lg-1">
-            <div
-              class="product-large set-bg m-large"
-              data-setbg="/resources/img/products/man-large.jpg"
-            >
-              <h2>인기상품</h2>
-              <a href="#">자세히</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Man Banner Section End -->
-
-    <!-- Latest Blog Section Begin -->
+    <!-- 공지사항 게시판 -->
     <section class="latest-blog spad" id="facilities">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-title">
-              <h2>뉴스(혹은 공지사항, 커뮤니티 인기글)</h2>
+      	    <div class="col-lg-12">
+               <div class="section-title">
+                   <h2>공지사항</h2>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-blog">
-              <img src="/resources/img/latest-1.jpg" alt="" />
-              <div class="latest-text">
-                <div class="tag-list">
-                  <div class="tag-item">
-                    <i class="fa fa-calendar-o"></i>
-                    May 4,2019
-                  </div>
-                  <div class="tag-item">
-                    <i class="fa fa-comment-o"></i>
-                    5
-                  </div>
-                </div>
-                <a href="#">
-                  <h4>The Best Street Style From London Fashion Week</h4>
-                </a>
-                <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-blog">
-              <img src="/resources/img/latest-2.jpg" alt="" />
-              <div class="latest-text">
-                <div class="tag-list">
-                  <div class="tag-item">
-                    <i class="fa fa-calendar-o"></i>
-                    May 4,2019
-                  </div>
-                  <div class="tag-item">
-                    <i class="fa fa-comment-o"></i>
-                    5
-                  </div>
-                </div>
-                <a href="#">
-                  <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
-                </a>
-                <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-latest-blog">
-              <img src="/resources/img/latest-3.jpg" alt="" />
-              <div class="latest-text">
-                <div class="tag-list">
-                  <div class="tag-item">
-                    <i class="fa fa-calendar-o"></i>
-                    May 4,2019
-                  </div>
-                  <div class="tag-item">
-                    <i class="fa fa-comment-o"></i>
-                    5
-                  </div>
-                </div>
-                <a href="#">
-                  <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
-                </a>
-                <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>       
-    </section>
-    <!-- Latest Blog Section End -->
+			<div class="board_wrap" style="margin-left: 5%; margin-right: 5%">
+				<span><a href="/announce/getList">more+</a></span>
+			     <table class="board_list" style="text-align: center;">
+			       <caption>
+			         게시판 목록
+			       </caption>
+			       <thead >
+			         <tr>
+			           <th>번호</th>
+			           <th>제목</th>
+			           <th>작성일</th>
+			           <th>조회수</th>
+			           <th>댓글수</th>
+			         </tr>
+			       </thead>
+			       <tbody>
+			         <c:forEach var="vo" items="${list }">
+			    		<tr>
+			         		<td>${vo.bno }</td>
+			   			<td><a href="${vo.bno }" class="move">${vo.title}</a></td>
+			          	<td><fmt:formatDate value="${vo.regdate }"
+			          			pattern="yyyy-MM-dd HH:mm" /></td>
+			         	<td>${vo.written }
+			   			<td>${vo.replycnt }  </td>
+			         	   		
+			         	</tr>
+			         </c:forEach>
+			       </tbody>
+			     </table>
+			     <br />
+			     <!-- start Pagination
+				<div class="text-center" style="display: table; margin-left: auto; margin-right: auto;">
+					<ul class="pagination" >
+						<c:if test="${pageVO.prev }">
+							<li class="paginate_button previous"><a href="${pageVO.startPage-1 }">Previous</a>
+						</c:if>
+						<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+							<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px" href="${idx}">${idx+1}</a>
+						</c:forEach>
+						<c:if test="${pageVO.next }">
+							<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
+						</c:if>
+					</ul>
+				</div>
+				end Pagination -->     
+				<div class="bt_wrap">
+				  <button class="btn btn-info" id="write" hidden="hidden">글 작성</button> 
+				</div>
+			</div>
+			
+			
+				<form action="/announce/read" id="actionForm">							
+				   <input type="hidden" name="pageNum" id="pageNum" value="1"/>				   
+				   <input type="hidden" name="bno" />
+				</form>      				
+				<form action="/announce/write" id="actionForRead">							
+				   <input type="hidden" name="pageNum" id="pageNum" value="1"/>				   
+				</form>      
+			</div>      
+	    </section>
+
+		<script>
+		 window.onload=function(){
+		 
+			 var pageNumDiv=document.getElementById("pageNum")
+			 if("${pageNum}"!="1"){
+				 pageNumDiv.setAttribute("value",'${pageNum}')
+			 }
+			 var actionForm=$("#actionForm")
+			write.onclick=function(e){
+				 e.preventDefault();
+				 
+				 $("#actionForRead").submit();
+				 
+				 
+			 } 
+			$(".paginate_button a").click(function(e){
+				//a 태그의 기능을 중지
+				e.preventDefault();
+		    	
+				//pagenum의 값을 사용자가 선택한 값으로 변경
+				//$("actionForm  [name='pageNum']").attr(value='$(this).text')
+				actionForm.find("input[name='pageNum']").val($(this).attr("href"))
+				console.log($(this).attr("href"));
+				console.log($(this));
+				actionForm.attr("action","getList");
+				actionForm.submit();
+			})
+			
+			 
+			
+		$(".move").click(function(e){
+			e.preventDefault();		
+			/* 
+			actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'> ");
+			 */
+			 actionForm.find("input[name='bno']").val($(this).attr("href"))
+				
+			actionForm.attr("action","/announce/read"); // /board/read
+			actionForm.submit();
+		
+		})
+		 }
+		</script>
+       
+    <!-- 공지사항 end -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">

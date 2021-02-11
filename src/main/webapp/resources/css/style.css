@@ -862,8 +862,8 @@ ol {
 -----------------------*/
 
 .hero-items .single-hero-items {
-  height: 725px;
-  padding-top: 10px;
+  height: 800px;
+  padding-top: 210px;
 }
 
 .hero-items .single-hero-items span {
@@ -4402,7 +4402,23 @@ ol {
   font-weight: 700;
   margin-bottom: 18px;
 }
+.flex-container {
+  display: flex;
+  background-color: #ffedcc;
+}
 
+.flex-container > div {
+	margin: 0 auto;
+}
+
+.flex-container > div > a > img {
+	margin: 70px;
+}
+
+
+.flex-container > div > a > img:hover {
+	transform: scale(1.2);
+}
 
 
 /*HJ of contents*/

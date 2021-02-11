@@ -69,6 +69,9 @@ insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','
 
 select count(bno) from QANDA_BOARD;
 
+
+
+
 --추가
 
 alter table QANDA_BOARD add userId varchar2(20);
@@ -93,14 +96,19 @@ create table announce_board(
 	content varchar2(100) not null,
 	replycnt number default 0
 	);
-	drop table announce_board;
+	drop table announce_reply;
 CREATE SEQUENCE  seq_announce_board;
 
-select seq_announce_board   FROM DUAL; 
-insert into announce_board(bno,title,content)
- values(seq_announce_board.nextval,'dtd','ddtt') ;
+drop SEQUENCE seq_announce_board;
+
+select seq_announce_board.nextval FROM DUAL; 
+alter SEQUENCE seq_announce_board increment by -1;
+alter SEQUENCE seq_announce_board increment by 1;
+
+--insert into announce_board(bno,title,content) values(seq_announce_board.nextval,'dtd','ddtt') ;
 
  select * from announce_board;
+ select * from announce_reply;
  
  select rn ,bno, title ,regdate,replycnt,written 
  from( select rownum rn,bno,title,regdate,replycnt,written from announce_board where rownum<=1*10)
@@ -115,8 +123,17 @@ insert into announce_board(bno,title,content)
  	content varchar2(30)
  );
  
+ TRUNCATE table announce_board;
+ 
+ update announce_board set bno=1;
+-- 더미데이터 메인 페이지 test 용
+ insert into announce_board(bno, title, content)
+(select seq_announce_board.nextval, title, content from announce_board);
+
+delete from ANNOUNCE_BOARD where bno between 1 and 900;
+select count(*) from announce_board;
+ 
 --------------------------------------------------
-  -------------------------------------
  지역별 채팅창
   create table areachattingroom(
  	area varchar2(10) primary key,
@@ -125,6 +142,14 @@ insert into announce_board(bno,title,content)
  	insert into areachattingroom(area) 
  	values('제주');
 CREATE SEQUENCE  seq_area_chat;
+
+select area, usernum from AREACHATTINGROOM;
+
+insert INTO area_chat (
+    area,
+    user_id,
+    content
+) values ( 'seoul',#{user_id},#{content})
  
  	create table area_chat(
  	rno number  default seq_area_chat.nextval primary key,
@@ -134,7 +159,7 @@ CREATE SEQUENCE  seq_area_chat;
  	);
  select * from area_chat;
  
- 
+ ----------------------------------
  create table chattingroom(
  	roomnumber number(1) primary key,
  	useable number(1) default 0
@@ -158,8 +183,10 @@ CREATE SEQUENCE  seq_area_chat;
  	content varchar2(100),
  )
 CREATE SEQUENCE  seq_chat;
- 
- 
+
+delete chatRoom1
+
+select * from chatRoom1;
 
  select * from announce_reply
  create table announce_reply(
@@ -298,6 +325,8 @@ WHERE
     ti.userid = ub.userid
     AND fa.userid = ub.userid
     AND teacher_level = '1'
+    
+-----------------------------------
 
 --운동 자랑 게시판 
 create table comunity_board(
