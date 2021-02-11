@@ -9,8 +9,10 @@
 			<input type="text" name="mainSports" value="${profile.mainSports}" placeholder="${profile.mainSports}" />
 			<input type="text" name="channelId" value="${profile.channelId}" placeholder="${profile.channelId}" />
 			
+			<!--
 			<span class="floatImage"><img src='/user/teacherProfileDisplay?fileName=s_${profile.userId}' /></span>
-
+			-->
+			<span class="floatImage"><img src='/user/teacherProfileDisplay?fileName=s_${profile.userId}' onerror='this.src="/resources/img/profile/profile_default.png";this.parentNode.className="";' /></span>
 			<button type="submit" data-oper='list'>목록</button> 
 			<button type="submit" data-oper='submit'>전송</button>
 			<button type="reset" data-oper='reset'>초기화</button>        			

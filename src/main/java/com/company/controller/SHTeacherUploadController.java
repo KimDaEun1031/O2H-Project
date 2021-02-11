@@ -141,6 +141,7 @@ public class SHTeacherUploadController {
 			
 			return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
 		} else {
+			/*
 			Resource resource = new FileSystemResource(defaultImageFile); // 파일 리솟스 객체 생성
 			
 			String contentType = null;
@@ -153,6 +154,8 @@ public class SHTeacherUploadController {
 			headers.add("Content-Type", contentType); // 헤더 설정
 			
 			return new ResponseEntity<Resource>(resource, headers, HttpStatus.NOT_FOUND);
+			*/
+			return new ResponseEntity<Resource>(null, null, HttpStatus.NOT_FOUND);
 		}		
 	}
 

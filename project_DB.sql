@@ -341,6 +341,10 @@ SELECT * FROM user_board users INNER JOIN teacher_info teacher ON users.userId =
 
 select * from teacher_Info;
 
+UPDATE teacher_Info
+SET channelId = 'UCiWrjBhlICf_L_RK5y6Vrxw'
+WHERE userId = 'test8';
+
 SELECT
     ti.userid,
     ti.main_sports,
