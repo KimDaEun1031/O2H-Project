@@ -22,12 +22,12 @@ var recommendProfileList = $(".recommendProfileList");
 var recommendPageBtn = $(".recommendPageBtn");
 
 var page = 1;
-var pageCount = 1;
-var listCount = 1;
+var pageCount = 10;
+var listCount = 10;
 
 var recommendPage = 1;
-var recommendPageCount = 1;
-var recommendListCount = 1;
+var recommendPageCount = 10;
+var recommendListCount = 10;
 
 var showList = null;
 var countPage = null;
@@ -50,7 +50,8 @@ showList = function(page, pageCount, listCount) {
 		arr.forEach(function(element, index) {
 		    var str = "<li data-usrid='" + element.userId + "' data-chid='" + element.channelId + "'>";
 		    str += "<div>";
-		    str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
+		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
+		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/profile_default.png"' /></a></p>`;
 		    str += "<p>" + element.userName + "</p>";
 		    str += "<p>" + element.teacherInfo + "</p>";
 		    str += "</div>"
@@ -154,7 +155,8 @@ recommendShowList = function(page, pageCount, listCount) {
 		arr.forEach(function(element, index) {
 		    var str = "<li data-usrid='" + element.userId + "' data-chid='" + element.channelId + "'>";
 		    str += "<div>";
-		    str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
+		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
+		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/profile_default.png"' /></a></p>`;
 		    str += "<p>" + element.userName + "</p>";
 		    str += "<p>" + element.teacherInfo + "</p>";
 		    str += "</div>"

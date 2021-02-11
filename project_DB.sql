@@ -343,6 +343,10 @@ select * from teacher_video;
 ROLLBACK;
 delete from teacher_video where userId = 'test1';
 
+UPDATE teacher_Info
+SET channelId = 'UCiWrjBhlICf_L_RK5y6Vrxw'
+WHERE userId = 'test8';
+
 SELECT
     ti.userid,
     ti.main_sports,
@@ -406,3 +410,67 @@ insert into cal_board_table values('temp',20210102,400,0,'o');
 CREATE SEQUENCE  seq_comunity_board;
 create sequence seq_comunity_reply;
 
+---------------------------------------------------------------
+
+-- 지도 테이블
+
+SELECT *
+FROM map_location;
+
+CREATE TABLE map_location
+(
+	lno NUMBER,
+	name VARCHAR(50) NOT NULL,
+	address VARCHAR2(100) NOT NULL,
+	content VARCHAR(200) NOT NULL,
+	latitude VARCHAR2(20) NOT NULL,
+	longitude VARCHAR2(20) NOT NULL,
+	CONSTRAINT pk_map_location PRIMARY KEY(lno)
+);
+
+CREATE SEQUENCE seq_map_location;
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '아지트', '서울 종로구 삼일대로17길 8', '아지트', '37.5692716380823', '126.987162071611');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '스포짐휘트니스 종각점', '서울 종로구 삼봉로 95', '스포짐휘트니스 종각점', '37.5723111874784', '126.982568392463');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '서울스포츠클럽', '서울 종로구 삼일대로17길 8', '서울스포츠클럽', '37.5736462157402', '127.000602228753');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '파고다헬스클럽', '서울 종로구 수표로26길 12 파고다빌딩 7층', '파고다헬스클럽', '37.5719878511303', '126.989746603651');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '인어스휘트니스 종로점', '서울 종로구 삼일대로17길 8', '인어스휘트니스 종로점', '37.5688363061533', '126.98510847461');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '스포짐앤밀론 을지로점', '서울 종로구 삼일대로17길 8', '스포짐앤밀론 을지로점', '37.5664890113878', '126.988103724531');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '종로휘트니스', '서울 종로구 삼일대로17길 8', '종로휘트니스', '37.5708444878121', '126.979923668151');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '원알엠피트니스', '서울 종로구 종로 120 동영타워 지하1층', '원알엠피트니스', '37.5700680162517', '126.99091787405');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '바디스타 을지로점', '서울 중구 마른내로 34', '바디스타 을지로점', '37.564230160524', '126.991688931109');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '휴먼웰니스', '서울 종로구 종로 83 노블빌딩 3층', '휴먼웰니스', '37.5704192743349', '126.9866948279');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '스포짐 종로점', '서울 종로구 청계천로 35 관정빌딩 지하2층', '스포짐 종로점', '37.5693392529284', '126.981377714314');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '센터원웰니스', '서울 중구 을지로5길 26 미래에셋센터원 서관 3층', '센터원웰니스', '37.5673399451193', '126.985208946848');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '온핏', '서울 종로구 우정국로2길 37 4층', '온핏', '37.5696691992451', '126.985210523759');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '크로스핏슈퍼밤', '서울 종로구 종로1길 42 이마빌딩 지하1층', '크로스핏슈퍼밤', '37.5739029320481', '126.978983502911');
+
+INSERT INTO map_location
+VALUES(seq_map_location.NEXTVAL, '제일메가스포', '서울 종로구 율곡로 202-7', '제일메가스포', '37.5756642567309', '127.001415728576');
