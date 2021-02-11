@@ -98,6 +98,7 @@
       <input type="button" value="확인" id="btn1" />
     </form>
     <br />
+    <div id="beforeLogInArea" hidden="hidden">
     <form>
     <input type="date" name ="date" id="date" value="2021-01-01">   	
     	<div class="flex-container">
@@ -137,6 +138,7 @@
 	    </div>
 	
 	</form>
+	</div>
     	<script>
     	var date=document.getElementById("date");
     	var mor=document.getElementById("mor");
@@ -149,7 +151,16 @@
     	var submitBtn=document.getElementById("submit")
     	  var want;
   	  	var result=document.getElementById("result");
-    	submitBtn.onclick=function(){
+  	  	var beforeLoginArea=document.getElementById("beforeLogInArea");
+  	  	
+  	  	if(${loginInfo.userId}!=""){
+  	  	beforeLoginArea.removeAttribute("hidden");
+  	  	}
+    	
+  	  	
+  	  	
+  	  	
+  	  	submitBtn.onclick=function(){
     	
     	
     	var xhr=new XMLHttpRequest();
