@@ -19,8 +19,6 @@
 		<form></form>
 	</div>
 	
-	<button onclick="location.href='/user/user_my'">유저 마이 페이지</button>
-	<button onclick="location.href='/register/logout'">로그아웃</button>
-	<button onclick="location.href='/'">홈페이지</button>
+
 	
 <%@include file="../includes/footer.jsp" %>

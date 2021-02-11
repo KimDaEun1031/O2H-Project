@@ -339,7 +339,9 @@ CREATE TABLE teacher_video (
 
 SELECT * FROM user_board users INNER JOIN teacher_info teacher ON users.userId = teacher.userId WHERE teacher.teacher_level = '1'
 
-select * from teacher_Info;
+select * from teacher_video;
+ROLLBACK;
+delete from teacher_video where userId = 'test1';
 
 SELECT
     ti.userid,

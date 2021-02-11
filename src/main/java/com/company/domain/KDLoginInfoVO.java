@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class KDLoginInfoVO {
 	private String userName;
 	private String userId;
