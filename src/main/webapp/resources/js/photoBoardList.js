@@ -4,6 +4,16 @@
 //첨부물
 $(document).ready(function(){
 	
+	
+	
+	
+	
+	
+	/*
+	
+	
+	
+	
 	var uploadResult = $(".uploadResult ul"); // 에러!!!
 	
 	$.getJSON({
@@ -27,7 +37,7 @@ $(document).ready(function(){
 					//못써먹음 제대로 돌아가면 막을거임.
 					str+="<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"'";
 					str+="data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'>";
-					//str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName;
+					//str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>"+obj.fileName; // ul쪽 파일 이름까지 나오는 버전
 					str+="<img src='/photoBoardDisplay?fileName="+fileCallPath+"'><div>";
 					str+="</div></li>";	
 					
@@ -68,7 +78,7 @@ $(document).ready(function(){
 			$(".bigPictureWrapper").hide();
 		},1000);
 	})// 이미지 닫기 종료
-	
+	*/
 	
 	
 	

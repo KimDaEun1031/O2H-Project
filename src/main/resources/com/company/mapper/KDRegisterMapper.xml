@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.KDRegisterMapper">
+	<!-- 회원가입 - 모든 유저 -->
+	<insert id="insertRegister">
+		insert
+		    INTO user_board (
+		        username,
+		        userid,
+		        password,
+		        address,
+		        phonenumber,
+		        useremail,
+		        userbirth,
+		        interest1,
+		        interest2,
+		        interest3
+		    )
+		VALUES (#{userName},#{userId},#{password},#{address},#{phoneNumber},#{userEmail},#{userBirth},#{favorite_activity[0]},#{favorite_activity[1]},#{favorite_activity[2]})
+	</insert>
+
+	<!-- 유저 부분 -->
+	
+	<!-- 로그인 후 로그인 정보 -->
+	<select id="selectByUser" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    userid,
+		    username,
+		    user_level,
+		    userinfo,
+		    password,
+		    address,
+		    phonenumber,
+		    useremail,
+		    userbirth,
+		    interest1,
+		    interest2,
+		    interest3,
+		    regdate
+		FROM
+		    user_board where userid =#{userId} and password=#{password}
+	</select>
+	
+	<!-- 강사 프로필 정보 -->
+	<select id="selectProfile" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    userid,
+		    username,
+		    user_level,
+		    userinfo,
+		    password,
+		    address,
+		    phonenumber,
+		    useremail,
+		    userbirth,
+		    interest1,
+		    interest2,
+		    interest3,
+		    regdate
+		FROM
+		    user_board where userid =#{userid}
+	</select>
+	
+	<!-- 강사 프로필 정보란 수정 -->
+	<update id="updateUser">
+		UPDATE user_board set userinfo =#{userInfo} where
+		userId=#{userid}
+	</update>
+	
+	<!-- 문의내역 조회 수정 필수 -->
+	<select id="QnAUser" resultType="com.company.domain.YHQandABoardVO">
+		select qb.bno, qb.title, qb.writer_id, qb.regdate,
+		qb.replydate ,qb.userId, ub.userId
+		from QANDA_BOARD qb, user_board ub
+		where qb.userId = ub.userId
+	</select>
+	
+</mapper>

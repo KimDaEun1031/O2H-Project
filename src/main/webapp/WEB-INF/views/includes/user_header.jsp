@@ -139,7 +139,6 @@
                     	<li class="active"><a href="/">홈</a></li>
                         <li><a href="/user/user_my">내 정보</a></li>                       
                         <li><a href="/user/user_QnA">문의 내역</a></li>
-                        <li><a href="#">보관함</a></li>
                         <li><a href="/user/profile_setting">회원정보수정</a>
                             <ul class="dropdown">
                                 <li><a href="/user/profile_setting">회원정보 수정</a></li>
@@ -147,6 +146,8 @@
                             </ul> 
                         </li>  
                         <li><a href="/teacher/teacher_my_stream" hidden="hidden" id="stream">스트리밍</a></li>                          
+                        <li><a href="/user/user_calendar" id="calendar">일정관리</a></li>                          
+                        <li><a href="http://jaysmusicplayer.netlify.app" id="stream">내 음악</a></li>                          
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

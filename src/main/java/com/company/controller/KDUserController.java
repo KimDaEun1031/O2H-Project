@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.company.domain.KDLoginInfoVO;
+import com.company.domain.YHCalVO;
 import com.company.domain.YHQandABoardVO;
-import com.company.service.KDService;
+import com.company.service.KDAdminService;
+import com.company.service.KDRegisterService;
+import com.company.service.YHCalService;
 import com.company.service.YHQandABoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,10 +26,14 @@ import lombok.extern.slf4j.Slf4j;
 public class KDUserController {
 	
 	@Autowired
-	private KDService service;
+	private KDRegisterService service;
 	
 	@Autowired
-	YHQandABoardService yhservice;
+	private YHQandABoardService yhservice;
+	
+	@Autowired
+	private YHCalService yhCalservice;
+	
 	
 	@GetMapping("/user/user_my")
 	public void Mypage(HttpSession session, KDLoginInfoVO loginInfo) {
@@ -69,6 +76,14 @@ public class KDUserController {
 		log.info("강사 스트림 마이페이지");
 	}
 	
-	//user-teacher END
+	@GetMapping("/user/user_calendar")
+	public void userCalendar() {
+		log.info("일정 관리");
+	}
 
 }
+	
+	
+	
+	//user-teacher END
+

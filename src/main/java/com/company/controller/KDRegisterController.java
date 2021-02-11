@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
-import com.company.service.KDService;
+import com.company.service.KDAdminService;
+import com.company.service.KDRegisterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class KDRegisterController {
 	
 	@Autowired
-	private KDService service;
+	private KDRegisterService service;
 	
 	@PostMapping("/register/loginSuccess")
 	public String loginSuccess(KDLoginVO kdlogin, HttpSession session) {

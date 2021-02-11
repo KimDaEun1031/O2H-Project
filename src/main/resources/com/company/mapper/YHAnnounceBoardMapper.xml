@@ -1,49 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.YHAnnounceBoardMapper">
-
-
-<select id="searchAll" resultType="com.company.domain.YHAnnounceBoardVO">
-	<![CDATA[
-	select rn ,bno, title ,regdate,replycnt,written from(
-select rownum rn,bno,title,regdate,replycnt,written
-from announce_board
-where 
- rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
-]]>
-</select>
-
-<insert id="regist">
-insert into announce_board(bno,title,content)
- values(seq_announce_board.nextval,#{title},#{content}) 
-</insert>
-<select id="read" resultType="com.company.domain.YHAnnounceBoardVO">
-select * from announce_board where bno=#{bno}
-</select>
-<delete id="announceDelete">
-delete from announce_board where bno=#{bno}
-</delete>
-<delete id="replyDeletes">
-delete from announce_reply where bno=#{bno}
-</delete>
-<update id="announceUpdate">
-UPDATE announce_board SET title=#{title} ,content=#{content} WHERE  bno=#{bno}
-
-</update>
-
-<insert id="replyInsert">
-insert into announce_reply(bno ,rno,replyer,regdate,content)
-values (#{bno},seq_announce_reply.nextval,#{replyer},sysdate,#{content})
-
-
-
-</insert>
-
-<select id="getReplyAll" resultType="com.company.domain.YHAnnouceReplyVO">
-select * from announce_reply
-
-</select>
-<delete id="deleteReply">
-delete from announce_reply where rno=#{rno}
-</delete>
+		<!-- 공지게시판 전체 조회 리스트 -->
+		<select id="searchAll" resultType="com.company.domain.YHAnnounceBoardVO">
+			SELECT
+			    rn,
+			    bno,
+			    title,
+			    regdate,
+			    replycnt,
+			    written
+			FROM( SELECT
+			    ROWNUM rn,
+			    bno,
+			    title,
+			    regdate,
+			    replycnt,
+			    written
+			FROM
+			    announce_board
+			WHERE
+			<![CDATA[			
+			 rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+			]]> order by bno desc
+		</select>
+		
+		<!-- 공지 게시판 글 등록 -->
+		<insert id="regist">
+			insert into announce_board(bno,title,content)
+	 		values(seq_announce_board.nextval,#{title},#{content}) 
+		</insert>
+		
+		<!-- 공지 게시판 글 읽기 -->
+		<select id="read" resultType="com.company.domain.YHAnnounceBoardVO">
+			SELECT
+			    bno,
+			    title,
+			    regdate,
+			    replycnt,
+			    written
+			FROM
+			    announce_board 
+			where bno =#{bno}
+		</select>
+		
+		<!-- 공지 게시판 글 삭제 -->
+		<delete id="announceDelete">
+			DELETE FROM announce_board where bno =#{bno}
+		</delete>
+		
+		<!-- 공지 게시판 글 수정 -->
+		<update id="announceUpdate">
+			UPDATE announce_board set title =#{title} ,content=#{content} WHERE  bno=#{bno}
+		</update>
+		
+		<!-- 공지 게시판 댓글 리스트 -->
+		<select id="getReplyAll" resultType="com.company.domain.YHAnnouceReplyVO">
+			SELECT
+			    bno,
+			    rno,
+			    replyer,
+			    regdate,
+			    content
+			FROM
+			    announce_reply		
+		</select>
+		
+		<!-- 공지 게시판 댓글 등록 -->
+		<insert id="replyInsert">
+			insert into announce_reply(bno ,rno,replyer,regdate,content)
+			values (#{bno},seq_announce_reply.nextval,#{replyer},sysdate,#{content})
+		</insert>
+		
+		<!-- 공지 게시판 댓글 삭제 -->		
+		<delete id="replyDeletes">
+			DELETE FROM announce_reply where bno =#{bno}
+		</delete>
+		<delete id="deleteReply">
+			DELETE FROM announce_reply where rno =#{rno}
+		</delete>
 </mapper>

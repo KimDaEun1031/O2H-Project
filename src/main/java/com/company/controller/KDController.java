@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.company.domain.YHQandABoardVO;
-import com.company.service.KDService;
+import com.company.service.KDAdminService;
 import com.company.service.YHQandABoardService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 public class KDController {
 	
 	@Autowired
-	private KDService service;
+	private KDAdminService service;
 	
 	
 	
@@ -40,6 +40,11 @@ public class KDController {
 	public String calendarEx() {
 		log.info("달력 페이지");
 		return "/program/cal";
+	}
+	
+	@GetMapping("/program/BMI")
+	public void bmi() {
+		log.info("bmi 계산기");
 	}
 
 	

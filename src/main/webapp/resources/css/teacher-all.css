@@ -4424,6 +4424,12 @@ ol {
   margin-bottom: 20px;
 }
 
+.teacher-section h4 {
+  text-align: justify;
+  color: #e8e8e8;
+  margin-bottom: 20px;
+}
+
 .teacher a img {
   box-sizing: border-box;
   border-radius: 50%;

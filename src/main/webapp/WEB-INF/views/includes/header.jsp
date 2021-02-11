@@ -189,7 +189,7 @@
                 <a href="#">PT</a>
                 <ul class="dropdown">
                   <li><a href="/PT/teacher-all">전체 강사</a></li>
-                  <li><a href="#">스트리밍</a></li>
+                  <li><a href="/PT/teacher_list">스트리밍</a></li>
                 </ul>
               </li>
               <li>

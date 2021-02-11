@@ -69,6 +69,9 @@ insert into user_board values('탈퇴','OUT','OUT','1','1','1','1','1','1','1','
 
 select count(bno) from QANDA_BOARD;
 
+
+
+
 --추가
 
 alter table QANDA_BOARD add userId varchar2(20);
@@ -93,14 +96,19 @@ create table announce_board(
 	content varchar2(100) not null,
 	replycnt number default 0
 	);
-	drop table announce_board;
+	drop table announce_reply;
 CREATE SEQUENCE  seq_announce_board;
 
-select seq_announce_board   FROM DUAL; 
-insert into announce_board(bno,title,content)
- values(seq_announce_board.nextval,'dtd','ddtt') ;
+drop SEQUENCE seq_announce_board;
+
+select seq_announce_board.nextval FROM DUAL; 
+alter SEQUENCE seq_announce_board increment by -1;
+alter SEQUENCE seq_announce_board increment by 1;
+
+--insert into announce_board(bno,title,content) values(seq_announce_board.nextval,'dtd','ddtt') ;
 
  select * from announce_board;
+ select * from announce_reply;
  
  select rn ,bno, title ,regdate,replycnt,written 
  from( select rownum rn,bno,title,regdate,replycnt,written from announce_board where rownum<=1*10)
@@ -115,8 +123,17 @@ insert into announce_board(bno,title,content)
  	content varchar2(30)
  );
  
+ TRUNCATE table announce_board;
+ 
+ update announce_board set bno=1;
+-- 더미데이터 메인 페이지 test 용
+ insert into announce_board(bno, title, content)
+(select seq_announce_board.nextval, title, content from announce_board);
+
+delete from ANNOUNCE_BOARD where bno between 1 and 900;
+select count(*) from announce_board;
+ 
 --------------------------------------------------
-  -------------------------------------
  지역별 채팅창
   create table areachattingroom(
  	area varchar2(10) primary key,
@@ -125,6 +142,14 @@ insert into announce_board(bno,title,content)
  	insert into areachattingroom(area) 
  	values('제주');
 CREATE SEQUENCE  seq_area_chat;
+
+select area, usernum from AREACHATTINGROOM;
+
+insert INTO area_chat (
+    area,
+    user_id,
+    content
+) values ( 'seoul',#{user_id},#{content})
  
  	create table area_chat(
  	rno number  default seq_area_chat.nextval primary key,
@@ -134,7 +159,7 @@ CREATE SEQUENCE  seq_area_chat;
  	);
  select * from area_chat;
  
- 
+ ----------------------------------
  create table chattingroom(
  	roomnumber number(1) primary key,
  	useable number(1) default 0
@@ -158,8 +183,10 @@ CREATE SEQUENCE  seq_area_chat;
  	content varchar2(100),
  )
 CREATE SEQUENCE  seq_chat;
- 
- 
+
+delete chatRoom1
+
+select * from chatRoom1;
 
  select * from announce_reply
  create table announce_reply(
@@ -202,29 +229,6 @@ select * from fit_attach;
 select * from user_board;
 
 
-------------------------------------------------------------
-
--- 달력 테이블
-create table calendar_ex (
-	cal_title varchar2(50) not null,
-	cal_start date default sysdate,
-	cal_end date default sysdate,
-	cal_description varchar2(200),
-	cal_type varchar2(30) not null,
-	cal_username varchar2(25) not null,
-	cal_backgroundColor varchar2(10) not null,
-	cal_textColor varchar2(10) default '#ffffff',
-	cal_allDay char(1) default '0'
-);
-
-select cal_title, cal_start, cal_end, cal_description, cal_type, cal_username, cal_backgroundColor, cal_textColor, cal_allDay 
-from calendar_ex
-
-select * from calendar_ex;
-
-insert into calendar_ex values('calex',sysdate,sysdate,'','운동','test','red','#ffffff','0'); 
-
-
 ---------------------------------------------------------------
 
 -- 사진 게시판 테이블 생성
@@ -240,7 +244,17 @@ alter table photo_board add constraint pk_photo_board primary key(bno);
 
 create sequence seq_photo_board;
 
+--게시판 내용 열 추가
+ALTER TABLE photo_board ADD content VARCHAR2(1000) DEFAULT 'none';
+alter table photo_board drop column content;
+ALTER TABLE photo_board ADD content VARCHAR2(1000);
+
+-- 첨부파일 업로드 확인
+insert into PHOTO_BOARD(bno,title,writer,regdate,updatedate,content) values(seq_photo_board.nextval,'attachTestNull','attachTestNull',sysdate,sysdate,'attachTestNull');
+
+
 select * from photo_board;
+
 
 -- 사진 게시판 파일 첨부 테이블 생성
 create table photo_attach(
@@ -260,6 +274,30 @@ add constraint fk_photo_attach foreign key(bno) references photo_board(bno);
 
 
 select * from photo_attach;
+
+-- 게시물과 업로드 조인
+
+select *
+		from (select /*+INDEX_DESC(photo_board pk_photo_board)*/ 
+			rownum rn, board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+			from photo_board board left outer join photo_attach 
+			on board.bno = photo_attach.bno
+			where rownum<=(1*9))
+		where rn> (1-1)*9;	
+		
+	           
+     
+select board.bno, title, writer, regdate, updatedate, 
+			photo_attach.uuid,photo_attach.uploadPath,
+			photo_attach.fileName, photo_attach.fileType
+from(select /*+INDEX_DESC(photo_board pk_photo_board)*/ rownum rn, bno, title, writer, regdate, updatedate
+	 from photo_board where rownum<=(1*9)) board left outer join photo_attach on board.bno = photo_attach.bno     
+where rn> (1-1)*9 order by rn;
+
+select * from photo_attach where bno=33;
+delete from photo_attach where bno=33;
 
 ---------------------------------------------------------------
 -- 강사 테이블
@@ -299,6 +337,10 @@ CREATE TABLE teacher_video (
 	CONSTRAINT fk_teacher_video FOREIGN KEY(userId) REFERENCES user_board(userId) ON DELETE CASCADE 
 );
 
+SELECT * FROM user_board users INNER JOIN teacher_info teacher ON users.userId = teacher.userId WHERE teacher.teacher_level = '1'
+
+select * from teacher_Info;
+
 SELECT
     ti.userid,
     ti.main_sports,
@@ -317,6 +359,8 @@ WHERE
     ti.userid = ub.userid
     AND fa.userid = ub.userid
     AND teacher_level = '1'
+    
+-----------------------------------
 
 --운동 자랑 게시판 
 create table comunity_board(
@@ -339,6 +383,22 @@ create table comunity_reply(
 )
 drop table comunity_board;
 select * from comunity_board;
+
+---------------------------------------
+
+create table cal_board_table(
+user_id varchar2(30),
+dates number ,
+cal number default 0,
+extime number default 0,
+flag char(1) ,
+primary key(user_id,dates)
+)
+
+select * from cal_board_table;
+drop table cal_board_table;
+
+insert into cal_board_table values('temp',20210102,400,0,'o');
 
 
 CREATE SEQUENCE  seq_comunity_board;

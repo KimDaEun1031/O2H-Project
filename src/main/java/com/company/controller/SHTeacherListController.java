@@ -25,9 +25,15 @@ public class SHTeacherListController {
 	@Autowired
 	private SHTeacherService service;
 	
-	@RequestMapping(value = "/PT/teacher_list", method = RequestMethod.GET)
-	public void teacher_list() {
-		log.info("Go to : /PT/teacher_list.jsp");
+//	@RequestMapping(value = "/PT/teacher_list", method = RequestMethod.GET)
+//	public void teacher_list() {
+//		log.info("Go to : /PT/teacher_list.jsp");
+//	}
+	// 위에 거는 연결이 안되서 아래로 바꿨어요
+	
+	@GetMapping("/PT/teacher_list")
+	public void teacher_listpage() {
+		log.info("스트리밍 페이지 호출");
 	}
 	
 	@GetMapping(path = "/PT/profile/{page}/{pageCount}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

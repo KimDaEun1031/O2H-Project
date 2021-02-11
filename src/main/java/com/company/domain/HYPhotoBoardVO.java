@@ -18,10 +18,11 @@ public class HYPhotoBoardVO {
 	private int bno;
 	private String title;
 	private String writer;
+	private String content; //추가
 	private Date regdate;
 	private Date updatedate;
 	private int replycnt;
 	
 	//파일 첨부 목록
-	private List<HYPhotoBoardFileAttach> attachList;
+	private HYPhotoBoardFileAttach attach;
 }

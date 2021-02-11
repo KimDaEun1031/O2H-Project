@@ -36,11 +36,11 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Controller
 public class SHTeacherUploadController {
 	
-	// 강사 프로필 이미지 폴더
+	// 강사 프로필 이미지 폴더  "D:\\projectFiles\\profile";
 	public static final String profileUploadFolder = "D:\\projectFiles\\profile";
-	// 강사 프로필 이미지 임시파일 폴더
+	// 강사 프로필 이미지 임시파일 폴더 "D:\\projectFiles\\profile\\temp";
 	public static final String temporaryUploadFolder = "D:\\projectFiles\\profile\\temp";
-	// 강사 기본 프로필 이미지 파일
+	// 강사 기본 프로필 이미지 파일 "D:\\projectFiles\\profile\\default\\default.jpg";
 	public static final String defaultImageFile = "D:\\projectFiles\\profile\\default\\default.jpg";
 	
 	@Autowired
