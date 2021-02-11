@@ -17,16 +17,54 @@ body {
 }
 /* 테두리 박스 만들기 */
 .wrap .col-xl-3{
-	 border: 2px solid #009999;
+	 border: 3px solid #009999;
+	 /* border: 2px solid #009999; */
 	 width: 100%;
 	 margin: 10px;
 	 padding: 10px;
 }
-/* 블릿 제거 - ul 나중에 display:none 줄거임 */
-ul li{
-	list-style:none;
+/* 리스트 링크 */
+.paginate_button a{
+	/* color: #009999; */
+	font-weight: 600;
+	font-size: 1.5rem;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;	
 }
-/* img hover 시 이미지 확대 */
+.paginate_button a{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.paginate_button a:hover{
+	background-color: #009999;
+    color: #fff; 
+}
+/* 글작성 버튼 */
+.testBtn {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 40px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 300px;
+}
+/* img 태그 hover 시 이미지 확대 */
 .scale {
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -41,6 +79,9 @@ ul li{
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
+}
+.center{
+	margin: auto;
 }
 @media(min-width: 700px){
 
@@ -65,7 +106,7 @@ ul li{
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <a href="board_photo_list"><span>사진 게시판</span></a>
+              <a href="board_photo_list"><span><b>사진 게시판</b></span></a>
             </div>
           </div>
         </div>
@@ -73,7 +114,9 @@ ul li{
     </div>
    <br />
   	<!-- 큰 버튼 -->
-    <input type="reset" data-oper='list' class="btn btn-primary btn-block active" onclick="location.href='/board/board_photo_write'" value="글작성">
+    <button type="button" class="btn btn-primary btn-block active center testBtn" onclick="location.href='/board/board_photo_write'" >글작성</button>
+    <!-- <button type="button" style="height: 35px; font-weight: 900; border-radius: 300px; border: none; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; max-width: 800px; min-width: 60px;" data-oper='list' class="btn btn-primary btn-block active center" onclick="location.href='/board/board_photo_write'" >글작성</button> -->
+   <!--  <button type="button" style="height: 35px; font-size: 1rem; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; max-width: 600px; min-width: 60px;" data-oper='list' class="btn btn-primary btn-block active center" onclick="location.href='/board/board_photo_write'" >글작성</button> -->
     <!-- 작은 버튼 -->
     <!-- <input type="reset" data-oper='list' class="btn btn-primary tm-btn-next active" onclick="location.href='/board/board_photo_write'" value="글작성"> -->
     <!-- Breadcrumb Section Begin -->
@@ -108,7 +151,7 @@ ul li{
 			str+='<figure class="effect-ming tm-video-item">';
 			str+='<div class="scale">';
 			str+='<a href="${vo.bno}" class="move">';
-			str+="<img id='myImg' src='/photoBoardDisplay?fileName="+fileCallPath+"' alt='${vo.attach.fileName}' class='img-fluid'>";
+			str+="<img id='myImg' src='/photoBoardDisplay?fileName="+fileCallPath+"' alt='${vo.attach.fileName}' class='img-fluid'>";		
 			str+='<figcaption class="d-flex align-items-center justify-content-center">';
 			str+='<a href="${vo.bno}" class="move"><h2>${vo.title}</h2></a>';
 			str+='</figcaption></div></figure><div class="d-flex justify-content-between tm-text-gray">';
@@ -128,7 +171,7 @@ $(".wrap").html(str);
 			<li class="paginate_button previous" ><a href="${pageVO.startPage-1 }">Previous</a>
 		</c:if>
 		<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
-			<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px" href="${idx}">${idx}</a>
+			<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px;" href="${idx}">${idx}</a>
 		</c:forEach>
 		<c:if test="${pageVO.next }">
 			<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>

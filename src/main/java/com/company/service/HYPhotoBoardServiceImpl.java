@@ -81,7 +81,7 @@ public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 	}
 
 	@Override
-	public int getTotalCnt(HYPhotoBoardCriteria cri) {
+	public int getTotalCnt(HYPhotoBoardCriteria cri) {//댓글 없는 상태임.
 		return mapper.totalCnt(cri);
 	}
 

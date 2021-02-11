@@ -44,30 +44,21 @@
 	           <%-- <span class="tm-text-gray-light"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd HH:mm"/></span> --%><!-- 이건 나오는데 그냥 read쪽 개별 게시물 들어가서 나오게 하자 -->
 	           <%-- <span><td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy-MM-dd HH:mm"/></td></span> --%><!-- 이거 안나옴 vo에 없나? -->
 	          </dl>
-	       </div>
-	          <!-- 
-	          <dl>
-	            <dt>비밀번호</dt>
-	            <dd><input type="password" placeholder="비밀번호 입력" /></dd>
-	          </dl>
-	        </div> -->
-	        <%-- <div class="cont">
-	          <<t>		</t>extarea name="content" id="contenth" placeholder="내용 입력" readonly="readonly"> ${vo.content }</textarea>
-	        </<di></di>v> --%>
-	        	<img id="myImg" src="" alt="">      	
-	        	
-				<div class="row" style="margin-top:10px">
-					<div class="col-lg-12">
-						<div class="panel panel-default">
-							<div class="panel-heading"><!-- <i class="fa fas fa-file"></i> Files --></div>
-							<div class="panel-body">				
-								<div class="uploadResult">
-									<ul></ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+	       	 </div>
+	          <div class="cont">
+	           	<textarea name="content" placeholder="내용 입력" readonly="readonly" style="resize: none; height:150px; background-color: #faffff;">${board.content}</textarea>
+		      </div> 
+		      <div>
+				<ul style="visibility:hidden;"><!-- list-style: none; 아래 위에 공간 만들라고 함 none 하니까 블릿이 사라지면서 공간도 없어져서 visibility 사용함. -->
+					<li></li>
+				</ul>
+			  </div>	
+	        		<img id="myImg" src="" alt="">      	        	
+				<div>
+					<ul style="visibility:hidden;">
+						<li></li>
+					</ul>
+			    </div>
 		        <!-- 첨부물 보여주기 -->
 				<script>
 					//현재 글 번호 가져오기->read->reply => 결과를 read
@@ -81,14 +72,14 @@
 	    </div>
     <div class="bt_wrap" id="ttld">  
       
-	   	<input type="submit" data-oper='modify' id="hob" value="수정" >
-	    <input type="submit" data-oper='remove' id="hob2" value="삭제">   
+	   	<input type="submit" class="btn btn-success" data-oper='modify' id="hob" value="수정" >
+	    <input type="submit" class="btn btn-danger" data-oper='remove' id="hob2" value="삭제">   
 	   <%-- <c:if test="${loginInfo.userId == board.writer}"> 
 	   	<input type="submit" data-oper='modify' id="hob" value="수정" >
 	    <input type="submit" data-oper='remove' id="hob2" value="삭제">   
 	   </c:if> --%> <!-- 나중에 로그인 전용으로 글 쓸 수 있게 하려면 막은 거 풀면 됨 -->
 	    <!-- <input type="reset" data-oper='list' onclick="location.href='/board/board_photo_list'" value="리스트"> --><!-- 아래 스크립트 걸라고 막았음 -->
-	    <input type="submit" data-oper='list' value="리스트">
+	    <input type="submit" class="btn btn-info" data-oper='list' value="목록">
     </div>
     
     

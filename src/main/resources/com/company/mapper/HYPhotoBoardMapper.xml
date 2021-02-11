@@ -7,7 +7,7 @@
 		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
 			select seq_photo_board.nextval from dual
 		</selectKey>
-		insert into photo_board(bno,title,writer) values(#{bno},#{title},#{writer})
+		insert into photo_board(bno,title,writer,content) values(#{bno},#{title},#{writer},#{content})
 	</insert>
 	
 	<!-- 삭제 -->
@@ -17,7 +17,7 @@
 	
 	<!-- 수정 : title, content, updatedate -->
 	<update id="update">
-		update photo_board set title=#{title}, updatedate=sysdate 
+		update photo_board set title=#{title}, content=#{content}, updatedate=sysdate 
 		where bno=#{bno}
 	</update>
 	
@@ -65,7 +65,7 @@
 		select * from photo_board where bno=#{bno}
 	</select>
 	
-	<!-- 댓글 개수 업데이트 -->
+	<!-- 댓글 개수 업데이트x : 댓글 없는 보드임 -->
 	<update id="updateReplyCnt">
 		update photo_board set replycnt=replycnt+#{amount} 
 		where bno=#{bno}
@@ -111,6 +111,7 @@
 	
 	
 	<!-- ResultSet 에 담긴 데이터를 객체에 로드 -->
+	<!-- 첨부물 list -->
 	<resultMap type="com.company.domain.HYPhotoBoardFileAttach" id="attachMap">
 		<result property="uuid" column="uuid"/>
 		<result property="uploadPath" column="uploadPath"/>

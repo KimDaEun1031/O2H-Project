@@ -8,7 +8,14 @@ $(function(){
 	$("button[type='submit']").click(function(e){ //버튼 하나니까. 상관없지 - 버튼 아니였음. 
 	//$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
-
+		
+		var imgAttach = $("#myImg").attr("src"); //.val() 붙였더니 에러남
+		if(!imgAttach){
+			alert("사진 게시판입니다.\n첨부파일을 등록해 주세요.");
+			console.log(imgAttach);
+			return false;
+		}
+		
 		var str = "";
 		//첨부파일 영역에 정보 수집
 	//	$("#myImg").each(function(idx,obj){

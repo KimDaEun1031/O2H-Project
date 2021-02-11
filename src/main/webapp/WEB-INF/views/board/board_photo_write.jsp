@@ -10,31 +10,16 @@
           <div class="col-lg-12">
             <div class="breadcrumb-text">
               <a href="board_photo_list"><span>사진 게시판</span></a>
-              <span>
+              <!-- <span>
               	<label for="files" class="btn btn-primary active" id="changeImgBtn">Select Image</label>
-              </span>
+              </span> -->
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 게시글 작성 -->
-	<!-- 첨부파일 -->  
-			
-         <%-- 파일등록 --%>
-    <div class="container">
-    	<div style="text-align:center">
-     		<img id="myImg" src=""/>
-     	</div>
-		<div class="row">
-		  <div class="col align-self-start">					
-			<input id="files" name="uploadFile" id="" type="file" accept='image/jpeg,image/gif,image/png' style="visibility:hidden;">
-		  </div>  
-		</div>
-	</div>      
-      </div>
-     <%-- 파일등록 --%>
+   
       </div>
     <!-- </div> -->
     
@@ -58,10 +43,40 @@
 	            <dd><input type="text" name="writer" placeholder="글쓴이 입력" value="${loginInfo.userId }" readonly="readonly" style="background-color: azure;"/></dd>
 	          	 </c:if>
 	          </dl>   
-    
-	
+	          <div class="cont">
+          		<textarea name="content" placeholder="내용 입력" style="resize: none; height:150px;"></textarea>
+        	  </div>	       
+		     <!-- 게시글 작성 -->
+			<!-- 첨부파일 -->  	
+			<div>
+				<ul style="visibility:hidden;">
+					<li></li>
+				</ul>
+		    </div>				        
+		    <div class="container">
+		    	<div style="text-align:center">
+		     		<img id="myImg" src=""/>
+		     	</div>
+				<div class="row">
+				  <div class="col align-self-start">					
+					<input id="files" name="uploadFile" id="" type="file" accept='image/jpeg,image/gif,image/png' style="visibility:hidden;">
+				  </div>  
+				</div>
+			</div>      
+		      </div>
+		     <%-- 파일등록 --%>
+			 <span>
+              	<label for="files" class="btn btn-primary active" id="changeImgBtn">Select Image</label>
+              </span>
+              <%-- 파일등록 --%>      
+  			 </div><!-- class="info" 영역 -->
+			 <div class="board_write"><!-- 아래 hr 선 -->
+		 	<div class="cont">
+			       </div>
+		       </div>
+		    </div>
 		    <div class="bt_wrap">
-		      <button type="submit" class="btn btn-success">등록</button>
+		      <button type="submit" class="btn btn-success write">등록</button>
 		      <button type="reset" class="btn btn-danger">취소</button>
 		      <button type="button" class="btn btn-info" onclick="location.href='/board/board_photo_list'">목록</button>		  
 		    </div>
@@ -72,7 +87,7 @@
 <script>
 $(function(){
 	$("input[name='title']").focus()
-							.select();
+							.select();	
 })
 </script>
 <script src="/resources/js/photoBoardWrite.js"></script>

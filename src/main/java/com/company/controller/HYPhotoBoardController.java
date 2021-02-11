@@ -82,7 +82,7 @@ public class HYPhotoBoardController {
 			if(path!=null)
 				attach.setUploadPath(path.replaceAll("\\\\", "/"));			
 		}		
-		
+
 		int total = service.getTotalCnt(cri);
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", new HYPhotoBoardPageVO(cri, total));

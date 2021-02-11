@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -103,51 +104,13 @@ public class HYPhotoBoardUploadAjaxController {
 		return new ResponseEntity<HYFileAttach>(attach,HttpStatus.OK); 
 	} // uploadPost end
 	
-	@GetMapping("/photoBoardDisplay")
-	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
-		log.info("썸네일 요청 "+fileName);
-		
-		
-		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
-		File f = new File(uploadFolder+"\\"+fileName);
-		
-		ResponseEntity<byte[]> entity = null;
-		
-		HttpHeaders headers = new HttpHeaders();
-		try {
-			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
-			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
-					headers,HttpStatus.OK);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return entity;
-	}
-	
-	
-	
-//	@GetMapping("/photoBoardDisplay2")
-//	//@PostMapping("/photoBoardDisplay2")
-//	public ResponseEntity<byte[]> getFile2(String fileName,HttpServletRequest req){
+//	@GetMapping("/photoBoardDisplay") //원본
+//	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
+//		log.info("썸네일 요청 "+fileName);
 //		
-//		log.info("처음 포토보드 "+fileName);
-//		
-//		try {
-//			fileName=URLDecoder.decode(fileName, "utf-8");
-//			log.info("2 포토보드 "+fileName);
-//
-//			
-//		} catch (UnsupportedEncodingException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//
 //		
 //		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
 //		File f = new File(uploadFolder+"\\"+fileName);
-//		
-//		
-//		
 //		
 //		ResponseEntity<byte[]> entity = null;
 //		
@@ -158,12 +121,62 @@ public class HYPhotoBoardUploadAjaxController {
 //					headers,HttpStatus.OK);
 //		} catch (IOException e) {
 //			e.printStackTrace();
-//		}
+//		} 
 //		return entity;
 //	}
-//	
 	
+//	@GetMapping("/photoBoardDisplay")//NoSuchFileException 예외처리로 해보기
+//	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
+//		log.info("썸네일 요청 "+fileName);
+//		
+//		
+//		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
+//		File f = new File(uploadFolder+"\\"+fileName);
+//		
+//		ResponseEntity<byte[]> entity = null;
+//		
+//		HttpHeaders headers = new HttpHeaders();
+//		try {
+//			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
+//			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
+//					headers,HttpStatus.OK);
+//		} catch (NoSuchFileException x) {
+//			System.err.format("%s: no such" + " file or directory%n", entity);
+//			entity = new ResponseEntity("/resources/img/profile/fiturjc_default_user.jpg",HttpStatus.OK);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} 
+//		return entity;
+//	}
 	
+	@GetMapping("/photoBoardDisplay") //파일 없을 때 상태로 값으로 예외처리하기
+	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
+		log.info("썸네일 요청 "+fileName);
+		
+		
+		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
+		File f = new File(uploadFolder+"\\"+fileName);
+		File fx = new File(uploadFolder+"\\"+"Koala.jpg");
+		
+		ResponseEntity<byte[]> entity = null;
+		
+		HttpHeaders headers = new HttpHeaders();
+		try {
+			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
+			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
+					headers,HttpStatus.OK);
+		} catch (IOException e) {
+			e.printStackTrace();
+			try {
+				entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(fx),
+						headers,HttpStatus.OK);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		} 
+		return entity;
+	}
+
 	//다운로드
 	@GetMapping(value = "/photoBoardDownload", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<Resource> download(String fileName) {
@@ -234,8 +247,8 @@ public class HYPhotoBoardUploadAjaxController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date(); // 시간,날짜가 길게 나옴
 		String str = sdf.format(date); // 2021-01-21
-		//return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
-		return str.replace("_", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
+		return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
+		//return str.replace("_", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
 	} // getFolder end
 	
 	
