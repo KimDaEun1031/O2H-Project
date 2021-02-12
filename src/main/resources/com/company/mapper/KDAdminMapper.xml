@@ -71,4 +71,17 @@
 		 rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
 		]]>
 	</select>
+	<!-- 강사 리스트 -->
+	<select id="selectByTeacher" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    userid,
+		    username,
+		    useremail,
+		    regdate
+		FROM
+		    user_board
+		WHERE
+		    user_level = '1'
+	</select>
+	
 </mapper>

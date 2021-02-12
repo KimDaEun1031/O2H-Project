@@ -55,6 +55,15 @@ public class KDAdminController {
 		List<KDLoginInfoVO> adminlist= service.AdminInfo();
 		model.addAttribute("adminlist",adminlist);
 	}
+	
+	@GetMapping("/admin_teacher_list")
+	public void adminTeacherList(Model model) {
+		log.info("관리자 회원관리페이지 - 강사 리스트");
+		List<KDLoginInfoVO> teacherlist = service.TeacherInfo();
+		model.addAttribute("teacherlist",teacherlist);
+	}
+	
+	
 	@GetMapping("/member_control")
 	public String member_control(Model model,YHCriteria cri) {
 		log.info("관리자 회원관리페이지 - 회원 관리");

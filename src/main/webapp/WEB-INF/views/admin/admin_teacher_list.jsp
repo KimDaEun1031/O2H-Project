@@ -25,7 +25,7 @@
 								       </caption>
 								       <thead >
 								       	 <tr>
-								       	 	<th colspan="5">관리자 리스트</th>
+								       	 	<th colspan="5">강사 리스트</th>
 								       	 </tr>
 								         <tr>
 								           <th>아이디</th>
@@ -35,12 +35,12 @@
 								         </tr>
 								       </thead>
 								       <tbody>
-								    		<c:forEach var="adminlist" items="${adminlist}">
+								    		<c:forEach var="teacherlist" items="${teacherlist}">
 									    		<tr>
-									         		<td>${adminlist.userId}</td>
-										   			<td>${adminlist.userName}</td>
-										   			<td>${adminlist.userEmail}</td>
-										          	<td><fmt:formatDate value="${adminlist.regDate }" pattern="yyyy-MM-dd HH:mm" /></td>         		
+									         		<td>${teacherlist.userId}</td>
+										   			<td>${teacherlist.userName}</td>
+										   			<td>${teacherlist.userEmail}</td>
+										          	<td><fmt:formatDate value="${teacherlist.regDate }" pattern="yyyy-MM-dd HH:mm" /></td>         		
 									         	</tr>
 									         </c:forEach>																	       
 										</tbody>

@@ -70,10 +70,9 @@
                                 <input style="border-radius:0px;background-color:black;!important" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
                             </div>
                             <div class="form-group">
-<<<<<<< HEAD
                                 <label for="name">Username:</label>
                                 <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" value="${loginInfo.userName}">
-=======
+
                                 <label for="name">User Name:</label>
                                 <input style="border-radius:0px;background-color:black;!important" type="name" name="userName" class="form-control" id="name" value="${loginInfo.userName}">
                             </div>
@@ -84,7 +83,6 @@
                             <div class="form-group">
                                 <label for="name">Phone Number:</label>
                                 <input style="border-radius:0px;background-color:black;!important" type="name" name="phoneNumber" class="form-control" id="name" value="${loginInfo.phoneNumber}">
->>>>>>> branch 'master' of https://github.com/youngho0983/projectSource.git
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>

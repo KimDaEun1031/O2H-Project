@@ -11,7 +11,7 @@
                    <div class="list-group" style="text-align: center; width: 200px; height: 500px; margin-left: 50%" >
 					  <button type="button" class="list-group-item active" style="background: #e7ab3c; border-color: #e7ab3c;">회원 관리</button>
 					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_member'">관리자 리스트</button>
-  					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='teacher_list'">강사 신청 리스트</button>
+  					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_teacher_list'">강사 리스트</button>
   					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='member_control'">회원 관리</button>
 					</div>
                 </div>
@@ -88,7 +88,7 @@
                 	한 번 삭제하면 다시 계정을 생성해야합니다!
                 </div> 
                     <div class="modal-footer"> 
-                        <a class="btn btn-secondary" href="/delete" id="delete">삭제</a> 
+                        <a class="btn btn-secondary" href="/admin/delete" id="delete">삭제</a> 
                         <button type="button" class="btn btn-primary" data-dismiss="modal" >취소</button> 
                     </div> 
                 </div> 
