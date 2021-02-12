@@ -8,6 +8,7 @@ import com.company.domain.YHChatVO;
 public interface YHChatService {
 	public List<YHChatRoomVO> getList();
 	public int goIntoRoom1();
+	public int goIntoRoom1AsAdmin();
 	public int goIntoRoom2();
 	public int goIntoRoom3();
 	public int goInOutRoom1();

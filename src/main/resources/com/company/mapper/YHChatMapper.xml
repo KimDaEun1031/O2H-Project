@@ -16,6 +16,11 @@
 			set useable=2 
 			where roomnumber=1
 		</update>
+		<update id="goIntoRoom1AsAdmin">
+			update  chattingroom
+			set useable=1
+			where roomnumber=1
+		</update>
 		<update id="goIntoRoom2">
 			update  chattingroom
 			set useable=2 

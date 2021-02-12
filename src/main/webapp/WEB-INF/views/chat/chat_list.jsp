@@ -45,13 +45,23 @@
 			<tr>
 				<td>이용 불편 문의</td>
 				<td>
-				<%if(room1State.equals("사용 가능")){ %>
-				<a href="/chat/gotoRoom1"><%=room1State %></a>
+				
+					<c:if test="${loginInfo.userId eq 'admin' }">
+					<a id="adminOnly" href="/chat/gotoRoom1AsAdmin">어드민으로 접속</a>
+					</c:if>
+				<%if(room1State.equals("사용 가능")){
+				%>
+				
+				<a href="/chat/gotoRoom1" id="wantTogoRoom1"><%=room1State %> 
+				
+				
+				</a>
 				<% }else{ %>
 				<a href="/chat/gotoWaittingRoom1"><%=room1State %></a>
 				<%} %>
+			
 				</td>
-
+				
 			</tr>
 			<tr>
 				<td>강사 관련 문의</td>
@@ -71,5 +81,15 @@
 	</table>
 
 </div>
+<script>
+console.log("${loginInfo.userId}");
 
+//var wantTogoRoom1=document.getElementById("wantTogoRoom1");
+//if("${loginInfo.userId}"=="admin"){
+//	wantTogoRoom1.setAttribute("href","/chat/gotoRoom1AsAdmin");
+
+//	wantTogoRoom1.innerHTML("운영자로 입장");
+//} 
+
+</script>
 <%@include file="../includes/footer.jsp"%>

@@ -94,5 +94,10 @@ public class YHChatServiceImpl implements YHChatService {
 		
 		return mapper.goOutRoom3remove();
 	}
+	@Override
+	public int goIntoRoom1AsAdmin() {
+		// TODO Auto-generated method stub
+		return mapper.goIntoRoom1AsAdmin();
+	}
 
 }
