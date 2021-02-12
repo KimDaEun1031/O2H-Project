@@ -63,12 +63,44 @@ $(function() { //이메일
 			userEmail : {
 				required:true,
 				validEmail:true
-			}
+			},
+			userName : {
+				required:true,
+				validName:true
+				//maxbytelength:10
+				//rangelength : [1, 10]								
+			},
+			address : {
+				required:true,
+				validAddr:true
+			},
+			phoneNumber : {
+				required:true,
+				validPhone:true
+			},			
+			userBirth : {
+				required:true,
+				validBirth:true
+			}			
 		},//rules
 		//규칙에 대한 메세지 정의
 		messages:{
 			userEmail : {
 				required:"이메일을 입력해주세요."				
+			},
+			userName : {
+				required:"이름을 입력해주세요.",
+				//maxbytelength:"최대 {10}바이트 이하(한글 3자, 영숫자 10자)"
+				//rangelength: "이름은 한글 2~3자리\n알파벳 1~10자 사이입니다."				
+			},
+			address : {
+				required:"주소를 입력해주세요."				
+			},
+			phoneNumber : {
+				required:"전화번호를 입력해주세요."				
+			},
+			userBirth : {
+				required:"생일을 입력해주세요."				
 			}
 		},//messages
 		
@@ -87,11 +119,37 @@ $(function() { //이메일
 	});//"#modifyform").validate
 });//function()
 
-//사용자 검증 메소드 추가
+/*//사용자 검증 메소드 추가-이름
+$.validator.addMethod("validName", function(value) {
+	var regName = /^[가-힣|a-z|A-Z|0-9|\*]+$/;
+	return regName.test(value);
+}, "이름을 확인해 주세요.");*/
+
+//사용자 검증 메소드 추가-이름
+$.validator.addMethod("validName", function(value) {
+	var regName = /^[a-z|A-Z|0-9|\*]{1,10}$/;
+	return regName.test(value);
+}, "이름을 확인해 주세요. 영어 숫자 1~10자");
+//사용자 검증 메소드 추가-주소
+$.validator.addMethod("validAddr", function(value) {
+	var regAddr = /^[가-힣A-Za-z\d\s]{1,100}$/;
+	return regAddr.test(value);
+}, "주소를 확인해 주세요.");
+//사용자 검증 메소드 추가-전화번호
+$.validator.addMethod("validPhone", function(value) {
+	var regPhone = /^(?=.*[\d])[\d]{1,13}$/;
+	return regPhone.test(value);
+}, "전화번호를 확인해 주세요.");
+//사용자 검증 메소드 추가-이메일
 $.validator.addMethod("validEmail", function(value) {
 	var regEmail = /^.+@.+\..+$/;
 	return regEmail.test(value);
 }, "email을 확인해 주세요.");
+//사용자 검증 메소드 추가-생일
+$.validator.addMethod("validBirth", function(value) {
+	var regBirth = /\d{4}-\d{2}-\d{2}$/;
+	return regBirth.test(value);
+}, "생일을 확인해 주세요.");
 
 
 /**
