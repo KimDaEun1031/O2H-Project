@@ -52,6 +52,14 @@ public class YHChattingController {
 		return "/chat/room1";
 		
 	}
+	@GetMapping("/gotoRoom1AsAdmin")
+	public String gotoChatRoom1AsAdmin() {
+		log.info("1번 방으로 진입합니다. 운영자로");
+		service.goIntoRoom1AsAdmin();
+		return "/chat/room1";
+		
+	}
+	
 	@GetMapping("/gotoRoom2")
 	public String gotoChatRoom2() {
 		log.info("1번 방으로 진입합니다.");
