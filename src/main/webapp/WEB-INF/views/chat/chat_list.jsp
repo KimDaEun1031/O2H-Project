@@ -30,7 +30,13 @@
 <%
 	List<YHChatRoomVO> list=(List<YHChatRoomVO>)request.getAttribute("list");
 	YHChatRoomVO vo1=list.get(0);
-	String room1State=vo1.getUseable()==1?"사용가능":"대기실로 입장";
+	int waitNum=(int)request.getAttribute("waitNum");
+	String room1State="";
+	if(vo1.getUseable()==1 &&waitNum==0){
+		room1State="사용 가능";
+	}else{
+		room1State="대기방 입장";
+	}
 	YHChatRoomVO vo2=list.get(1);
 	String room2State=vo2.getUseable()==1?"사용가능":"대기실로 입장";
 	YHChatRoomVO vo3=list.get(2);
@@ -39,7 +45,7 @@
 			<tr>
 				<td>이용 불편 문의</td>
 				<td>
-				<%if(room1State.equals("사용가능")){ %>
+				<%if(room1State.equals("사용 가능")){ %>
 				<a href="/chat/gotoRoom1"><%=room1State %></a>
 				<% }else{ %>
 				<a href="/chat/gotoWaittingRoom1"><%=room1State %></a>

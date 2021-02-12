@@ -15,4 +15,10 @@ update waitting_board set wno =0 where wait_ticket< #{wait_ticket}
 <delete id="deleteTicket">
 delete waitting_board where wait_ticket= #{wait_ticket}
 </delete>
+<update id="getWaitNum">
+
+update waitting_board set wno =0 
+
+</update>
+
 </mapper>

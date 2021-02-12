@@ -35,4 +35,10 @@ public class YHTicketServiceImp implements YHTicketService {
 		return mapper.getWaitNumBeforeMe(wait_ticket);
 	}
 
+	@Override
+	public int getWaitNum() {
+		// TODO Auto-generated method stub
+		return mapper.getWaitNum();
+	}
+
 }
