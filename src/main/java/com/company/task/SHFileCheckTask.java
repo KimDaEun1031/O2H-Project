@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,9 @@ public class SHFileCheckTask {
 	
 	@Autowired
 	private SHTeacherService service;
+	
+	@Autowired
+	private ServletContext context;
 
 	public void cleanInvalidFile(String directory, List<String> userList) {
 		log.info("cleanInvalidFile" + directory + userList);
@@ -110,18 +115,25 @@ public class SHFileCheckTask {
 		}
 	}
 	
-	@Scheduled(cron = "0 * * * * *")
+	@Scheduled(cron = "0 0 0 * * *")
 	public void cleanFolder() {
 		log.info("cleanFolder");
 		
-		List<String> list = service.getValidUserId();
+//		String profileUploadFolder = context.getRealPath("/profile");
+//		String temporaryUploadFolder = context.getRealPath("/profile/temp");
 		
-		if(!list.isEmpty()) {
-			cleanInvalidFile(SHTeacherUploadController.profileUploadFolder, list);
-			cleanProfileFolder(SHTeacherUploadController.profileUploadFolder, list);
-		}
+//		List<String> list = service.getValidUserId();
 		
-		cleanTemporaryFolder(SHTeacherUploadController.temporaryUploadFolder);
+//		if(!list.isEmpty()) {
+			//cleanInvalidFile(SHTeacherUploadController.profileUploadFolder, list);
+			//cleanProfileFolder(SHTeacherUploadController.profileUploadFolder, list);
+			
+//			cleanInvalidFile(profileUploadFolder, list);
+//			cleanProfileFolder(profileUploadFolder, list);
+//		}
+		
+		//cleanTemporaryFolder(SHTeacherUploadController.temporaryUploadFolder);
+//		cleanTemporaryFolder(temporaryUploadFolder);
 	}
 
 }
