@@ -98,6 +98,7 @@
       <input type="button" value="확인" id="btn1" />
     </form>
     <br />
+    <div id="beforeLogInArea" hidden="hidden">
     <form>
     <input type="date" name ="date" id="date" value="2021-01-01">   	
     	<div class="flex-container">
@@ -118,7 +119,7 @@
 	    	<br />하루 총 칼로리
 	    	<input type="text" name="total" id="total" value="0" style="margin-top: 5px;">
 	    	 <input type="button" value="저장하기" id="submit" style="margin-top: 10px;" /> 
-	    	 <input type="hidden" name="user_id" value="temp">
+	    	 <input type="hidden" name="user_id" value="${loginInfo.userId}">
 	    	 <p id="result"></p>
 
 	</form>
@@ -137,6 +138,7 @@
 	    </div>
 	
 	</form>
+	</div>
     	<script>
     	var date=document.getElementById("date");
     	var mor=document.getElementById("mor");
@@ -149,7 +151,16 @@
     	var submitBtn=document.getElementById("submit")
     	  var want;
   	  	var result=document.getElementById("result");
-    	submitBtn.onclick=function(){
+  	  	var beforeLoginArea=document.getElementById("beforeLogInArea");
+  	  	
+  	  	if(${loginInfo.userId}!=""){
+  	  	beforeLoginArea.removeAttribute("hidden");
+  	  	}
+    	
+  	  	
+  	  	
+  	  	
+  	  	submitBtn.onclick=function(){
     	
     	
     	var xhr=new XMLHttpRequest();
@@ -165,7 +176,7 @@
     	    }
     	  }
     	  console.log("/restCal/insert?date="+date.value+"&cal="+total.value)
-    	  xhr.open("get","/restCal/insert?date="+date.value+"&cal="+total.value+"&user_id=temp");
+    	  xhr.open("get","/restCal/insert?date="+date.value+"&cal="+total.value+"&user_id=${loginInfo.userId}");
     	  xhr.send();
 
     	}

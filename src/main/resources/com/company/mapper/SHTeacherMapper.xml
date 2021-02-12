@@ -94,7 +94,7 @@
 		ON users.userId = teacher.userId
 		WHERE teacher.teacher_level = '1'
 	</select>
-	
+	<!-- 
 	<select id="selectProfileList" resultMap="profileMap">
 		<![CDATA[
 			SELECT rn, userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3, user_level, userInfo, teacherInfo, main_sports, channelId, teacher_level
@@ -137,7 +137,7 @@
 		ON users.userId = teacher.userId
 		WHERE users.userId = #{userId}
 	</select>
-	
+	 -->
 	<select id="getUserId" resultType="String">
 		SELECT userId
 		FROM user_board

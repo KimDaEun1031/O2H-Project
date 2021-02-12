@@ -55,14 +55,49 @@ public class YHChatServiceImpl implements YHChatService {
 		return mapper.chatInsertRoom1(fromid, content);
 	}
 	@Override
+	public int chatInsertRoom2(int fromid, String content) {
+		// TODO Auto-generated method stub
+		return mapper.chatInsertRoom2(fromid, content);
+	}
+	@Override
+	public int chatInsertRoom3(int fromid, String content) {
+		// TODO Auto-generated method stub
+		return mapper.chatInsertRoom3(fromid, content);
+	}
+	@Override
 	public List<YHChatVO> getRoom1ChatList() {
 		
 		return mapper.getRoom1ChatList();
 	}
 	@Override
+	public List<YHChatVO> getRoom2ChatList() {
+		
+		return mapper.getRoom2ChatList();
+	}
+	@Override
+	public List<YHChatVO> getRoom3ChatList() {
+		
+		return mapper.getRoom3ChatList();
+	}
+	@Override
 	public int goOutRoom1remove() {
 		
 		return mapper.goOutRoom1remove();
+	}
+	@Override
+	public int goOutRoom2remove() {
+		
+		return mapper.goOutRoom2remove();
+	}
+	@Override
+	public int goOutRoom3remove() {
+		
+		return mapper.goOutRoom3remove();
+	}
+	@Override
+	public int goIntoRoom1AsAdmin() {
+		// TODO Auto-generated method stub
+		return mapper.goIntoRoom1AsAdmin();
 	}
 
 }

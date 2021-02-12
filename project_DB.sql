@@ -175,12 +175,12 @@ insert INTO area_chat (
  create table chatroom2(
  	rno number default seq_chat.nextval,
  	fromid number(1),
- 	content varchar2(100),
+ 	content varchar2(100)
  )
  create table chatroom3(
  	rno number default seq_chat.nextval,
  	fromid number(1),
- 	content varchar2(100),
+ 	content varchar2(100)
  )
 CREATE SEQUENCE  seq_chat;
 
@@ -474,3 +474,18 @@ VALUES(seq_map_location.NEXTVAL, '크로스핏슈퍼밤', '서울 종로구 종�
 
 INSERT INTO map_location
 VALUES(seq_map_location.NEXTVAL, '제일메가스포', '서울 종로구 율곡로 202-7', '제일메가스포', '37.5756642567309', '127.001415728576');
+
+
+-----------------------------------------------------------------------------------------
+--실시간 문의 대화방 업그레이드
+
+create table waitting_board(
+wait_ticket number default seq_chat_waittingTicket.nextval,
+wno number default seq_chat_waitting.nextval
+)
+select * from waitting_board;
+delete waitting_board where wait_ticket=44;
+delete waitting_board;
+create sequence seq_chat_waitting;
+
+create sequence seq_chat_waittingTicket;

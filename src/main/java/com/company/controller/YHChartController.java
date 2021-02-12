@@ -53,7 +53,7 @@ public class YHChartController {
 			if(temp/100==month+100*year) {
 			temp= temp%100;
 			arr[temp]=list.get(i).getCal();
-			brr[temp]=list.get(i).getExtime();
+			brr[temp]=(list.get(i).getExtime())*100;
 			}
 			}
 		

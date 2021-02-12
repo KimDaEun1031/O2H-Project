@@ -3,11 +3,7 @@
 <mapper namespace="com.company.mapper.YHAreaChatMapper">
 		<!-- 지역 채팅 리스트 -->
 		<select id="ChatList" resultType="com.company.domain.YHAreaChatVO">
-			SELECT
-			    area,
-			    usernum
-			FROM
-			    areachattingroom;
+			select area, usernum from areachattingroom 
 		</select>
 		
 		<!-- 서울 채팅 (수 제한?) 조회 -->

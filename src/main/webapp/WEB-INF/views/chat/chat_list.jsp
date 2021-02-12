@@ -30,26 +30,46 @@
 <%
 	List<YHChatRoomVO> list=(List<YHChatRoomVO>)request.getAttribute("list");
 	YHChatRoomVO vo1=list.get(0);
-	String room1State=vo1.getUseable()==1?"사용가능":"사용불가";
+	int waitNum=(int)request.getAttribute("waitNum");
+	String room1State="";
+	if(vo1.getUseable()==1 &&waitNum==0){
+		room1State="사용 가능";
+	}else{
+		room1State="대기방 입장";
+	}
 	YHChatRoomVO vo2=list.get(1);
-	String room2State=vo2.getUseable()==1?"사용가능":"사용불가";
+	String room2State=vo2.getUseable()==1?"사용가능":"대기실로 입장";
 	YHChatRoomVO vo3=list.get(2);
-	String room3State=vo3.getUseable()==1?"사용가능":"사용불가";
+	String room3State=vo3.getUseable()==1?"사용가능":"대기실로 입장";
 %>
 			<tr>
-				<td>1번방</td>
+				<td>이용 불편 문의</td>
 				<td>
-				<a href="/chat/gotoRoom1"><%=room1State %></a>
+				
+					<c:if test="${loginInfo.userId eq 'admin' }">
+					<a id="adminOnly" href="/chat/gotoRoom1AsAdmin">어드민으로 접속</a>
+					</c:if>
+				<%if(room1State.equals("사용 가능")){
+				%>
+				
+				<a href="/chat/gotoRoom1" id="wantTogoRoom1"><%=room1State %> 
+				
+				
+				</a>
+				<% }else{ %>
+				<a href="/chat/gotoWaittingRoom1"><%=room1State %></a>
+				<%} %>
+			
 				</td>
-
+				
 			</tr>
 			<tr>
-				<td>2번방</td>
+				<td>강사 관련 문의</td>
 				<td><a href="/chat/gotoRoom2"><%=room2State %></a></td>
 
 			</tr>
 			<tr>
-				<td>3번방</td>
+				<td>기타 문의</td>
 				<td><a href="/chat/gotoRoom3"><%=room3State %></a></td>
 
 			</tr>
@@ -61,5 +81,15 @@
 	</table>
 
 </div>
+<script>
+console.log("${loginInfo.userId}");
 
+//var wantTogoRoom1=document.getElementById("wantTogoRoom1");
+//if("${loginInfo.userId}"=="admin"){
+//	wantTogoRoom1.setAttribute("href","/chat/gotoRoom1AsAdmin");
+
+//	wantTogoRoom1.innerHTML("운영자로 입장");
+//} 
+
+</script>
 <%@include file="../includes/footer.jsp"%>
