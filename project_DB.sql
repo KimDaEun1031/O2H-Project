@@ -341,6 +341,8 @@ SELECT * FROM user_board users INNER JOIN teacher_info teacher ON users.userId =
 
 select * from teacher_Info;
 
+SELECT * FROM teacher_video;
+
 UPDATE teacher_Info
 SET channelId = 'UCiWrjBhlICf_L_RK5y6Vrxw'
 WHERE userId = 'test8';
