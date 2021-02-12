@@ -208,7 +208,7 @@ select * from chatRoom1;
 ---------------------------------------------------------------
  
  
--- 파일 첨부 테이블 생성
+-- 파일 첨부 테이블 생성 - 유저 프로필
 create table fit_attach(
 	uuid varchar2(100) not null,
 	uploadPath varchar2(200) not null,

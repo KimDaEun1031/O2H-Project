@@ -3,10 +3,10 @@
 <%@include file="../includes/header.jsp" %>
 <div>
 	<div>
-		<p>강사가 아닙니다.</p>
+		<h2 style="text-align: center; margin: 50px;">강사가 아닙니다.</h2>
 	</div>
 	<div>
-		<button onclick="location.href='/'">홈페이지</button>
+		<button style="text-align: center; margin-left: 45%; margin-top:30px;" class="btn btn-primary"  onclick="location.href='/qandaboard/gotoQandAList'">문의 게시판 이동</button>
 	</div>
 </div>
 <%@include file="../includes/footer.jsp" %>
