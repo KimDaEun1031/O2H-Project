@@ -127,7 +127,7 @@
                                 <input style="border-radius:0px!important" type="date" data-date-format="DD MMMM YYYY" class="form-control" id="age" placeholder="25">
                             </div>-->
                         <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
-                            <button type="submit" class="btn btn-primary passwordBtn" id="update-btn"> 비밀번호 수정 </button>
+                            <button type="submit" class="btn btn-primary passwordBtn" id="pwd-btn"> 비밀번호 수정 </button>
                             <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='user_my'"> Cancel </button>
                         </div>
                         </form>

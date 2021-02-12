@@ -160,10 +160,29 @@ $.validator.addMethod("validBirth", function(value) {
 
 $(function(){
 	
+	$("#pwd-btn").click(function(e){ //비밀번호 변경이랑 info변경이랑 나눔 210212
+		e.preventDefault();
+
+		
+		form.submit();
+		
+		
+	})
+	
+	
+	
+	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
 	//$("button[type='submit']").click(function(e){
 	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
+	
+		var imgAttach = $("#myImg").attr("src"); //.val() 붙였더니 에러남
+			if(!imgAttach){
+				alert("첨부파일을 등록 후 수정해주세요.");
+				console.log(imgAttach);
+				return false;
+			}
 
 		var str = "";
 		//첨부파일 영역에 정보 수집
