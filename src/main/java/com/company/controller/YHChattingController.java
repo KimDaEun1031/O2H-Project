@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.company.domain.YHChatRoomVO;
 import com.company.service.YHChatService;
+import com.company.service.YHTicketService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 public class YHChattingController {
 	@Autowired
 	private YHChatService service;
+	
+	@Autowired
+	private YHTicketService tService;
 	
 	//@GetMapping("/roomList")
 	@GetMapping("/chat_list")
@@ -70,6 +74,30 @@ public class YHChattingController {
 		service.goInOutRoom3();
 		
 		return"redirect:/chat/chat_list";
+	}
+	@GetMapping("/gotoWaittingRoom1")
+	public String gotoWaittingRoom1(Model model) {
+		log.info("1번 웨이팅 룸으로 이동");
+		tService.insertTicket();
+		int wait_ticket=tService.getTicket();
+		model.addAttribute("wait_ticket",wait_ticket);
+		int wait_beforeme=tService.getWaitNumBeforeMe(wait_ticket);
+		model.addAttribute("wait_beforeme",wait_beforeme);
+		return "/chat/waittingRoom1";
+	}
+	@GetMapping("/goOutWaittingRoom1")
+	public String goOutWaittingRoom1(int ticket) {
+		log.info("1번 웨이팅 룸에서 나가기");
+		tService.deleteTicket(ticket);
+		
+		return "redirect:/chat/chat_list";
+	}
+	@GetMapping("/goInFromWaittingRoom1")
+	public String hoInFromWaittingRoom1(int ticket) {
+		log.info("1번 대기 룸에서 들어가기");
+		tService.deleteTicket(ticket);
+		
+		return "redirect:/chat/gotoRoom1";
 	}
 
 }

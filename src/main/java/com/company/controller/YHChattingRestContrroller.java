@@ -13,6 +13,7 @@ import com.company.domain.YHAreaChatGetVO;
 import com.company.domain.YHChatVO;
 import com.company.service.YHAreaChatService;
 import com.company.service.YHChatService;
+import com.company.service.YHTicketService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,6 +26,12 @@ public class YHChattingRestContrroller {
 	
 	@Autowired
 	YHAreaChatService areaService;
+	
+	@Autowired
+	YHChatService cService;
+	
+	@Autowired
+	YHTicketService ticketService;
 	
 	@GetMapping("/room1")
 	public ResponseEntity<List<YHChatVO>> room1(String content,int fromid){
@@ -59,6 +66,27 @@ public class YHChattingRestContrroller {
 		List<YHAreaChatGetVO> list=areaService.seoulGetChat20();
 		ResponseEntity<List<YHAreaChatGetVO>> entity=new ResponseEntity<List<YHAreaChatGetVO>>(list,HttpStatus.OK);
 		return entity;
+	}
+	
+	@GetMapping("/many")
+	public ResponseEntity<Integer> rait(int wait_ticket){
+		log.info("wait 에서 내 앞에 몇명있는지 물음" +wait_ticket);
+		
+		int temp=ticketService.getWaitNumBeforeMe(wait_ticket);
+		return new ResponseEntity<Integer>(temp,HttpStatus.OK);
+	}
+	@GetMapping("/usable")
+	public ResponseEntity<Integer> usable(){
+		log.info("입장 가능한지 확인");
+		
+		int usable=cService.getList().get(0).getUseable();
+		if(usable==1) {
+			System.out.println("여기?");
+			return new ResponseEntity<Integer>(1,HttpStatus.OK);
+		}else {
+			System.out.println("여긴?");
+			return new ResponseEntity<Integer>(0,HttpStatus.OK);
+		}
 	}
 
 }
