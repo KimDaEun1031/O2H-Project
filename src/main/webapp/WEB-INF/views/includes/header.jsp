@@ -158,30 +158,20 @@
             </div>
             <div class="col-lg-7 col-md-7">
               <div class="advanced-search">
-                <button type="button" class="category-btn">전체 카테고리</button>
+              
+                <button type="button" class="category-btn" value="카테고리" > 전체 카테고리 </button>                
                 <div class="input-group">
                   <input type="text" placeholder="무엇이 필요하신가요?" />
                   <button type="button"><i class="ti-search"></i></button>
                 </div>
+           
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="nav-item">
-        <div class="container">
-          <div class="nav-depart">
-            <div class="depart-btn">
-              <i class="ti-menu"></i>
-              <span>전체 페이지 목록</span>
-              <ul class="depart-hover">
-                <li><a href="#">PT</a></li>
-                <li><a href="#">홈쇼핑</a></li>
-                <li><a href="#">커뮤니티</a></li>
-                <li><a href="/program/calorDict">프로그램</a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="container">        
           <nav class="nav-menu mobile-menu">
             <ul>
               <li class="active"><a href="/">홈</a></li>
@@ -206,6 +196,8 @@
                 <a href="/program/calorDict">프로그램</a>
                 <ul class="dropdown">
                   <li><a href="/program/calorDict">칼로리사전</a></li>
+                  <li><a href="/program/BMI">BMI계산기</a></li>
+                 
                 </ul>
               </li>
               <li>
@@ -215,6 +207,10 @@
                   <li><a href="/chat/chat_list">실시간 문의</a></li>
                   <li><a href="/announce/getList">공지사항</a></li>
                 </ul>
+              </li>
+               <li>
+                <a href="#">주변 헬스장</a>
+                
               </li>
             </ul>
           </nav>

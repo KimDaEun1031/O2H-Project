@@ -15,7 +15,7 @@
 	<!-- 수정 : 이메일 변경은 되고 +첨부파일 -->
 	<update id="updateInfo">
 		update user_board 
-		set userEmail=#{userEmail}
+		set userName=#{userName},address=#{address},phoneNumber=#{phoneNumber},userEmail=#{userEmail},userBirth=#{userBirth} 
 		where userId=#{userId}
 	</update>
 	<!-- 수정 : teacher_profile_setting info +첨부파일까지 되나보자... -->

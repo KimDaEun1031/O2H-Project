@@ -9,15 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.company.domain.KDLoginInfoVO;
-import com.company.domain.YHCalVO;
 import com.company.domain.YHQandABoardVO;
-import com.company.service.KDAdminService;
 import com.company.service.KDRegisterService;
-import com.company.service.YHCalService;
-import com.company.service.YHQandABoardService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,12 +22,6 @@ public class KDUserController {
 	
 	@Autowired
 	private KDRegisterService service;
-	
-	@Autowired
-	private YHQandABoardService yhservice;
-	
-	@Autowired
-	private YHCalService yhCalservice;
 	
 	
 	@GetMapping("/user/user_my")

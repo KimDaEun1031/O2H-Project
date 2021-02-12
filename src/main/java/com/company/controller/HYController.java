@@ -50,10 +50,10 @@ public class HYController {
 	}
 	
 	//칼로리사전 AJAX
-		@GetMapping("/program/calorDict")
-		public void calor5() {
-
-		}
+	@GetMapping("/program/calorDict")
+	public void calor5() {
+		log.info("칼로리 사전");
+	}
 		
 		
 		//파일 첨부
@@ -72,7 +72,7 @@ public class HYController {
 		//프로필-수정폼 보여주기
 		@GetMapping("/user/profile_setting")
 		public void getProfileSetting() {
-
+			log.info("프로필 수정 폼 보여주기");
 		}
 		
 		//이거 안씀 - form 두개로 나눴음.
@@ -104,16 +104,36 @@ public class HYController {
 //			return "redirect:/user/user_my";
 //		}
 		
+		
+		//수전 전 원본 컨트롤러
 		//이메일 수정-문제있네 수정 내용이 홈페이지에 바로 반영이 안되고 있음.-발리데이션으로 함
+//		@PostMapping("/user/infoUpdateForm")
+//		public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
+//			log.info("회원정보 이메일+첨부 수정"+change);
+//			change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
+//			service.modifyInfo(change);
+//			session.invalidate();
+//			
+//			return "redirect:/register/login";
+//		}
+		
+		//첨부파일 포함 한 user 정보 전반 수정
 		@PostMapping("/user/infoUpdateForm")
 		public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
-			log.info("회원정보 이메일+첨부 수정"+change);
+			log.info("회원정보 이메일+첨부 ++ 기타 정보 모두 수정"+change);
 			change.setUserId(loginInfo.getUserId()); //앞단에서 못받는 거는 이렇게 해주는 거구나
 			service.modifyInfo(change);
 			session.invalidate();
 			
 			return "redirect:/register/login";
 		}
+		
+		
+		
+		
+		
+		
+/////////////////////////////////////////////////////////		
 //		//이메일+첨부파일 수정
 //		@PostMapping("/user/infoUpdateForm")
 //		public String profileUpdateInfo(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
@@ -133,6 +153,11 @@ public class HYController {
 //			session.invalidate();
 //			return "redirect:/register/login";
 //		}
+		
+		
+		
+////////////////////////////////		
+		
 		//비밀번호 수정2-문제있네-new!=confirm 맞지 않는데 그냥 넘어가버림-validate 넣으니까 됨.
 		@PostMapping("/user/passwordForm")
 		public String profileChangePwd(HYChangeVO change, @SessionAttribute KDLoginInfoVO loginInfo, HttpSession session,RedirectAttributes rttr) {
