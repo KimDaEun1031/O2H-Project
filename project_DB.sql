@@ -11,7 +11,7 @@ create table user_board (
     interest2 varchar2(50) not null,
     interest3 varchar2(50) not null,
     regDate date default sysdate,
-    auth char(1) default 0 -- 0 user 1 teacher 2 admin
+    auth char(1) default 0 -- user teacher admin
     ); 
 
 select * from user_board;
@@ -19,18 +19,19 @@ select * from user_board;
 insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,user_level) 
 values('test','test8','test123','1','1','1','1','1','1','1','1');
 
-update user_board set userInfo='vmfhfdjlkdsk' where userId='test1';
+update user_board set userId='solaryeori1324', userName='여리나', userEmail='solaryeori@gmail.com', password='sol123456', address='대한민국', userBirth='01023234545'  where userId='test1';
 
 select userInfo from user_board;
 
-update user_board set user_level=1 where userId='test3';
+update user_board set user_level='admin' where userId='admin';
 
-alter table user_board add userInfo varchar2(300) default '프로필 정보란'; -- 추가
-alter table user_board drop column userInfo;
+alter table user_board add userWarn number(1,0) default 0; -- 추가
+alter table user_board drop column userWarn;
 
 ALTER TABLE user_board RENAME COLUMN auth TO user_level;
 
 select * from user_board where user_level='2';
+update user_board set userWarn=3 where userId='hello';
 
 select writer_id from QANDA_BOARD where userId='1234';
 
@@ -49,6 +50,8 @@ select auth from user_board;
 select * from chatroom1;
 
 select userId, uuid, uploadPath, fileName, fileType from fit_attach;
+
+delete from user_board where userWarn=3 and user_id='';
 ---------------------------------------
 
 select * from QANDA_BOARD; --fk userId 추가
@@ -339,7 +342,7 @@ CREATE TABLE teacher_video (
 
 SELECT * FROM user_board users INNER JOIN teacher_info teacher ON users.userId = teacher.userId WHERE teacher.teacher_level = '1'
 
-select * from teacher_video;
+select * from teacher_Info;
 ROLLBACK;
 delete from teacher_video where userId = 'test1';
 

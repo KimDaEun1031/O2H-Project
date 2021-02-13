@@ -36,26 +36,20 @@
                                 회원 탈퇴
                             </p>
                             <div class="mt-4">
-                                <form method="post">
+                                <form method="post" action="/admin/member_deleteID">
                                     <div class="form-group">
 
-                                        <input type="text" class="form-control" id="userId" name="userId" value="" placeholder="Enter your ID">
+                                        <input type="text" class="form-control" id="userId" name="userId" value="${del.userId}">
 
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="password" name="password" value="" placeholder="Enter password">
+                                        <input type="password" class="form-control" id="password" name="password" value="${del.password}">
                                     </div>
                                     <label class="custom-control custom-checkbox mt-2">
                                       
                                     </label>
 
-                                    <button type="submit" class="btn btn-danger float-right" id="singinbtn" >탈퇴</button>
-                                    <script type="text/javascript">
-                                        document.getElementById("singinbtn").onclick = function () {
-                                            location.href = "user.html";
-                                        };
-                                    </script>
-                                    <!-- Este ultimo script no va y no sé porqué -->
+                                    <button type="submit" class="btn btn-danger float-right" id="singinbtn" >탈퇴</button>                                  
                                 </form>
                                 <div class="clearfix"></div>
                                 <p class="content-divider center mt-4">
@@ -65,16 +59,16 @@
                             <p class="mt-4 social-login text-center">
                              
                             </p>
-                            <p class="text-center">
-                                아직 계정이 없으신가요?
-                                <a href="/gotoSignin">회원가입 하러가기</a>
+                            <p class="text-center" style="margin: 10px;">                               
+                               정말로 이 계정을 강제 탈퇴 시키시겠습니까? 
+                               다시는 되돌릴 수 없습니다.
                             </p>
                             <p class="text-center">
 
-                                <button type="submit" class="btn btn-primary" id="goBackbtn">메인페이지</button>
+                                <button type="submit" class="btn btn-primary" id="goBackbtn">돌아가기</button>
                                 <script type="text/javascript">
                                     document.getElementById("goBackbtn").onclick = function () {
-                                        location.href = "/";
+                                        location.href = "/admin/member_control";
 
                                     };
                                 </script>

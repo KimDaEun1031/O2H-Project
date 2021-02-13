@@ -30,7 +30,7 @@ public class YHController {
 		
 		return "/register/signup";
 	}
-	@PostMapping("/signnup")
+	@PostMapping("/signup")
 	public String signup(KDLoginVO user) {
 		log.info("회원 가입 요청"+user);
 		String[] array=user.getFavorite_activity();

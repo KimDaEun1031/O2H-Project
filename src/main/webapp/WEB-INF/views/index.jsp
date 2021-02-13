@@ -103,7 +103,7 @@
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
                 	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-success" id="test" href="/user/teacher_page" hidden="hidden" role="button">강사 테스트</a>                   
+                	<a class="btn btn-info" id="stream" href="/user/teacher_page" hidden="hidden" role="button">Stream 설정</a>                   
                 </li>
               </ul>
             </div>
@@ -123,7 +123,7 @@
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");						
-				test.removeAttribute("hidden");	
+				stream.removeAttribute("hidden");	
 				
 			}else{
 				
@@ -175,11 +175,7 @@
             <ul>
               <li class="active"><a href="/">홈</a></li>
               <li>
-                <a href="#">PT</a>
-                <ul class="dropdown">
-                  <li><a href="/PT/teacher-all">전체 강사</a></li>
-                  <li><a href="/PT/teacher_list">스트리밍</a></li>
-                </ul>
+                <a href="/PT/teacher_list">PT</a>               
               </li>
               <li>
                 <a href="">홈쇼핑</a>               
@@ -222,7 +218,7 @@
     <!-- Hero Section Begin -->
     <section class="hero-section">
       <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-3.png" onclick="location.href='#'">
+        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-3.png" onclick="location.href='/chat/chat_list'">
           <div class="container">
             <div class="row">
               <div class="col-lg-5">               
@@ -230,7 +226,7 @@
             </div>
           </div>
         </div>
-        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-2.png" onclick="location.href='#'">
+        <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-2.png" onclick="location.href='/PT/teacher_list'">
           <div class="container">
             <div class="row">
               <div class="col-lg-5">              
@@ -439,9 +435,7 @@
               </ul>
               <div class="footer-social">
                 <a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                <a href="http://www.instagram.com"><i class="fa fa-instagram"></i></a>
                 <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-                <a href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a>
               </div>
             </div>
           </div>

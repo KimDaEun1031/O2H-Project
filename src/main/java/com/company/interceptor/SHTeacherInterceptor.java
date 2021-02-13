@@ -43,13 +43,12 @@ public class SHTeacherInterceptor extends HandlerInterceptorAdapter {
 				SHProfileVO shProfileVO = service.getProfileRow(loginInfo.getUserId());
 				
 				if (shProfileVO != null) {
-					if (shProfileVO.getUser_level() == '1') { //강사 회원 가입 조건 -> 관리자 승인 요청 필요
+					if (shProfileVO.getUser_level() == "teacher") { //강사 회원 가입 조건 -> 관리자 승인 요청 필요						
 						request.setAttribute("profile", shProfileVO);
 						
 						return true;
 					} else {
-						response.sendRedirect("/user/teacher_access_teacher");
-						
+						response.sendRedirect("/user/teacher_access_teacher");						
 						return false;
 					}
 				} else {

@@ -45,6 +45,21 @@ public class KDAdminServiceImpl implements KDAdminService {
 		return mapper.memberControl(cri);
 	}
 
+	@Override
+	public List<KDLoginInfoVO> TeacherInfo() {		
+		return mapper.selectByTeacher();
+	}
+
+	@Override
+	public boolean memberModify(KDLoginInfoVO loginInfo) {		
+		return mapper.modifyMember(loginInfo)>0?true:false;
+	}
+
+	@Override
+	public KDLoginInfoVO selectByOne(String userId) {		
+		return mapper.selectByOne(userId);
+	}
+
 
 
 

@@ -67,9 +67,14 @@
                         <form role="form" method="post" class="infoUpdateForm" action="infoUpdateForm">
                             <div class="form-group">
                                 <label for="name">UserId:</label>
+                                <input style="border-radius:0px;background-color:black;!important" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
                                 <input style="border-radius:0px;background-color:black;!important" maxlength="10" maxByteLength="10" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
+
                             </div>
                             <div class="form-group">
+                                <label for="name">Username:</label>
+                                <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" value="${loginInfo.userName}">
+
                                 <label for="name">User Name:</label>
                                 <input style="border-radius:0px!important" type="text" name="userName" class="form-control" id="userName" value="${loginInfo.userName}">
                                 <small id="userName" class="text-info"></small>

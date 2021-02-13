@@ -21,7 +21,7 @@ public class SHProfileVO {
 	private String userBirth;
 	private List<String> favorite_activity;
 	private Date regdate;
-	private char user_level;
+	private String user_level;
 	private String userInfo;
 	
 	private String teacherInfo;

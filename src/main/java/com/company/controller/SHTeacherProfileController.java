@@ -123,5 +123,6 @@ public class SHTeacherProfileController {
 	@GetMapping(path = "/user/teacher_access_teacher")
 	public void accessTeacher() {
 		log.info("Go to : /user/teacher_access_teacher.jsp");
+		log.info("연결 안됨");
 	}
 }

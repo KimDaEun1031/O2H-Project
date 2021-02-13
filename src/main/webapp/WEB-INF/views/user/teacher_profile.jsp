@@ -1,23 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
-	<div>
-		<form action="/user/teacher_profile" method="POST">
-			<input type="text" name="userId" value="${profile.userId}" placeholder="${profile.userId}" readonly />
-			<input type="text" name="userName" value="${profile.userName}" placeholder="${profile.userName}" readonly />
-			<input type="text" name="teacherInfo" value="${profile.teacherInfo}" placeholder="${profile.teacherInfo}" />
-			<input type="text" name="mainSports" value="${profile.mainSports}" placeholder="${profile.mainSports}" />
-			<input type="text" name="channelId" value="${profile.channelId}" placeholder="${profile.channelId}" />
-			
-			<!--
-			<span class="floatImage"><img src='/user/teacherProfileDisplay?fileName=s_${profile.userId}' /></span>
-			-->
-			<span class="floatImage"><img src='/user/teacherProfileDisplay?fileName=s_${profile.userId}' onerror='this.src="/resources/img/profile/profile_default.png";this.parentNode.className="";' /></span>
-			<button type="submit" data-oper='list'>목록</button> 
-			<button type="submit" data-oper='submit'>전송</button>
-			<button type="reset" data-oper='reset'>초기화</button>        			
-		</form>
-	</div>
+	<link rel="stylesheet" href="/resources/css/user_my.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap" rel="stylesheet">
+    <style>
+    	.flex-container-te{
+		  display: flex;		  
+		}
+		
+		.flex-container-te > div {
+			margin: 0 auto;
+		}
+		
+    </style>
+	<form action="/user/teacher_profile" method="POST">
+		<div class="limiter">
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<div class="table100">
+						<table>
+							<thead>
+							  <tr class="table100-head">	
+							  	<th class="column3" rowspan="8"><span class="floatImage"><img src='/user/teacherProfileDisplay?fileName=s_${profile.userId}' onerror='this.src="/resources/img/profile/default_user.jpg";this.parentNode.className="";' /></span></th>				  
+							    <th class="column1">아이디</th>
+							    <th class="column2"><input type="text" style="background-color:transparent; border:none; text-align: center;" name="userId" value="${profile.userId}" placeholder="${profile.userId}" readonly /></th>
+							  </tr>
+							  <tr>
+							    <td class="column1">이름</td>
+							    <td class="column2"><input type="text" style="background-color:transparent; border:none; text-align: center;" name="userName" value="${profile.userName}" placeholder="${profile.userName}" readonly /></td>
+							  </tr>
+							  <tr>
+							    <td class="column1">강사 정보</td>
+							    <td class="column2"><input type="text" style="background-color:transparent; border:none; text-align: center;" name="teacherInfo" value="${profile.teacherInfo}" placeholder="${profile.teacherInfo}" /></td>
+							  </tr>
+							  <tr>
+							    <td class="column1">담당 운동</td>
+							    <td class="column2"><input type="text" style="background-color:transparent; border:none; text-align: center;" name="mainSports" value="${profile.mainSports}" placeholder="${profile.mainSports}" /></td>
+							  </tr>
+							  <tr>
+							    <td class="column1">채널 아이디</td>
+							    <td class="column2"><input type="text" style="background-color:transparent; border:none; text-align: center;"  name="channelId" value="${profile.channelId}" placeholder="${profile.channelId}" /></td>
+							  </tr>					  
+							</thead>
+						</table>
+	 				</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<p style="text-align: center; font-size: 20px; font-weight: bold;"> 강사 정보, 담당 운동, 채널아이디를 변경하실 수 있습니다. </p>
+		</div>
+		<!--<span class="floatImage"><img src='/user/teacherProfileDisplay?fileName=s_${profile.userId}' /></span>-->
+		<div class="flex-container-te">
+			<div>
+				<button class="btn btn-info" type="submit" data-oper='list'>돌아가기</button> 
+				<button class="btn btn-success" type="submit" data-oper='submit'>저장하기</button>
+				<button class="btn btn-danger" type="reset" data-oper='reset'>초기화</button>        		
+			</div>			
+		</div>			
+	</form>
+
 	
 	<!-- 원본 이미지 창 -->
 	<div class="bigPictureWrapper">
@@ -25,7 +67,7 @@
 	</div>
 	<div>
 		<div class="UploadDiv">
-			<input type="file" name="uploadFile" />
+			<input style="margin-left: 3%;" type="file" name="uploadFile" />
 		</div>
 		<!-- 업로드 결과 창 -->
 		<div class="uploadResult">

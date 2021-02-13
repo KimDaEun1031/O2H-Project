@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
+    <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
     
     <!-- Js Plugins -->
     <script src="/resources/js/jquery-3.3.1.min.js" defer ="defer"></script>
@@ -46,7 +47,7 @@
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
+  <link rel="shortcut icon" href="img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -102,7 +103,7 @@
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
                 	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
+                	<a class="btn btn-success" id="stream" href="/user/teacher_page" hidden="hidden" role="button">Stream 설정</a>                   
                 </li>
               </ul>
             </div>
@@ -122,7 +123,7 @@
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");						
-				test.removeAttribute("hidden");	
+				stream.removeAttribute("hidden");	
 				
 			}else{
 				
@@ -133,7 +134,6 @@
 			if(loginInfo == 'admin') {
 				admin.removeAttribute("hidden");				
 			}
-			
 			
 			
 //		}
@@ -175,11 +175,7 @@
             <ul>
               <li class="active"><a href="/">홈</a></li>
               <li>
-                <a href="#">PT</a>
-                <ul class="dropdown">
-                  <li><a href="/PT/teacher-all">전체 강사</a></li>
-                  <li><a href="/PT/teacher_list">스트리밍</a></li>
-                </ul>
+                <a href="/PT/teacher_list">PT</a>               
               </li>
               <li>
                 <a href="">홈쇼핑</a>               
