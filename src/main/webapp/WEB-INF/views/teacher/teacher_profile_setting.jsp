@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+	
     <!-- Custom css -->
     <link rel="stylesheet" href="/resources/css/register.css" />
     <!-- Custom scripts for this template -->
@@ -30,7 +31,7 @@
                 <!-- Section Header -->
                 <div id="imageForm" class="col-l-3 col-md-3 col-sm-3 col-xs-12 section-header wow fadeInDown">
                     <span id="profile_pic">
-                        <img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' />
+                        <img id="myImg" src="" class="img-circle" alt="" style='object-fit:contain' />
                     </span>
 					<div class="uploadResult" style="display:none;">
 						<ul></ul>
@@ -48,7 +49,7 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>                                  
-                        <form role="form" method="GET" id="profile-form" action="teacher_my_stream">
+                        <form role="form" method="POST" id="profile-form" action="teacher_my_stream">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
                                 <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>
@@ -56,6 +57,7 @@
                             <div class="form-group">
                                 <label for="userInfo">강사소개</label>
                                 <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="userInfo">${loginInfo.userInfo}</textarea>
+                                <small id="userInfo" class="text-info"></small>
                             </div>             
 	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">	                           
 	                            <button type="submit" class="btn btn-primary " id="update-btn" >수정 완료</button>

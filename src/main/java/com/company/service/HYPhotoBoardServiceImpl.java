@@ -24,12 +24,13 @@ public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 	@Autowired 
 	private HYPhotoBoardMapper mapper;
 
+	
 	@Override
 	public boolean regist(HYPhotoBoardVO board) {
 
 		boolean result = mapper.insert(board)>0?true:false;
 		
-		//첨부파일이 null 이거나 size() 가 0 이라면 30~33작업 미실시
+		//첨부파일이 null 이거나 size() 가 0 이라면 38-39작업 미실시
 		if(board.getAttach()==null) {
 			return result;
 		}		
@@ -63,35 +64,29 @@ public class HYPhotoBoardServiceImpl implements HYPhotoBoardService {
 
 		//첨부물 전체 삭제
 		mapper.deleteAttach(board.getBno());
-		//게시물 수정-여기에 걸려가지고 첨부파일은 삭제되고 에러 떴구나.
 		log.info("업데이트 에러 확인 "+board);
 		boolean result = mapper.update(board)>0?true:false;
 		
-		//첨부파일이 null 이거나 size() 가 0 이라면 68-70작업 미실시
+		//첨부파일이 null 이거나 size() 가 0 이라면 76-77작업 미실시
 		if(board.getAttach()==null) {
 			return result;
 		}
-		//첨부물 삽입
 		
+		//첨부물 삽입		
 		board.getAttach().setBno(board.getBno());
-		mapper.insertAttach(board.getAttach());
-		
+		mapper.insertAttach(board.getAttach());		
 		
 		return result;
 	}
 
 	@Override
-	public int getTotalCnt(HYPhotoBoardCriteria cri) {//댓글 없는 상태임.
+	public int getTotalCnt(HYPhotoBoardCriteria cri) {
 		return mapper.totalCnt(cri);
 	}
 
 	@Override
 	public List<HYPhotoBoardFileAttach> getAttachList(int bno) {
 		return mapper.attachList(bno);
-	}
-	
-	
-  
-  
+	}  
   }
  

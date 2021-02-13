@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.mapper.HYMapper">
+	
 	<!-- 회윈탈퇴 -->
 	<delete id="leaveMember">
 		delete from user_board where userId=#{userId} and password=#{password}
@@ -12,13 +13,15 @@
 		set password=#{new_password}
 		where userId=#{userId} and password=#{password}
 	</update>
-	<!-- 수정 : 이메일 변경은 되고 +첨부파일 -->
+	
+	<!-- 수정 : 정보 변경 + 첨부파일 -->
 	<update id="updateInfo">
 		update user_board 
 		set userName=#{userName},address=#{address},phoneNumber=#{phoneNumber},userEmail=#{userEmail},userBirth=#{userBirth} 
 		where userId=#{userId}
 	</update>
-	<!-- 수정 : teacher_profile_setting info +첨부파일까지 되나보자... -->
+	
+	<!-- 수정 : teacher_profile_setting info +첨부파일 -->
 	<update id="updateTeacherInfo">
 		update user_board 
 		set userInfo=#{userInfo}
@@ -35,25 +38,8 @@
 		delete from fit_attach where userId=#{userId}
 	</delete>
 	
-	<!-- 보드 -->
 	<!-- 첨부물 가져오기 resultType 없어서 에러났었네 -->
 	<select id="attachList" resultType="com.company.domain.HYFileAttach">
 		select * from fit_attach where userId=#{userId}
 	</select>
-	
-	
-	
-	
-	<!-- 보드 수정 : title, content, updatedate -->
-	<!-- 보드에서도 첨부물을 수정할 때 뭐 따로 넣고 하진 않았음. fk잡고 select하는듯? -->
-<!-- 	<update id="update">
-		update spring_board set title=#{title}, content=#{content}, updatedate=sysdate 
-		where bno=#{bno}
-	</update>
-	 -->
-	
-	
-	
-	
-	
 </mapper>

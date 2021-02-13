@@ -11,9 +11,6 @@ public class HYPhotoBoardCriteria {
 	private int pageNum;	//사용자가 선택한 페이지 번호
 	private int amount;		//한 페이지에 보여줄 게시물 수
 	
-	//private String type;	//검색조건
-	//private String keyword; //검색어
-	
 	
 	public HYPhotoBoardCriteria() {
 		this(1, 9); //이미지 리스트 최적화
@@ -24,9 +21,4 @@ public class HYPhotoBoardCriteria {
 		this.pageNum = pageNum;
 		this.amount = amount;
 	}
-
-//	public String[] getTypeArr() {
-//		return type==null?new String[] {}:type.split(""); //{'T'}
-//	}
-	
 }

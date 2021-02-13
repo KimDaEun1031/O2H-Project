@@ -11,7 +11,6 @@ public interface HYPhotoBoardService {
 	public boolean regist(HYPhotoBoardVO board);
 	//게시글 조회 - 전체
 	public List<HYPhotoBoardVO> getList(HYPhotoBoardCriteria cri);
-	//public List<BoardVO> getList();
 	//게시글 조회 - 특정번호
 	public HYPhotoBoardVO getRow(int bno);
 	//게시글 삭제
