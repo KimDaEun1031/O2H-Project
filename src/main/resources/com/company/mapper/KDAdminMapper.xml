@@ -45,7 +45,7 @@
 		FROM
 		    user_board
 		WHERE
-		    user_level = '2'
+		    user_level = 'admin'
 	</select>
 
 	<!-- 회원 관리 -->
@@ -71,6 +71,22 @@
 		 rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
 		]]>
 	</select>
+	
+	<!-- 회원 강제 탈퇴 - 삭제 -->
+	<delete id="deleteMember">
+		delete
+	</delete>
+	
+	<!-- 회원 구분 수정 -->
+	<update id="modifyMember">
+		update user_board set user_level=#{user_level} where userId=#{userId}
+	</update>
+	
+	<!-- 회원 단일 조회 -->
+	<select id="selectByOne" resultType="com.company.domain.KDLoginInfoVO">
+		select userId,user_level,password from user_board where userId=#{userId}
+	</select>
+	
 	<!-- 강사 리스트 -->
 	<select id="selectByTeacher" resultType="com.company.domain.KDLoginInfoVO">
 		SELECT
@@ -81,7 +97,7 @@
 		FROM
 		    user_board
 		WHERE
-		    user_level = '1'
+		    user_level = 'teacher'
 	</select>
 	
 </mapper>

@@ -21,6 +21,6 @@ public class KDLoginVO {
 	private String[] favorite_activity;
 	private Date regdate;
 	
-	private char user_level;
+	private String user_level;
 	private String userInfo;
 }

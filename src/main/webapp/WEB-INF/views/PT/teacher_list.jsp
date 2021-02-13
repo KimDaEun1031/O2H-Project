@@ -1,17 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
+<style>
+	p > a > img {
+	  box-sizing: border-box;
+	  border-radius: 50%;
+	  margin: 30px 30px 30px 30px;
+	  min-width: 200px;
+	  height: 200px;
+	}
+	
+	.recommendProfileList {
+		
+	}
+	
+	
+	
+</style>
 
 <div>
 	<h2>추천 강사 리스트</h2>
     <ul class="recommendProfileList"></ul>
     <div class="recommendPageBtn"></div>
 </div>
+<!--  
 <div>
 	<h2>프로필 리스트</h2>
     <ul class="profileList"></ul>
     <div class="pageBtn"></div>
-</div>
+</div>-->
 
 <script>
 
@@ -51,7 +68,7 @@ showList = function(page, pageCount, listCount) {
 		    var str = "<li data-usrid='" + element.userId + "' data-chid='" + element.channelId + "'>";
 		    str += "<div>";
 		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
-		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/default_user.jpg"' /></a></p>`;
+		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/test.jpg"' /></a></p>`;
 		    str += "<p>" + element.userName + "</p>";
 		    str += "<p>" + element.teacherInfo + "</p>";
 		    str += "</div>"
@@ -156,7 +173,7 @@ recommendShowList = function(page, pageCount, listCount) {
 		    var str = "<li data-usrid='" + element.userId + "' data-chid='" + element.channelId + "'>";
 		    str += "<div>";
 		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
-		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/default_user.jpg"' /></a></p>`;
+		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/test.jpg"' /></a></p>`;
 		    str += "<p>" + element.userName + "</p>";
 		    str += "<p>" + element.teacherInfo + "</p>";
 		    str += "</div>"

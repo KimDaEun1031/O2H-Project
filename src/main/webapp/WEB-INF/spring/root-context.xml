@@ -46,8 +46,8 @@
 	<!-- 파일 업로드 -->
 	
 	<!-- Scheduler 어노테이션 사용 -->
-	<!--<task:annotation-driven/>-->
+	<task:annotation-driven/>
 	<!-- Scheduler 빈 등로 -->
-	<!--<context:component-scan base-package="com.company.task" />-->
+	<context:component-scan base-package="com.company.task" />
 
 </beans>

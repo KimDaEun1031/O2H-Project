@@ -84,7 +84,7 @@
 	<select id="countProfile" resultType="int">
 		SELECT COUNT(userId) AS userId
 		FROM user_board
-		WHERE user_level = '1'
+		WHERE user_level = 'teacher'
 	</select>
 	
 	<select id="countRecommendProfile" resultType="int">
@@ -94,7 +94,6 @@
 		ON users.userId = teacher.userId
 		WHERE teacher.teacher_level = '1'
 	</select>
-	 
 	<select id="selectProfileList" resultMap="profileMap">
 		<![CDATA[
 			SELECT rn, userName, userId, password, address, phoneNumber, userEmail, userBirth, interest1, interest2, interest3, user_level, userInfo, teacherInfo, main_sports, channelId, teacher_level
@@ -130,6 +129,7 @@
 		]]>
 	</select>
 	
+	<!-- 강사 프로필 설정 -->
 	<select id="selectProfileRow" resultMap="profileMap">
 		SELECT users.userName AS userName, users.userId AS userId, users.password AS password, users.address AS address, users.phoneNumber AS phoneNumber, users.userEmail AS userEmail, users.userBirth AS userBirth, users.interest1 AS interest1, users.interest2 AS interest2, users.interest3 AS interest3, users.user_level AS user_level, users.userInfo AS userInfo, teacher.teacherInfo AS teacherInfo, teacher.main_sports AS main_sports, teacher.channelId AS channelId, teacher.teacher_level AS teacher_level
 		FROM user_board users
@@ -137,10 +137,9 @@
 		ON users.userId = teacher.userId
 		WHERE users.userId = #{userId}
 	</select>
-	 
 	<select id="getUserId" resultType="String">
 		SELECT userId
 		FROM user_board
-		WHERE user_level = '1'
+		WHERE user_level = 'teacher'
 	</select>
 </mapper>

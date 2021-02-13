@@ -13,13 +13,18 @@ import com.company.domain.YHQandABoardVO;
 public interface KDAdminMapper {
 	//회원관리 - 관리자 리스트
 	public List<KDLoginInfoVO> selectByAdmin();
-	//회원관리 - 관리자 리스트
+	//회원관리 - 강사 리스트
 	public List<KDLoginInfoVO> selectByTeacher();
 	//회원관리 - 회원 관리
 	public List<KDLoginInfoVO> memberControl(YHCriteria cri);
+	//회원관리 - 회원 구분 수정
+	public int modifyMember(KDLoginInfoVO loginInfo);
+	//회원 관리 - 한 명
+	public KDLoginInfoVO selectByOne(String userId);
 	//월별현황 - 신규가입자 리스트
 	public List<KDLoginInfoVO> selectByNew();
 	//월별 현황 - 가입자 수 / 게시물 수
 	public int selectByAlluser(KDAdminTotalVO admint); 
 	public int selectByAllboard(KDAdminTotalVO admint); 
+	
 }

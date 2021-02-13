@@ -435,9 +435,7 @@
               </ul>
               <div class="footer-social">
                 <a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                <a href="http://www.instagram.com"><i class="fa fa-instagram"></i></a>
                 <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-                <a href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a>
               </div>
             </div>
           </div>

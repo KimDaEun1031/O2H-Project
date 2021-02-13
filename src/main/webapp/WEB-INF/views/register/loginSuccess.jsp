@@ -114,7 +114,7 @@
    		//auth 숫자에 따라 메인페이지 경로 변경
    		var test = '${loginInfo.user_level}';
    		console.log(test);
-   		var admin = "2";
+   		var admin = "admin";
    		if (test==admin) {
    			$("#main").attr("href","/admin/admin_index");
    		}

@@ -45,7 +45,7 @@ public class SHTeacherServiceImpl implements SHTeacherService {
 	@Override
 	public SHProfileVO getProfileRow(String userId) {
 		SHProfileVO vo = mapper.selectProfileRow(userId);
-
+		log.info("profile vo mapper"+vo);
 		return vo;
 	}
 

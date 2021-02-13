@@ -17,6 +17,10 @@ public interface KDAdminService {
 	public List<KDLoginInfoVO> TeacherInfo();
 	//회원관리 - 회원 관리
 	public List<KDLoginInfoVO> memberControls(YHCriteria cri);
+	//회원관리 - 회원 구분 수정
+	public boolean memberModify(KDLoginInfoVO loginInfo);
+	//회원 관리 - 한 명
+	public KDLoginInfoVO selectByOne(String userId);
 	//월별현황 - 신규가입자 리스트
 	public List<KDLoginInfoVO> selectByNewUser();
 	//월별 현황 - 가입자 수 / 게시물 수

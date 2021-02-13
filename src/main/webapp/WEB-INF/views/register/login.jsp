@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FitURJC Login</title>
+    <title>02H | 로그인</title>
     <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
     
     <meta name="description" content="Love Authority." />
@@ -33,7 +33,7 @@
                                     -->
                             </div>
                             <p class="mt-4 text-white lead text-center">
-                                Sign in to access your Authority account
+                                로그인
                             </p>
                             <div class="mt-4">
                                 <form method="POST" action="/register/loginSuccess">
@@ -50,9 +50,8 @@
                                       
                                     </label>
                                     
-                                    <a class="btn btn-primary float-right" href="/register/signup" role="button">회원가입</a> 
-                                    <button type="submit" class="btn btn-success float-right">login</button>         
-                                    <!-- Este ultimo script no va y no sé porqué -->
+                                    <a class="btn btn-primary float-right" style="margin-left: 5px;" href="/register/signup" role="button">회원가입</a> 
+                                    <button type="submit" class="btn btn-success float-right">로그인</button>                                  
                                 </form>
                                 <div class="clearfix"></div>
                                 <p class="content-divider center mt-4">
@@ -65,20 +64,11 @@
                                 </a>
                                 <a href="#" class="btn btn-facebook">
                                     <em class="ion-social-facebook"></em>
-                                </a>
-                                <a href="#" class="btn btn-linkedin">
-                                    <em class="ion-social-linkedin"></em>
-                                </a>
-                                <a href="#" class="btn btn-google">
-                                    <em class="ion-social-googleplus"></em>
-                                </a>
-                                <a href="#" class="btn btn-github">
-                                    <em class="ion-social-github"></em>
-                                </a>
+                                </a>                             
                             </p>
                             <p class="text-center">
-                                Don't have an account yet?
-                                <a href="/gotoSignup">Sign Up Now</a>
+                                아직 회원가입을 안하셨나요?
+                                <a href="/register/signup" style="margin-left: 5px; color: #aa7c7c;">회원가입</a>
                             </p>
                             <p class="text-center">
 								<a class="btn btn-primary" href="/" role="button">메인 화면</a>                            

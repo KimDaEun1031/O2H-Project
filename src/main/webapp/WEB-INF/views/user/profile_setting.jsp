@@ -68,21 +68,26 @@
                             <div class="form-group">
                                 <label for="name">UserId:</label>
                                 <input style="border-radius:0px;background-color:black;!important" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
+                                <input style="border-radius:0px;background-color:black;!important" maxlength="10" maxByteLength="10" name="userId" type="name" class="form-control" id="name" placeholder="William Wallace" readonly value="${loginInfo.userId}" ><!-- SESSION으로 첨부쪽 USERID 가져오는지 확인 readonly value="${loginInfo.userId}" -->
+
                             </div>
                             <div class="form-group">
                                 <label for="name">Username:</label>
                                 <input style="border-radius:0px;background-color:black;!important" type="name" class="form-control" id="name" value="${loginInfo.userName}">
 
                                 <label for="name">User Name:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" name="userName" class="form-control" id="name" value="${loginInfo.userName}">
+                                <input style="border-radius:0px!important" type="text" name="userName" class="form-control" id="userName" value="${loginInfo.userName}">
+                                <small id="userName" class="text-info"></small>
                             </div>
                             <div class="form-group">
                                 <label for="name">Address:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" name="address" class="form-control" id="name" value="${loginInfo.address}">
+                                <input style="border-radius:0px!important" type="text" name="address" class="form-control" id="address" value="${loginInfo.address}">
+                                <small id="address" class="text-info"></small>
                             </div>
                             <div class="form-group">
                                 <label for="name">Phone Number:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" name="phoneNumber" class="form-control" id="name" value="${loginInfo.phoneNumber}">
+                                <input style="border-radius:0px!important" type="text" name="phoneNumber" class="form-control" id="phoneNumber" value="${loginInfo.phoneNumber}">
+                                <small id="phoneNumber" class="text-info"></small>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
@@ -91,7 +96,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="name">User Birth:</label>
-                                <input style="border-radius:0px;background-color:black;!important" type="name" name="userBirth" class="form-control" id="name" value="${loginInfo.userBirth}">
+                                <input style="border-radius:0px!important" type="date" name="userBirth" class="form-control" id="userBirth" value="${loginInfo.userBirth}">
+                                <small id="userBirth" class="text-info"></small>
                             </div>
                             <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
 	                            <button type="submit" class="btn btn-primary " id="update-btn"> 개인정보 수정 </button>
@@ -100,6 +106,7 @@
                         </form>
                         <br />
                         <hr />
+                        <h2>Change Password</h2>
                         <form role="form" class="passwordForm" method="post" action="passwordForm">
                             <div class="form-group">
                                 <label for="pwd">password:</label>
@@ -125,7 +132,7 @@
                                 <input style="border-radius:0px!important" type="date" data-date-format="DD MMMM YYYY" class="form-control" id="age" placeholder="25">
                             </div>-->
                         <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">
-                            <button type="submit" class="btn btn-primary passwordBtn" id="update-btn"> 비밀번호 수정 </button>
+                            <button type="submit" class="btn btn-primary passwordBtn" id="pwd-btn"> 비밀번호 수정 </button>
                             <button type="reset" class="btn btn-primary " id="cancel-btn" onclick="location.href='user_my'"> Cancel </button>
                         </div>
                         </form>

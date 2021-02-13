@@ -5,6 +5,8 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,13 +37,17 @@ public class SHTeacherProfileController {
 	}
 	
 	@PostMapping("/user/teacher_profile")
-	public String modify(@ModelAttribute(name = "profile")SHProfileVO vo) throws IOException {
+	public String modify(@ModelAttribute(name = "profile")SHProfileVO vo, HttpServletRequest request) throws IOException {
+		String profileUploadFolder = request.getServletContext().getRealPath("/profile");
+		String temporaryUploadFolder = request.getServletContext().getRealPath("/profile/temp");
+		
 		log.info("Access : " + "/user/teacher_profile");
 		
 		log.info("ProfileVO : " + vo);
 
 		if (service.updateTeacher(vo)) {
-			File dir = new File(SHTeacherUploadController.temporaryUploadFolder);
+			//File dir = new File(SHTeacherUploadController.temporaryUploadFolder);
+			File dir = new File(temporaryUploadFolder);
 			
 			FileFilter filter = (file) -> {
 				if (file.isDirectory()) {
@@ -57,7 +63,13 @@ public class SHTeacherProfileController {
 
 			File[] files = dir.listFiles(filter);
 			
-			if (files.length > 0) {
+			if (files != null && files.length > 0) {
+				File chkDir = new File(profileUploadFolder);
+				
+				if (!chkDir.exists()) {
+					chkDir.mkdirs();
+				}
+				
 				File file = files[0];
 				
 				for(File selectedfile : files) {
@@ -68,8 +80,11 @@ public class SHTeacherProfileController {
 				int extensionIndex = longFileName.lastIndexOf(".");
 				String extension = longFileName.substring(extensionIndex);
 				
-				File srcImage = new File(SHTeacherUploadController.temporaryUploadFolder + "\\" + vo.getUserId() + extension);
-				File destImage = new File(SHTeacherUploadController.profileUploadFolder + "\\" + vo.getUserId() + extension);
+				//File srcImage = new File(SHTeacherUploadController.temporaryUploadFolder + "\\" + vo.getUserId() + extension);
+				//File destImage = new File(SHTeacherUploadController.profileUploadFolder + "\\" + vo.getUserId() + extension);
+				
+				File srcImage = new File(temporaryUploadFolder + "\\" + vo.getUserId() + extension);
+				File destImage = new File(profileUploadFolder + "\\" + vo.getUserId() + extension);
 				
 				if (destImage.exists()) {
 					destImage.delete();
@@ -77,8 +92,11 @@ public class SHTeacherProfileController {
 				
 				Files.copy(srcImage.toPath(), destImage.toPath());
 				
-				File srcThumbnail = new File(SHTeacherUploadController.temporaryUploadFolder + "\\s_" + vo.getUserId() + extension);
-				File destThumbnail = new File(SHTeacherUploadController.profileUploadFolder + "\\s_" + vo.getUserId() + extension);
+				//File srcThumbnail = new File(SHTeacherUploadController.temporaryUploadFolder + "\\s_" + vo.getUserId() + extension);
+				//File destThumbnail = new File(SHTeacherUploadController.profileUploadFolder + "\\s_" + vo.getUserId() + extension);
+				
+				File srcThumbnail = new File(temporaryUploadFolder + "\\s_" + vo.getUserId() + extension);
+				File destThumbnail = new File(profileUploadFolder + "\\s_" + vo.getUserId() + extension);
 				
 				if (destImage.exists()) {
 					destThumbnail.delete();
@@ -105,5 +123,6 @@ public class SHTeacherProfileController {
 	@GetMapping(path = "/user/teacher_access_teacher")
 	public void accessTeacher() {
 		log.info("Go to : /user/teacher_access_teacher.jsp");
+		log.info("연결 안됨");
 	}
 }

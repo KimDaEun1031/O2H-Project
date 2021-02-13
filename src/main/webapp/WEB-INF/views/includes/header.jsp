@@ -121,8 +121,7 @@
 			var profile=document.getElementById("profile");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");		
-				stream.removeAttribute("hidden");	
+				profile.removeAttribute("hidden");						
 				test.removeAttribute("hidden");	
 				
 			}else{

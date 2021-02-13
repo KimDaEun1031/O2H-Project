@@ -37,30 +37,42 @@ import net.coobird.thumbnailator.Thumbnailator;
 public class SHTeacherUploadController {
 	
 	// 강사 프로필 이미지 폴더  "D:\\projectFiles\\profile";
-	public static final String profileUploadFolder = "D:\\projectFiles\\profile";
+	//public static final String profileUploadFolder = "D:\\projectFiles\\profile";
 	// 강사 프로필 이미지 임시파일 폴더 "D:\\projectFiles\\profile\\temp";
-	public static final String temporaryUploadFolder = "D:\\projectFiles\\profile\\temp";
+	//public static final String temporaryUploadFolder = "D:\\projectFiles\\profile\\temp";
 	// 강사 기본 프로필 이미지 파일 "D:\\projectFiles\\profile\\default\\default.jpg";
-	public static final String defaultImageFile = "D:\\projectFiles\\profile\\default\\default.jpg";
+	//public static final String defaultImageFile = "D:\\projectFiles\\profile\\default\\default.jpg";
 	
 	@Autowired
 	private SHTeacherService service;
 
 	@ResponseBody
 	@GetMapping(path = "/user/teacherProfileDisplay", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<Resource> teacherProfileDisplay(@RequestParam(name = "fileName")String fileName) throws IOException {
+	public ResponseEntity<Resource> teacherProfileDisplay(@RequestParam(name = "fileName")String fileName, HttpServletRequest request) throws IOException {
+		String profileUploadFolder = request.getServletContext().getRealPath("/profile");
+		
 		return fileDisplay(profileUploadFolder, fileName);
 	}
 	
 	@ResponseBody
 	@GetMapping(path = "/user/teacherTemporaryDisplay", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<Resource> teacherTemporaryDisplay(@RequestParam(name = "fileName")String fileName) throws IOException {
+	public ResponseEntity<Resource> teacherTemporaryDisplay(@RequestParam(name = "fileName")String fileName, HttpServletRequest request) throws IOException {
+		String temporaryUploadFolder = request.getServletContext().getRealPath("/profile/temp");
+		
 		return fileDisplay(temporaryUploadFolder, fileName);
 	}
 
 	@RequestMapping(value = "/user/teacherProfileUpload", method = RequestMethod.POST)
 	public ResponseEntity<String> teacherProfileUpload(@RequestBody @RequestParam(name = "uploadFile")MultipartFile mfile, HttpServletRequest request) throws IOException {
 		String userId = ((KDLoginInfoVO) request.getSession().getAttribute("loginInfo")).getUserId();
+		
+		String temporaryUploadFolder = request.getServletContext().getRealPath("/profile/temp");
+		
+		File chkDir = new File(temporaryUploadFolder);
+		
+		if (!chkDir.exists()) {
+			chkDir.mkdirs();
+		}
 		
 		log.info("userId : " + userId);
 		
@@ -121,7 +133,7 @@ public class SHTeacherUploadController {
 
 		File[] files = dir.listFiles(filter);
 
-		if (files.length > 0) {
+		if (files != null && files.length > 0) {
 			File file = files[0];
 			
 			for(File selectedfile : files) {

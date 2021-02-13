@@ -10,7 +10,6 @@
 <div id="map" style="width:500px;height:400px;"></div>
 
 <div>
-	<button class="nearLocation">가까운 헬스클럽</button>
 	<button class="resetMap">현재 위치</button>
 </div>
 
@@ -29,6 +28,8 @@
 			<li class='page-item'><a class='page-link next-page' href=''>Next</a></li>
 			<li class='page-item'><a class='page-link last-page' href=''>Last</a></li>
 		</ul>
+		<input class='pageValue' type='text' />
+		<button class='goPage'>Go</button>
 	</div>
 </div>
 
@@ -47,7 +48,6 @@ var pageCount = 5;
 var listCount = 5;
 
 var resetMap = document.getElementsByClassName("resetMap")[0];
-var nearLocation = document.getElementsByClassName("nearLocation")[0];
 
 var listLocation = document.getElementsByClassName("listLocation")[0];
 var pageBtn = document.getElementsByClassName("pageBtn")[0];
@@ -67,6 +67,13 @@ var resetFunc = null;
 var initMap = null;
 
 var getCoords = null;
+
+var pagePrev = null;
+var pageNext = null;
+var pageFirst = null;
+var pageLast = null;
+
+var pageSelect = null;
 
 window.onload = function(event) {
 	showList = function(page, pageCount, listCount) {
@@ -234,7 +241,7 @@ window.onload = function(event) {
 	};
 	
 	listFunc = function(event) {
-		if (event.target.tagName == "LI") {
+		if (event.target.tagName == "LI" || event.target.tagName == "P") {
 			
 			if (currentMarker != null) {
 				currentMarker.setMap(null);
@@ -244,11 +251,27 @@ window.onload = function(event) {
 				currentInfoWindow.close();
 			}
 			
-			var name = event.target.dataset.name;
-			var address = event.target.dataset.address;
-			var content = event.target.dataset.content;
-			var latitude = event.target.dataset.latitude;
-			var longitude = event.target.dataset.longitude;
+			var name = null;
+			var address = null;
+			var content = null;
+			var latitude = null;
+			var longitude = null;
+			
+			if (event.target.tagName == "LI") {
+				name = event.target.dataset.name;
+				address = event.target.dataset.address;
+				content = event.target.dataset.content;
+				latitude = event.target.dataset.latitude;
+				longitude = event.target.dataset.longitude;
+			}
+			
+			if (event.target.tagName == "P") {
+				name = event.target.parentNode.parentNode.dataset.name;
+				address = event.target.parentNode.parentNode.dataset.address;
+				content = event.target.parentNode.parentNode.dataset.content;
+				latitude = event.target.parentNode.parentNode.dataset.latitude;
+				longitude = event.target.parentNode.parentNode.dataset.longitude;
+			}
 			
 			var markerPosition  = new kakao.maps.LatLng(latitude, longitude); //마커 위치 (위도, 경도)
 
@@ -354,14 +377,15 @@ window.onload = function(event) {
 	
 	resetMap.addEventListener("click", resetFunc);
 	
-	nearLocation.addEventListener("click", function(event) {
+	(function nearLocation() {
 		var places = new kakao.maps.services.Places(); 
 		
 		var callback = function(result, status, pagination) {
 		    if (status === kakao.maps.services.Status.OK) {
 		    	var listLi = "";
-		    	
-		    	listLi += "검색 결과 수 : " + pagination.totalCnt;
+
+		    	listLi += "검색 결과 수 : " + pagination.totalCount;
+		    	listLi += "페이지 수 : " + pagination.last;
 		    	
 		    	result.forEach(function(element, index) {
 		    		var name = element.place_name;
@@ -385,11 +409,32 @@ window.onload = function(event) {
 		    	(function nearLocationCountPage(pagination) {
 		    		console.log(pagination);
 
-		    		document.getElementsByClassName("nearPagination")[0].style.display = "block";
+		    		document.getElementsByClassName("nearPageBtn")[0].classList.remove("d-none");
 
 		    	    if (pagination.hasPrevPage) {
 		    	    	document.getElementsByClassName("first-page")[0].style.display = "block";
+		    	    	
+		    	    	document.getElementsByClassName("first-page")[0].removeEventListener("click", pageFirst);
+		    	    	
+		    	    	pageFirst = function(event) {
+		    	    		event.preventDefault();
+		    	    		
+		    	    		pagination.gotoFirst();
+		    	    	};
+		    	    	
+		    	    	document.getElementsByClassName("first-page")[0].addEventListener("click", pageFirst);
+		    	    	
 		    	    	document.getElementsByClassName("prev-page")[0].style.display = "block";
+		    	    	
+		    	    	document.getElementsByClassName("prev-page")[0].removeEventListener("click", pagePrev);
+		    	    	
+		    	    	pagePrev = function(event) {
+		    	    		event.preventDefault();
+		    	    		
+		    	    		pagination.prevPage();
+		    	    	};
+		    	    	
+		    	    	document.getElementsByClassName("prev-page")[0].addEventListener("click", pagePrev);
 		    	    } else {
 		    	    	document.getElementsByClassName("first-page")[0].style.display = "none";
 		    	    	document.getElementsByClassName("prev-page")[0].style.display = "none";
@@ -399,20 +444,57 @@ window.onload = function(event) {
 		    	    
 		    	    if (pagination.hasNextPage) {
 		    	    	document.getElementsByClassName("next-page")[0].style.display = "block";
+		    	    	
+		    	    	document.getElementsByClassName("next-page")[0].removeEventListener("click", pageNext);
+		    	    	
+		    	    	pageNext = function(event) {
+		    	    		event.preventDefault();
+		    	    		
+		    	    		pagination.nextPage();
+		    	    	};
+		    	    	
+		    	    	document.getElementsByClassName("next-page")[0].addEventListener("click", pageNext);
+		    	    	
 		    	    	document.getElementsByClassName("last-page")[0].style.display = "block";
+		    	    	
+		    	    	document.getElementsByClassName("last-page")[0].removeEventListener("click", pageLast);
+		    	    	
+		    	    	pageLast = function(event) {
+		    	    		event.preventDefault();
+		    	    		
+		    	    		pagination.gotoLast();
+		    	    	};
+		    	    	
+		    	    	document.getElementsByClassName("last-page")[0].addEventListener("click", pageLast);
 		    	    } else {
 		    	    	document.getElementsByClassName("next-page")[0].style.display = "none";
 		    	    	document.getElementsByClassName("last-page")[0].style.display = "none";
 		    	    }
+		    	    
+		    	    document.getElementsByClassName("goPage")[0].removeEventListener("click", pageSelect);
+		    	    
+		    	    pageSelect = function(event) {
+		    	    	var pageValue = document.getElementsByClassName("pageValue")[0].value;
+		    	    	
+		    	    	if (pageValue > 0 && pageValue < pagination.last + 1) {
+		    	    		event.preventDefault();
+			    	    	
+			    	    	pagination.gotoPage(document.getElementsByClassName("pageValue")[0].value);
+		    	    	} else {
+		    	    		return;
+		    	    	}
+		    	    };
+		    	    
+		    	    document.getElementsByClassName("goPage")[0].addEventListener("click", pageSelect);
 		    	})(pagination);
 		    } else {
 		    	if (status === kakao.maps.services.Status.ZERO_RESULT) {
 		    		nearListLocation.textContent = "ZERO_RESULT";
-		    		document.getElementsByClassName("nearPagination")[0].style.display = "none";
+		    		document.getElementsByClassName("nearPageBtn")[0].classList.add("d-none");
 		    	}
 		    	if (status === kakao.maps.services.Status.ERROR) {
 		    		nearListLocation.textContent = "ERROR";
-		    		document.getElementsByClassName("nearPagination")[0].style.display = "none";
+		    		document.getElementsByClassName("nearPageBtn")[0].classList.add("d-none");
 		    	}
 		    }
 		};
@@ -426,6 +508,76 @@ window.onload = function(event) {
 		};
 		
 		places.keywordSearch('헬스클럽', callback, options);
+	})();
+	
+	document.getElementsByClassName("nearListLocation")[0].addEventListener("click", function(event) {
+		if (event.target.tagName == "LI" || event.target.tagName == "P") {
+			
+			if (currentMarker != null) {
+				currentMarker.setMap(null);
+			}
+			
+			if (currentInfoWindow != null) {
+				currentInfoWindow.close();
+			}
+
+			var name = null;
+			var address = null;
+			var latitude = null;
+			var longitude = null;
+			var place_url = null;
+			
+			if (event.target.tagName == "LI") {
+				name = event.target.dataset.name;
+				address = event.target.dataset.address;
+				latitude = event.target.dataset.latitude;
+				longitude = event.target.dataset.longitude;
+				place_url = event.target.dataset.place_url;
+			}
+			
+			if (event.target.tagName == "P") {
+				name = event.target.parentNode.parentNode.dataset.name;
+				address = event.target.parentNode.parentNode.dataset.address;
+				latitude = event.target.parentNode.parentNode.dataset.latitude;
+				longitude = event.target.parentNode.parentNode.dataset.longitude;
+				place_url = event.target.parentNode.parentNode.dataset.place_url;
+			}
+			
+			var markerPosition  = new kakao.maps.LatLng(latitude, longitude); //마커 위치 (위도, 경도)
+
+			var marker = new kakao.maps.Marker({ // 마커 생성
+			    position: markerPosition,
+			    clickable: true
+			});
+			
+			//인포윈도우 표시 위치입니다
+			var infoWindowPosition = new kakao.maps.LatLng(latitude, longitude);
+			//인포윈도우에 표출될 내용 (HTML 문자열이나 DOM 객체)
+			var infoWindowContent = `<div style="padding:5px;">${"${name}"}${"${address}"}</div>`;
+			
+			var infowindow = new kakao.maps.InfoWindow({
+			    position : infoWindowPosition, 
+			    content : infoWindowContent
+			});
+			
+			marker.setMap(map);
+			
+			kakao.maps.event.addListener(marker, 'click', function() {
+				locationContent.textContent = name + address + place_url;
+			});
+			
+			// 마커 위에 인포윈도우를 표시
+			infowindow.open(map, marker); 
+			
+		    // 이동할 위도 경도 위치
+		    var moveLatLon = new kakao.maps.LatLng(latitude, longitude);
+		    
+		    // 지도 중심을 이동
+		    map.panTo(moveLatLon);     
+			
+		    currentMarker = marker;
+		    currentInfoWindow = infowindow;
+		}		
 	});
 	
 	showList(page, pageCount, listCount);
