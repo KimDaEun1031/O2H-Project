@@ -142,7 +142,7 @@ $.validator.addMethod("validPhone", function(value) {
 }, "전화번호를 확인해 주세요.");
 //사용자 검증 메소드 추가-이메일
 $.validator.addMethod("validEmail", function(value) {
-	var regEmail = /^.+@.+\..+$/;
+	var regEmail = /^.+@.+\..{1,50}$/;
 	return regEmail.test(value);
 }, "email을 확인해 주세요.");
 //사용자 검증 메소드 추가-생일
@@ -157,26 +157,20 @@ $.validator.addMethod("validBirth", function(value) {
 
  */
 
-
 $(function(){
 	
+	//비밀번호 변경
 	$("#pwd-btn").click(function(e){ //비밀번호 변경이랑 info변경이랑 나눔 210212
 		e.preventDefault();
-
-		
-		form.submit();
-		
-		
-	})
-	
-	
-	
-	
+		var form = $(".passwordForm");
+		form.submit();		
+	})	
+			
 	//게시글 등록 버튼 등작-과 관련된 스크립트
-	//$("button[type='submit']").click(function(e){
 	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
 		e.preventDefault();
-	
+		
+		//첨부파일 없으면 alert 창 보냄
 		var imgAttach = $("#myImg").attr("src"); //.val() 붙였더니 에러남
 			if(!imgAttach){
 				alert("첨부파일을 등록 후 수정해주세요.");
@@ -187,8 +181,6 @@ $(function(){
 		var str = "";
 		//첨부파일 영역에 정보 수집
 		$(".uploadResult ul li").each(function(idx,obj){
-		//$("#myImg").each(function(idx,obj){ //str이 안잡혀서 영역 다시 잡음-근데 에러가 나네? 400.
-		//$("input[name='uploadFile']").each(function(idx,obj){ //아래 append 한 부분꺼 영역 가져옴
 			var job = $(obj);
 			//수집된 정보를 hidden 태그로 작성
 			str+="<input type='hidden' name='attachList["+idx+"].uuid' value='"+job.data("uuid")+"'>";
@@ -205,14 +197,10 @@ $(function(){
 		//2. 폼에 추가하기
 		form.append(str);
 		//3. 전송
-		form.submit();
-		
-		
+		form.submit();				
 	})
 	
-	
-
-	
+		
 	//파일버튼이 클릭되어 변화가 일어나는 경우
 	//현재 목록의 파일을 서버로 보내서 저장하기
 	//첨부파일 버튼 바꿀거면 여기서 어떻게 함수 변경해서-안해도 잘 되네
@@ -303,45 +291,6 @@ $(function(){
 
 
 
-/*
-	//x 버튼 클릭 - 이벤트 위임
-	$(".uploadResult").on("click","button",function(){
-		
-		//해당 파일 경로 가져오기
-		var targetFile=$(this).data("file");
-		//파일 타입 가져오기
-		var type=$(this).data("type");
-		//span 태그가 속한 부모 li 태그 가져오기-가장 가까운 태그 가져오기 .closest
-		var targetLi=$(this).closest("li");
-
-		
-		//서버 폴더에서 제거
-		$.ajax({
-			url:'/deleteFile',
-			type:'post',
-			data:{
-				fileName:targetFile,
-				type:type
-			},
-			success:function(result){
-				console.log(result);
-				//화면 목록에서 제거
-				targetLi.remove();
-			}
-		})	
-	})// x버튼 종료
-	
-	//크게 열린 이미지 다시 닫기
-	$(".bigPictureWrapper").click(function(){
-		$(".bigPicture").animate({width:'0%', hight:'0%'},1000);
-		setTimeout(function(){
-			$(".bigPictureWrapper").hide();
-		},1000);
-	})// 이미지 닫기 종료
-
-*/
-
-
 
 })
 
@@ -350,3 +299,141 @@ function showImage(fileCallPath) {
 	$(".bigPicture").html("<img src='/display?fileName="+fileCallPath+"'>")
 					.animate({width:'100%', hight:'100%'},1000);
 }
+
+
+
+
+
+
+//이거 안되네.
+//그래 이미지 보여주는 것까지는 되네
+//이제 img 태그에 있는 걸 src 받아서 서버랑 sql에 넘기는 것만 하면 되네
+//data- 요소들을 잘 넘기면 됨
+
+//   => 안됨. 아이디를 받아서 보여주는 것까지는 되는데. 그 보여준 이미지가 자동 저장이 안됨.
+//		자동저장이 되지 않는 이상 보여주는 것에 클라이언트의 혼란만 줄 수 있으니 아예 보여주지 않도록 함.
+
+/*
+$(function(){
+	
+	//비밀번호 변경
+	$("#pwd-btn").click(function(e){ //비밀번호 변경이랑 info변경이랑 나눔 210212
+		e.preventDefault();
+		var form = $(".passwordForm");
+		form.submit();		
+	})	
+
+	
+	//게시글 등록 버튼 등작-과 관련된 스크립트
+	$("#update-btn").click(function(e){ //영역 다시 잡음 210205
+		e.preventDefault();
+		
+		//첨부파일 없으면 alert 창 보냄
+		var imgAttach = $("#myImg").attr("src"); //.val() 붙였더니 에러남
+			if(!imgAttach){
+				alert("첨부파일을 등록 후 수정해주세요.");
+				console.log(imgAttach);
+				return false;
+			}
+
+		var str = "";
+		//첨부파일 영역에 정보 수집
+
+		var job =  $("#myImg");
+		//수집된 정보를 hidden 태그로 작성
+		str+="<input type='hidden' name='attach.uuid' value='"+job.data("uuid")+"'>";
+		str+="<input type='hidden' name='attach.uploadPath' value='"+job.data("path")+"'>";
+		str+="<input type='hidden' name='attach.fileName' value='"+job.data("filename")+"'>";
+		str+="<input type='hidden' name='attach.fileType' value='"+job.data("type")+"'>";	
+		console.log("폼 src 확인"+str);
+		
+		//hidden 태그를 게시글 등록 폼에 추가한 후 폼 전송하기
+		//1. 게시글 등록 폼 가져오기
+		var form = $(".infoUpdateForm"); //폼을 두개로 나누면서 폼에 넣을 영역 다시 잡음
+		//var form = $("form");
+		//2. 폼에 추가하기
+		form.append(str);
+		//3. 전송
+		form.submit();				
+	})
+})
+
+
+$(document).ready(function(){ 
+	
+	$.getJSON({
+		url:'/user/getAttachList',
+		data: {
+			userId:userIdVal
+		},
+		success:function(data){
+			console.log(data);
+			
+			$(data).each(function(idx,obj){
+				if(obj.fileType){
+					var profileImg = $("#myImg");
+					
+					//썸네일 이미지 경로 uploadPath - 2021\01\20
+					var fileCallPath = encodeURIComponent(obj.uploadPath+"\\s_"+obj.uuid+"_"+obj.fileName);
+					
+					profileImg.attr('src','/display?fileName='+fileCallPath);
+					profileImg.attr('data-path',obj.uploadPath);
+					profileImg.attr('data-uuid',obj.uuid);
+					profileImg.attr('data-filename',obj.fileName);
+					profileImg.attr('data-type',obj.fileType);
+				}								
+			})
+		} 
+	}) //getJSON 종료
+	
+	//파일버튼이 클릭되어 변화가 일어나는 경우
+	//현재 목록의 파일을 서버로 보내서 저장하기
+	$("input[type='file']").change(function(){
+		console.log("업로드 호출");
+
+		var inputFile = $("input[name='uploadFile']");
+		console.log(inputFile);
+		
+		//첨부 파일 목록
+		var files = inputFile[0].files;		
+		
+		var formData = new FormData();
+		//객체 안에 요소 추가
+		for(var i=0;i<files.length;i++){
+			formData.append("uploadFile",files[i]);
+		}		
+
+		$.ajax({
+			url:'/uploadAjax',
+			type:'post',
+			processData:false, //데이터를 query string 형태로 보낼 것인지 결정
+			contentType:false, //기본값은 application/x-www-form-urlencoded임(파일첨부이므로 multipart/form-data로 보내야 함)
+			data:formData,
+			success:function(result){
+				console.log(result);
+				showUploadedFile(result); 				
+				$("input[name='uploadFile']").val(""); //업로드 성공 후 기존 파일명 제거
+			},
+			error:function(xhr,status,error){
+				console.log(status);
+			}
+		})	
+	})//파일첨부 종료
+	
+	function showUploadedFile(profile) { // 받을 변수 하나 설정해 둔+위에서 
+		//결과를 보여줄 영역 가져오기
+		var profileImg = $("#myImg");	
+			
+		var fileCallPath = encodeURIComponent(profile.uploadPath+"\\s_"+profile.uuid+"_"+profile.fileName);	
+		
+		profileImg.attr('src','/display?fileName='+fileCallPath);	
+		profileImg.attr('data-path',profile.uploadPath);
+		profileImg.attr('data-uuid',profile.uuid);
+		profileImg.attr('data-filename',profile.fileName);
+		profileImg.attr('data-type',profile.fileType);	
+		
+		console.log(profileImg);
+					
+	}// 첨부파일 보여주기 종료 
+})
+*/

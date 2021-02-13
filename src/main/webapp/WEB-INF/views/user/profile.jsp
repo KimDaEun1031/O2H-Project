@@ -52,7 +52,7 @@ ul li{
 							</div>
 							<!-- 첨부물 보여주기 -->
 							<script>
-								//현재 글 번호 가져오기->read->reply => 결과를 read
+								//현재 글 번호 가져오기
 								var userIdVal = '${loginInfo.userId}';
 							</script> 
                         </span>

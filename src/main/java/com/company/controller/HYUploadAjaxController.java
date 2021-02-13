@@ -33,16 +33,17 @@ import com.company.domain.HYFileAttach;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
 
-@Controller
 @Slf4j
+@Controller
 public class HYUploadAjaxController {
+	
 	@GetMapping("/uploadAjax")
 	public void uploadAjax() {
 		log.info("ajax 업로드 폼 요청");
 	}
 	
 
-	@PostMapping(value = "/uploadAjax", produces = MediaType.APPLICATION_JSON_UTF8_VALUE) //json 형태로 브라우저에 보내겠습니다.명시함
+	@PostMapping(value = "/uploadAjax", produces = MediaType.APPLICATION_JSON_UTF8_VALUE) //json 형태로 브라우저로 보내기
 	public ResponseEntity<HYFileAttach> uploadPost(MultipartFile[] uploadFile,HttpServletRequest req) {
 		log.info("업로드 요청");
 
@@ -50,7 +51,7 @@ public class HYUploadAjaxController {
 		String uploadFileName = null;
 		
 		//폴더 생성
-		String uploadFolderPath = getFolder(); // 
+		String uploadFolderPath = getFolder();
 		File uploadPath = new File(uploadFolder,uploadFolderPath); 
 		
 		log.info("uploadFolder "+uploadFolder);
@@ -82,19 +83,17 @@ public class HYUploadAjaxController {
 
 			try {
 				//서버에 저장
-				//f.transferTo(saveFile);
 				//이미지인지 일반 파일인지 확인
 				if(checkImageType(saveFile)) {
 					attach.setFileType(true);
 					//이미지라면 썸네일로 한번 더 저장
-					// C:\\upload\\2021\\01\\20\\s_12315sdfkijl_원본파일명.jsp
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_"+uploadFileName));
 					InputStream in = f.getInputStream();
 					Thumbnailator.createThumbnail(in, thumbnail, 200,200);
 					in.close();
 					thumbnail.close();				
 				}
-				//서버에 저장 - 에러나서 서버에 저장을 나중에 함
+				//서버에 저장
 				f.transferTo(saveFile);				
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -104,7 +103,8 @@ public class HYUploadAjaxController {
 			
 		}
 		return new ResponseEntity<HYFileAttach>(attach,HttpStatus.OK); 
-	} // uploadPost end
+	}
+	
 	
 	@GetMapping("/display")
 	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
@@ -145,16 +145,15 @@ public class HYUploadAjaxController {
 		HttpHeaders headers = new HttpHeaders();
 		
 		try {
+			//uuid+원본파일명으로 다운로드
 			headers.add("Content-Disposition", 
 					"attachment;filename="+new String(resourceName.getBytes("utf-8"), "ISO-8859-1"));
-					//uuid+원본파일명으로 다운로드
-					//"attachment;filename="+new String(resourceUidName.getBytes("utf-8"), "ISO-8859-1"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		
 		return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
-	} // download end
+	}
 	
 	
 	//서버에서 파일 삭제
@@ -166,7 +165,7 @@ public class HYUploadAjaxController {
 		try {
 			File file = new File("c:\\upload\\"+URLDecoder.decode(fileName,"utf-8"));
 			
-			//파일(썸네일, 일반파) 삭제
+			//파일(썸네일, 일반파일) 삭제
 			file.delete();
 			
 			if (type.equals("image")) { //이미지였다면 원본 이미지 삭제
@@ -179,34 +178,25 @@ public class HYUploadAjaxController {
 			return new ResponseEntity<String>("fail",HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<String>("success",HttpStatus.OK);
-	}
-	
+	}	
 	
 	
 	//서버에 저장한 파일이 이미지인지 일반 파일인지 확인
-	// .jsp, .sql, => 다른 마인이 필요함-일반적이지 않은 것은 null남
+	// .jsp, .sql, => 다른 Mime이 필요함
 	private boolean checkImageType(File file) { // ~.txt => text/plain, text/html, image/jpeg, image/png
 		
-		MimetypesFileTypeMap m = new MimetypesFileTypeMap(); // 요즘 방식이지만 11버전에서는 라이브러리가 또 빠졌음.
+		MimetypesFileTypeMap m = new MimetypesFileTypeMap();
 		m.addMimeTypes("image png jpg jpeg git");
+		
 		return m.getContentType(file).contains("image");
-
-	} // checkImageType end
+	}
 	
 	
 	//날짜에 따라 폴더 생성하기
 	private String getFolder() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date(); // 시간,날짜가 길게 나옴
+		Date date = new Date();
 		String str = sdf.format(date); // 2021-01-21
-		return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
-	} // getFolder end
-	
-	
-	
-	
-	
-	
-	
-	
+		return str.replace("-", File.separator);
+	}	
 }

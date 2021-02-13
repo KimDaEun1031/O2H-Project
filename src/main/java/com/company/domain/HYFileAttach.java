@@ -8,6 +8,5 @@ public class HYFileAttach {
 	private String uploadPath;
 	private String fileName;
 	private boolean fileType;
-	private String userId;
-	
+	private String userId;	
 }

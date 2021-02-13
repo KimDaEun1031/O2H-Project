@@ -30,7 +30,7 @@
                 <!-- Section Header -->
                 <div id="imageForm" class="col-l-3 col-md-3 col-sm-3 col-xs-12 section-header wow fadeInDown">
                     <span id="profile_pic">
-                        <img id="myImg" src="" class="img-circle" alt="Profile Image" style='object-fit:contain' />
+                        <img id="myImg" src="" class="img-circle" alt="" style='object-fit:contain' />
                     </span>
 					<div class="uploadResult" style="display:none;">
 						<ul></ul>
@@ -48,7 +48,7 @@
                 <div id="profileForm" class="col-l-7 col-md-9 col-sm-7 col-xs-12 customized-text wow fadeInDown black-ed">
                     <div id="formCol" class="col-l-12 col-md-12 col-sm-7 col-xs-12">
                         <h1>FitURJC Account</h1>                                  
-                        <form role="form" method="GET" id="profile-form" action="teacher_my_stream">
+                        <form role="form" method="POST" id="profile-form" action="teacher_my_stream">
                         	<div class="form-group">
                                 <label for="userId">아이디</label>
                                 <input style="border-radius:0px!important" name="userName" class="form-control" id="userId" value="${loginInfo.userId}" readonly>
