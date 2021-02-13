@@ -43,6 +43,100 @@
     <script src="/resources/js/main.js" defer ="defer"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     
+    <!-- 현영님 포토 보드 -->
+    <style>
+    /* 가운데 정렬 */
+	.wrap{
+		width: 100%;
+	    text-align: center;
+	   /*  align-content: space-around; */
+	}
+	/* 테두리 박스 만들기 */
+	.wrap .col-xl-3{
+		 border: 3px solid #009999;
+		 /* border: 2px solid #009999; */
+		 width: 100%;
+		 margin: 10px;
+		 padding: 10px;
+	}
+	/* 리스트 링크 */
+	.paginate_button a{
+		/* color: #009999; */
+		font-weight: 600;
+		font-size: 1.5rem;
+		font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;	
+	}
+	.paginate_button a{
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    width: 60px;
+	    height: 60px;
+	    font-size: 1.1rem;
+	    color: #999;
+	    background-color: #EEEEEE;
+	    margin: 10px;
+	    border-radius: 5px;
+	    text-decoration: none;
+	    transition: all 0.3s ease;
+	}
+	.paginate_button a:hover{
+		background-color: #009999;
+	    color: #fff; 
+	}
+		/* 글작성 버튼 */
+	.testBtn {
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    width: 800px;
+	    height: 40px;
+	    font-size: 1.1rem;
+	    color: #999;
+	    background-color: #EEEEEE;
+	    margin: 10px;
+	    border-radius: 5px;
+	    text-decoration: none;
+	    transition: all 0.3s ease;
+	    border-radius: 300px;
+	}
+	/* img 태그 hover 시 이미지 확대 */
+	.scale {
+	  transform: scale(1);
+	  -webkit-transform: scale(1);
+	  -moz-transform: scale(1);
+	  -ms-transform: scale(1);
+	  -o-transform: scale(1);
+	  transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+	}
+	.scale:hover {
+	  transform: scale(1.2);
+	  -webkit-transform: scale(1.2);
+	  -moz-transform: scale(1.2);
+	  -ms-transform: scale(1.2);
+	  -o-transform: scale(1.2);
+	}
+	.center{
+		margin: auto;
+	}
+	@media(min-width: 700px){
+	
+		.wrap{
+			display: flex; /* 가로로 길게  */
+			flex-wrap: wrap;
+			justify-content: space-around;	
+		}
+		.wrap .col-xl-3{
+			/* flex-wrap: nowrap; */
+			/* flex-wrap: wrap; */
+			 
+		}
+		.wrap .col-xl-3:nth-child(3){
+			/* flex: none; */
+		}
+	}
+	    
+    </style>
     
   </head>
 
@@ -81,7 +175,7 @@
             
       
             <div class="collapse navbar-collapse" id="navbarResponsive">
-            
+            	
               <ul class="navbar-nav ml-auto">
               <!-- Navigation 
                 <li class="nav-item">
@@ -94,7 +188,7 @@
                   <a class="nav-link js-scroll-trigger" href="#">Facilities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#">contacts</a>
+                  <a class="nav-link js-scroll-trigger" href="#">contacts</a>                 
                 </li>-->
       
                 <li class="nav-items">
@@ -106,10 +200,10 @@
                 	<a class="btn btn-info" id="stream" href="/user/teacher_page" hidden="hidden" role="button">Stream 설정</a>                   
                 </li>
               </ul>
-            </div>
+            </div>           
           </div>
         </nav>
-        
+  
 
 <script>
 	//	window.onload =function(){
@@ -143,29 +237,20 @@
 
         
       <!-- 추가 부분 -->
-
+     <div>
+     	<a href="/">
+          <img src="/resources/img/logo.png" alt=""/>
+     	</a>
+     </div>
+	 
 
       <div class="container">
         <div class="inner-header">
           <div class="row">
             <div class="col-lg-2 col-md-2">
-              <div class="logo">
-                <a href="/">
-                  <img src="/resources/img/logo.png" alt="" />
-                </a>
+              <div class="logo">               
               </div>
-            </div>
-            <div class="col-lg-7 col-md-7">
-              <div class="advanced-search">
-              
-                <button type="button" class="category-btn" value="카테고리" > 전체 카테고리 </button>                
-                <div class="input-group">
-                  <input type="text" placeholder="무엇이 필요하신가요?" />
-                  <button type="button"><i class="ti-search"></i></button>
-                </div>
-           
-              </div>
-            </div>
+            </div>           
           </div>
         </div>
       </div>
@@ -180,11 +265,10 @@
               <li>
                 <a href="">홈쇼핑</a>               
               <li>
-                <a href="">커뮤니티</a>
+                <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">
                   <li><a href="/areaChat/chatRoomList">지역별 온라인 채팅</a></li>
-                  <li><a href="#">오프라인미팅</a></li>
-                  <li><a href="#">중고장터</a></li>
+                  <li><a href="/board/board_photo_list">오프라인미팅</a></li>               
                 </ul>
               </li>
               <li>
@@ -204,7 +288,7 @@
                 </ul>
               </li>
                <li>
-                <a href="#">주변 헬스장</a>
+                <a href="/map/healthMap">주변 헬스장</a>
                 
               </li>
             </ul>
@@ -215,7 +299,7 @@
     </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
+    <!-- 슬라이드 광고 -->
     <section class="hero-section">
       <div class="hero-items owl-carousel">
         <div class="single-hero-items set-bg" data-setbg="/resources/img/hero-3.png" onclick="location.href='/chat/chat_list'">
@@ -246,53 +330,70 @@
     </section>
     <!-- Hero Section End -->
 
-    <!-- Instagram Section Begin -->
-    <div class="banner-section spad" id="activities">
-      <div class="col-lg-8 offset-lg-2">
-         <div class="filter-control">
-         	<a href="" style="color: black; font-size: 30px;">추천 강사</a>          
-         </div>
-      </div>
-      <div class="instagram-photo">
-        <div class="insta-item set-bg" data-setbg="/resources/img/insta-1.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="/resources/img/insta-2.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="/resources/img/insta-3.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="/resources/img/insta-4.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="/resources/img/insta-5.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="/resources/img/insta-6.jpg">
-          <div class="inside-text">
-            <i class="ti-instagram"></i>
-            <h5><a href="#">스트리밍 중</a></h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Instagram Section End -->
+    <!-- 현영님 사진 게시판 -->
+    <div class="board_wrap" style="margin-top:20px">
+   
+     <table class="board_list" style="text-align: center;">
+       <caption>
+         게시판 목록
+       </caption>
+       
+       
+   <div class="wrap">
+     <!-- 게시판 리스트 반복문 : 박스형태 -->
+	     <script>
+	     var str="";
+	     </script>
+     	<c:forEach var="hyvo" items="${hylist}">              	
+                           
+          	<script>  
+			//결과를 보여줄 영역 가져오기
+			var uuid = '${hyvo.attach.uuid}';	
+			var uploadPath = '${hyvo.attach.uploadPath}';			
+			var fileName = '${hyvo.attach.fileName}';	
+			
+			path = encodeURIComponent(uploadPath+"\\s_"+uuid+"_"+fileName);		
+			fileCallPath=path.replace(new RegExp(/\\/g),"/");
+			
+			//화면에 보여줄 태그 생성
+			str+='<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">';
+			str+='<figure class="effect-ming tm-video-item">';
+			str+='<div class="scale">';
+			str+='<a href="${hyvo.bno}" class="move">';
+			str+="<img id='myImg' src='/photoBoardDisplay?fileName="+fileCallPath+"' alt='${hyvo.attach.fileName}' class='img-fluid'>";		
+			str+='<figcaption class="d-flex align-items-center justify-content-center">';
+			str+='<a href="${hyvo.bno}" class="move"><h2>${hyvo.title}</h2></a>';
+			str+='</figcaption></div></figure><div class="d-flex justify-content-between tm-text-gray">';
+			str+='<span class="tm-text-gray-light"><h4>${vo.writer}</h4></span>';	
+			str+='</div></div>';			
+		</script> 
+	</c:forEach>
+	<script>
+	$(".wrap").html(str);
+	</script>
+  </div>
+
+	<!-- start Pagination -->
+	<div class="text-center" style="display: table; margin-left: auto; margin-right: auto; ">
+		<ul class="pagination" >
+			<c:if test="${pageVO.prev }">
+				<li class="paginate_button previous" ><a href="${pageVO.startPage-1 }">Previous</a>
+			</c:if>
+			<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px;" href="${idx}">${idx}</a>
+			</c:forEach>
+			<c:if test="${pageVO.next }">
+				<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
+			</c:if>
+		</ul>
+	</div><!-- end Pagination --> 
+	</div>
+	<%-- 페이지 링크 값을 넘기기 위한 폼 --%>
+	<form action="" id="actionForm">
+		<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" id="pageNum"/>
+		<input type="hidden" name="amount" value="${pageVO.cri.amount}"  id="amount"/>
+	</form>
+    <!-- 현영님 게시판 end -->
 
     <!-- 프로그램 메뉴 및 맵 -->
     <div class="flex-container">
