@@ -1,12 +1,84 @@
 /**
  * 파일첨부와 관련된 스크립트
-
+ * 유효성 검증
  */
+$(function() {//비밀번호
+	$("#profile-form").validate({
+		//규칙정의 - 이름
+		rules:{
+			userInfo : {
+				required:true,
+				validInfo:true,
+				maxLengthByte:300
+			}
+		},//rules
+		//규칙에 대한 메세지 정의
+		messages:{
+			userInfo : {
+				required:"프로필 정보를 입력해 주세요.",
+				maxLengthByte:"한글 1~100자, 영어-숫자 1~300자"				
+			}
+		},//messages
+		
+		errorPlacement:function(error,element) {
+			$(element).closest("form")
+					  .find("small[id='"+element.attr('id')+"']")
+					  .append(error);
+		},//messages
+		
+		success : function(label) {
+			var name = label.attr('for');
+			label.text(name+ ' is ok!');
+		}
+	});//"#modifyform").validate
+});//function()
+
+//사용자 검증 메소드 추가
+$.validator.addMethod("validInfo", function(value) {
+	var regInfo = /^[가-힣A-Za-z\d\s,\.!@#$%^&+<>=*\/\|"';:?~`()\[\]\{\}_-]+$/;
+	return regInfo.test(value);
+}, "프로필 내용을 확인해 주세요.");
+
+/*바이트 체크 함수*/
+function getByteB(str) {
+    var byte = 0;
+    for (var i = 0; i < str.length; ++i) {
+        // 기본 한글 3바이트 처리 ( UTF-8 )
+        (str.charCodeAt(i) > 127) ? byte += 3 : byte++;
+    }
+    return byte;
+}
+/*input 바이트 길이 체크 (type=file) 가능 */
+$.validator.addMethod("maxLengthByte", function (str, element, param) {
+    var byte = 0, result = true;
+    if (str) {
+        byte +=  getByteB(str);
+        if (byte > param) {
+            result = false;
+        }
+    }
+    return this.optional(element) || result;
+}, "영어-숫자 1~300자, 한글 1~100자 제한");
+
+
+/**
+ * 파일첨부와 관련된 스크립트
+ *
+ */
+
 $(function(){
 	
 	//게시글 등록 버튼 등작-과 관련된 스크립트
 	$("button[type='submit']").click(function(e){
 		e.preventDefault();
+		
+		//첨부파일 없으면 alert 창 보냄
+		var imgAttach = $("#myImg").attr("src");
+			if(!imgAttach){
+				alert("첨부파일을 등록 후 수정해주세요.");
+				console.log(imgAttach);
+				return false;
+			}
 
 		var str = "";
 		

@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+	
     <!-- Custom css -->
     <link rel="stylesheet" href="/resources/css/register.css" />
     <!-- Custom scripts for this template -->
@@ -56,6 +57,7 @@
                             <div class="form-group">
                                 <label for="userInfo">강사소개</label>
                                 <textarea style="border-radius:0px!important" class="form-control-comment" name="userInfo" id="userInfo">${loginInfo.userInfo}</textarea>
+                                <small id="userInfo" class="text-info"></small>
                             </div>             
 	                        <div id="submit" class="col-l-10 col-md-12 col-sm-10 col-xs-12">	                           
 	                            <button type="submit" class="btn btn-primary " id="update-btn" >수정 완료</button>
