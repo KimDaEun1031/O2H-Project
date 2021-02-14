@@ -23,6 +23,21 @@
 .nav-link-2:hover {
   border-color: #ff6666;
 }
+/* placeholder webkit */
+#title::-webkit-input-placeholder  {
+  -webkit-transition: opacity 0.3s linear; 
+  color: gray;
+}
+#title:focus::-webkit-input-placeholder  {
+  opacity: 0;
+}
+#content::-webkit-input-placeholder  {
+  -webkit-transition: opacity 0.3s linear; 
+  color: gray;
+}
+#content:focus::-webkit-input-placeholder  {
+  opacity: 0;
+}
 </style>
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -37,7 +52,7 @@
       </div>
     </div>
     <!-- 게시글 작성 -->
-	<form action="" method="post" role="form">
+	<form action="" method="post" role="form" name="photoUpdate">
     <div class="board_write_wrap">
       <div class="board_write">
         <div class="title">
@@ -45,7 +60,7 @@
             <input type="hidden" name="bno" value="${board.updatedate }" />        
           <dl>
             <dt>제목</dt>
-            <dd><input type="text" name="title" value="${board.title }" style="background-color: rgb(250, 253, 253);" /></dd>
+            <dd><input type="text" name="title" id="title" value="${board.title }" placeholder="TITLE" style="background-color: rgb(250, 253, 253);" /></dd>
           </dl>
         </div>
          <div class="info">
@@ -54,7 +69,7 @@
             <dd><input type="text" name="writer" value="${board.writer}" readonly="readonly" style="background-color: azure;"/></dd>
           </dl>         
 	         <div class="cont">
-	           <textarea name="content" placeholder="내용 입력" style="resize: none; height:150px;">${board.content}</textarea>
+	           <textarea name="content" id="content" placeholder="게시물 내용을 입력해주세요" style="resize: none; height:150px;">${board.content}</textarea>
 		     </div>    	      
 	       <!-- 게시글 작성 -->
 		   <!-- 첨부파일 -->	
@@ -115,7 +130,24 @@ $(function(){
 		var oper = $(this).data("oper");
 		console.log(oper);
 		
-		if(oper == 'modify'){		
+		if(oper == 'modify'){	
+			
+			//제목 입력 필수
+			var titleVal = $("#title").val();
+			if (titleVal == "") {
+				alert("제목을 입력해주세요.");
+			    $("#title").focus(); 
+			    return false;
+			}
+			 
+			//첨부파일 등록 필수
+			var imgAttach = $("#myImg").attr("src");
+			if(!imgAttach){
+				alert("첨부파일 등록 후 수정해 주세요.");
+				console.log(imgAttach);
+				return false;
+			}
+			
 			var form = $("form[role='form']");				
 			var str = "";			
 			var job = $("#myImg");						
