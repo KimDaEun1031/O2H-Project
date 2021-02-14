@@ -7,6 +7,18 @@ $(function(){
 	$("button[type='submit']").click(function(e){
 		e.preventDefault();
 		
+		//title 필수		
+		if($.trim($("input[name='title']").val())==''){
+	        alert("제목을 입력해주세요.");
+		    document.photoWrite.title.focus();
+	        return false;
+	    } 
+		//writer 필수		
+		if(!document.photoWrite.writer.value){
+		     alert("작성자를 입력하세요");
+		     document.photoWrite.writer.focus();
+		     return false;
+	    }
 		//첨부파일 등록 필수
 		var imgAttach = $("#myImg").attr("src");
 		if(!imgAttach){

@@ -47,7 +47,7 @@
    </div>
     <div class="board_write_wrap">
       <div class="board_write">
-		<form action="" method="post" role="form">
+		<form action="" method="post" role="form" name="photoWrite">
 	        <div class="title">
 	          <dl>
 	            <dt>제목</dt>
