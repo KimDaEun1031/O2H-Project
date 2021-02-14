@@ -205,7 +205,7 @@ select * from chatRoom1;
  CREATE SEQUENCE  seq_announce_reply;
  select seq_announce_reply.nextval from dual;
 
- update  areachattingroom set userNum=0; 
+
  select * from areachattingroom;
  update areachattingroom set usernum = (usernum+1) where area='서울';
 ---------------------------------------------------------------
@@ -495,5 +495,6 @@ select * from waitting_board;
 delete waitting_board where wait_ticket=44;
 delete waitting_board;
 create sequence seq_chat_waitting;
-
+ update  areachattingroom set userNum=0; 
 create sequence seq_chat_waittingTicket;
+update chattingroom set useable=1;
