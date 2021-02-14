@@ -2,37 +2,130 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
 <style>
+	* {
+		text-decoration: none;
+		list-style: none;
+		
+	}
 	.status {
 		display: none;
 	}
+	.videoBtn-container {
+		display: flex;
+		margin-top: 30px;
+	}
+	#addVideoBtn{
+		margin: 0 auto;
+	}
+	#contentbtn {
+		margin: 0 auto;
+		padding: 7px;
+		background-color: #F05F40;
+		font-weight: bold;
+		color: white;
+		border: 0;
+		outline: 0;
+		border-radius: 40%;
+	}
+	
+	#contentbtn:hover {
+		background-color: #f05f40;
+	}
+	
+	.addContainer {
+	 display: flex;
+	
+	}
+	
+	.addForm {
+		margin: 0 auto;
+		border: 5px solid #252525;
+		padding: 10px;
+		border-radius: 10px;
+	}
+	
+	.addBtn {
+		margin-top: 10px;
+		margin-left: 20%;
+	}
+	.modifyContainer {
+		 display: flex;	
+	}
+	.modifyForm {
+		margin: 0 auto;
+		border: 5px solid #252525;
+		padding: 10px;
+		border-radius: 10px;
+	}
+	.modifyBtn {
+		margin-top: 10px;
+		margin-left: 10%;
+	}
+	.videoUl {
+		 display: flex;	
+		 flex-flow: row wrap;
+		 text-align: center;
+		 background-color:  #e7ab3c;
+		 padding: 10px;
+		 border-radius: 10px;
+		 margin: 30px 2%;
+		 justify-content: center;
+	}
+	.videoUl > li {
+		 border: 5px solid #252525;
+		 padding: 10px;
+		 border-radius: 10px;
+		 margin: 10px;
+		 background-color: white;
+	
+	}
 </style>
-	<div>
-		<button id="addVideoBtn">New Video</button>
+	<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="">Stream 설정</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+	<div class="videoBtn-container">		
+		<button id="addVideoBtn" class="btn btn-info">New Video</button>
 	</div>
-	<div class="embededDiv">
-		<ul></ul>
-		<div class="pageBtn"></div>
+	<br /><br /><br />	
+    <div class="col-lg-12">
+       <div class="section-title">
+           <a href="#explanation" data-toggle="modal" id="explan"><h2>영상 목록</h2></a>           
+       </div>
+    </div>
+	<div class="embededDiv">		
+		<ul class="videoUl"></ul>
+		<div class="pageBtn" style="display: none"></div>
 	</div>
 	
 <!-- 비디오 등록 -->
 <div class="addVideoForm">
 	<div >
-		<h5>등록</h5>
+		<h5 style="text-align: center; margin-bottom: 10px;">등록</h5>
 	</div>
-	<div>
+	<div class="addContainer">
 		<form class="addForm">
 			<div>
 				<label for="">비디오 ID</label>
 				<input type="text" name="videoId" value="비디오 ID"/>
 			</div>
 			<div>
-				<label for="">설명</label>
+				<label for="" style="margin-right: 26px;margin-left: 12px;">설명</label>
 				<input type="text" name="videoInfo" value="설명"/>
 			</div>
-			<div>
-				<button type="button" id="registerBtn">등록</button>
-				<button type="button" id="resetBtn">리셋</button>
-				<button type="button" id="closeBtn">닫기</button>
+			<div class="addBtn">
+				<button type="button" class="btn btn-success" id="registerBtn">등록</button>
+				<button type="button"  class="btn btn-secondary" id="resetBtn">리셋</button>
+				<button type="button" class="btn btn-danger" id="closeBtn">닫기</button>
 			</div>
 		</form>
 	</div>
@@ -41,9 +134,9 @@
 <!-- 비디오 수정 -->
 <div class="modifyVideoForm">
 	<div >
-		<h5>수정</h5>
+		<h5 style="text-align: center; margin-bottom: 10px;">수정</h5>
 	</div>
-	<div>
+	<div class="modifyContainer">
 		<form class="modifyForm">
 			<input type="hidden" name="videoInfo" value=""/>
 			<div>
@@ -51,29 +144,54 @@
 				<input type="text" name="videoId" value="비디오 ID" readonly/>
 			</div>
 			<div>
-				<label for="">설명</label>
+				<label for="" style="margin-right: 26px;margin-left: 12px;">설명</label>
 				<input type="text" name="videoInfo" value="설명" />
 			</div>
 			<div>
-				<label for="">작성일</label>
+				<label for="" style="margin-right: 16px;margin-left: 7px;">작성일</label>
 				<input type="text" name="regDate" value="작성일" readonly />
 			</div>
 			<div>
-				<label for="">수정일</label>
+				<label for="" style="margin-right: 16px;margin-left: 7px;" >수정일</label>
 				<input type="text" name="updateDate" value="수정일" readonly/>
 			</div>
-			<div>
-				<button type="button" id="modifyBtn">수정</button>
-				<button type="button" id="removeBtn">삭제</button>
-				<button type="button" id="resetBtn">리셋</button>
-				<button type="button" id="closeBtn">닫기</button>
+			<div class="modifyBtn">
+				<button type="button" class="btn btn-info" id="modifyBtn">수정</button>
+				<button type="button" class="btn btn-primary" id="removeBtn">삭제</button>
+				<button type="button" class="btn btn-secondary" id="resetBtn">리셋</button>
+				<button type="button" class="btn btn-danger" id="closeBtn">닫기</button>
 			</div>
 		</form>
 	</div>
 </div>
 	
-	<button class="contentBtn" type="submit" data-oper='list'>목록</button> 
 	
+	<div class="videoBtn-container">
+		<button class="contentBtn" type="submit" data-oper='list' id="contentbtn">목록</button> 		
+	</div>
+
+	<!--modal : 페이지 설명-->
+   <div class="modal fade" id="explanation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document"> 
+           <div class="modal-content"> 
+               <div class="modal-header"> 
+                   <h5 class="modal-title" id="exampleModalLabel">페이지 설명</h5> 
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                       <span aria-hidden="true">&times;</span> 
+                    </button> 
+                </div> 
+                <div class="modal-body">
+                </div> 
+                    <div class="modal-footer">                        
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" >닫기</button> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+    <script>
+    	$('.explan').modal(options)
+    </script>
 	<script>
 		var userId = "${profile.userId}";
 		
@@ -215,9 +333,10 @@
 				arr.forEach(function(element, index) {
 				    var str = "<li data-usrid='" + element.userId + "' data-vidid='" + element.videoId + " 'data-vidinf='" + element.videoInfo + "'>";
 				    str += "<div>";
-				    str += "<p>" + "<img src='https://img.youtube.com/vi/" + element.videoId + "/default.jpg" + "' />" + element.videoInfo + "</p>";
-				    str += "<p>" + element.regDate + "</p>";
-				    str += "<p>" + element.updateDate + "</p>";
+				    str += "<h4>" + element.videoInfo + "</h4>";
+				    str += "<img src='https://img.youtube.com/vi/" + element.videoId + "/default.jpg" + "' />";
+				    str += "<p> 작성일 : " + element.regDate + "</p>";
+				    str += "<p> 등록일 : " + element.updateDate + "</p>";
 				    str += "</div>"
 				    str += "</li>";
 				    

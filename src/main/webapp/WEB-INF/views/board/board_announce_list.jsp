@@ -6,13 +6,83 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp" %>
 
-    <!-- Breadcrumb Section Begin -->
+<style>
+/* 리스트 링크 */
+.paginate_button a{
+	/* color: #009999; */
+	font-weight: 600;
+	font-size: 1.5rem;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;	
+}
+.paginate_button a{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.paginate_button a:hover{
+	background-color: #009999;
+    color: #fff; 
+}
+/* 글작성 버튼 */
+.testBtn {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 40px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 300px;
+}
+.primaryy{
+	text-align: center;
+}
+.btn-primaryy {
+    background-color: #009999;
+    border: 0;
+    border-radius: 5px;
+    padding: 12px 50px 14px;
+    font-size: 1.2rem;
+    color: white;
+}
+.btn-primaryy:hover, .btn-primaryy:focus {
+	color: #fff;
+    background-color: #086969;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; 
+}
+/* 제목 a 태그 */
+tr th{
+color: #009999;
+}
+/* Q&A 게시판 */
+.breadcrumb-text span {
+    color: #009999;
+    font-weight: 560;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+</style>
+   <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>공지 게시판</span>
+              <a class="nav-link nav-link-2" href="/announce/getList">공지게시판</a>
             </div>
           </div>
         </div>

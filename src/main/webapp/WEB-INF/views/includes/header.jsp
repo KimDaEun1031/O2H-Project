@@ -10,7 +10,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Fashi | Template</title>
+    <title>02H | Fitness</title>
 
     <!-- Google Font -->
     <link
@@ -101,8 +101,7 @@
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
+                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a>                	         
                 </li>
               </ul>
             </div>
@@ -121,16 +120,15 @@
 			var profile=document.getElementById("profile");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");						
-				test.removeAttribute("hidden");	
-				
+				profile.removeAttribute("hidden");									
 			}else{
 				
 				login.removeAttribute("hidden");
 				signin.removeAttribute("hidden");
 				
 			}
-			if(loginInfo == 'admin') {
+			var admin = "admin";
+			if(loginInfolevel == admin) {
 				admin.removeAttribute("hidden");				
 			}
 			
@@ -143,29 +141,20 @@
 
         
       <!-- 추가 부분 -->
-
+     <div>
+     	<a href="/">
+          <img src="/resources/img/logo.png" alt=""/>
+     	</a>
+     </div>
+	 
 
       <div class="container">
         <div class="inner-header">
           <div class="row">
             <div class="col-lg-2 col-md-2">
-              <div class="logo">
-                <a href="/">
-                  <img src="/resources/img/logo.png" alt="" />
-                </a>
+              <div class="logo">               
               </div>
-            </div>
-            <div class="col-lg-7 col-md-7">
-              <div class="advanced-search">
-              
-                <button type="button" class="category-btn" value="카테고리" > 전체 카테고리 </button>                
-                <div class="input-group">
-                  <input type="text" placeholder="무엇이 필요하신가요?" />
-                  <button type="button"><i class="ti-search"></i></button>
-                </div>
-           
-              </div>
-            </div>
+            </div>           
           </div>
         </div>
       </div>
@@ -175,20 +164,15 @@
             <ul>
               <li class="active"><a href="/">홈</a></li>
               <li>
-                <a href="#">PT</a>
-                <ul class="dropdown">
-                  <li><a href="/PT/teacher-all">전체 강사</a></li>
-                  <li><a href="/PT/teacher_list">스트리밍</a></li>
-                </ul>
+                <a href="/PT/teacher_list">PT</a>               
               </li>
               <li>
                 <a href="">홈쇼핑</a>               
               <li>
-                <a href="">커뮤니티</a>
+                <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">
-                  <li><a href="/areaChat/chatRoomList">지역별 온라인 채팅</a></li>
-                  <li><a href="#">오프라인미팅</a></li>
-                  <li><a href="#">중고장터</a></li>
+                  <li><a href="/areaChat/chatRoomList">지역 채팅방</a></li>
+                  <li><a href="/board/board_photo_list">오프라인 미팅</a></li>               
                 </ul>
               </li>
               <li>
@@ -208,7 +192,7 @@
                 </ul>
               </li>
                <li>
-                <a href="#">주변 헬스장</a>
+                <a href="/map/healthMap">주변 헬스장</a>
                 
               </li>
             </ul>

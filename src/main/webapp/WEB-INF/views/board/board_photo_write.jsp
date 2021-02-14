@@ -8,7 +8,12 @@
 .breadcrumb-text a {
     top: 0px;
     content: none;
-    font-size: 18px;
+    font-size: 21px;
+    font-family: "Malgun Gothic", Gulim !import;
+    color: #ff3e3e;
+    color: #ff685c;
+    font-weight: 560;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .breadcrumb-text a::after {
     position: absolute;
@@ -26,11 +31,53 @@
   padding: .5rem 1rem;
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
+a:hover {
+    color: #009999;
+}
 .nav-link-2.active,
 .nav-link-2:hover {
   border-color: #ff6666;
 }
 /* 버튼 */
+#hob{
+	background: #50c594;
+}
+#hob2{
+	background: RGB(234,76,137);
+	margin: 0 5px;
+}
+#hob3{
+	background: #ae75f7;
+}
+#hob, #hob2, #hob3{
+	height: 40px;
+	width: 60px;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	border-radius: 8px;
+	letter-spacing: 2px;
+	font-size: 16px;
+	/* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+#hob:hover{
+	background: #63f1ff;
+}
+#hob2:hover{
+	background: #f35d8b;
+}
+#hob3:hover{
+	background: #6387ff;
+}
+/* 첨부파일 */
+#changeImgBtn{
+	color: black;
+	border: 2px solid black;
+	background: white;
+}
+#changeImgBtn:hover{
+	color: #7edd03;
+	border: 2px solid #7edd03;
+	background: white !important;
+}
 </style>
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section" style="margin-bottom:10px">
@@ -97,9 +144,9 @@
         </div>
          </div>
 		    <div class="bt_wrap">
-		      <button type="submit" class="btn btn-success write">등록</button>
-		      <button type="reset" class="btn btn-danger">취소</button>
-		      <button type="button" class="btn btn-info" onclick="location.href='/board/board_photo_list'">목록</button>		  
+		      <button type="submit" class="btn btn-success write" id="hob">등록</button>
+		      <button type="reset" class="btn btn-danger" id="hob2">취소</button>
+		      <button type="button" class="btn btn-info" id="hob3" onclick="location.href='/board/board_photo_list'">목록</button>		  
 		    </div>    
 		 </form>
 		</div>

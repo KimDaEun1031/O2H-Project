@@ -10,8 +10,12 @@
 .breadcrumb-text a {
     top: 0px;
     content: none;
-    font-size: 18px;
+    font-size: 21px;
     font-family: "Malgun Gothic", Gulim !import;
+    color: #ff3e3e;
+    color: #ff685c;
+    font-weight: 560;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .breadcrumb-text a::after {
     position: absolute;
@@ -28,6 +32,9 @@
   display: block;
   padding: .5rem 1rem;
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+a:hover {
+    color: #009999;
 }
 .nav-link-2.active,
 .nav-link-2:hover {
@@ -145,6 +152,7 @@
    <br />
    <div class="primaryy">
    <a href="/board/board_photo_write" class="btn btn-primaryy">write</a>
+   <br /><br /><br />
    </div>
 	<!-- Breadcrumb Section Begin -->
 <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
@@ -172,9 +180,9 @@
 			fileCallPath=path.replace(new RegExp(/\\/g),"/");
 			
 			//화면에 보여줄 태그 생성
-			str+='<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">';
+			str+='<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 scale">';
 			str+='<figure class="effect-ming tm-video-item">';
-			str+='<div class="scale">';
+			str+='<div class="">';
 			str+='<a href="${vo.bno}" class="move">';
 			str+="<img id='myImg' src='/photoBoardDisplay?fileName="+fileCallPath+"' alt='${vo.attach.fileName}' class='img-fluid'>";		
 			str+='<figcaption class="d-flex align-items-center justify-content-center">';

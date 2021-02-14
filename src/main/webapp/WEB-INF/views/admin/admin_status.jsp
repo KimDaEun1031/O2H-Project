@@ -2,7 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/admin_header.jsp" %>
 <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
-	
+	<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/admin/admin_status">월별 현황 분석</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 	
 	<section class="recommand-product one-banner">
         <div class="container-fluid">

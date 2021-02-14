@@ -19,7 +19,11 @@
 <h4 style="text-align: center; opacity: 0.5;">---------------------------------------------------------------------------------------------------------------------</h4>
 <br />
 
-<h2 class="h2-list">헬스장 리스트</h2>
+	<div class="col-lg-12">
+       <div class="section-title">
+           <a href="#explanation" data-toggle="modal" id="explan"><h2>헬스장 목록</h2></a>           
+       </div>
+    </div>
 	<div class="fit-list">
 		<div class="listLocation"></div>
 	</div>
@@ -45,6 +49,26 @@
 	</div>
 	
 	<div class="locationContent"></div>
+	
+	<!--modal : 페이지 설명-->
+   <div class="modal fade" id="explanation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document"> 
+           <div class="modal-content"> 
+               <div class="modal-header"> 
+                   <h5 class="modal-title" id="exampleModalLabel">페이지 설명</h5> 
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                       <span aria-hidden="true">&times;</span> 
+                    </button> 
+                </div> 
+                <div class="modal-body">
+                </div> 
+                    <div class="modal-footer">                        
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" >닫기</button> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
 <script>
 var map = null;
 

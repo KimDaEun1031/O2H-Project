@@ -6,17 +6,17 @@
 <%@include file="../includes/header.jsp"%>
 
 <!-- Breadcrumb Section Begin -->
-<div class="breacrumb-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="breadcrumb-text">
-					<span>게시판</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/chat/chat_list">실시간 문의</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 <!-- Breadcrumb Section Begin -->
 
 <div class="board_wrap" style="margin-left: 5%; margin-right: 5%">

@@ -2,25 +2,86 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
 <style>
+	* {
+		text-decoration: none;
+		list-style: none;
+		
+	}
 	.status {
 		display: none;
 	}
-	.iframe {
+	.videoFrame {
 		margin-left: 13%;
 		margin-top: 5%;
-		margin-bottom: 5%;
-		border: 1px solid black;
+		margin-bottom: 5%;		
+	}
+	.videoUl {
+		 display: flex;	
+		 flex-flow: row wrap;
+		 text-align: center;
+		 background-color:  #e7ab3c;
+		 padding: 10px;
+		 border-radius: 10px;
+		 margin: 30px 2%;
+		 justify-content: center;
+	}
+	.videoUl > li {
+		 border: 5px solid #252525;
+		 padding: 10px;
+		 border-radius: 10px;
+		 margin: 10px;
+		 background-color: white;
+	
 	}
 </style>
+	<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/PT/teacher_list">PT 실시간</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 	<div class="liveDiv">
 		<iframe class="videoFrame" width="1120" height="630" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		<p class="status" style="text-align: center; margin: 5%; font-size: 20px;">현재 스트리밍 중이 아닙니다.</p>
 		<button class="btn btn-info" id="showLive" style="text-align: center; margin-left: 48%;">Live</button>
+		<button class="btn btn-info" id="returnList" style="text-align: center; margin-left: 48%;" onclick="location.href='/PT/teacher_list'">돌아가기</button>
 	</div>
+	<br /><br /><br />	
+    <div class="col-lg-12">
+       <div class="section-title">
+           <a href="#explanation" data-toggle="modal" id="explan"><h2>영상 목록</h2></a>           
+       </div>
+    </div>
 	<div class="embededDiv">
-		<ul></ul>
-		<div class="pageBtn"></div>
+		<ul class="videoUl"></ul>
+		<div class="pageBtn" style="display: none"></div>
 	</div>	
+	
+	<!--modal : add the cart-->
+   <div class="modal fade" id="explanation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document"> 
+           <div class="modal-content"> 
+               <div class="modal-header"> 
+                   <h5 class="modal-title" id="exampleModalLabel">페이지 설명</h5> 
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                       <span aria-hidden="true">&times;</span> 
+                    </button> 
+                </div> 
+                <div class="modal-body">
+                </div> 
+                    <div class="modal-footer">                        
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" >닫기</button> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
 	<script>
 		var apiKey = "AIzaSyAOQSvt0FKgLocbNvkVO-KwrmdG8-sHs9E";
 		
@@ -48,12 +109,16 @@
                 success:function(data) {
                     if(data.items.length != 0) {
                     	$(".videoFrame").prop("src", 'https://www.youtube.com/embed/' + data.items[0].id.videoId);
+                    	$(".liveDiv #returnList").css("display", "none");
 
                     } else {
                     	$(".videoFrame").prop("src", "");
                     	$(".videoFrame").css("display", "none");
+                    	$(".liveDiv #showLive").css("display", "none");
 
                         $(".liveDiv p").css("display", "block");
+                        $(".liveDiv #returnList").css("display", "block");
+                        
                     }
                 },
 	            error: function(jqxhr, textStatus, error) {
@@ -61,8 +126,11 @@
 					
 					$(".videoFrame").prop("src", "");
                 	$(".videoFrame").css("display", "none");
+                	$(".liveDiv #showLive").css("display", "none");
+
 
                     $(".liveDiv p").css("display", "block");
+                    $(".liveDiv #returnList").css("display", "block");
 				}
             });
         };
@@ -80,9 +148,10 @@
 				arr.forEach(function(element, index) {
 				    var str = "<li data-usrid='" + element.userId + "' data-vidid='" + element.videoId + " 'data-vidinf='" + element.videoInfo + "'>";
 				    str += "<div>";
-				    str += "<p>" + "<img src='https://img.youtube.com/vi/" + element.videoId + "/default.jpg' />" + element.videoInfo + "</p>";
-				    str += "<p>" + element.regDate + "</p>";
-				    str += "<p>" + element.updateDate + "</p>";
+				    str += "<h4>" + element.videoInfo + "</h4>";
+				    str += "<img src='https://img.youtube.com/vi/" + element.videoId + "/default.jpg" + "' />";
+				    str += "<p> 작성일 : " + element.regDate + "</p>";
+				    str += "<p> 등록일 : " + element.updateDate + "</p>";
 				    str += "</div>"
 				    str += "</li>";
 				    
@@ -178,8 +247,10 @@
                 url: "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=" + videoId + "&format=json",
                 success:function(data) {
                 	$(".videoFrame").css("display", "block");
+                	$(".liveDiv #showLive").css("display", "block");
                 	
                 	$(".liveDiv p").css("display", "none");
+                	$(".liveDiv #returnList").css("display", "none");
                 	
                 	$(".videoFrame").prop("src", "https://www.youtube.com/embed/" + videoId);
                 },
@@ -187,8 +258,11 @@
 					console.log(jqxhr, textStatus, error);
 					
 					$(".videoFrame").css("display", "none");
-		        	
-		        	$(".liveDiv p").css("display", "block");
+                	$(".liveDiv #showLive").css("display", "none");
+
+
+                    $(".liveDiv p").css("display", "block");
+                    $(".liveDiv #returnList").css("display", "block");
 		        	
 		        	$(".videoFrame").prop("src", "");
 				}
