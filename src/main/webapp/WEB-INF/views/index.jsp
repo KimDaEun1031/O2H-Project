@@ -209,25 +209,31 @@
 	//	window.onload =function(){
 			var loginInfo = '${loginInfo.userId}';
 			var loginInfolevel = '${loginInfo.user_level}';
-			
+			console.log(loginInfolevel);
 			var login=document.getElementById("login");
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
 			var profile=document.getElementById("profile");
+			var admin  =document.getElementById("admin");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");						
-				stream.removeAttribute("hidden");	
+				stream.removeAttribute("hidden");
 				
-			}else{
+				
+			} else if(loginInfolevel.equals('admin')) {
+				admin.removeAttribute("hidden");
+				logout.removeAttribute("hidden");
+				profile.removeAttribute("hidden");	
+			}
+			
+			else{
 				
 				login.removeAttribute("hidden");
 				signin.removeAttribute("hidden");
 				
 			}
-			if(loginInfo == 'admin') {
-				admin.removeAttribute("hidden");				
-			}
+			
 			
 			
 //		}
