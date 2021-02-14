@@ -6,34 +6,45 @@
 %>
 <!-- Kakao Javascript API + Services와 Clusterer, Drawing 라이브러리 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&libraries=services,clusterer,drawing"></script>
-
-<div id="map" style="width:500px;height:400px;"></div>
-
-<div>
-	<button class="resetMap">현재 위치</button>
-</div>
-
-<div>
-	<div class="listLocation"></div>
-	<div class="pageBtn"></div>
-</div>
-
-<div>
-	<div class="nearListLocation"></div>
-	<div class="nearPageBtn d-none">
-		<ul class='pagination nearPagination'>
-			<li class='page-item'><a class='page-link first-page' href=''>First</a></li>
-			<li class='page-item'><a class='page-link prev-page' href=''>Prev</a></li>
-			<li class='page-item'><a class='page-link active current-page' href=''></a></li>
-			<li class='page-item'><a class='page-link next-page' href=''>Next</a></li>
-			<li class='page-item'><a class='page-link last-page' href=''>Last</a></li>
-		</ul>
-		<input class='pageValue' type='text' />
-		<button class='goPage'>Go</button>
+	<div class="map-test">
+		<div class="map-container">
+			<div id="map" style="width:1200px;height:700px;"></div>
+		</div>
 	</div>
-</div>
 
-<div class="locationContent"></div>
+	<div class="location-my">
+		<button class="resetMap">현재 위치</button>
+	</div>
+<br />
+<h4 style="text-align: center; opacity: 0.5;">---------------------------------------------------------------------------------------------------------------------</h4>
+<br />
+
+<h2 class="h2-list">헬스장 리스트</h2>
+	<div class="fit-list">
+		<div class="listLocation"></div>
+	</div>
+	<div class="pageBtn-container">
+		<div class="pageBtn"></div>
+	</div>
+	
+	<div>
+		<div class="nearListLocation"></div>
+		<div class="nearPageBtn d-none">
+			<ul class='pagination nearPagination'>
+				<li class='page-item'><a class='page-link first-page' href=''>First</a></li>
+				<li class='page-item'><a class='page-link prev-page' href=''>Prev</a></li>
+				<li class='page-item'><a class='page-link active current-page' href=''></a></li>
+				<li class='page-item'><a class='page-link next-page' href=''>Next</a></li>
+				<li class='page-item'><a class='page-link last-page' href=''>Last</a></li>
+			</ul>
+			<div class="search-fit">
+				<input class='pageValue' type='text' placeholder="헬스장 명이나 주소를 입력해주세요."/>
+				<button class='goPage'>찾기</button>
+			</div>			
+		</div>
+	</div>
+	
+	<div class="locationContent"></div>
 <script>
 var map = null;
 
@@ -44,8 +55,8 @@ var latitude = 37.5693656626833; // 위도
 var longitude = 126.986022414113; // 경도
 
 var page = 1;
-var pageCount = 5;
-var listCount = 5;
+var pageCount = 20;
+var listCount = 20;
 
 var resetMap = document.getElementsByClassName("resetMap")[0];
 
@@ -223,7 +234,7 @@ window.onload = function(event) {
 			//인포윈도우 표시 위치입니다
 			var infoWindowPosition = new kakao.maps.LatLng(latitude, longitude);
 			//인포윈도우에 표출될 내용 (HTML 문자열이나 DOM 객체)
-			var infoWindowContent = `<div style="padding:5px;">현재 위치</div>`;
+			var infoWindowContent = `<div style="padding:5px; text-align:center;">현재 위치</div>`;
 			
 			var infowindow = new kakao.maps.InfoWindow({
 			    position : infoWindowPosition, 
@@ -283,7 +294,7 @@ window.onload = function(event) {
 			//인포윈도우 표시 위치입니다
 			var infoWindowPosition = new kakao.maps.LatLng(latitude, longitude);
 			//인포윈도우에 표출될 내용 (HTML 문자열이나 DOM 객체)
-			var infoWindowContent = `<div style="padding:5px;">${"${name}"}${"${address}"}</div>`;
+			var infoWindowContent = `<div style="padding:5px;">${"${name}"}${"&nbsp;&nbsp;${address}"}</div>`;
 			
 			var infowindow = new kakao.maps.InfoWindow({
 			    position : infoWindowPosition, 
