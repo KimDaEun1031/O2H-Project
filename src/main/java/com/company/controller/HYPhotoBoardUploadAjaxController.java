@@ -34,9 +34,10 @@ import com.company.domain.HYFileAttach;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
 
-@Controller
 @Slf4j
+@Controller
 public class HYPhotoBoardUploadAjaxController {
+	
 	@GetMapping("/photoBoardUploadAjax")
 	public void uploadAjax() {
 		log.info("ajax 업로드 폼 요청");
@@ -124,30 +125,7 @@ public class HYPhotoBoardUploadAjaxController {
 //		} 
 //		return entity;
 //	}
-	
-//	@GetMapping("/photoBoardDisplay")//NoSuchFileException 예외처리로 해보기
-//	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
-//		log.info("썸네일 요청 "+fileName);
-//		
-//		
-//		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
-//		File f = new File(uploadFolder+"\\"+fileName);
-//		
-//		ResponseEntity<byte[]> entity = null;
-//		
-//		HttpHeaders headers = new HttpHeaders();
-//		try {
-//			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
-//			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
-//					headers,HttpStatus.OK);
-//		} catch (NoSuchFileException x) {
-//			System.err.format("%s: no such" + " file or directory%n", entity);
-//			entity = new ResponseEntity("/resources/img/profile/fiturjc_default_user.jpg",HttpStatus.OK);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} 
-//		return entity;
-//	}
+
 	
 	@GetMapping("/photoBoardDisplay") //파일 없을 때 상태로 값으로 예외처리하기
 	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
@@ -156,7 +134,29 @@ public class HYPhotoBoardUploadAjaxController {
 		
 		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
 		File f = new File(uploadFolder+"\\"+fileName);
-		File fx = new File(uploadFolder+"\\"+"Koala.jpg");
+		//File fx = new File(uploadFolder+"\\"+"Koala.jpg");
+		
+		//안되고
+		//File fx = new File("springsource\\projectSource\\src\\main\\webapp\\resources\\img\\women-4.jpg");
+		//"/photoBoard/"
+		//new File("c:\\upload\\"+URLDecoder.decode(fileName,"utf-8"));		
+		//File fx = new File("/resources/img/women-4.jpg");
+		//File fx = new File("/resources/img/iconLogo.png");
+		//File fx = new File("\\resources/img/products/women-4.jpg");
+		//File fx = new File("\\projectSource\\"+"resources/img/products/women-4.jpg");
+		//되고
+		//File fx = new File(uploadFolder+"\\..\\"+"resources/img/women-4.jpg");
+		//File fx = new File(uploadFolder+"\\..\\"+"resources/img/products/women-4.jpg");
+		String uploadFolder2 = req.getServletContext().getRealPath("/resources/");
+
+		File fx = new File(uploadFolder2+"\\"+"img/products/women-4.jpg");
+		
+		log.info("이미지 주소"+fx);
+		if(fx == null) {
+			log.info("이미지 없음");
+		}else {
+			log.info("이미지 있음");			
+		}
 		
 		ResponseEntity<byte[]> entity = null;
 		
@@ -177,12 +177,12 @@ public class HYPhotoBoardUploadAjaxController {
 		return entity;
 	}
 
+	
 	//다운로드
 	@GetMapping(value = "/photoBoardDownload", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<Resource> download(String fileName) {
 		log.info("다운로드 요청 "+fileName);
 		
-		//Resource resource = new FileSystemResource("c:\\upload\\"+fileName);
 		Resource resource = new FileSystemResource("/photoBoard/"+fileName);
 		
 		//uuid 값 제거 후 파일 다운로드 하기
@@ -192,16 +192,15 @@ public class HYPhotoBoardUploadAjaxController {
 		HttpHeaders headers = new HttpHeaders();
 		
 		try {
+			//uuid+원본파일명으로 다운로드
 			headers.add("Content-Disposition", 
 					"attachment;filename="+new String(resourceName.getBytes("utf-8"), "ISO-8859-1"));
-					//uuid+원본파일명으로 다운로드
-					//"attachment;filename="+new String(resourceUidName.getBytes("utf-8"), "ISO-8859-1"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		
 		return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
-	} // download end
+	} 
 	
 	
 	//서버에서 파일 삭제
@@ -211,7 +210,6 @@ public class HYPhotoBoardUploadAjaxController {
 		log.info("파일 삭제 "+fileName+" 타입 : "+type);
 		
 		try {
-			//File file = new File("c:\\upload\\"+URLDecoder.decode(fileName,"utf-8"));
 			File file = new File("/photoBoard/"+URLDecoder.decode(fileName,"utf-8"));
 			
 			//파일(썸네일, 일반파) 삭제
@@ -227,35 +225,24 @@ public class HYPhotoBoardUploadAjaxController {
 			return new ResponseEntity<String>("fail",HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<String>("success",HttpStatus.OK);
-	}
-	
-	
-	
+	}	
+		
 	//서버에 저장한 파일이 이미지인지 일반 파일인지 확인
-	// .jsp, .sql, => 다른 마인이 필요함-일반적이지 않은 것은 null남
+	// .jsp, .sql, => 다른 Mime이 필요함
 	private boolean checkImageType(File file) { // ~.txt => text/plain, text/html, image/jpeg, image/png
 		
-		MimetypesFileTypeMap m = new MimetypesFileTypeMap(); // 요즘 방식이지만 11버전에서는 라이브러리가 또 빠졌음.
+		MimetypesFileTypeMap m = new MimetypesFileTypeMap(); 
 		m.addMimeTypes("image png jpg jpeg git");
 		return m.getContentType(file).contains("image");
 
-	} // checkImageType end
+	}
 	
 	
 	//날짜에 따라 폴더 생성하기
 	private String getFolder() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date(); // 시간,날짜가 길게 나옴
+		Date date = new Date();
 		String str = sdf.format(date); // 2021-01-21
-		return str.replace("-", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
-		//return str.replace("_", File.separator); // 2021\01\20, "_"이렇게 했을 때 없으니까 yyyy-MM-dd 이런 형식 그대로 폴더 생겼었음
-	} // getFolder end
-	
-	
-	
-	
-	
-	
-	
-	
+		return str.replace("-", File.separator);
+	}	
 }

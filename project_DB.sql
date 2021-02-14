@@ -23,7 +23,7 @@ update user_board set userId='solaryeori1324', userName='여리나', userEmail='
 
 select userInfo from user_board;
 
-update user_board set user_level='admin' where userId='admin';
+update user_board set user_level='teacher' where userId='test1';
 
 alter table user_board add userWarn number(1,0) default 0; -- 추가
 alter table user_board drop column userWarn;

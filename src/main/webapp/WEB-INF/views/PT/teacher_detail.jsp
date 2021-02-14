@@ -5,17 +5,22 @@
 	.status {
 		display: none;
 	}
+	.iframe {
+		margin-left: 13%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+		border: 1px solid black;
+	}
 </style>
 	<div class="liveDiv">
-		<iframe class="videoFrame" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<p class="status">no live streaming</p>
-		<button class="showLive">Live</button>
+		<iframe class="videoFrame" width="1120" height="630" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<p class="status" style="text-align: center; margin: 5%; font-size: 20px;">현재 스트리밍 중이 아닙니다.</p>
+		<button class="btn btn-info" id="showLive" style="text-align: center; margin-left: 48%;">Live</button>
 	</div>
 	<div class="embededDiv">
 		<ul></ul>
 		<div class="pageBtn"></div>
-	</div>
-	<button onclick="location.href='/PT/teacher_list'">강사 목록</button>
+	</div>	
 	<script>
 		var apiKey = "AIzaSyAOQSvt0FKgLocbNvkVO-KwrmdG8-sHs9E";
 		
@@ -193,7 +198,7 @@
         $(".embededDiv ul").on("click", "li", showVideo);
         $(".pageBtn").on("click", ".pagination .page-item .page-link", movePage);
         
-        $(".showLive").click(function(event) {
+        $("#showLive").click(function(event) {
         	getLive(channelId);
         });
         

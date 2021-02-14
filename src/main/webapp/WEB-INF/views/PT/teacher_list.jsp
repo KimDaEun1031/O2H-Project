@@ -2,27 +2,58 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
 <style>
+	* {
+		text-decoration: none;
+		list-style: none;
+		
+	}
+	.profile-section {
+		border: 50px solid black;
+		margin: 7%;
+		border-radius: 50px;
+		
+	}
+	.recommendProfileList {
+		display: flex;
+		flex-wrap: wrap;	
+		text-align: center;
+	}	
+	
+	
+	h2 {
+		text-align: center;
+		margin: 10px;
+	}
+	
+	
 	p > a > img {
 	  box-sizing: border-box;
-	  border-radius: 50%;
-	  margin: 30px 30px 30px 30px;
+	  border-radius: 50%;	
+	  margin: 50px; 
 	  min-width: 200px;
 	  height: 200px;
 	}
 	
-	.recommendProfileList {
-		
+	.recommendPageBtn > ul {
+	 display: table;
+	 margin-left: auto;
+	 margin-right: auto;
 	}
+		
+
+	
 	
 	
 	
 </style>
+<section class="profile-section">
+	<div class="profile-container">
+		<h2>추천 강사 리스트</h2>
+		<ul class="recommendProfileList"></ul>			
+	    <div class="recommendPageBtn"></div>
+	</div>
+</section>
 
-<div>
-	<h2>추천 강사 리스트</h2>
-    <ul class="recommendProfileList"></ul>
-    <div class="recommendPageBtn"></div>
-</div>
 <!--  
 <div>
 	<h2>프로필 리스트</h2>
@@ -65,8 +96,8 @@ showList = function(page, pageCount, listCount) {
 		var listLi = "";
 		
 		arr.forEach(function(element, index) {
-		    var str = "<li data-usrid='" + element.userId + "' data-chid='" + element.channelId + "'>";
-		    str += "<div>";
+		    var str = "<li class='test' data-usrid='" + element.userId + "' data-chid='" + element.channelId + "'>";
+		    str += "<div class='data'>";
 		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
 		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/test.jpg"' /></a></p>`;
 		    str += "<p>" + element.userName + "</p>";
