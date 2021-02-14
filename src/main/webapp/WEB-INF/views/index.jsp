@@ -267,8 +267,8 @@
               <li>
                 <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">
-                  <li><a href="/areaChat/chatRoomList">지역별 온라인 채팅</a></li>
-                  <li><a href="/board/board_photo_list">오프라인미팅</a></li>               
+                  <li><a href="/areaChat/chatRoomList">지역 채팅방</a></li>
+                  <li><a href="/board/board_photo_list">오프라인 미팅</a></li>               
                 </ul>
               </li>
               <li>

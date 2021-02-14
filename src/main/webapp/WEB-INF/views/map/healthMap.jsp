@@ -28,9 +28,9 @@
 	</div>
 	
 	<div>
-		<div class="nearListLocation"></div>
+		<div class="nearListLocation" style="display: none;"></div>
 		<div class="nearPageBtn d-none">
-			<ul class='pagination nearPagination'>
+			<ul class='pagination nearPagination' style="display: none;">
 				<li class='page-item'><a class='page-link first-page' href=''>First</a></li>
 				<li class='page-item'><a class='page-link prev-page' href=''>Prev</a></li>
 				<li class='page-item'><a class='page-link active current-page' href=''></a></li>
