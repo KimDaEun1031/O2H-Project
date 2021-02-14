@@ -4576,4 +4576,7 @@ a {
   border: 0;
   resize: vertical;
 }
-
+/* 테이블 제목 색상 */
+tr th{
+color: #009999;
+} 

@@ -134,21 +134,10 @@ public class HYPhotoBoardUploadAjaxController {
 		
 		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
 		File f = new File(uploadFolder+"\\"+fileName);
-		//File fx = new File(uploadFolder+"\\"+"Koala.jpg");
 		
-		//안되고
-		//File fx = new File("springsource\\projectSource\\src\\main\\webapp\\resources\\img\\women-4.jpg");
-		//"/photoBoard/"
-		//new File("c:\\upload\\"+URLDecoder.decode(fileName,"utf-8"));		
-		//File fx = new File("/resources/img/women-4.jpg");
-		//File fx = new File("/resources/img/iconLogo.png");
-		//File fx = new File("\\resources/img/products/women-4.jpg");
-		//File fx = new File("\\projectSource\\"+"resources/img/products/women-4.jpg");
-		//되고
-		//File fx = new File(uploadFolder+"\\..\\"+"resources/img/women-4.jpg");
-		//File fx = new File(uploadFolder+"\\..\\"+"resources/img/products/women-4.jpg");
+		//error
+		//File fx = new File(uploadFolder+"\\"+"Koala.jpg");
 		String uploadFolder2 = req.getServletContext().getRealPath("/resources/");
-
 		File fx = new File(uploadFolder2+"\\"+"img/products/women-4.jpg");
 		
 		log.info("이미지 주소"+fx);
