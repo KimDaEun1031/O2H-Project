@@ -135,7 +135,7 @@
 	        <div class="row">
 	          <div class="col-lg-12">
 	            <div class="breadcrumb-text">
-	              <a class="nav-link nav-link-2" href="areachatlist_view">지역 채팅방</a>
+	              <a class="nav-link nav-link-2" href="/areaChat/chatRoomList">지역 채팅방</a>
 	            </div>
 	          </div>
 	        </div>
