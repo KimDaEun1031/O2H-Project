@@ -4,9 +4,6 @@
 <%@include file="../includes/header.jsp" %>
 <%@ page import="com.company.domain.YHAreaChatVO" %>
 <style type="text/css">
-body{
-		/* margin:20px; */
-	}
 	.box1{
 		width:800px;
 		background-color: #e7ab3c;
@@ -70,11 +67,13 @@ body{
 		float: left;
 		width:400px;
 		margin-left: 300px;
+		
 	}
 	 #msg4{
 		float: right;
 		width:400px;
 		margin-right: 300px;
+		
 	} 
 	.bigDiv1{
 	position: absolute;
@@ -122,6 +121,7 @@ body{
 		border: 0;
 		outline: 0;
 		border-radius: 10px;
+		margin-bottom: 10px;
 	
 	}
 	#room1:hover, #room2:hover, #room3:hover, #room4:hover {
@@ -142,65 +142,65 @@ body{
 	      </div>
 	    </div>
 		
-		<section>
-		<!-- <br />
-		<div class="box1"> 순위 보여줄 게시판 </div>		
-		<br />
-		<div class="bigDiv1">
-			<div id="msg1">div1</div>순위를 보여줄 영역
-			<div id="msg2">div2</div>순위를 보여줄 영역
+
+			<!-- <br />
+			<div class="box1"> 순위 보여줄 게시판 </div>		
 			<br />
-		</div>
+			<div class="bigDiv1">
+				<div id="msg1">div1</div>순위를 보여줄 영역
+				<div id="msg2">div2</div>순위를 보여줄 영역
+				<br />
+			</div>
+				<div id="clear"></div>
+				<p></p>
+			<div class="bigDiv2">
+				<div id="msg3">div3</div>순위를 보여줄 영역
+				<div id="msg4">div4</div>순위를 보여줄 영역
+				<div class="box3"></div>
+			</div>	
+				
+			<br /> -->
+			<br />
+			<div class="box1"> 지역 별 채팅창 </div>		
+			<br />
+									
+			<div id="msg1"> <a href="/areaChat/goSeoul"><button hidden="hidden"  id="room1">서울 채팅방 입장</button> </a>
+				<div>현재 입장한 고객 수 ${roomInfoList[4].getUserNum()} /100</div>
+				<div>최근 대화 5줄</div>
+			
+				<div>${seoulChatList5.get(4).user_id} :${seoulChatList5.get(4).content} </div>
+				<div>${seoulChatList5.get(3).user_id} :${seoulChatList5.get(3).content} </div>
+				<div>${seoulChatList5.get(2).user_id} :${seoulChatList5.get(2).content} </div>
+				<div>${seoulChatList5.get(1).user_id} :${seoulChatList5.get(1).content} </div>
+				<div>${seoulChatList5.get(0).user_id} :${seoulChatList5.get(0).content} </div>
+				<!-- 역순으로 나옴 -->
+				<%-- <c:forEach var="vo" items="${seoulChatList5}" >
+				<div> ${vo.user_id }:${vo.content }  </div>
+				</c:forEach>  --%>
+			</div><!-- 순위를 보여줄 영역 -->
+			
+			<div id="msg2"><a href=""><button hidden="hidden"  id="room2">경기도 채팅방 입장</button></a>
+				<div>현재 입장한 고객 수 ${roomInfoList[3].getUserNum()}/100</div>	
+	
+			
+			
+			</div><!-- 순위를 보여줄 영역 -->
+			<br />
 			<div id="clear"></div>
 			<p></p>
-		<div class="bigDiv2">
-			<div id="msg3">div3</div>순위를 보여줄 영역
-			<div id="msg4">div4</div>순위를 보여줄 영역
-			<div class="box3"></div>
-		</div>	
+	
+			<div id="msg3"><a href=""><button hidden="hidden"  id="room3">전라도 채팅방 입장</button> </a>
+			<div>현재 입장한 고객 수 ${roomInfoList[2].getUserNum()}/100</div>	
+	
 			
-		<br /> -->
-		<br />
-		<div class="box1"> 지역 별 채팅창 </div>		
-		<br />
-								
-		<div id="msg1"> <a href="/areaChat/goSeoul"><button hidden="hidden"  id="room1">서울 채팅방 입장</button> </a>
-			<div>현재 입장한 고객 수 ${roomInfoList[4].getUserNum()} /100</div>
-			<div>최근 대화 5줄</div>
-		
-			<div>${seoulChatList5.get(4).user_id} :${seoulChatList5.get(4).content} </div>
-			<div>${seoulChatList5.get(3).user_id} :${seoulChatList5.get(3).content} </div>
-			<div>${seoulChatList5.get(2).user_id} :${seoulChatList5.get(2).content} </div>
-			<div>${seoulChatList5.get(1).user_id} :${seoulChatList5.get(1).content} </div>
-			<div>${seoulChatList5.get(0).user_id} :${seoulChatList5.get(0).content} </div>
-			<!-- 역순으로 나옴 -->
-			<%-- <c:forEach var="vo" items="${seoulChatList5}" >
-			<div> ${vo.user_id }:${vo.content }  </div>
-			</c:forEach>  --%>
-		</div><!-- 순위를 보여줄 영역 -->
-		
-		<div id="msg2"><a href=""><button hidden="hidden"  id="room2">경기도 채팅방 입장</button></a>
-			<div>현재 입장한 고객 수 ${roomInfoList[3].getUserNum()}/100</div>	
+			</div><!-- 순위를 보여줄 영역 -->
+			<div id="msg4"><a href=""><button hidden="hidden"  id="room4">경상도 채팅방 입장</button> </a>
+			<div>현재 입장한 고객 수 ${roomInfoList[1].getUserNum()}/100</div>	
+	
+			
+			</div><!-- 순위를 보여줄 영역 -->
+			<div class="box3"></div>
 
-		
-		
-		</div><!-- 순위를 보여줄 영역 -->
-		<br />
-		<div id="clear"></div>
-		<p></p>
-
-		<div id="msg3"><a href=""><button hidden="hidden"  id="room3">전라도 채팅방 입장</button> </a>
-		<div>현재 입장한 고객 수 ${roomInfoList[2].getUserNum()}/100</div>	
-
-		
-		</div><!-- 순위를 보여줄 영역 -->
-		<div id="msg4"><a href=""><button hidden="hidden"  id="room4">경상도 채팅방 입장</button> </a>
-		<div>현재 입장한 고객 수 ${roomInfoList[1].getUserNum()}/100</div>	
-
-		
-		</div><!-- 순위를 보여줄 영역 -->
-		<div class="box3"></div>
-		</section>
 <script>
  var room1=document.getElementById("room1");
  var room2=document.getElementById("room2");
@@ -220,68 +220,7 @@ body{
 	
 </script>
 		<br />
- <!-- Footer Section Begin -->
-    <footer class="footer-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="footer-left">
-              <div class="footer-logo">
-                <a href="#"><img src="/resources/img/footer-logo.png" alt="" /></a>
-              </div>
-              <ul>
-                <li>Address: 솔데스크</li>
-                <li>Phone: +65 11.188.888</li>
-                <li>Email: hello.colorlib@gmail.com</li>
-              </ul>
-              <div class="footer-social">
-                <a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-2 offset-lg-1">
-            <div class="footer-widget">
-              <h5>Information</h5>
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">고객 센터</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="footer-widget">
-              <h5>My Account</h5>
-              <ul>
-                <li><a href="#">내 정보</a></li>
-                <li><a href="#">회원수정</a></li>
-                <li><a href="#">회원탈퇴</a></li>
-              </ul>
-            </div>
-          </div>         
-        </div>
-      </div>
-      <div class="copyright-reserved">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="copyright-text">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>
-                  document.write(new Date().getFullYear());
-                </script>
-                All rights reserved | This template is made with
-                <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                <a href="/" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              </div>            
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- Footer Section End -->
+ 
 
    
   </body>

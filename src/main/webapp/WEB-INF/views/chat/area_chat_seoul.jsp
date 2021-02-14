@@ -8,24 +8,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!-- Breadcrumb Section Begin -->
-<div class="breacrumb-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="breadcrumb-text">
-					<span>서울 단체 채팅방</span>
+	<div class="breacrumb-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb-text">
+						<span>서울 단체 채팅방</span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<div style="padding: 10%">
-	<textarea rows="20" cols="100" readonly="readonly" id="chatBox"></textarea>
-	<input type="text" size="100" style="width: 70" id="inputBox">
-	<button id="inputBtn">입력</button>
-	
-	<button id="goOut">나가기</button>
+	<div style="padding: 10%">
+		<textarea rows="20" cols="100" readonly="readonly" id="chatBox"></textarea>
+		<input type="text" size="100" style="width: 70" id="inputBox">
+		<button id="inputBtn">입력</button>
+		
+		<button id="goOut">나가기</button>
 
 
 </div>
