@@ -153,7 +153,7 @@
   	  	var result=document.getElementById("result");
   	  	var beforeLoginArea=document.getElementById("beforeLogInArea");
   	  	
-  	  	if(${loginInfo.userId}!=""){
+  	  	if("${loginInfo.userId}"!=""){
   	  	beforeLoginArea.removeAttribute("hidden");
   	  	}
     	
