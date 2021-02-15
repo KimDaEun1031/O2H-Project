@@ -10,7 +10,7 @@ public interface KDRegisterService {
 	//로그인 후 로그인 유저 정보
 	public KDLoginInfoVO isLogin(KDLoginVO kdlogin);
 	//유저 정보 문의 내역
-	public List<YHQandABoardVO> QnAUsers();
+	public List<YHQandABoardVO> QnAUsers(String userId);
 	//회원가입
 	public boolean registerInsert(KDLoginVO kdlogin);
 	//강사 프로필 정보란 수정

@@ -231,7 +231,7 @@
                 <ul class="dropdown">
                   <li><a href="/program/calorDict">칼로리사전</a></li>
                   <li><a href="/program/BMI">BMI계산기</a></li>
-                 
+                  <li><a href="https://jaysnews.netlify.app">Fit 뉴스</a></li>
                 </ul>
               </li>
               <li>
