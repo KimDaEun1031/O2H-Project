@@ -22,5 +22,4 @@ public class YHQandABoardVO {
  Date regdate;
  Date replyDate;
  String userId;
- 
 }
