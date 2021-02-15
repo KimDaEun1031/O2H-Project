@@ -5,15 +5,85 @@
 <%@include file="../includes/admin_header.jsp" %>
 <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
 	
-	
+<style>
+/* 리스트 링크 */
+.paginate_button a{
+	/* color: #009999; */
+	font-weight: 600;
+	font-size: 1.5rem;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;	
+}
+.paginate_button a{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.paginate_button a:hover{
+	background-color: #009999;
+    color: #fff; 
+}
+/* 글작성 버튼 */
+.testBtn {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 40px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 300px;
+}
+.primaryy{
+	text-align: center;
+}
+.btn-primaryy {
+    background-color: #009999;
+    border: 0;
+    border-radius: 5px;
+    padding: 12px 50px 14px;
+    font-size: 1.2rem;
+    color: white;
+}
+.btn-primaryy:hover, .btn-primaryy:focus {
+	color: #fff;
+    background-color: #086969;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; 
+}
+</style>	
+<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/admin/member_control">회원 관리</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 	<section class="recommand-product one-banner">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
                    <div class="list-group" style="text-align: center; width: 200px; height: 500px; margin-left: 50%" >
 					  <button type="button" class="list-group-item active" style="background: #e7ab3c; border-color: #e7ab3c;">회원 관리</button>
-					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_member'">관리자 리스트</button>
-  					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_teacher_list'">강사 리스트</button>
+					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_member'">관리자 목록</button>
+  					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_teacher_list'">강사 목록</button>
   					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='member_control'">회원 관리</button>
 					</div>
                 </div>
@@ -21,7 +91,7 @@
                     <div class="product-list">
                         <div class="row">
                             <div class="col-lg-4 col-lg-10">                             
-								<div class="board_wrap" style="margin-left: 1%; margin-right: 5%;">
+								<div class="board_wrap" style="margin-left: 1%; margin-right: 3%;">
 								     <table class="board_list" style="text-align: center;">
 								       <caption>
 								         회원 관리

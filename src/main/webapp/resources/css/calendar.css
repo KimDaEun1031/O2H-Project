@@ -3,6 +3,7 @@
             padding:0;
             box-sizing: border-box;
             font-family: 'Epilogue', sans-serif;
+            text-decoration: none;
         }
 
         .clearfix::after{
@@ -16,7 +17,7 @@
         }
 
         body{
-            background: rgb(245, 241, 241);
+           background: white;
         }
 
         .main{

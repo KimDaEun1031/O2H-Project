@@ -4577,3 +4577,145 @@ a {
   resize: vertical;
 }
 
+/*map*/
+.map-test {
+	display: flex;
+}
+
+.map-container {	
+	margin: 0 auto;
+	
+	
+}
+
+#map {
+	margin-top: 30px;
+	
+}
+.location-my {
+	margin-left: 47%;
+	margin-top: 30px;
+}
+
+.location-my button {
+	padding: 10px;
+	background-color: #e7ab3c;
+	font-weight: bold;
+	color: white;
+	border: 0;
+	outline: 0;
+	border-radius: 10px;
+}
+
+.location-my button:hover {
+	background-color: #f5c05e;
+}
+
+.h2-list {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 10px;
+	
+}
+
+.fit-list {
+	list-style: none;		
+	margin: 30px;
+	height: 500px;
+	background :  #e7ab3c;
+	border-radius: 10px;
+}
+.listLocation {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	padding: 2%;
+	
+}
+
+.listLocation li {	
+	padding: 5px;
+	margin: 5px;	
+	background :  white;	
+	border-radius: 10px;
+}
+
+.listLocation li:hover {	
+	background : #8a9ab3;	
+}
+
+.listLocation > li > div > p{
+	font-weight: bold;
+	width: 320px;
+	height: 30px;
+	text-align: center;	
+	padding: 5px;
+}
+
+.pageBtn-container {
+	margin-left: 47%;
+	margin-top: 30px;
+}
+
+.search-fit {
+	margin-left: 42%;
+	margin-top: 30px;	
+}
+
+.search-fit .pageValue {
+	padding: 5px;
+	border-radius: 10px;
+}
+.search-fit button {
+	padding: 7px;
+	background-color: #e7ab3c;
+	font-weight: bold;
+	color: white;
+	border: 0;
+	outline: 0;
+	border-radius: 10px;
+	
+}
+
+.search-fit button:hover {
+	background-color: #f5c05e;
+}
+
+/* 테이블 제목 색상 */
+tr th{
+color: #009999;
+} 
+/* 사진 게시판 */
+.breadcrumb-text a {
+    top: 0px;
+    content: none;
+    font-size: 21px;
+    font-family: "Malgun Gothic", Gulim !important;
+    color: #ff3e3e;
+    color: #ff685c;
+    font-weight: 560;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.breadcrumb-text a::after {
+    position: absolute;
+    right: -18px;
+    top: 0px;
+    content: none;
+    font-size: 18px;
+    color: #009999;
+}
+.nav-link {
+  color: #666666;
+  border-bottom: 4px solid transparent;
+  font-size: 1.2rem;
+  display: block;
+  padding: .5rem 1rem;
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+a:hover {
+    color: #009999;
+}
+.nav-link-2.active,
+.nav-link-2:hover {
+  border-color: #ff6666;
+}

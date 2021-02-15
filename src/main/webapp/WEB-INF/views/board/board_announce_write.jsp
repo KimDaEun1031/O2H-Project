@@ -8,13 +8,12 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>공지게시판</span>
+              <a class="nav-link nav-link-2" href="/announce/getList">공지게시판</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- 게시글 작성 -->
 
 	<form action="/announce/register" method="post">

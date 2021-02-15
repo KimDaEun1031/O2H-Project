@@ -489,6 +489,9 @@ wait_ticket number default seq_chat_waittingTicket.nextval,
 wno number default seq_chat_waitting.nextval
 )
 select * from waitting_board;
+
+
+
 delete waitting_board where wait_ticket=44;
 delete waitting_board;
 create sequence seq_chat_waitting;

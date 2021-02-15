@@ -2,19 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
 
-    <!-- Breadcrumb Section Begin -->
+   <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>Q&A게시판</span>
+              <a class="nav-link nav-link-2" href="/qandaboard/gotoQandAList">Q&A 게시판</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- 게시글 작성 -->
 
 	<form action="/qandaboard/register" method="post">

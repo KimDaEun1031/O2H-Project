@@ -54,4 +54,4 @@
 	</div>
 
 	
-<%@include file="../includes/user_footer.jsp" %>
+<%@include file="../includes/footer.jsp" %>

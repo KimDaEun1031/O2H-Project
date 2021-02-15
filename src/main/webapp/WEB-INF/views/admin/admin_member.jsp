@@ -2,15 +2,26 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/admin_header.jsp" %>
 <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
-	
+	<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/admin/admin_member">관리자 목록</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 	<section class="recommand-product one-banner">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
                    <div class="list-group" style="text-align: center; width: 200px; height: 500px; margin-left: 50%" >
 					  <button type="button" class="list-group-item active" style="background: #e7ab3c; border-color: #e7ab3c;">회원 관리</button>
-					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_member'">관리자 리스트</button>
-  					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_teacher_list'">강사 리스트</button>
+					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_member'">관리자 목록</button>
+  					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='admin_teacher_list'">강사 목록</button>
   					  <button type="button" class="list-group-item list-group-item-action" onclick="location.href='member_control'">회원 관리</button>
 					</div>
                 </div>

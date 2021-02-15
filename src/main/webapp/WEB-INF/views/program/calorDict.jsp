@@ -8,10 +8,11 @@
 -->
 <html>
   <head>
-    <title>칼로리 사전</title>
+    <title>02H | 칼로리 사전</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/resources/assets/css/main.css" />
+    <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
     <style>
       #msg {
       	font-size: 20px;
@@ -153,7 +154,7 @@
   	  	var result=document.getElementById("result");
   	  	var beforeLoginArea=document.getElementById("beforeLogInArea");
   	  	
-  	  	if(${loginInfo.userId}!=""){
+  	  	if("${loginInfo.userId}"!=""){
   	  	beforeLoginArea.removeAttribute("hidden");
   	  	}
     	

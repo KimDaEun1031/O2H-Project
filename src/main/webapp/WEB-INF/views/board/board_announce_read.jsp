@@ -7,18 +7,19 @@
 <%@include file="../includes/header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!-- Breadcrumb Section Begin -->
-<div class="breacrumb-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="breadcrumb-text">
-					<span>공지 게시판</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/announce/getList">공지게시판</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <!-- 게시글 보기 -->
 

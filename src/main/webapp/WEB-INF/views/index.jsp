@@ -10,7 +10,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Fashi | Template</title>
+    <title>02H | Main</title>
 
     <!-- Google Font -->
     <link
@@ -45,11 +45,11 @@
     
     <!-- 현영님 포토 보드 -->
     <style>
-    /* 가운데 정렬 */
+   
+	/* 가운데 정렬 */
 	.wrap{
 		width: 100%;
 	    text-align: center;
-	   /*  align-content: space-around; */
 	}
 	/* 테두리 박스 만들기 */
 	.wrap .col-xl-3{
@@ -59,47 +59,7 @@
 		 margin: 10px;
 		 padding: 10px;
 	}
-	/* 리스트 링크 */
-	.paginate_button a{
-		/* color: #009999; */
-		font-weight: 600;
-		font-size: 1.5rem;
-		font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;	
-	}
-	.paginate_button a{
-		display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    width: 60px;
-	    height: 60px;
-	    font-size: 1.1rem;
-	    color: #999;
-	    background-color: #EEEEEE;
-	    margin: 10px;
-	    border-radius: 5px;
-	    text-decoration: none;
-	    transition: all 0.3s ease;
-	}
-	.paginate_button a:hover{
-		background-color: #009999;
-	    color: #fff; 
-	}
-		/* 글작성 버튼 */
-	.testBtn {
-		display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    width: 800px;
-	    height: 40px;
-	    font-size: 1.1rem;
-	    color: #999;
-	    background-color: #EEEEEE;
-	    margin: 10px;
-	    border-radius: 5px;
-	    text-decoration: none;
-	    transition: all 0.3s ease;
-	    border-radius: 300px;
-	}
+	
 	/* img 태그 hover 시 이미지 확대 */
 	.scale {
 	  transform: scale(1);
@@ -120,28 +80,18 @@
 		margin: auto;
 	}
 	@media(min-width: 700px){
-	
 		.wrap{
 			display: flex; /* 가로로 길게  */
 			flex-wrap: wrap;
 			justify-content: space-around;	
 		}
-		.wrap .col-xl-3{
-			/* flex-wrap: nowrap; */
-			/* flex-wrap: wrap; */
-			 
-		}
-		.wrap .col-xl-3:nth-child(3){
-			/* flex: none; */
-		}
-	}
 	    
     </style>
     
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="img/iconLogo.ico" />
+  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -214,13 +164,11 @@
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
 			var profile=document.getElementById("profile");
+			var stream=document.getElementById("stream");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");						
-				stream.removeAttribute("hidden");	
-				
-			}else{
-				
+				profile.removeAttribute("hidden");							
+			}else{			
 				login.removeAttribute("hidden");
 				signin.removeAttribute("hidden");
 				
@@ -228,6 +176,13 @@
 			if(loginInfo == 'admin') {
 				admin.removeAttribute("hidden");				
 			}
+			
+			var teacher = 'teacher';
+			if (loginInfolevel==teacher) {
+				stream.removeAttribute("hidden");
+	   		}
+		
+			
 			
 			
 //		}
@@ -267,8 +222,8 @@
               <li>
                 <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">
-                  <li><a href="/areaChat/chatRoomList">지역별 온라인 채팅</a></li>
-                  <li><a href="/board/board_photo_list">오프라인미팅</a></li>               
+                  <li><a href="/areaChat/chatRoomList">지역 채팅방</a></li>
+                  <li><a href="/board/board_photo_list">오프라인 미팅</a></li>               
                 </ul>
               </li>
               <li>
@@ -329,78 +284,113 @@
       </div>
     </section>
     <!-- Hero Section End -->
+    <br /><br /><br />
+    <div class="col-lg-12">
+       <div class="section-title">
+           <h2>커뮤니티</h2>
+           <span><a href="/board/board_photo_list" style="">more+</a></span>
+       </div>
+    </div>
+    <br /><br />
 
     <!-- 현영님 사진 게시판 -->
-    <div class="board_wrap" style="margin-top:20px">
-   
+    <div class="board_wrap" style="margin-top:20px"> 
+     
      <table class="board_list" style="text-align: center;">
        <caption>
          게시판 목록
        </caption>
-       
-       
-   <div class="wrap">
-     <!-- 게시판 리스트 반복문 : 박스형태 -->
-	     <script>
-	     var str="";
-	     </script>
-     	<c:forEach var="hyvo" items="${hylist}">              	
-                           
-          	<script>  
-			//결과를 보여줄 영역 가져오기
-			var uuid = '${hyvo.attach.uuid}';	
-			var uploadPath = '${hyvo.attach.uploadPath}';			
-			var fileName = '${hyvo.attach.fileName}';	
-			
-			path = encodeURIComponent(uploadPath+"\\s_"+uuid+"_"+fileName);		
-			fileCallPath=path.replace(new RegExp(/\\/g),"/");
-			
-			//화면에 보여줄 태그 생성
-			str+='<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">';
-			str+='<figure class="effect-ming tm-video-item">';
-			str+='<div class="scale">';
-			str+='<a href="${hyvo.bno}" class="move">';
-			str+="<img id='myImg' src='/photoBoardDisplay?fileName="+fileCallPath+"' alt='${hyvo.attach.fileName}' class='img-fluid'>";		
-			str+='<figcaption class="d-flex align-items-center justify-content-center">';
-			str+='<a href="${hyvo.bno}" class="move"><h2>${hyvo.title}</h2></a>';
-			str+='</figcaption></div></figure><div class="d-flex justify-content-between tm-text-gray">';
-			str+='<span class="tm-text-gray-light"><h4>${vo.writer}</h4></span>';	
-			str+='</div></div>';			
-		</script> 
-	</c:forEach>
-	<script>
-	$(".wrap").html(str);
-	</script>
-  </div>
-
-	<!-- start Pagination -->
-	<div class="text-center" style="display: table; margin-left: auto; margin-right: auto; ">
-		<ul class="pagination" >
-			<c:if test="${pageVO.prev }">
-				<li class="paginate_button previous" ><a href="${pageVO.startPage-1 }">Previous</a>
-			</c:if>
-			<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
-				<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px;" href="${idx}">${idx}</a>
+	     <div class="wrap">
+		     <!-- 게시판 리스트 반복문 : 박스형태 -->
+		    <script>
+		      var str="";
+		    </script>
+	     	<c:forEach var="hyvo" items="${hylist}">              		                           
+	          	<script>  
+					//결과를 보여줄 영역 가져오기
+					var uuid = '${hyvo.attach.uuid}';	
+					var uploadPath = '${hyvo.attach.uploadPath}';			
+					var fileName = '${hyvo.attach.fileName}';	
+					
+					path = encodeURIComponent(uploadPath+"\\s_"+uuid+"_"+fileName);		
+					fileCallPath=path.replace(new RegExp(/\\/g),"/");
+					
+					//화면에 보여줄 태그 생성
+					str+='<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 scale">';
+					str+='<figure class="effect-ming tm-video-item">';
+					str+='<div class="">';
+					str+='<a href="${hyvo.bno}" class="movephoto">';
+					str+="<img id='myImg' src='/photoBoardDisplay?fileName="+fileCallPath+"' alt='${hyvo.attach.fileName}' class='img-fluid'>";		
+					str+='<figcaption class="d-flex align-items-center justify-content-center">';
+					str+='<a href="${hyvo.bno}" class="movephoto"><h2>${hyvo.title}</h2></a>';
+					str+='</figcaption></div></figure><div class="d-flex justify-content-between tm-text-gray">';
+					str+='<span class="tm-text-gray-light"><h4>${hyvo.writer}</h4></span>';	
+					str+='</div></div>';			
+				</script> 
 			</c:forEach>
-			<c:if test="${pageVO.next }">
-				<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
-			</c:if>
-		</ul>
-	</div><!-- end Pagination --> 
+			<script>
+				$(".wrap").html(str);
+			</script>
+		  
+			<!-- start Pagination 
+			<div class="text-center" style="display: table; margin-left: auto; margin-right: auto; ">
+				<ul class="pagination" >
+					<c:if test="${pageVO.prev }">
+						<li class="paginate_button previous" ><a href="${pageVO.startPage-1 }">Previous</a>
+					</c:if>
+					<c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+						<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a style="border: 0 solid black; padding: 5px;" href="${idx}">${idx}</a>
+					</c:forEach>
+					<c:if test="${pageVO.next }">
+						<li class="paginate_button next"><a	href="${pageVO.endPage+1 }">Next</a>
+					</c:if>
+				</ul>
+			</div> end Pagination --> 
+			</div>
+		</table>
 	</div>
+	
 	<%-- 페이지 링크 값을 넘기기 위한 폼 --%>
-	<form action="" id="actionForm">
-		<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" id="pageNum"/>
+	<form action="/board/board_photo_read" id="actionFormPhoto">
+		<input type="hidden" name="pageNum" value="1" id="pageNumPhoto"/>
 		<input type="hidden" name="amount" value="${pageVO.cri.amount}"  id="amount"/>
 	</form>
+	<script>
+	$(function(){	
+		//actionForm 가져오기 - 페이지 이동시 사용할 폼	
+		var actionFormPhoto = $("#actionFormPhoto");	
+		
+		//페이지 번호 클릭시 동작
+		$(".paginate_button a").on("click",function(e){
+			//a 태그의 기능을 중지
+			e.preventDefault();	
+			
+			//pageNum의 값을 사용자가 선택한 값으로 변경
+			$("#pageNumPhoto").val($(this).attr("href"));	
+			actionFormPhoto.attr("action","board_photo_list");
+			actionFormPhoto.submit();		
+		});	
+		
+		//게시판 제목 클릭시 동작(현재글번호,pagaNum 정보)
+		$(".movephoto").click(function(e){
+			e.preventDefault();
+			var actionFormPhoto = $("#actionFormPhoto");	
+			actionFormPhoto.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");		
+			actionFormPhoto.attr("action","/board/board_photo_read");
+			actionFormPhoto.submit();
+		});	
+	})
+	
+	</script>
     <!-- 현영님 게시판 end -->
+    <br /><br />
 
     <!-- 프로그램 메뉴 및 맵 -->
     <div class="flex-container">
     	<div>
     		<a href="/program/BMI"><img src="/resources/img/BMI_Button.png" style="width: 300px; height: 300px;" alt="" /></a>
 	    	<a href="/program/calorDict"><img src="/resources/img/CAL_Button.png" style="width: 300px; height: 300px;" alt="" /></a>   	
-	    	<a href=""><img src="/resources/img/MAP_Button.png" style="width: 300px; height: 300px;" alt="" /></a> 	
+	    	<a href="/map/healthMap"><img src="/resources/img/MAP_Button.png" style="width: 300px; height: 300px;" alt="" /></a> 	
     	</div>
     </div>
     <!-- 프로그램 & 맵 end -->
@@ -457,7 +447,7 @@
 						</c:if>
 					</ul>
 				</div>
-				end Pagination -->     
+				end Pagination     -->
 				<div class="bt_wrap">
 				  <button class="btn btn-info" id="write" hidden="hidden">글 작성</button> 
 				</div>
@@ -527,12 +517,12 @@
           <div class="col-lg-3">
             <div class="footer-left">
               <div class="footer-logo">
-                <a href="#"><img src="/resources/img/footer-logo.png" alt="" /></a>
+                <a href="/"><img src="/resources/img/logo.png" style="margin-right: 50px; width: 140px; height: 80px;" alt="" /></a>
               </div>
               <ul>
                 <li>Address: 솔데스크</li>
-                <li>Phone: +65 11.188.888</li>
-                <li>Email: hello.colorlib@gmail.com</li>
+                <li>Phone: +82 00.0000.0000</li>
+                <li>Email: 02H.soldesk@gmail.com</li>
               </ul>
               <div class="footer-social">
                 <a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
@@ -571,9 +561,9 @@
                 <script>
                   document.write(new Date().getFullYear());
                 </script>
-                All rights reserved | This template is made with
+                All rights reserved | This Site is made with
                 <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                <a href="/" target="_blank">Colorlib</a>
+                <a href="/" target="_blank">02H</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </div>            
             </div>
