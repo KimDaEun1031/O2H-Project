@@ -13,7 +13,7 @@ create table user_board (
     regDate date default sysdate,
     auth char(1) default 0 -- user teacher admin
     ); 
-
+select * from user_board;
 select * from user_board;
 
 insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,user_level) 
