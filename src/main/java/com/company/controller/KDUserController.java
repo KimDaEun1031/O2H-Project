@@ -49,7 +49,7 @@ public class KDUserController {
 		int fullday=year*10000+month*100+day;
 		
 		vo.setDates(fullday);
-		vo.setUser_id("temp");
+		vo.setUser_id(loginInfoTemp.getUserId());
 		List<YHCalVO> list=yhservice.select(vo);
 		System.out.println(list);
 		int arr[]=new int[31];
@@ -90,9 +90,12 @@ public class KDUserController {
 	}
 		
 	@GetMapping("/user/user_QnA")
-	public String userQnA(YHQandABoardVO yhqnavo, Model model) {
+	public String userQnA(YHQandABoardVO yhqnavo, Model model, HttpSession session, KDLoginInfoVO loginInfo, String userId) {
 		log.info("문의내역 페이지"+yhqnavo);
-		List<YHQandABoardVO> userlist= service.QnAUsers();
+		loginInfo = (KDLoginInfoVO) session.getAttribute("loginInfo");
+		yhqnavo.setUserId(loginInfo.getUserId());
+		log.info("유저 아이디"+yhqnavo.getUserId());
+		List<YHQandABoardVO> userlist= service.QnAUsers(yhqnavo.getUserId());
 		model.addAttribute("userlist",userlist);
 		log.info("문의내역 페이지"+userlist);
 		return "/user/user_QnA";

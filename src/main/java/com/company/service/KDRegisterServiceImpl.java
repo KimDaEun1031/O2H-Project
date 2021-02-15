@@ -37,8 +37,8 @@ public class KDRegisterServiceImpl implements KDRegisterService {
 	}
 	
 	@Override
-	public List<YHQandABoardVO> QnAUsers() {		
-		return mapper.QnAUser();
+	public List<YHQandABoardVO> QnAUsers(String userId) {		
+		return mapper.QnAUser(userId);
 	}
 
 }
