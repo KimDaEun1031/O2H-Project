@@ -173,7 +173,7 @@
 				signin.removeAttribute("hidden");
 				
 			}
-			if(loginInfo == 'admin') {
+			if(loginInfolevel == 'admin') {
 				admin.removeAttribute("hidden");				
 			}
 			
