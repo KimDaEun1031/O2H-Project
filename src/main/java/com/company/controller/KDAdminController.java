@@ -38,9 +38,11 @@ public class KDAdminController {
 	private HYService hyservice;
 	
 	@GetMapping("/admin_index")
-	public String admin_index() {
+	public String admin_index(Model model) {
 		log.info("관리자 페이지");
-		
+		List<KDLoginInfoVO> newlist= service.selectByNewUser();
+		model.addAttribute("newlist",newlist);
+		log.info("관리자 월별현황페이지"+newlist);
 		return "/admin/admin_index";
 	}	
 	

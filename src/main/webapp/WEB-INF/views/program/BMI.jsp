@@ -8,11 +8,11 @@
 -->
 <html>
   <head>
-    <title>칼로리 사전</title>
+    <title>02H | BMI 계산기</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 	<link rel="stylesheet" href="/resources/assets/css/main.css" />
-	
+	<link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
 	<style type="text/css">
 	 table, th, td {
         border: 1px solid #bcbcbc;

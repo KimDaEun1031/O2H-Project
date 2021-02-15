@@ -4,18 +4,16 @@
 <%@include file="../includes/header.jsp" %>
 <%@ page import="com.company.domain.YHAreaChatVO" %>
 <style type="text/css">
-body{
-		/* margin:20px; */
-	}
 	.box1{
 		width:800px;
-		background-color:green;
+		background-color: #e7ab3c;
 		color:white;
 		padding:15px;
 		text-align: center;
 		margin: 0px auto;
 		justify-content: center; 
  	    /* align-items: center; */
+ 	    border-radius: 10px;
 	}
 	.box2{
 		width:400px;
@@ -28,7 +26,7 @@ body{
 	}
 	#msg1, #msg2, #msg3, #msg4 {
 		border-radius: 5px;
-		border: 2px solid #73ad21;
+		border: 2px solid black;
 		padding: 10px;
 		padding-left: 20px;
 		margin-top: 15px;
@@ -40,6 +38,7 @@ body{
 		margin: 0px auto;
 		justify-content: center; 
  	    align-items: center;
+ 	    margin-bottom: 20px;
 	}
 	
 /* 	#msg1, #msg2{
@@ -68,11 +67,13 @@ body{
 		float: left;
 		width:400px;
 		margin-left: 300px;
+		
 	}
 	 #msg4{
 		float: right;
 		width:400px;
 		margin-right: 300px;
+		
 	} 
 	.bigDiv1{
 	position: absolute;
@@ -86,30 +87,83 @@ body{
 	left: 50%;
 	margin-left: -533px;
 	}
+	.breadcrumb-text a {
+	    top: 0px;
+	    content: none;
+	    font-size: 18px;
+	    font-family: "Malgun Gothic", Gulim !import;
+	}
+	.breadcrumb-text a::after {
+	    position: absolute;
+	    right: -18px;
+	    top: 0px;
+	    content: none;
+	    font-size: 18px;
+	    color: #009999;
+	}
+	.nav-link {
+	  color: #666666;
+	  border-bottom: 4px solid transparent;
+	  font-size: 1.2rem;
+	  display: block;
+	  padding: .5rem 1rem;
+	  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+	}
+	.nav-link-2.active,
+	.nav-link-2:hover {
+	  border-color: #ff6666;
+	}
+	#room1, #room2, #room3, #room4 {
+		padding: 7px;
+		background-color: #e7ab3c;
+		font-weight: bold;
+		color: white;
+		border: 0;
+		outline: 0;
+		border-radius: 10px;
+		margin-bottom: 10px;
+	
+	}
+	#room1:hover, #room2:hover, #room3:hover, #room4:hover {
+		background-color: #f5c05e;
+	
+	}
 </style>
+		<!-- Breadcrumb Section Begin -->
+	    <div class="breacrumb-section">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-lg-12">
+	            <div class="breadcrumb-text">
+	              <a class="nav-link nav-link-2" href="/areaChat/chatRoomList">지역 채팅방</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+		
 
-
-		<!-- <br />
-		<div class="box1"> 순위 보여줄 게시판 </div>		
-		<br />
-		<div class="bigDiv1">
-			<div id="msg1">div1</div>순위를 보여줄 영역
-			<div id="msg2">div2</div>순위를 보여줄 영역
+			<!-- <br />
+			<div class="box1"> 순위 보여줄 게시판 </div>		
 			<br />
-		</div>
-			<div id="clear"></div>
-			<p></p>
-		<div class="bigDiv2">
-			<div id="msg3">div3</div>순위를 보여줄 영역
-			<div id="msg4">div4</div>순위를 보여줄 영역
-			<div class="box3"></div>
-		</div>	
-
-		<br /> -->
-		<br />
-		<div class="box1"> 지역 별 채팅창 </div>		
-		<br />
-								
+			<div class="bigDiv1">
+				<div id="msg1">div1</div>순위를 보여줄 영역
+				<div id="msg2">div2</div>순위를 보여줄 영역
+				<br />
+			</div>
+				<div id="clear"></div>
+				<p></p>
+			<div class="bigDiv2">
+				<div id="msg3">div3</div>순위를 보여줄 영역
+				<div id="msg4">div4</div>순위를 보여줄 영역
+				<div class="box3"></div>
+			</div>	
+				
+			<br /> -->
+			<br />
+			<div class="box1"> 지역 별 채팅창 </div>		
+			<br />
+									
 			<div id="msg1"> <a href="/areaChat/goSeoul"><button hidden="hidden"  id="room1">서울 채팅방 입장</button> </a>
 				<div>현재 입장한 고객 수 ${roomInfoList[4].getUserNum()} /100</div>
 				<div>최근 대화 5줄</div>
@@ -146,7 +200,7 @@ body{
 			
 			</div><!-- 순위를 보여줄 영역 -->
 			<div class="box3"></div>
-			
+
 <script>
  var room1=document.getElementById("room1");
  var room2=document.getElementById("room2");
@@ -166,5 +220,8 @@ body{
 	
 </script>
 		<br />
+ 
 
-  <%--  <%@include file="../includes/footer.jsp" %> --%>
+   
+  </body>
+</html>

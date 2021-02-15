@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FitURJC Login</title>
+    <title>02H | 회원탈퇴</title>
     <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
     
     <meta name="description" content="Love Authority." />

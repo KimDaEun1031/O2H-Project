@@ -8,8 +8,8 @@
 		
 	}
 	.profile-section {
-		border: 50px solid black;
-		margin: 7%;
+		border: 50px solid #252525;
+		margin: 30px 7%;
 		border-radius: 50px;
 		
 	}
@@ -35,24 +35,96 @@
 	}
 	
 	.recommendPageBtn > ul {
-	 display: table;
-	 margin-left: auto;
-	 margin-right: auto;
+		 display: table;
+		 margin-left: auto;
+		 margin-right: auto;
+	}
+	.breadcrumb-text a {
+	    top: 0px;
+	    content: none;
+	    font-size: 21px;
+	    font-family: "Malgun Gothic", Gulim !import;
+	    color: #ff3e3e;
+	    color: #ff685c;
+	    font-weight: 560;
+	    font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	.breadcrumb-text a::after {
+	    position: absolute;
+	    right: -18px;
+	    top: 0px;
+	    content: none;
+	    font-size: 18px;
+	    color: #009999;
+	}
+	.nav-link {
+	  color: #666666;
+	  border-bottom: 4px solid transparent;
+	  font-size: 1.2rem;
+	  display: block;
+	  padding: .5rem 1rem;
+	  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+	}
+	a:hover {
+	    color: #009999;
+	}
+	.nav-link-2.active,
+	.nav-link-2:hover {
+	  border-color: #ff6666;
+	}
+	.page-item a{
+	/* color: #009999; */
+	font-weight: 600;
+	font-size: 1.5rem;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;	
+	}
+	.page-item a{
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    width: 60px;
+	    height: 60px;
+	    font-size: 1.1rem;
+	    color: #999;
+	    background-color: #EEEEEE;
+	    margin: 10px;
+	    border-radius: 5px;
+	    text-decoration: none;
+	    transition: all 0.3s ease;
+	}
+	.page-item a:hover{
+		background-color: #009999;
+	    color: #fff; 
 	}
 		
-
-	
 	
 	
 	
 </style>
+<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-text">
+              <a class="nav-link nav-link-2" href="/PT/teacher_list">PT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br /><br /><br />
+<div class="col-lg-12">
+       <div class="section-title">
+           <h2>강사 목록</h2>           
+       </div>
+    </div>
 <section class="profile-section">
-	<div class="profile-container">
-		<h2>추천 강사 리스트</h2>
+	<div class="profile-container">		
 		<ul class="recommendProfileList"></ul>			
-	    <div class="recommendPageBtn"></div>
 	</div>
 </section>
+	    <div class="recommendPageBtn"></div>
 
 <!--  
 <div>

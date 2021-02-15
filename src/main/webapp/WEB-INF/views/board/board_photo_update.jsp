@@ -3,13 +3,24 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp" %>
 <style>
+/* 사진 게시판 */
+.breadcrumb-text a {
+    top: 0px;
+    content: none;
+    font-size: 21px;
+    font-family: "Malgun Gothic", Gulim !import;
+    color: #ff3e3e;
+    color: #ff685c;
+    font-weight: 560;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .breadcrumb-text a::after {
     position: absolute;
     right: -18px;
     top: 0px;
     content: none;
-    font-size: 16px;
-    color: rgb(178, 178, 178);
+    font-size: 18px;
+    color: #009999;
 }
 .nav-link {
   color: #666666;
@@ -18,6 +29,9 @@
   display: block;
   padding: .5rem 1rem;
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+a:hover {
+    color: #009999;
 }
 .nav-link-2.active,
 .nav-link-2:hover {
@@ -37,6 +51,40 @@
 }
 #content:focus::-webkit-input-placeholder  {
   opacity: 0;
+}
+/* 버튼 */
+#hob{
+	background: #50c594;
+}
+#hob2{
+	background: RGB(234,76,137);
+	margin: 0 5px;
+}
+#hob, #hob2, #hob3{
+	height: 40px;
+	width: 60px;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	border-radius: 8px;
+	letter-spacing: 2px;
+	font-size: 16px;
+	/* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+#hob:hover{
+	background: #59d2c1;
+}
+#hob2:hover{
+	background: #f35d8b;
+}
+/* 첨부파일 */
+#changeImgBtn{
+	color: black;
+	border: 2px solid black;
+	background: white;
+}
+#changeImgBtn:hover{
+	color: #7edd03;
+	border: 2px solid #7edd03;
+	background: white !important;
 }
 </style>
     <!-- Breadcrumb Section Begin -->
@@ -87,7 +135,7 @@
 	         <dl>
 	         <dt></dt>
 			  <div>	
-				<label for="files" class="btn btn-primary active" style="{background:#ee4b28 !important} :hover {background: #005cbf}" id="changeImgBtn">Select Image</label>						
+				<label for="files" class="btn btn-primary active" id="changeImgBtn">Select Image</label>						
 				<input id="files" name="uploadFile" id="" type="file" accept='image/jpeg,image/gif,image/png' style="visibility:hidden;">
 			  </div> 
 			 </dl>       
@@ -105,8 +153,8 @@
       </div>
     </div>
 	    <div class="bt_wrap">
-	      <input type="submit" class="btn btn-success" data-oper='modify' value="등록">
-	      <input type="submit" class="btn btn-danger" data-oper='list' value="취소">
+	      <input type="submit" class="btn btn-success" data-oper='modify' id="hob" value="등록">
+	      <input type="submit" class="btn btn-danger" data-oper='list' id="hob2" value="취소">
 	    </div>
 	 </form>	
 <%-- 페이지 나누기 위해 필요한 값 세팅 --%>

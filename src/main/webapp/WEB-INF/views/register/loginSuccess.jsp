@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auto Write Text</title>
+    <title>02H | 로그인성공</title>
     <!-- <link rel="stylesheet" href="style.css" /> -->
    <!--  <script src="script.js" defer></script> -->
     <script
@@ -40,7 +40,7 @@
       }
 
       body {
-        background-color: rebeccapurple;
+        background-color: #e7ab3c;
         color: white;
         font-size: 2rem;
         font-family: "Poppins", sans-serif;
@@ -75,37 +75,24 @@
         to {
           transform: translateY(105vh);
         }
+       
+        
       }
     </style>
   </head>
   <body style="margin-top: 20%; margin-left: 10%;">
-    <div id="div1" class="fa"></div>
-
-    <div class="content" >
-      <div id="changeText">
-        Congratulations!! Your account has been created successfully
-      </div>
-      <div>
-        <button class="btn btn-primary mr-6" id="getPT">
-          라이브 PT 시청하기
-        </button>
-		<a class="btn btn-success mr-6" href="/" role="button" id="main">메인페이지로 이동</a> 
-
-        <button class="btn btn-info mr-6" id="getPost">
-          커뮤니티 활동하기
-        </button>
-
-        <button class="btn btn-warning mr-6" id="getProgram">
-          운동 프로그램 소개받기
-        </button>
-
-        <button class="btn btn-danger mr-6" id="getAdmin" onclick="getAdmin()">
-          관리자에게 문의하기
-        </button>
-        
-             
-      </div>
-    </div>
+    
+	<div id="div1" class="fa"></div>
+    <div class="content" >	   
+	   <div id="changeText">로그인되었습니다. <br /> 원하시는 페이지로 이동해주세요.</div>
+    	&nbsp;&nbsp;
+	   <div class="page-container">
+	       <a class="btn btn-secondary mr-6" href="/PT/teacher_list" role="button" id="getPT">라이브 PT 시청하기</a>
+		   <a class="btn btn-success mr-6" href="/" role="button" id="main">메인페이지로 이동</a> 
+	       <a class="btn btn-info mr-6" href="/board/board_photo_list" role="button" id="getPost">커뮤니티 활동하기</a>       
+	       <button class="btn btn-danger mr-6" id="getAdmin" onclick="getAdmin()">관리자에게 문의하기</button>       
+	   </div>
+    </div> 
 
     <div id="memo">
       <p></p>
@@ -144,7 +131,7 @@
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = Math.random() * 2 + 3 + "s";
 
-        heart.innerText = "💜";
+        heart.innerText = "🧡";
 
         document.body.appendChild(heart);
 
@@ -180,8 +167,9 @@
       var changer = 0;  
     
       function getAdmin() {
-        var temp1 =
-        "Q: 전화 상담 시간이 어떻게 되나요?A: 상담전화는 [1544-9244] 이며, 상담시간은 아래와 같습니다.평 일 : 09:30~17:30점심시간 : 13:00~14:00";
+        var temp1 = "Q: 전화 상담 시간이 어떻게 되나요?";
+        temp1 += "A: 상담전화는 [1544-9244] 이며, 상담시간은 아래와 같습니다.";
+        temp1 += "평 일 : 09:30~17:30 || 점심시간 : 13:00~14:00";
         var modalBody=$('.modal-body > p');
         modalBody.css('color','black');
         modalBody.text(temp1);
@@ -218,8 +206,8 @@
             <p>Modal body text goes here.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="location.href='/chat/chat_list'">실시간 문의</button>           
           </div>
         </div>
       </div>      

@@ -5,18 +5,18 @@
    <link rel="stylesheet" href="/resources/css/boardList.css" type="text/css" />
     
      <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-text">
-              <span>문의내역</span>
+              <a class="nav-link nav-link-2" href="/user/user_QnA">문의내역</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-   
      
 
 	<div class="board_wrap" style="margin-left: 5%; margin-right: 5%">
@@ -111,4 +111,4 @@ $(".move").click(function(e){
 
 
 
- <%@include file="../includes/user_footer.jsp" %>
+ <%@include file="../includes/footer.jsp" %>

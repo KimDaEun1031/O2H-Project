@@ -10,7 +10,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Fashi | Template</title>
+    <title>02H | Fitness Admin</title>
 
     <!-- Google Font -->
     <link
@@ -45,7 +45,7 @@
   </head>
 
   <!-- 로그인/회원가입 메뉴 추가 -->
-  <link rel="shortcut icon" href="img/iconLogo.ico" />
+  <link rel="shortcut icon" href="/resources/img/iconLogo.ico" />
 
   <!-- Bootstrap core CSS -->
   <!-- <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -100,9 +100,7 @@
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
-                	<a class="btn btn-primary" id="stream" href="/user/teacher_my_stream" hidden="hidden" role="button">스트리밍</a>
-                	<a class="btn btn-success" id="test" href="/user/profile" hidden="hidden" role="button">테스트</a>                   
+                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a>                 	          
                 </li>
               </ul>
             </div>
@@ -121,8 +119,7 @@
 			var profile=document.getElementById("profile");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");		
-				stream.removeAttribute("hidden");	
+				profile.removeAttribute("hidden");						
 				test.removeAttribute("hidden");	
 				
 			}else{
@@ -131,15 +128,10 @@
 				signin.removeAttribute("hidden");
 				
 			}
-			if(loginInfo == 'admin') {
+			var admin = 'admin';
+			if(loginInfo == admin) {
 				admin.removeAttribute("hidden");				
 			}
-			
-			var teacher = 1;
-			if (loginInfolevel==teacher) {
-	   			$("#profile").attr("href","/user/teacher_my");
-	   			//jquery 인식 안되서 cdn 가져왔습니다.
-	   		}
 			
 //		}
 	
