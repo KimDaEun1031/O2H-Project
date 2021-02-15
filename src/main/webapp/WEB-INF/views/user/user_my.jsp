@@ -172,6 +172,7 @@
       var n3 = document.getElementById("num3");
       var n4 = document.getElementById("num4");
       var calorie = [
+    	
         num1,
         num2,
         num3,
@@ -205,7 +206,8 @@
         num31,
       ];
       var runtime = [
-        rnum1,
+       
+    	rnum1,
         rnum2,
         rnum3,
         rnum4,
@@ -248,6 +250,7 @@
           type: "line",
           data: {
             labels: [
+              "0일",
               "1일",
               "2일",
               "3일",

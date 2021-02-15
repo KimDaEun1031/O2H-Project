@@ -72,7 +72,7 @@
       		<input type="text" placeholder="날짜를 클릭하면 입력됩니다." name="rdate" readonly>
       		<h5><a href="">식단 칼로리 총량</a></h5>
         	<input type="text" name="cal" id="total" value="0">
-        	<h5><a href="">운동 칼로리 총량</a></h5>       	
+        	<h5><a href="">소비 칼로리 총량</a></h5>       	
         	<input type="text" name="extime" id="extime" value="0"> 
         	<br />      	
         	<input type="hidden" name="user_id" value="${loginInfo.userId}" >     

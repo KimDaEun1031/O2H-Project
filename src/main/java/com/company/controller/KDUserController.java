@@ -54,8 +54,8 @@ public class KDUserController {
 		List<YHCalVO> list=yhservice.select(vo);
 		System.out.println("여기가 1");
 		System.out.println(list);
-		int arr[]=new int[31];
-		int brr[]=new int[31];
+		int arr[]=new int[32];
+		int brr[]=new int[32];
 		for(int i=0;i<31;i++) {
 			arr[i]=0;
 			brr[i]=0;
@@ -69,7 +69,7 @@ public class KDUserController {
 			if(temp/100==month+100*year) {
 			temp= temp%100;
 			arr[temp]=list.get(i).getCal();
-			brr[temp]=(list.get(i).getExtime())*100;
+			brr[temp]=(list.get(i).getExtime());
 			}
 			}
 		
