@@ -3,33 +3,38 @@ package com.company.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.company.domain.YHCalVO;
 import com.company.service.YHCalService;
 
 import lombok.extern.slf4j.Slf4j;
 
+@Controller
 @Slf4j
-@RestController
-@RequestMapping("/restCal/*")
+@RequestMapping("/cal2/*")
 public class YHCalController {
+	
 	@Autowired
 	YHCalService service;
-	@GetMapping("/insert")
-	public String insert(YHCalVO vo,String date){
-		log.info("rest" +vo.toString()+" ㅇㅅㅇ :"+date);
-		vo.setDates(Integer.parseInt(date.replaceAll("-", "")));
 	
-		log.info("rest 안녕" +vo.toString());
-		if(service.update(vo)!=1) {
-		service.insert(vo);
+	
+	@PostMapping("/insert")
+	public String insert(YHCalVO vo,String rdate) {
+		if(rdate.length()==9) {
+			char temp=rdate.charAt(8);
+			String newDate=rdate.substring(0, 8);
+			newDate+="0"+temp;
+			rdate=newDate;
 		}
-		return "success";
+		vo.setDates(Integer.parseInt(rdate.replaceAll("-", "")));
+		
+		log.info("칼로리 입력 시도"+vo);
+		if(service.update(vo)!=1) {
+			service.insert(vo);
+			}
+		return "redirect:/user/user_my";
 	}
 }

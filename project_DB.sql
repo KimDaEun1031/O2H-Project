@@ -82,7 +82,8 @@ alter table QANDA_BOARD add userId varchar2(20);
 alter table QANDA_BOARD drop column userId;
 
 alter table QANDA_BOARD 
-add CONSTRAINT fk_userId foreign key(userId) references user_board(userId);
+add CONSTRAINT fk_userId foreign key(userId) references user_board(user_Id);
+ALTER TABLE QandA_Board DROP constraint fk_userId;
 
 ALTER TABLE QANDA_BOARD MODIFY (replyDate DEFAULT sysdate);
 
@@ -199,6 +200,9 @@ select * from chatRoom1;
  	regdate date,
  	content varchar2(30)
  );
+
+
+
  update areachattingroom  set userNum = (select userNum from areachattingroom where area = 'seoul')+1 
  select * from areachattingroom;
 
@@ -224,8 +228,13 @@ create table fit_attach(
 alter table fit_attach add constraint pk_attach primary key(uuid);
 
 --fk
+
 alter table fit_attach 
-add constraint fk_fit_attach foreign key(userId) references user_board(userId);
+add constraint fk_fit_attach foreign key(userId) references user_board(userId) on delete cascade;
+ALTER TABLE fit_attach DROP constraint fk_fit_attach;
+
+
+
 
 select * from fit_attach;
 
@@ -315,8 +324,9 @@ drop table teacher_Info;
 alter table teacher_Info add constraint pk_teacher_userId primary key(userId);
 
 alter table teacher_Info 
-add constraint fk_teacher_userId foreign key(userId) references user_board(userId);
-
+add constraint fk_teacher_userId foreign key(userId) references user_board(userId) on delete cascade;
+ALTER TABLE teacher_info DROP constraint fk_teacher_userId;
+---------추가
 insert into teacher_info values('test8','홈트','1');
 
 -- 강사 주 종목 컬럼 무결성 임시 해제

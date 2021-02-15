@@ -50,7 +50,9 @@ public class KDUserController {
 		
 		vo.setDates(fullday);
 		vo.setUser_id(loginInfoTemp.getUserId());
+		log.info("vo확인"+vo);
 		List<YHCalVO> list=yhservice.select(vo);
+		System.out.println("여기가 1");
 		System.out.println(list);
 		int arr[]=new int[31];
 		int brr[]=new int[31];
