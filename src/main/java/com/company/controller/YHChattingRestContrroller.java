@@ -1,6 +1,14 @@
 package com.company.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,8 +42,34 @@ public class YHChattingRestContrroller {
 	YHTicketService ticketService;
 	
 	@GetMapping("/room1")
-	public ResponseEntity<List<YHChatVO>> room1(String content,int fromid){
+	public ResponseEntity<List<YHChatVO>> room1(String content,int fromid,HttpServletRequest request){
 		log.info("room1 문자 입력 content:" +content +" admin여부 :" +fromid);
+		String path=request.getServletContext().getRealPath(File.separator+"abusive");
+		File file=new File(path+File.separator+"abusive.txt");
+		String str="";
+		
+		try {
+			FileInputStream fis=new FileInputStream(file);
+			byte readBuffer[]=new byte[fis.available()];
+			
+			while(fis.read(readBuffer)!=-1) {
+				str+=new String(readBuffer,"euc-kr");
+			}
+			String [] badLanguage=str.split(",");
+			for(int i=0;i<badLanguage.length;i++) {
+				
+				String temp="";
+				for(int j=0;j<badLanguage[i].length();j++) {
+					temp+="*";
+				}
+				content=content.replace(badLanguage[i], temp);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		service.chatInsertRoom1(fromid, content);
 		List<YHChatVO> list=service.getRoom1ChatList();
 		ResponseEntity<List<YHChatVO>> entity=new ResponseEntity<List<YHChatVO>>(list,HttpStatus.OK);
@@ -60,8 +94,37 @@ public class YHChattingRestContrroller {
 		return entity;
 	}
 	@GetMapping("/seoul")
-	public ResponseEntity<List<YHAreaChatGetVO>> seoul(YHAreaChatGetVO vo){
+	public ResponseEntity<List<YHAreaChatGetVO>> seoul(YHAreaChatGetVO vo ,HttpServletRequest request){
 		log.info("room1 문자 입력 content:" +vo.getContent() +"  유저의 이름 :" +vo.getUser_id());
+		
+		String path=request.getServletContext().getRealPath(File.separator+"abusive");
+		File file=new File(path+File.separator+"abusive.txt");
+		String str="";
+		String content=vo.getContent();
+		try {
+			FileInputStream fis=new FileInputStream(file);
+			byte readBuffer[]=new byte[fis.available()];
+			
+			while(fis.read(readBuffer)!=-1) {
+				str+=new String(readBuffer,"euc-kr");
+			}
+			String [] badLanguage=str.split(",");
+			for(int i=0;i<badLanguage.length;i++) {
+				
+				String temp="";
+				for(int j=0;j<badLanguage[i].length();j++) {
+					temp+="*";
+				}
+				content=content.replace(badLanguage[i], temp);
+				vo.setContent(content);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		areaService.seoulChatInsert(vo);
 		List<YHAreaChatGetVO> list=areaService.seoulGetChat20();
 		ResponseEntity<List<YHAreaChatGetVO>> entity=new ResponseEntity<List<YHAreaChatGetVO>>(list,HttpStatus.OK);
