@@ -105,29 +105,8 @@ public class HYPhotoBoardUploadAjaxController {
 		return new ResponseEntity<HYFileAttach>(attach,HttpStatus.OK); 
 	} // uploadPost end
 	
-//	@GetMapping("/photoBoardDisplay") //원본
-//	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
-//		log.info("썸네일 요청 "+fileName);
-//		
-//		
-//		String uploadFolder = req.getServletContext().getRealPath("/photoBoard/");
-//		File f = new File(uploadFolder+"\\"+fileName);
-//		
-//		ResponseEntity<byte[]> entity = null;
-//		
-//		HttpHeaders headers = new HttpHeaders();
-//		try {
-//			headers.add("Content-Type", Files.probeContentType(f.toPath())); // image/jpg
-//			entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(f),
-//					headers,HttpStatus.OK);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} 
-//		return entity;
-//	}
 
-	
-	@GetMapping("/photoBoardDisplay") //파일 없을 때 상태로 값으로 예외처리하기
+	@GetMapping("/photoBoardDisplay") //파일 없을 때 예외처리하기
 	public ResponseEntity<byte[]> getFile(String fileName,HttpServletRequest req){
 		log.info("썸네일 요청 "+fileName);
 		
@@ -140,8 +119,8 @@ public class HYPhotoBoardUploadAjaxController {
 		String uploadFolder2 = req.getServletContext().getRealPath("/resources/");
 		File fx = new File(uploadFolder2+"\\"+"img/products/women-4.jpg");
 		
-		log.info("이미지 주소"+fx);
-		if(fx == null) {
+		log.info("이미지 주소"+f);
+		if(f == null) {
 			log.info("이미지 없음");
 		}else {
 			log.info("이미지 있음");			

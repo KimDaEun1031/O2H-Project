@@ -226,16 +226,8 @@
     ></script>
     <script>
       $(function () {
-        //init(); - 날짜 함수 없어서 그렇구나
 
         $("#btn1").click(function () {
-          //제조사+식품명
-          //let url = "http://openapi.foodsafetykorea.go.kr/api/13239511b85e435cb61b/I2790/json/1/5/MAKER_NAME=";
-          //url += $("#val1").val()+"&DESC_KOR="+$("#val2").val();
-          //식품군+식품명
-          //let url = "http://openapi.foodsafetykorea.go.kr/api/13239511b85e435cb61b/I2790/json/1/5/GROUP_NAME=";
-          //url += $("#val1").val()+"&DESC_KOR="+$("#val2").val();
-          //endIndex+식품군+식품명
           let url =
             "http://openapi.foodsafetykorea.go.kr/api/13239511b85e435cb61b/I2790/json/1/";
           url +=
@@ -261,9 +253,7 @@
                 var foodCd = item.FOOD_CD;
 
                 //식품명
-                var descKor = item.DESC_KOR; //영진위 cd는 숫자, 이건 문자='' 필수
-                //<a href='' onclick="javascript:info(p1012)">;
-                /* str += "<a href='#' onclick='javascript:info("+foodCd+")'>"+descKor+"</a><br>"; */ 
+                var descKor = item.DESC_KOR; //문자값='' 필수
                 str +=
                   "<a href=\"javascript:info('" +
                   foodCd +
@@ -290,7 +280,6 @@
             console.log(data);
 
             $(data.I2790.row).each(function (idx, item) {
-              //var str = "<ul>";
               var str2 = "<table><thead><tr>";
 
               //식품이름
@@ -320,24 +309,7 @@
               //총내용량
               var servingSize = item.SERVING_SIZE;
               //자료출처
-              var subRefName = item.SUB_REF_NAME;
-			  
-           /* 
-              //ul-li 나열형
-              str += "<li>식품이름 : " + descKor + "</li>";
-              str += "<li>식품유형 : " + groupName + "</li>";
-              str += "<li>열량(1회제공량당) : " + nutrCont1 + "</li>";
-              str += "<li>탄수화물(g) : " + nutrCont2 + "</li>";
-              str += "<li>단백질(g) : " + nutrCont3 + "</li>";
-              str += "<li>지방(g) : " + nutrCont4 + "</li>";
-              str += "<li>당류(g) : " + nutrCont5 + "</li>";
-              str += "<li>나트륨(mg) : " + nutrCont6 + "</li>";
-              str += "<li>콜레스테롤(mg) : " + nutrCont7 + "</li>";
-              str += "<li>포화지방산(g) : " + nutrCont8 + "</li>";
-              str += "<li>트랜스지방(g) : " + nutrCont9 + "</li>";
-              str += "<li>트랜스지방(g) : " + servingSize + "</li>";
-              str += "<li>자료출처 : " + subRefName + "</li></ul>";
-           */
+              var subRefName = item.SUB_REF_NAME;			  
               
               //tr-td 테이블형
               str2 += "<th colspan='2'>식품이름 : " + descKor + "</th></thead>";
@@ -354,11 +326,7 @@
               str2 += "<tr><td>트랜스지방(g) : </td><td>" + servingSize + "</td></tr>";
               str2 += "<tr><td>자료출처 : </td><td>" + subRefName + "</td></tr></tbody></table>";
 
-             //$(".box3").html(str);
-              $(".box4").html(str2); //그냥 box3에 추가하면 str2만 적용되는구나
-              //모달
-              //$(".modal-body").html(str);
-              //$("#myModal").modal("show");
+              $(".box4").html(str2);
             });
           },
         });
