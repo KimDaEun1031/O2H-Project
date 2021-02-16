@@ -52,6 +52,8 @@ public class YHChattingRestContrroller {
 	public ResponseEntity<List<YHChatVO>> room1(String content,int fromid,HttpServletRequest request){
 		log.info("room1 문자 입력 content:" +content +" admin여부 :" +fromid);
 		String path=request.getServletContext().getRealPath(File.separator+"abusive");
+		
+		System.out.println(path);
 		File directory=new File(path);
 		if(!directory.exists()) {
 			directory.mkdirs();
@@ -86,7 +88,7 @@ public class YHChattingRestContrroller {
 				byte readBuffer[]=new byte[fis.available()];
 
 				while(fis.read(readBuffer)!=-1) {
-					str+=new String(readBuffer,"euc-kr");
+					str+=new String(readBuffer,"UTF-8");
 				}
 				badLanguage=str.split(",");
 
@@ -116,6 +118,8 @@ public class YHChattingRestContrroller {
 		}
 		service.chatInsertRoom1(fromid, content);
 		List<YHChatVO> list=service.getRoom1ChatList();
+		System.out.println("나쁜말리스트");
+		System.out.println(badLanguage[0]);
 		ResponseEntity<List<YHChatVO>> entity=new ResponseEntity<List<YHChatVO>>(list,HttpStatus.OK);
 		return entity;
 	}
@@ -150,7 +154,7 @@ public class YHChattingRestContrroller {
 			byte readBuffer[]=new byte[fis.available()];
 
 			while(fis.read(readBuffer)!=-1) {
-				str+=new String(readBuffer,"euc-kr");
+				str+=new String(readBuffer,"UTF-8");
 			}
 			String [] badLanguage=str.split(",");
 			for(int i=0;i<badLanguage.length;i++) {
