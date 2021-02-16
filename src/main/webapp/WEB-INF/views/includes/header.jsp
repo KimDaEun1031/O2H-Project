@@ -113,7 +113,7 @@
 	//	window.onload =function(){
 			var loginInfo = '${loginInfo.userId}';
 			var loginInfolevel = '${loginInfo.user_level}';
-			
+			var admin=document.getElementById("admin");
 			var login=document.getElementById("login");
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
@@ -127,8 +127,8 @@
 				signin.removeAttribute("hidden");
 				
 			}
-			var admin = "admin";
-			if(loginInfolevel == admin) {
+			
+			if(loginInfolevel=="admin") {
 				admin.removeAttribute("hidden");				
 			}
 			

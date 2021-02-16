@@ -245,7 +245,7 @@ var total=document.getElementById("total");
 var extime=document.getElementById("extime");    	
 console.log(test)
 
-submitBtn.onclick=function(){
+/*submitBtn.onclick=function(){
 	
 	
 	var xhr=new XMLHttpRequest();
@@ -261,8 +261,8 @@ submitBtn.onclick=function(){
 	      }
 	    }
 	  }
-	  console.log("/restCal/insert?date="+test+"&cal="+total.value+"&extime="+extime.value)
-	  xhr.open("get","/restCal/insert?date="+test+"&cal="+total.value+"&user_id=temp"+"&extime="+extime.value);
+	  console.log("/restCal/insert?date="+"${loginInfo.userId}"+"&cal="+total.value+"&extime="+extime.value)
+	  xhr.open("get","/restCal/insert?date="+test+"&cal="+total.value+"&user_id=${loginInfo.userId}"+"&extime="+extime.value);
 	  xhr.send();
 
-	}
+	}*/

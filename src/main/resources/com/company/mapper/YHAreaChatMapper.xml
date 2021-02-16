@@ -8,10 +8,11 @@
 		
 		<!-- 서울 채팅 (수 제한?) 조회 -->
 		<select id="seoulGetChat20" resultType="com.company.domain.YHAreaChatGetVO">
-		  <![CDATA[ select * from area_chat where area='seoul' and rownum<=20 order by rno desc  ]]>
+		  <![CDATA[ SELECT * FROM (SELECT * FROM area_chat WHERE area='seoul'  ORDER BY rno DESC) WHERE ROWNUM <= 20
+   ]]>
 		</select>
 		<select id="seoulGetChat5" resultType="com.company.domain.YHAreaChatGetVO">
-		  <![CDATA[ select * from area_chat where area='seoul' and rownum<=5 order by rno desc  ]]>
+		  <![CDATA[ SELECT * FROM (SELECT * FROM area_chat WHERE area='seoul'  ORDER BY rno DESC) WHERE ROWNUM <=5  ]]>
 		</select>
 		
 		<!-- 서울 채팅방 들어가기 -->
