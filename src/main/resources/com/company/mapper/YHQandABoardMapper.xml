@@ -49,8 +49,7 @@
 			    content,
 			    replyer_id,
 			    reply,
-			    replydate,
-			    userid
+			    replydate
 			FROM
 			    qanda_board where bno =#{bno}
 		</select>
