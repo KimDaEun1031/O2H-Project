@@ -119,7 +119,8 @@ public class YHChattingRestContrroller {
 		service.chatInsertRoom1(fromid, content);
 		List<YHChatVO> list=service.getRoom1ChatList();
 		System.out.println("나쁜말리스트");
-		System.out.println(badLanguage[0]);
+		for(int i=0;i<badLanguage.length;i++) {
+		System.out.println(badLanguage[0]);}
 		ResponseEntity<List<YHChatVO>> entity=new ResponseEntity<List<YHChatVO>>(list,HttpStatus.OK);
 		return entity;
 	}

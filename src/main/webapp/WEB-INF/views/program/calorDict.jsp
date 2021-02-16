@@ -122,14 +122,15 @@
 	    	 <input type="button" value="저장하기" id="submit" style="margin-top: 10px;" /> 
 	    	 <input type="hidden" name="user_id" value="${loginInfo.userId}">
 	    	 <p id="result"></p>
-
+				<div style="font-size: 20px;" class="info">제품명을 클릭 시 칼로리 입력칸에 칼로리가 자동으로 들어갑니다.</div>
 	</form>
+	</div>
 	<form>
 		<div class="flex-container">
 			<!-- 결과 -->
 		    <div class="modal" tabindex="-1" id="myModal">
 		      <div class="modal-dialog">
-		      	<div style="font-size: 20px;" class="info">제품명을 클릭 시 칼로리 입력칸에 칼로리가 자동으로 들어갑니다.</div>
+		      
 		        <div class="modal-content" id="msg"></div>
 		      </div>
 		    </div>
@@ -139,7 +140,7 @@
 	    </div>
 	
 	</form>
-	</div>
+	
     	<script>
     	var date=document.getElementById("date");
     	var mor=document.getElementById("mor");
