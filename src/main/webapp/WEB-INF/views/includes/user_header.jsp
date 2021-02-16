@@ -129,13 +129,7 @@
                     	<li class="active"><a href="/">홈</a></li>
                         <li><a href="/user/user_my">내 정보</a></li>                       
                         <li><a href="/user/user_QnA">문의 내역</a></li>                                                                     
-                        <li><a href="/user/user_calendar" id="calendar">일정관리</a></li>                          
-                        <li><a href="https://jayschat.netlify.app">내 앱</a>
-                        	<ul class="dropdown">
-                                <li><a href="http://jaysmusicplayer.netlify.app">Fit 플레이어</a></li>
-                                <li><a href="https://jayschat.netlify.app">Fit 챗</a></li>
-                            </ul> 
-                        </li>   
+                        <li><a href="/user/user_calendar" id="calendar">일정관리</a></li>                                                 
                         <li><a href="/user/profile_setting">회원정보수정</a>
                             <ul class="dropdown">
                                 <li><a href="/user/profile_setting">회원정보 수정</a></li>
