@@ -13,7 +13,7 @@ create table user_board (
     regDate date default sysdate,
     auth char(1) default 0 -- user teacher admin
     ); 
-
+select * from user_board;
 select * from user_board;
 
 insert into user_board(userName,userId,password,address,phoneNumber,userEmail,userBirth,interest1,interest2,interest3,user_level) 
@@ -144,7 +144,7 @@ select count(*) from announce_board;
   	userNum number default 0
  	)
  	insert into areachattingroom(area) 
- 	values('제주');
+ 	values('서울');
 CREATE SEQUENCE  seq_area_chat;
 
 select area, usernum from AREACHATTINGROOM;
@@ -153,8 +153,8 @@ insert INTO area_chat (
     area,
     user_id,
     content
-) values ( 'seoul',#{user_id},#{content})
- 
+) values ( 'seoul','123','1234');
+insert into area_chat(area,user_id,content) values("seo")
  	create table area_chat(
  	rno number  default seq_area_chat.nextval primary key,
  	area varchar2(10),
@@ -499,8 +499,9 @@ wait_ticket number default seq_chat_waittingTicket.nextval,
 wno number default seq_chat_waitting.nextval
 )
 select * from waitting_board;
-
-
+select * from area_chat where area='seoul' and rownum<=20 order by rno desc
+delete area_chat;
+select * from area_chat;
 
 delete waitting_board where wait_ticket=44;
 delete waitting_board;
@@ -508,3 +509,8 @@ create sequence seq_chat_waitting;
  update  areachattingroom set userNum=0; 
 create sequence seq_chat_waittingTicket;
 update chattingroom set useable=1;
+select * from area_chat where area='seoul' and rownum<=20 order by rno desc;
+
+SELECT * FROM (SELECT * FROM area_chat WHERE area='seoul'  ORDER BY rno DESC) WHERE ROWNUM <= 20
+
+

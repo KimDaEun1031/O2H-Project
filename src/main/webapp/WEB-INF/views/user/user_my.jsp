@@ -49,7 +49,7 @@
 					  </tr>
 					  <tr>
 					    <td class="column1">관심사</td>
-					    <td class="column2"></td>
+					    <td class="column2">${inter}</td>
 					  </tr>
 					  <tr>
 					    <td class="column1">가입일</td>

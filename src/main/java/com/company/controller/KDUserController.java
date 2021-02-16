@@ -36,9 +36,18 @@ public class KDUserController {
 	public void Mypage(HttpSession session, KDLoginInfoVO loginInfo, Model model,YHCalVO vo) {
 		KDLoginInfoVO loginInfoTemp = (KDLoginInfoVO) session.getAttribute("loginInfo");
 		log.info("유저 마이페이지" +loginInfoTemp);
-		service.ProfileInfo(loginInfoTemp);	
+		String inter="";
+		if(!loginInfoTemp.getInterest1().equals("선택x"))
+		inter+="1 :"+loginInfoTemp.getInterest1();
+		if(!loginInfoTemp.getInterest2().equals("선택x"))
+		inter+=", 2:"+loginInfoTemp.getInterest2();
+		if(!loginInfoTemp.getInterest3().equals("선택x"))
+		inter+=", 3:"+loginInfoTemp.getInterest3();
+		model.addAttribute("inter",inter);
+		log.info(service.ProfileInfo(loginInfoTemp).toString());	
 		
 		log.info("유저 페이지 차트");
+		
 		Date now=new Date();
 		int day=now.getDate();
 		int month=now.getMonth()+1;
@@ -52,7 +61,7 @@ public class KDUserController {
 		vo.setUser_id(loginInfoTemp.getUserId());
 		log.info("vo확인"+vo);
 		List<YHCalVO> list=yhservice.select(vo);
-		System.out.println("여기가 1");
+		
 		System.out.println(list);
 		int arr[]=new int[32];
 		int brr[]=new int[32];

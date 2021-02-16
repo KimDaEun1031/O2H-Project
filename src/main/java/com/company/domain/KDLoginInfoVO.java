@@ -22,5 +22,8 @@ public class KDLoginInfoVO {
 	private Date regDate;
 	private String user_level;
 	private String userInfo;
+	private String interest1;
+	private String interest2;
+	private String interest3;
 	
 }

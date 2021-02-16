@@ -112,7 +112,7 @@
 	//	window.onload =function(){
 			var loginInfo = '${loginInfo.userId}';
 			var loginInfolevel = '${loginInfo.user_level}';
-			
+			var admin =document.getElementById("admin");
 			var login=document.getElementById("login");
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
@@ -120,7 +120,7 @@
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
 				profile.removeAttribute("hidden");						
-				test.removeAttribute("hidden");	
+				//test.removeAttribute("hidden");	
 				
 			}else{
 				
@@ -128,8 +128,7 @@
 				signin.removeAttribute("hidden");
 				
 			}
-			var admin = 'admin';
-			if(loginInfo == admin) {
+			if(loginInfolevel == "admin") {
 				admin.removeAttribute("hidden");				
 			}
 			
