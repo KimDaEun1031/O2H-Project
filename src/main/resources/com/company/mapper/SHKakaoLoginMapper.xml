@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mapper.SHKakaoLoginMapper">
+	<select id="select" resultType="com.company.domain.KDLoginInfoVO">
+		SELECT
+		    userName,
+		    userId,
+		    user_level,
+		    userInfo,
+		    password,
+		    address,
+		    phoneNumber,
+		    userEmail,
+		    userBirth,
+		    interest1,
+		    interest2,
+		    interest3,
+		    regDate
+		FROM user_board
+		WHERE userId = #{userId}
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO user_board (
+		        userName,
+		        userId,
+		        password,
+		        address,
+		        phoneNumber,
+		        userEmail,
+		        userBirth,
+		        interest1,
+		        interest2,
+		        interest3
+		) 
+		VALUES (#{userName},#{userId},#{password},#{address},#{phoneNumber},#{userEmail},#{userBirth},#{interest1},#{interest2},#{interest3})
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM user_board
+		WHERE userId = #{userId}
+	</delete>
+</mapper>
