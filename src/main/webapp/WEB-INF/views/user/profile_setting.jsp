@@ -149,9 +149,6 @@
         </footer>
     </div>  
 <script>
-//현재 글 번호 가져오기
-//var userIdVal = '${loginInfo.userId}';
-
 var projectPath = '${pageContext.request.contextPath}';
 </script>
 <script src="/resources/js/profileSetting.js"></script>

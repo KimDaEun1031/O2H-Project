@@ -140,7 +140,11 @@
 
 
       <!-- 추가 부분 -->
-
+	 <div>
+     	<a href="/">
+          <img src="/resources/img/logo.png" alt=""/>
+     	</a>
+     </div>
 
       <div class="container">
         <div class="inner-header">

@@ -40,8 +40,7 @@ public class HYUploadAjaxController {
 	@GetMapping("/uploadAjax")
 	public void uploadAjax() {
 		log.info("ajax 업로드 폼 요청");
-	}
-	
+	}	
 
 	@PostMapping(value = "/uploadAjax", produces = MediaType.APPLICATION_JSON_UTF8_VALUE) //json 형태로 브라우저로 보내기
 	public ResponseEntity<HYFileAttach> uploadPost(MultipartFile[] uploadFile,HttpServletRequest req) {
@@ -130,57 +129,6 @@ public class HYUploadAjaxController {
 		return entity;
 	}
 	
-	
-	//다운로드
-	@GetMapping(value = "/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<Resource> download(String fileName) {
-		log.info("다운로드 요청 "+fileName);
-		
-		Resource resource = new FileSystemResource("c:\\upload\\"+fileName);
-		
-		//uuid 값 제거 후 파일 다운로드 하기
-		String resourceUidName = resource.getFilename();
-		String resourceName = resourceUidName.substring(resourceUidName.indexOf("_")+1);
-		
-		HttpHeaders headers = new HttpHeaders();
-		
-		try {
-			//uuid+원본파일명으로 다운로드
-			headers.add("Content-Disposition", 
-					"attachment;filename="+new String(resourceName.getBytes("utf-8"), "ISO-8859-1"));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		
-		return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
-	}
-	
-	
-	//서버에서 파일 삭제
-	@PostMapping("/deleteFile")
-	public ResponseEntity<String> deleteFile(String fileName, String type){
-		
-		log.info("파일 삭제 "+fileName+" 타입 : "+type);
-		
-		try {
-			File file = new File("c:\\upload\\"+URLDecoder.decode(fileName,"utf-8"));
-			
-			//파일(썸네일, 일반파일) 삭제
-			file.delete();
-			
-			if (type.equals("image")) { //이미지였다면 원본 이미지 삭제
-				String oString = file.getAbsolutePath().replace("s_", "");
-				file = new File(oString);
-				file.delete();				
-			} 
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			return new ResponseEntity<String>("fail",HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<String>("success",HttpStatus.OK);
-	}	
-	
-	
 	//서버에 저장한 파일이 이미지인지 일반 파일인지 확인
 	// .jsp, .sql, => 다른 Mime이 필요함
 	private boolean checkImageType(File file) { // ~.txt => text/plain, text/html, image/jpeg, image/png
@@ -190,8 +138,7 @@ public class HYUploadAjaxController {
 		
 		return m.getContentType(file).contains("image");
 	}
-	
-	
+		
 	//날짜에 따라 폴더 생성하기
 	private String getFolder() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

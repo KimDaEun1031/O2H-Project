@@ -147,9 +147,6 @@ console.log(a);
   	hideUpdateBtn.onclick=function(){
   		alert(bnoVal+"번 게시물을 수정합니다.");
   	}
-  	/* hideDeleteBtn.onclick=function(){
-  		alert(bnoVal+"번 게시물을 삭제합니다.");
-  	} */
  } 
 $(function(){
 	var form = $("#myform");
