@@ -17,4 +17,6 @@ public interface KDRegisterMapper {
 	public List<YHQandABoardVO> QnAUser(String userId); 
 	// 로그인 후 로그인 유저 정보
 	public KDLoginInfoVO selectByUser(KDLoginVO kdlogin);
+	// 유저 아이디 동일 한 사람 있는지 확인
+	public int findUserId(String userId);
 }

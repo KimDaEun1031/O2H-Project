@@ -57,13 +57,13 @@ delete from user_board where userWarn=3 and user_id='';
 select * from QANDA_BOARD; --fk userId 추가
 create table QandA_board(
 	bno number primary key,
-	title varchar2(20) not null,
-	writer_id varchar2(10) not null,
+	title varchar2(100) not null,
+	writer_id varchar2(30) not null,
 	regdate date default Sysdate,
 	written number default 0,
-	content varchar2(100) not null,
-	replyer_id varchar2(10) ,
-	reply varchar(100) default '아직 답변되지 않았습니다',
+	content varchar2(300) not null,
+	replyer_id varchar2(30) ,
+	reply varchar(200) default '아직 답변되지 않았습니다',
 	replyDate date 
 	);
 drop table QandA_board;
@@ -512,5 +512,5 @@ update chattingroom set useable=1;
 select * from area_chat where area='seoul' and rownum<=20 order by rno desc;
 
 SELECT * FROM (SELECT * FROM area_chat WHERE area='seoul'  ORDER BY rno DESC) WHERE ROWNUM <= 20
-
+select * from user_board;
 

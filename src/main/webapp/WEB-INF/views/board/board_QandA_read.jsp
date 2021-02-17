@@ -84,7 +84,7 @@
    	var adminbtn=document.getElementById("adminonlybtn");
    	var reply=document.getElementById("reply");
    	hideUpdateBtn.onclick=function(){
-   		alert("update 요청 ")
+   		//alert("update 요청 ")
    	}
    if(userid==writer || userid=="admin"){
 	  content.removeAttribute("readonly")
@@ -101,8 +101,8 @@
    hideUpdateBtn.onclick=function(){
 	   contentHidden.value=content.value;
 	   titleHidden.value=title.value;
-   		alert(contentHidden.value);
-   		alert(titleHidden.value);
+   		//alert(contentHidden.value);
+   		// alert(titleHidden.value);
    		document.getElementById("updateForm").submit();
    }
    hideDeleteBtn.onclick=function(){
