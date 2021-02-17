@@ -272,6 +272,42 @@ window.onload = function(event) {
 			
 			currentMarker = marker;
 		    currentInfoWindow = infowindow;
+		}, function(code) {
+			document.getElementsByClassName("resetMap")[0].textContent = "기본 위치";
+			
+			var container = document.getElementById('map'); //지도 DOM 객체
+
+			var options = { //지도 생성 기본 옵션
+				center: new kakao.maps.LatLng(latitude, longitude), //지도의 중심좌표 (위도, 경도)
+				level: 4 //지도의 레벨 (확대, 축소)
+			};
+
+			map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+			
+			var markerPosition  = new kakao.maps.LatLng(latitude, longitude); //마커 위치 (위도, 경도)
+
+			var marker = new kakao.maps.Marker({ // 마커 생성
+			    position: markerPosition,
+			    clickable: true
+			});
+			
+			//인포윈도우 표시 위치입니다
+			var infoWindowPosition = new kakao.maps.LatLng(latitude, longitude);
+			//인포윈도우에 표출될 내용 (HTML 문자열이나 DOM 객체)
+			var infoWindowContent = `<div style="padding:5px;">기본 위치</div>`;
+			
+			var infowindow = new kakao.maps.InfoWindow({
+			    position : infoWindowPosition, 
+			    content : infoWindowContent
+			});
+			
+			marker.setMap(map);
+			
+			// 마커 위에 인포윈도우를 표시
+			infowindow.open(map, marker); 
+			
+			currentMarker = marker;
+		    currentInfoWindow = infowindow;
 		});
 	};
 	
