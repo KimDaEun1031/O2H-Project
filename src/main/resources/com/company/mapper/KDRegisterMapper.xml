@@ -74,4 +74,9 @@
 		where qb.writer_id = ub.userId and ub.userId = #{userId}
 	</select>
 	
+	<!-- user_id 가 같은 사람이 있는지 확인 -->
+	<update id="findUserId" >
+UPDATE user_board set userId =#{userId} where
+		userId=#{userId}	</update>
+	
 </mapper>

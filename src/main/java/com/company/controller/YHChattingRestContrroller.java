@@ -125,6 +125,19 @@ public class YHChattingRestContrroller {
 		return entity;
 	}
 
+	@GetMapping("/room1Re")
+	public ResponseEntity<List<YHChatVO>> room1Re(HttpServletRequest request){
+		
+		
+		
+		List<YHChatVO> list=service.getRoom1ChatList();
+		
+		ResponseEntity<List<YHChatVO>> entity=new ResponseEntity<List<YHChatVO>>(list,HttpStatus.OK);
+		return entity;
+	}
+
+	
+	
 	@GetMapping("/room2")
 	public ResponseEntity<List<YHChatVO>> room2(String content,int fromid){
 		log.info("room2 문자 입력 content:" +content +" admin여부 :" +fromid);
@@ -180,6 +193,19 @@ public class YHChattingRestContrroller {
 		return entity;
 	}
 
+	
+	@GetMapping("/seoulre")
+	public ResponseEntity<List<YHAreaChatGetVO>> seoulRe( HttpServletRequest request){
+		
+		
+		String str="";
+		
+
+		List<YHAreaChatGetVO> list=areaService.seoulGetChat20();
+		ResponseEntity<List<YHAreaChatGetVO>> entity=new ResponseEntity<List<YHAreaChatGetVO>>(list,HttpStatus.OK);
+		return entity;
+	}
+	
 	@GetMapping("/many")
 	public ResponseEntity<Integer> rait(int wait_ticket){
 		log.info("wait 에서 내 앞에 몇명있는지 물음" +wait_ticket);

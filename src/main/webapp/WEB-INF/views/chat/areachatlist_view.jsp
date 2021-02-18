@@ -130,6 +130,7 @@
 	}
 </style>
 		<!-- Breadcrumb Section Begin -->
+	<div>
 	    <div class="breacrumb-section">
 	      <div class="container">
 	        <div class="row">
@@ -220,9 +221,10 @@
 	
 </script>
 		<br />
- 
+ </div>
 
    <!-- Footer Section Begin -->
+   <div style="margin-top: 200px">
     <footer class="footer-section">
       <div class="container">
         <div class="row">
@@ -284,7 +286,7 @@
       </div>
     </footer>
     <!-- Footer Section End -->
-
+</div>
    
   </body>
 </html>

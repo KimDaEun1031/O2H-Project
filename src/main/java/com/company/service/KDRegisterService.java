@@ -17,5 +17,6 @@ public interface KDRegisterService {
 	public boolean userUpdate(KDLoginInfoVO loginInfo);
 	//강사 프로필
 	public KDLoginInfoVO ProfileInfo(KDLoginInfoVO loginInfo);
-	
+	//유저 아이디 중복 검사
+	public int findUserId(String userId);
 }

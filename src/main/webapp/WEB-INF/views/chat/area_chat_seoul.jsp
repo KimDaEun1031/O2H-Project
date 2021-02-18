@@ -84,6 +84,7 @@
 	</div>
 	<div class="chatBtn-container">
 		<button id="inputBtn" class="btn btn-success">입력</button>		
+		<button id="getItBtn" class="btn btn-success">가져오기</button>		
 		<button id="goOut" class="btn btn-primary">나가기</button>
 	</div>	
 <script>
@@ -93,6 +94,7 @@
 	var chatBox = document.getElementById("chatBox");
 	var goOutBtn = document.getElementById("goOut");
 	var inputText;
+	var getItBtn=document.getElementById("getItBtn")
 	var getthing=document.getElementById("getThing");
 	
 	var isAdmin = 2;
@@ -101,6 +103,66 @@
 	}
 	var xhr = new XMLHttpRequest();
 	
+	function hello(){
+var xhr = new XMLHttpRequest();
+		
+		
+		var xhr = new XMLHttpRequest();
+		var want;
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					want = xhr.response;
+					//chatBox.value = want;
+					var wantJson=JSON.parse(want);
+					
+					console.log(wantJson);
+					var str="";
+					for(var i=wantJson.length-1;i>=0;i--){
+						
+							str+=wantJson[i].user_id +" : "+wantJson[i].content+"\n";
+						
+						chatBox.value = str;	
+					}
+				}
+			}
+		}
+		
+		
+		
+		xhr.open("get", "/chatAjax/seoulre");
+		xhr.send();
+	}
+	getItBtn.onclick = function(e) {
+		var xhr = new XMLHttpRequest();
+		
+		
+		var xhr = new XMLHttpRequest();
+		var want;
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					want = xhr.response;
+					//chatBox.value = want;
+					var wantJson=JSON.parse(want);
+					
+					console.log(wantJson);
+					var str="";
+					for(var i=wantJson.length-1;i>=0;i--){
+						
+							str+=wantJson[i].user_id +" : "+wantJson[i].content+"\n";
+						
+						chatBox.value = str;	
+					}
+				}
+			}
+		}
+		
+		
+		
+		xhr.open("get", "/chatAjax/seoulre");
+		xhr.send();
+	}
 	inputBtn.onclick = function(e) {
 		
 		inputText = inputArea.value;
@@ -195,7 +257,7 @@
 		xhr.open("get", "/chatAjax/seoul?content=${loginInfo.userId} 님이 접속했습니다 &user_id=${loginInfo.userId}");
 		xhr.send();
 	}
-		
+	setInterval(hello,5000);
 	
 </script>
 

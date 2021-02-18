@@ -217,6 +217,9 @@
               <li>
                 <a href="/PT/teacher_list">PT</a>               
               </li>
+              <li>
+                <a href="#">쇼핑몰</a>               
+              </li>
               <li>            
                 <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">

@@ -115,7 +115,13 @@
 		            alert("관심분야는 최대 3개까지 고를 수 있습니다");  
 		            return false;  
 		        }  
-		    }  		    
+		    }  		 
+		    
+		    var isFail="${fail}";
+		    if(isFail=="fail"){
+		    	alert("아이디가 중복되었습니다");
+		    }
+		    console.log(isFail);
 	    </script>
 	</body>
 </html> 

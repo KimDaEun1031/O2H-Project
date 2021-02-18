@@ -56,11 +56,12 @@
 	</div>
 	<div class="chatBtn-container">
 		<button id="inputBtn" class="btn btn-success">입력</button>
-		
+		<button id="returnBtn" class="btn btn-success">내용 가져오기</button>
 		<button id="goOut" class="btn btn-primary">나가기</button>
 	</div>
 <script>
 	var data;
+	var returnBtn=document.getElementById("returnBtn");
 	var inputBtn = document.getElementById("inputBtn");
 	var inputArea = document.getElementById("inputBox");
 	var chatBox = document.getElementById("chatBox");
@@ -109,13 +110,82 @@
 				+ isAdmin);
 		xhr.send();
 	}
+	
+function getTalk(){
+	
 
+		
+		var xhr = new XMLHttpRequest();
+		var want;
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					want = xhr.response;
+					//chatBox.value = want;
+					var wantJson=JSON.parse(want);
+					
+					
+					var str="";
+					for(var i=wantJson.length-1;i>=0;i--){
+						
+						if(wantJson[i].fromId==2){
+							str+="당신 : "+wantJson[i].content+"\n";
+						}else{
+							str+="운영자 :"+wantJson[i].content+"\n";
+						}
+						
+						chatBox.value = str;	
+					}
+				}
+			}
+		}
+		
+		
+		
+		xhr.open("get", "/chatAjax/room1Re");
+		xhr.send();
+	
+}
+returnBtn.onclick = function(e) {
+		
+		var xhr = new XMLHttpRequest();
+		var want;
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					want = xhr.response;
+					//chatBox.value = want;
+					var wantJson=JSON.parse(want);
+					
+					
+					var str="";
+					for(var i=wantJson.length-1;i>=0;i--){
+						
+						if(wantJson[i].fromId==2){
+							str+="당신 : "+wantJson[i].content+"\n";
+						}else{
+							str+="운영자 :"+wantJson[i].content+"\n";
+						}
+						
+						chatBox.value = str;	
+					}
+				}
+			}
+		}
+		
+		
+		
+		xhr.open("get", "/chatAjax/room1Re");
+		xhr.send();
+	}
+	
 	goOutBtn.onclick = function(e) {
 		
 		e.preventDefault();
 		location.replace("/chat/goOutRoom1");
 
 	}
+	 setInterval(getTalk,5000);
 </script>
 
 <%@include file="../includes/footer.jsp"%>

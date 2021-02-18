@@ -41,4 +41,10 @@ public class KDRegisterServiceImpl implements KDRegisterService {
 		return mapper.QnAUser(userId);
 	}
 
+	@Override
+	public int findUserId(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.findUserId(userId);
+	}
+
 }
