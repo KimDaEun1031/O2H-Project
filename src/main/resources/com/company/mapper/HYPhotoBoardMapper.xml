@@ -84,4 +84,11 @@
 		where rn> (#{pageNum}-1)*#{amount} order by rn
 		]]>	
 	</select>	
+	
+	
+	<!-- 어제 날짜의 첨부 리스트 가져오기 -->
+	<select id="getOldFiles" resultType="com.company.domain.HYPhotoBoardFileAttach">
+		select * from photo_attach 
+		where uploadPath = to_char(sysdate-1,'yyyy\MM\dd')
+	</select>
 </mapper>

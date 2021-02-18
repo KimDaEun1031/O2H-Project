@@ -216,6 +216,11 @@
               <li class="active"><a href="/">홈</a></li>
               <li>
                 <a href="/PT/teacher_list">PT</a>               
+              </li>
+              <li>
+                <a href="#">쇼핑몰</a>               
+              </li>
+              <li>            
               </li>            
               <li>
                 <a href="/board/board_photo_list">커뮤니티</a>

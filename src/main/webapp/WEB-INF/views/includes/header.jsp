@@ -10,7 +10,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>02H | Fitness</title>
+    <title>02H | Fitness Admin</title>
 
     <!-- Google Font -->
     <link
@@ -27,9 +27,9 @@
     <link rel="stylesheet" href="/resources/css/nice-select.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" /> 
+    <link rel="stylesheet" href="/resources/css/style.css" type="text/css" />
     
-    <!-- Js Plugins -->
+     <!-- Js Plugins -->
     <script src="/resources/js/jquery-3.3.1.min.js" defer ="defer"></script>
     <script src="/resources/js/bootstrap.min.js" defer ="defer"></script>
     <script src="/resources/js/jquery-ui.min.js" defer ="defer"></script>
@@ -41,7 +41,6 @@
     <script src="/resources/js/owl.carousel.min.js" defer ="defer"></script>
     <script src="/resources/js/main.js" defer ="defer"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    
     
   </head>
 
@@ -165,7 +164,10 @@
               <li class="active"><a href="/">홈</a></li>
               <li>
                 <a href="/PT/teacher_list">PT</a>               
-              </li>              
+              </li>
+              <li>
+                <a href="#">쇼핑몰</a>               
+              </li>             
               <li>
                 <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">

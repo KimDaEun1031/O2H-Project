@@ -5,8 +5,6 @@ import java.util.List;
 import com.company.domain.HYChangeVO;
 import com.company.domain.HYFileAttach;
 import com.company.domain.HYLoginVO;
-import com.company.domain.KDLoginVO;
-import com.company.domain.LoginVO;
 
 public interface HYMapper {
 	//회원탈퇴
@@ -23,4 +21,7 @@ public interface HYMapper {
 	
 	//teacher_profile_setting
 	public int updateTeacherInfo(HYChangeVO change);	
+	
+	//파일삭제 스케줄링
+	public List<HYFileAttach> getOldFiles();
 }
