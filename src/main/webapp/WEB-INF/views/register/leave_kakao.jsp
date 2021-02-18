@@ -37,18 +37,6 @@
                             </p>
                             <div class="mt-4">
                                 <form method="post">
-                                    <div class="form-group">
-
-                                        <input type="text" class="form-control" id="userId" name="userId" value="" placeholder="Enter your ID">
-
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="password" name="password" value="" placeholder="Enter password">
-                                    </div>
-                                    <label class="custom-control custom-checkbox mt-2">
-                                      
-                                    </label>
-
                                     <button type="submit" class="btn btn-danger float-right" id="singinbtn" >탈퇴</button>
                                     <script type="text/javascript">
                                         document.getElementById("singinbtn").onclick = function () {
