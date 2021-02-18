@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../includes/header.jsp" %>
 <link rel="stylesheet" href="/resources/css/photoWrite.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">
 <style>
 /* 사진 게시판 */
 .breadcrumb-text a {
@@ -77,6 +79,13 @@ a:hover {
 	color: #7edd03;
 	border: 2px solid #7edd03;
 	background: white !important;
+}
+/* 게시글 폰트 */
+input{
+font-family: 'Sunflower', sans-serif;
+}
+textarea{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 </style>
     <!-- Breadcrumb Section Begin -->
