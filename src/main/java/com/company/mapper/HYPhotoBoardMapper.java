@@ -22,4 +22,7 @@ public interface HYPhotoBoardMapper {
 	//첨부물 부분 mapper 합침
 	public int insertAttach(HYPhotoBoardFileAttach attach);
 	public int deleteAttach(int bno);
+	
+	//파일삭제 스케줄링
+	public List<HYPhotoBoardFileAttach> getOldFiles();
 }

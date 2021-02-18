@@ -92,7 +92,6 @@
 			%>
 			<script>
 			
-				alert("로그인 실패");
 			</script>
 			
 			<% 
