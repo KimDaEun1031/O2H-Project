@@ -216,7 +216,8 @@
               <li class="active"><a href="/">홈</a></li>
               <li>
                 <a href="/PT/teacher_list">PT</a>               
-              </li>            
+              </li>
+              <li>            
                 <a href="/board/board_photo_list">커뮤니티</a>
                 <ul class="dropdown">
                   <li><a href="/areaChat/chatRoomList">지역 채팅방</a></li>
