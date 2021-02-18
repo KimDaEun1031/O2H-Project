@@ -100,37 +100,42 @@
                 	<a class="btn btn-primary" id="signin" href="/register/signup" hidden="hidden" role="button">회원가입</a>                 
                 	<a class="btn btn-success" id="profile" href="/user/user_my" hidden="hidden" role="button">내 정보</a>
                 	<a class="btn btn-primary" id="logout" href="/register/logout" hidden="hidden" role="button">로그 아웃</a>   
-                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a>                	         
+                	<a class="btn btn-warning" id="admin" href="/admin/admin_index" hidden="hidden" role="button">관리자 홈</a> 
+                	<a class="btn btn-info" id="stream" href="/user/teacher_page" hidden="hidden" role="button">Stream 설정</a>                   
                 </li>
               </ul>
-            </div>
+            </div>           
           </div>
         </nav>
-        
+  
 
 <script>
 	//	window.onload =function(){
 			var loginInfo = '${loginInfo.userId}';
 			var loginInfolevel = '${loginInfo.user_level}';
-			var admin=document.getElementById("admin");
+			
 			var login=document.getElementById("login");
 			var signin=document.getElementById("signin");
 			var logout=document.getElementById("logout");
 			var profile=document.getElementById("profile");
+			var stream=document.getElementById("stream");
 			if(loginInfo !=''){
 				logout.removeAttribute("hidden");
-				profile.removeAttribute("hidden");									
-			}else{
-				
+				profile.removeAttribute("hidden");							
+			}else{			
 				login.removeAttribute("hidden");
 				signin.removeAttribute("hidden");
 				
 			}
-			
-			if(loginInfolevel=="admin") {
+			if(loginInfolevel == 'admin') {
 				admin.removeAttribute("hidden");				
 			}
 			
+			var teacher = 'teacher';
+			if (loginInfolevel==teacher) {
+				stream.removeAttribute("hidden");
+	   		}
+		
 			
 			
 //		}
