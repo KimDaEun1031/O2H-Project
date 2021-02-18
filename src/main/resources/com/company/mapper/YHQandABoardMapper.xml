@@ -29,12 +29,12 @@
 			    title,
 			    regdate,
 			    replydate,
-			    writer_id
+			    writer_id 
 			FROM
 			    qanda_board
 			WHERE 		
 			<![CDATA[
-			 	rownum<=#{pageNum}*10) where rn>(#{pageNum}-1)*10
+			 	rownum<=#{pageNum}*10 order by bno desc) where rn>(#{pageNum}-1)*10
 			]]> order by bno desc
 		</select>
 
