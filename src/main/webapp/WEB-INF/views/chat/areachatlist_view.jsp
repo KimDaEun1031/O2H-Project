@@ -17,7 +17,7 @@
 	}
 	.box2{
 		width:400px;
-		display: block;
+		 display: block;
 		margin-top:15px;
 		text-align: center;
 		margin: 0px auto;

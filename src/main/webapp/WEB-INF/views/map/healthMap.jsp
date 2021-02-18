@@ -72,6 +72,9 @@
 <script>
 var map = null;
 
+var defaultMarker = null;
+var defaultInfoWindow = null;
+
 var currentMarker = null;
 var currentInfoWindow = null;
 
@@ -270,8 +273,10 @@ window.onload = function(event) {
 			// 마커 위에 인포윈도우를 표시
 			infowindow.open(map, marker); 
 			
-			currentMarker = marker;
-		    currentInfoWindow = infowindow;
+			//currentMarker = marker;
+		    //currentInfoWindow = infowindow;
+		    defaultMarker = marker;
+		   	defaultInfoWindow = infowindow;
 		}, function(code) {
 			document.getElementsByClassName("resetMap")[0].textContent = "기본 위치";
 			
@@ -390,6 +395,7 @@ window.onload = function(event) {
 			currentInfoWindow.close();
 		}
 		
+		/*
 		var markerPosition  = new kakao.maps.LatLng(latitude, longitude); //마커 위치 (위도, 경도)
 
 		var marker = new kakao.maps.Marker({ // 마커 생성
@@ -411,6 +417,7 @@ window.onload = function(event) {
 		
 		// 마커 위에 인포윈도우를 표시
 		infowindow.open(map, marker); 
+		*/
 		
 		// 이동할 위도 경도 위치
 	    var moveLatLon = new kakao.maps.LatLng(latitude, longitude);
@@ -418,8 +425,10 @@ window.onload = function(event) {
 	    // 지도 중심을 이동
 	    map.panTo(moveLatLon);
 	    
+	    /*
 	    currentMarker = marker;
 	    currentInfoWindow = infowindow;
+	    */
 	};
 	
 	getCoords = function(address) {
