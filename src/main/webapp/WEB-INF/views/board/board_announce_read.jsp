@@ -103,7 +103,7 @@
          	<c:set var="userid" value="${loginInfo.userId}" />
          	<c:set var="void" value="${vo.replyer}"/>
          	<c:if test="${userid eq 'admin'}"> 
-         	  <a href="/announce/deleteReply?rno=${vo.rno }">삭제요청</a>
+         	  <a href="/announce/deleteReply?rno=${vo.rno }&bno=${vo.bno}">삭제요청</a>
          	</c:if>
          	<%
          		
@@ -129,9 +129,9 @@
 				
 			</thead>
 		</table>
-		<div style="margin-top: 10px;">댓글 작성</div>
-		<form action="/announce/replyWrite" method="post">
-			
+		
+		<form action="/announce/replyWrite" method="post" id="mustHidden" hidden="hidden">
+			<div style="margin-top: 10px;">댓글 작성</div>
 			<input type="hidden" name="bno" value="${vo.bno}">
 		
 			<input type="hidden" name="replyer" value="${loginInfo.userId}">
@@ -150,7 +150,7 @@
 </div>
 
 <script>
-   
+   	var mustHidden=document.getElementById("mustHidden");
 	var content=document.getElementById("contenth");
    	var titlePlace=document.getElementById("titleh");
    	var userid='${loginInfo.userId}'
@@ -176,7 +176,11 @@
 	  
 	  hob.removeAttribute("hidden");
  	  hob2.removeAttribute("hidden");
- 	 }
+ 	 
+   }
+   if(userid!=""){
+	   mustHidden.removeAttribute("hidden");
+   }
    if(userid=="admin"){
 	  	
 	 

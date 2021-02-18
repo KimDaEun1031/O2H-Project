@@ -166,7 +166,7 @@ font-weight: 200;
     </div>
    <br />
    <div class="primaryy">
-   <a href="/board/board_photo_write" class="btn btn-primaryy">write</a>
+   <a href="/board/board_photo_write" class="btn btn-primaryy" id="write" hidden="hidden">write</a>
    <br /><br /><br />
    </div>
 	<!-- Breadcrumb Section Begin -->
@@ -233,6 +233,11 @@ $(".wrap").html(str);
 	<input type="hidden" name="amount" value="${pageVO.cri.amount}"  id="amount"/>
 </form>
 <script>
+
+var write=document.getElementById("write");
+if("${loginInfo.userId}"!=""){
+	write.removeAttribute("hidden");
+}
 <!-- 스크립트 -->
 $(function(){	
 	//actionForm 가져오기 - 페이지 이동시 사용할 폼	

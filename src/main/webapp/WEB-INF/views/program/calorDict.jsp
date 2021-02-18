@@ -228,6 +228,7 @@
       $(function () {
 
         $("#btn1").click(function () {
+        	alert("칼로리 사전 시작")
           let url =
             "http://openapi.foodsafetykorea.go.kr/api/13239511b85e435cb61b/I2790/json/1/";
           url +=

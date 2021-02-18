@@ -96,7 +96,7 @@ a:hover {
 	         <div class="info">
 	          <dl>
 	            <dt>글쓴이</dt>
-	            <dd><input type="text" name="writer" placeholder="글쓴이 입력" value="${board.writer }" readonly="readonly" style="background-color: azure;"/></dd>
+	            <dd><input type="text" name="writer" id="writer" placeholder="글쓴이 입력" value="${board.writer }" readonly="readonly" style="background-color: azure;"/></dd>
 	          </dl>
 	          <dl>
 	            <dt>작성일</dt>
@@ -144,6 +144,7 @@ console.log(a);
   window.onload=function(){
   	var hideUpdateBtn=document.getElementById("hob");
   	var hideDeleteBtn=document.getElementById("hob2");
+  	
   	hideUpdateBtn.onclick=function(){
   		alert(bnoVal+"번 게시물을 수정합니다.");
   	}
@@ -197,6 +198,8 @@ $(function(){
 		form.submit();
 	})		
 })
+var writer=document.getElementById("writer").value;
+
 </script> 
 <script src="/resources/js/photoBoardRead.js"></script>
    <%@include file="../includes/footer.jsp" %>
