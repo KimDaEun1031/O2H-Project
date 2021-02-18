@@ -84,9 +84,9 @@ $(function(){
 //사용자 검증 메소드 추가
 
 $.validator.addMethod("validName", function(value) {
-	var regName = /^[a-z|A-Z|0-9|\*]{1,10}$/;
+	var regName = /^[a-z|A-Z|0-9|가-힇|\*]{1,10}$/;
 	return regName.test(value);
-}, "이름을 확인해 주세요. 영어 숫자 1~10자");
+}, "이름을 확인해 주세요.  1~10자");
 //사용자 검증 메소드 추가-주소
 $.validator.addMethod("validAddr", function(value) {
 	var regAddr = /^[가-힣A-Za-z\d\s]{1,100}$/;
