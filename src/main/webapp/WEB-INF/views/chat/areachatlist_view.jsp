@@ -224,7 +224,7 @@
  </div>
 
    <!-- Footer Section Begin -->
-   <div style="margin-top: 200px">
+   <div style="margin-top: 400px">
     <footer class="footer-section">
       <div class="container">
         <div class="row">

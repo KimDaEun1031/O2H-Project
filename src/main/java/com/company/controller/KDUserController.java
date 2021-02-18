@@ -44,7 +44,7 @@ public class KDUserController {
 		if(!loginInfoTemp.getInterest3().equals("선택x"))
 		inter+=", 3:"+loginInfoTemp.getInterest3();
 		model.addAttribute("inter",inter);
-		log.info(service.ProfileInfo(loginInfoTemp).toString());	
+		//log.info(service.ProfileInfo(loginInfoTemp).toString());	
 		
 		log.info("유저 페이지 차트");
 		
