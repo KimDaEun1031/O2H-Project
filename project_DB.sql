@@ -327,7 +327,12 @@ alter table teacher_Info
 add constraint fk_teacher_userId foreign key(userId) references user_board(userId) on delete cascade;
 ALTER TABLE teacher_info DROP constraint fk_teacher_userId;
 ---------추가
-insert into teacher_info values('test8','홈트','1');
+insert into teacher_info values('tc_yun90','홈트');
+insert into teacher_info values('tc_kimsunghee','홈트');
+insert into teacher_info values('tc_giyoon','홈트');
+insert into teacher_info values('tc_jiye0101','홈트');
+insert into teacher_info values('tc_seogang','홈트');
+
 
 -- 강사 주 종목 컬럼 무결성 임시 해제
 ALTER TABLE teacher_Info MODIFY main_sports NULL;

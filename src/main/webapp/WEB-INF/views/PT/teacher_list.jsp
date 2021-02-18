@@ -173,7 +173,7 @@ showList = function(page, pageCount, listCount) {
 		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
 		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/test.jpg"' /></a></p>`;
 		    str += "<p>" + element.userName + "</p>";
-		    str += "<p>" + element.teacherInfo + "</p>";
+		    str += "<p>" + element.main_sports + "</p>";
 		    str += "</div>"
 		    str += "</li>";
 		    
@@ -277,8 +277,8 @@ recommendShowList = function(page, pageCount, listCount) {
 		    str += "<div>";
 		    //str += "<p>" + "<a href='/PT/teacher_detail?usrid=" + element.userId + "'>" + "<img src='/user/teacherProfileDisplay?fileName=s_" + element.userId + "' />" + "</a>" + "</p>";
 		    str += `<p><a href='/PT/teacher_detail?usrid=${"${element.userId}"}'><img src='/user/teacherProfileDisplay?fileName=s_${"${element.userId}"}' onerror='this.src="/resources/img/profile/test.jpg"' /></a></p>`;
-		    str += "<p>" + element.userName + "</p>";
 		    str += "<p>" + element.teacherInfo + "</p>";
+		    str += "<p>" + element.mainSports + "</p>";
 		    str += "</div>"
 		    str += "</li>";
 		    

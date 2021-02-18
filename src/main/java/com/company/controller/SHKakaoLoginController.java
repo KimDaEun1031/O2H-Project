@@ -172,7 +172,9 @@ public class SHKakaoLoginController {
 		String accessToken = (String) session.getAttribute("accessToken");
 		
 		if (accessToken == null) {
-			return "redirect:/register/login_kakao";
+			session.removeAttribute("loginInfo");
+			
+			return "redirect:/";
 		}
 		
 		log.info(accessToken);
@@ -218,8 +220,18 @@ public class SHKakaoLoginController {
 	}
 	
 	@GetMapping("/leave_kakao")
-	public void leave_kakao() {
-		log.info("로그아웃 페이지 요청");	
+	public String leave_kakao(HttpSession session) {
+		String accessToken = (String) session.getAttribute("accessToken");
+		
+		log.info(accessToken);
+		
+		log.info("탈퇴 페이지 요청");	
+		
+		if (accessToken == null) {
+			return "redirect:/register/deleteID";
+		} else {
+			return "/register/leave_kakao";
+		}
 	}
 	
 	@PostMapping("/leave_kakao")

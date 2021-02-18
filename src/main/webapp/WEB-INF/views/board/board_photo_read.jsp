@@ -5,6 +5,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@include file="../includes/header.jsp" %>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">
 <style>
 /* 사진 게시판 */
 .breadcrumb-text a {
@@ -68,6 +70,13 @@ a:hover {
 }
 #hob3:hover{
 	background: #6387ff;
+}
+/* 게시글 폰트 */
+input{
+font-family: 'Sunflower', sans-serif;
+}
+textarea{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 </style>
     <!-- Breadcrumb Section Begin -->
