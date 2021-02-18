@@ -45,7 +45,7 @@ $(function() {//비밀번호
 		}
 
 
-	});//"#modifyform").validate
+	});//passwordForm.validate
 });//function()
 
 //사용자 검증 메소드 추가
@@ -113,7 +113,7 @@ $(function() { //회원정보
 			var name = label.attr('for');
 			label.text(name+ ' is ok!');
 		}
-	});//"#modifyform").validate
+	});//infoUpdateForm.validate
 });//function()
 //사용자 검증 메소드 추가-이름
 $.validator.addMethod("validName", function(value) {

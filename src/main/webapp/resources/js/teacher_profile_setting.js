@@ -2,7 +2,7 @@
  * 파일첨부와 관련된 스크립트
  * 유효성 검증
  */
-$(function() {//비밀번호
+$(function() {//프로필 정보
 	$("#profile-form").validate({
 		//규칙정의 - 이름
 		rules:{
@@ -30,7 +30,7 @@ $(function() {//비밀번호
 			var name = label.attr('for');
 			label.text(name+ ' is ok!');
 		}
-	});//"#modifyform").validate
+	});//profile-form.validate
 });//function()
 
 //사용자 검증 메소드 추가

@@ -5,6 +5,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp" %>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+  rel="stylesheet"/>
+<link
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+      rel="stylesheet"/>
 <style>
 /* 사진 게시판 */
 .breadcrumb-text a {
@@ -48,7 +55,6 @@ a:hover {
 /* 테두리 박스 만들기 */
 .wrap .col-xl-3{
 	 border: 3px solid #009999;
-	 /* border: 2px solid #009999; */
 	 width: 100%;
 	 margin: 10px;
 	 padding: 10px;
@@ -109,6 +115,15 @@ a:hover {
 	color: #fff;
     background-color: #086969;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; 
+}
+/* 제목 font */
+h2{
+margin: 15px 17px 0px 17px;
+font-family: "Do Hyeon", sans-serif;
+}
+h4{
+font-family: "Jua", sans-serif;
+font-weight: 200;
 }
 /* img 태그 hover 시 이미지 확대 */
 .scale {
