@@ -41,7 +41,7 @@ public class SHKakaoLoginController {
 	private static final String apiHost = "https://kapi.kakao.com";
 	
 	private static final String apiKey = "9bf8cc4c07693c5a08ffb5ad815b19e7";
-	private static final String redirectURI = "http://localhost:8071/register/login_kakaoprocess";
+	//private static final String redirectURI = "http://localhost:8071/register/login_kakaoprocess";
 	
 	@Autowired
 	private SHKakaoLoginService service;
@@ -53,7 +53,16 @@ public class SHKakaoLoginController {
 	
 	@RequestMapping(value = "/login_kakaopage")
 	public @ResponseBody String login_kakaopage(HttpServletRequest request) throws Exception {
-		log.info(request.getServletContext().getContextPath());
+		String serverPath = request.getScheme()+ "://" +request.getServerName()+ ":" + request.getServerPort();
+		String contextPath = "";
+		
+		if (request.getContextPath() != "") {
+			contextPath = request.getContextPath();
+		}
+
+		String redirectURI = serverPath + contextPath + "/register/login_kakaoprocess";
+		
+		log.info(redirectURI);
 		
 		String requestURI = authHost + "/oauth/authorize?client_id=" + apiKey + "&redirect_uri=" + redirectURI + "&response_type=code";
 		
@@ -62,12 +71,23 @@ public class SHKakaoLoginController {
 	
 	@RequestMapping(value = "/login_kakaoprocess")
 	public String login_kakaoprocess(String code, String error,	String error_description, HttpServletRequest request) throws Exception {
+		String serverPath = request.getScheme()+ "://" +request.getServerName()+ ":" + request.getServerPort();
+		String contextPath = "";
+		
+		if (request.getContextPath() != "") {
+			contextPath = request.getContextPath();
+		}
+
+		String redirectURI = serverPath + contextPath + "/register/login_kakaoprocess";
+		
+		log.info(redirectURI);
+		
 		HttpSession session = request.getSession();
 		
 		if (error == null) {
 			log.info(code);
 			
-			Map<String, String> token = getToken(code);
+			Map<String, String> token = getToken(code, redirectURI);
 			
 			String accessToken = token.get("accessToken");
 			String refreshToken = token.get("refreshToken");
@@ -292,7 +312,7 @@ public class SHKakaoLoginController {
 		return builder.toString();
 	}
 	
-	private Map<String, String> getToken(String code) {
+	private Map<String, String> getToken(String code, String redirectURI) {
 		String accessToken = "";
 		String refreshToken = "";
 		
