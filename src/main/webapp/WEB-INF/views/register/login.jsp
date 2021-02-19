@@ -59,16 +59,9 @@
                                 </p>
                             </div>
                             <p class="mt-4 social-login text-center">
-                                <a href="#" class="btn btn-twitter">
-                                    <em class="ion-social-twitter"></em>
-                                </a>
-                                <a href="#" class="btn btn-facebook">
-                                    <em class="ion-social-facebook"></em>
-                                </a>                             
+                                 <img class="kakaoLoginBtn" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" />                       
                             </p>
-                             <p class="mt-4 social-login text-center">
-                            	<img class="kakaoLoginBtn" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" />
-                            </p>
+                           
                             <p class="text-center">
                                 아직 회원가입을 안하셨나요?
                                 <a href="/register/signup" style="margin-left: 5px; color: #aa7c7c;">회원가입</a>
@@ -100,6 +93,7 @@
 			<% 
 		}
 	%>
+
 	<script>
 	window.onload = function() {
 		function kakaoLogin() {
