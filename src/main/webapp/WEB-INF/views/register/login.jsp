@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="/resources/css/register.css" />
 
-
+	<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 
 <body>
@@ -66,6 +66,9 @@
                                     <em class="ion-social-facebook"></em>
                                 </a>                             
                             </p>
+                             <p class="mt-4 social-login text-center">
+                            	<img class="kakaoLoginBtn" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" />
+                            </p>
                             <p class="text-center">
                                 아직 회원가입을 안하셨나요?
                                 <a href="/register/signup" style="margin-left: 5px; color: #aa7c7c;">회원가입</a>
@@ -97,6 +100,33 @@
 			<% 
 		}
 	%>
+	<script>
+	window.onload = function() {
+		function kakaoLogin() {
+			var xhr = new XMLHttpRequest();
+			
+			var callback = function() {
+				if (xhr.readyState == xhr.DONE) {
+					if (xhr.status == 200) {
+						location.href = xhr.responseText;
+					}
+				}
+			}
+			
+			xhr.onreadystatechange = callback;
+			
+			xhr.open("GET", "/register/login_kakaopage", false);
+	        
+			xhr.send();
+	    }
+		
+		document.getElementsByClassName("kakaoLoginBtn")[0].addEventListener("click", function(event) {
+			event.preventDefault();
+			
+			kakaoLogin();
+		});
+	};
+	</script>
 </body>
 
 </html>
