@@ -28,6 +28,9 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.company.domain.KDLoginInfoVO;
+import com.company.domain.SHKakaoAccountVO;
+import com.company.domain.SHKakaoProfileVO;
+import com.company.domain.SHKakaoUserVO;
 import com.company.service.SHKakaoLoginService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -371,6 +374,7 @@ public class SHKakaoLoginController {
 	    
 	    HttpEntity<MultiValueMap<String, Object>> restRequest = new HttpEntity<MultiValueMap<String, Object>>(parameters, headers);
 	    
+	    /*
 	    ResponseEntity<JSONObject> apiResponse = restTemplate.postForEntity(uri, restRequest, JSONObject.class);
 	    JSONObject responseBody = apiResponse.getBody();
 	    
@@ -382,7 +386,20 @@ public class SHKakaoLoginController {
 	    JSONObject profile = new JSONObject((Map<String, String>) kakao_account.get("profile"));
 	    
 	    KakaoPropertyName = profile.get("nickname").toString();
+	    */
+	    
+	    ResponseEntity<SHKakaoUserVO> apiResponse = restTemplate.postForEntity(uri, restRequest, SHKakaoUserVO.class);
+	    SHKakaoUserVO responseBody = apiResponse.getBody();
+	    
+	    log.info("SHKakaoUserVO" + responseBody.toString());
+	    
+	    KakaoPropertyId = responseBody.getId();
 
+	    SHKakaoAccountVO kakao_account = responseBody.getKakao_account();
+	    SHKakaoProfileVO profile = kakao_account.getProfile();
+	    
+	    KakaoPropertyName = profile.getNickname();
+	    
 	    Map<String, String> map = new HashMap<String, String>();
 	    
 	    map.put("id", KakaoPropertyId);
