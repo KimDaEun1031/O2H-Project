@@ -59,7 +59,7 @@
                                 </p>
                             </div>
                             <p class="mt-4 social-login text-center">
-                                 <img class="kakaoLoginBtn" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" />                       
+                            	<img class="kakaoLoginBtn" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" />                       
                             </p>
                             <p class="text-center">
                                 아직 회원가입을 안하셨나요?

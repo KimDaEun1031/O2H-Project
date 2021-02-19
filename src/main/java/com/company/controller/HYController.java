@@ -29,12 +29,25 @@ public class HYController {
 	@Autowired
 	private HYService service;
 
-	
+	/*
 	@GetMapping("/register/deleteID")
 	public void leaveGet() {
 		log.info("회원탈퇴 폼 보여주기"); 		
 	}
+	*/
 	
+	@GetMapping("/register/deleteID")
+	public String leaveGet(HttpSession session) {
+		String accessToken = (String) session.getAttribute("accessToken");
+		
+		if (accessToken != null) {
+			return "redirect:/register/leave_kakao";
+		} else {
+			log.info("회원탈퇴 폼 보여주기"); 	
+			
+			return "/register/deleteID";
+		}	
+	}
 	
 	//회원탈퇴 - 회원삭제하고 세션해제 후 index 이동
 	@PostMapping("/register/deleteID")
@@ -48,7 +61,6 @@ public class HYController {
 			return "redirect:deleteID";	
 		}
 	}
-	
 	
 	//칼로리사전 AJAX
 	@GetMapping("/program/calorDict")

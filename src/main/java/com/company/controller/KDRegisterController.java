@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.company.domain.KDLoginInfoVO;
 import com.company.domain.KDLoginVO;
-import com.company.service.KDAdminService;
 import com.company.service.KDRegisterService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +38,7 @@ public class KDRegisterController {
 		}
 	}
 	
+	/*
 	@GetMapping("/register/logout") 
 	public String logout(HttpSession session) {
 		log.info("로그아웃 요청");
@@ -46,6 +46,21 @@ public class KDRegisterController {
 		log.info("로그아웃 완료");
 		return "redirect:/";
 		
+	}
+	*/
+	
+	@GetMapping("/register/logout") 
+	public String logout(HttpSession session) {
+		String accessToken = (String) session.getAttribute("accessToken");
+		
+		if (accessToken != null) {
+			return "redirect:/register/logout_kakao";
+		} else {
+			log.info("로그아웃 요청");
+			session.removeAttribute("loginInfo");
+			log.info("로그아웃 완료");
+			return "redirect:/";
+		}
 	}
 	
 	@GetMapping("/register/login")
